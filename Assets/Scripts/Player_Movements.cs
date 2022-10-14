@@ -20,6 +20,7 @@ public class Player_Movements : MonoBehaviour
     [Header("UI")]
     public GameObject _PanelObserver;
     public GameObject _PanelParler;
+    public GameObject _PanelCarnet;
     
 
     
@@ -36,6 +37,7 @@ public class Player_Movements : MonoBehaviour
     {
         Interagir();
         Course();
+        Carnet();
         rb.velocity = Input.GetAxis("Horizontal") * -Vector3.right * _Speed * Time.deltaTime;
     }
 
@@ -53,20 +55,20 @@ public class Player_Movements : MonoBehaviour
 
     void Carnet()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Carnet"))
         {
             if (_CanInteract)
             {
+                Debug.Log("Ouverture du carnet");
                 _CanInteract = false;
-                
+                _PanelCarnet.SetActive(true);
             }
             else
             {
+                Debug.Log("Fermeture du carnet");
                 _CanInteract = true;
-                
-            }
-
-           
+                _PanelCarnet.SetActive(false);
+            }           
         }
     }
 
