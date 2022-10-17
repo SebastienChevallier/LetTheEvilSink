@@ -6,6 +6,9 @@ using TMPro;
 
 public class Player_Movements : MonoBehaviour
 {
+    [Header("PlayerData")]
+    public So_Player _PlayerData;
+
     [Header("Player Variable")]
     public float _WalkSpeed;
     public float _RunSpeed;
@@ -38,7 +41,12 @@ public class Player_Movements : MonoBehaviour
         Interagir();
         Course();
         Carnet();
-        rb.velocity = Input.GetAxis("Horizontal") * -Vector3.right * _Speed * Time.deltaTime;
+        Movement();
+    }
+
+    void Movement()
+    {
+        rb.velocity = Input.GetAxis("Horizontal") * -Vector3.right * _Speed * 100f * Time.deltaTime;
     }
 
     void Course()
