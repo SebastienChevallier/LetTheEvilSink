@@ -14,23 +14,24 @@ public class Player_Movements : MonoBehaviour
     public float _RunSpeed;
     [SerializeField]
     private float _Speed;
-
+    public AnimationCurve _SmoothCurve;
+    public float _SmoothSpeed; 
     
     private bool _CanInteract;
+    public Camera _Camera;
+
     [Header("World Interactions")]
     public GameObject _TriggerObject;
 
     [Header("UI")]
     public GameObject _PanelObserver;
     public GameObject _PanelParler;
-    public GameObject _PanelCarnet;
-    
-
+    public GameObject _PanelCarnet;    
     
     private Rigidbody rb;
 
     public void Start()
-    {
+    {        
         rb = GetComponent<Rigidbody>();
         _CanInteract = true;        
     }
@@ -46,7 +47,8 @@ public class Player_Movements : MonoBehaviour
 
     void Movement()
     {
-        rb.velocity = Input.GetAxis("Horizontal") * -Vector3.right * _Speed * 100f * Time.deltaTime;
+        Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
+        rb.velocity = moveDir;
     }
 
     void Course()

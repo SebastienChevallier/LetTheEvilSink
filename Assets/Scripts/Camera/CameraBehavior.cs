@@ -36,14 +36,14 @@ public class CameraBehavior : MonoBehaviour
 
     void FollowCible()
     {
-        _Camera.transform.localPosition = new Vector3(0,0, _ZoomValue);
+        Vector3 zoomVal = new Vector3(_Camera.transform.localPosition.x, _Camera.transform.localPosition.y, _ZoomValue);
+        Debug.Log(zoomVal);
+        _Camera.transform.localPosition = zoomVal;        
         transform.position = Vector3.Lerp(transform.position, _Cible.transform.position, _SmoothCurve.Evaluate(Time.deltaTime * _Speed));        
     }
 
     void AutoRotate()
-    {
-        transform.rotation = new Quaternion(0, _Cible.transform.rotation.y, 0, 0);
-    }
-
-    
+    {        
+        transform.localRotation = _Cible.transform.rotation;
+    }    
 }
