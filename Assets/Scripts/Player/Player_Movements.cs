@@ -18,10 +18,14 @@ public class Player_Movements : MonoBehaviour
     public float _SmoothSpeed;
     public GameObject _LampeTorche;
     public GameObject _Visuals;
+
+    private Transform _LastPosition;
     
     private bool _CanInteract;
     private bool _CanLight;
     private bool _CanMove = true;
+    private bool _Hiding = false;
+
     public Camera _Camera;
 
     [Header("World Interactions")]
@@ -109,11 +113,11 @@ public class Player_Movements : MonoBehaviour
     {
         if(_TriggerObject != null)
         {
-            switch (_TriggerObject.tag)
+            if (Input.GetButtonDown("Interact"))
             {
-                case "Observer":
-                    if (Input.GetButtonDown("Interact"))
-                    {
+                switch (_TriggerObject.tag)
+                {
+                    case "Observer":                        
                         if (_CanInteract)
                         {
                             _CanInteract = false;
@@ -125,39 +129,49 @@ public class Player_Movements : MonoBehaviour
                         {
                             _CanInteract = true;
                             _PanelObserver.SetActive(false);
+                        }                        
+                        break;
+
+                    case "Deplacer":                        
+                        //Pouvoir deplacer des objets                        
+                        break;
+
+                    case "Recuperer":                        
+                        //Recuperation de loot                        
+                        break;
+
+                    case "Parler":                        
+                         //Parler au PNJ                        
+                        break;
+
+                    case "Cacher":                        
+                        if (!_Hiding)
+                        {
+                            Debug.Log("Hide");
+
+                            _Hiding = true;
+                            _CanInteract = false;
+                            _CanMove = false;
+                            
+                            _Visuals.SetActive(false);
+                            
                         }
+                        else
+                        {
+                            Debug.Log("Not hide");
+                            _CanMove = true;
+                            _Hiding = false;
+                            _CanInteract = true;
 
-                        
-                    }
-                    break;
+                            _Visuals.SetActive(true);
+                        }                        
+                        break;
 
-                case "Deplacer":
-                    if (Input.GetButton("Interact"))
-                    {
-                        //Pouvoir deplacer des objets
-                    }
-                    break;
-
-                case "Recuperer":
-                    if (Input.GetButtonDown("Interact"))
-                    {
-                        //Recuperation de loot
-                    }
-                    break;
-
-                case "Parler":
-                    if (Input.GetButtonDown("Interact"))
-                    {
-                        //Parler au PNJ
-                    }
-                    break;
-
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
-           
-        }
-        
+        }        
     }
 
     void LampeTorche()

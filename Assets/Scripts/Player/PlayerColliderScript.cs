@@ -15,20 +15,7 @@ public class PlayerColliderScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _Player._TriggerObject = other.gameObject;
-        if (other.CompareTag("Observer"))
-        {
-            
-        }
-
-        if (other.CompareTag("Deplacer"))
-        {
-
-        }
-
-        if (other.CompareTag("Recuperer"))
-        {
-
-        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
