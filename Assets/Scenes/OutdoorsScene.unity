@@ -1637,7 +1637,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2663,6 +2663,8 @@ GameObject:
   - component: {fileID: 1802589077}
   - component: {fileID: 1802589078}
   - component: {fileID: 1802589079}
+  - component: {fileID: 1802589081}
+  - component: {fileID: 1802589080}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2760,6 +2762,11 @@ MonoBehaviour:
   _SmoothSpeed: 50
   _LampeTorche: {fileID: 197288014}
   _Visuals: {fileID: 622663818}
+  _CanInteract: 0
+  _CanLight: 0
+  _CanMove: 1
+  _Hiding: 0
+  _InDark: 0
   _Camera: {fileID: 1174532471}
   _TriggerObject: {fileID: 0}
   _PanelObserver: {fileID: 933806817}
@@ -2792,6 +2799,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
+  _TimeDelay: 0.5
+--- !u!114 &1802589080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802589073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9055ca48c73364db919bd11afc46f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1802589081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802589073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: c919c3c6d3955934aa3eef78b33ab9a9, type: 2}
 --- !u!1 &1853270869
 GameObject:
   m_ObjectHideFlags: 0

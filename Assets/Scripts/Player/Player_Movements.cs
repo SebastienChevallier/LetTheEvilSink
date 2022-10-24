@@ -20,11 +20,12 @@ public class Player_Movements : MonoBehaviour
     public GameObject _Visuals;
 
     private Transform _LastPosition;
-    
-    private bool _CanInteract;
-    private bool _CanLight;
-    private bool _CanMove = true;
-    private bool _Hiding = false;
+
+    public bool _CanInteract;
+    public bool _CanLight;
+    public bool _CanMove = true;
+    public bool _Hiding = false;
+    public bool _InDark = false;
 
     public Camera _Camera;
 
