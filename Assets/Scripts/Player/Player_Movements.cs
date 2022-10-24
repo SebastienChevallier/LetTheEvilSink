@@ -21,6 +21,7 @@ public class Player_Movements : MonoBehaviour
     
     private bool _CanInteract;
     private bool _CanLight;
+    private bool _CanMove = true;
     public Camera _Camera;
 
     [Header("World Interactions")]
@@ -54,7 +55,12 @@ public class Player_Movements : MonoBehaviour
     void Movement()
     {
         Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
-        rb.velocity = moveDir;
+
+        if (_CanMove)
+        {
+            rb.velocity = moveDir;
+        }
+        
     }
 
     void Flip()
@@ -85,14 +91,14 @@ public class Player_Movements : MonoBehaviour
         if (Input.GetButtonDown("Carnet"))
         {
             if (_CanInteract)
-            {
-                Debug.Log("Ouverture du carnet");
+            {                
                 _CanInteract = false;
+                _CanMove = false;
                 _PanelCarnet.SetActive(true);
             }
             else
             {
-                Debug.Log("Fermeture du carnet");
+                _CanMove = true;
                 _CanInteract = true;
                 _PanelCarnet.SetActive(false);
             }           
@@ -121,9 +127,7 @@ public class Player_Movements : MonoBehaviour
                             _PanelObserver.SetActive(false);
                         }
 
-                        Debug.Log("Ouvre une image associée");
-                        //Faire action
-                        Debug.Log(_TriggerObject.GetComponent<Objets>().infoObjet.texte);
+                        
                     }
                     break;
 
