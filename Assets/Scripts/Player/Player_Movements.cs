@@ -6,29 +6,38 @@ using TMPro;
 
 public class Player_Movements : MonoBehaviour
 {
+    [Header("PlayerData")]
+    public So_Player _PlayerData;
+
     [Header("Player Variable")]
     public float _WalkSpeed;
     public float _RunSpeed;
     [SerializeField]
     private float _Speed;
-
+    public AnimationCurve _SmoothCurve;
+    public float _SmoothSpeed;
+    public GameObject _LampeTorche;
+    public GameObject _Visuals;
     
     private bool _CanInteract;
+    private bool _CanLight;
+    public Camera _Camera;
+
     [Header("World Interactions")]
     public GameObject _TriggerObject;
 
     [Header("UI")]
     public GameObject _PanelObserver;
     public GameObject _PanelParler;
-    
-
+    public GameObject _PanelCarnet;    
     
     private Rigidbody rb;
 
     public void Start()
-    {
+    {        
         rb = GetComponent<Rigidbody>();
-        _CanInteract = true;        
+        _CanInteract = true;
+        _CanLight = true;
     }
 
     // Update is called once per frame
@@ -36,7 +45,27 @@ public class Player_Movements : MonoBehaviour
     {
         Interagir();
         Course();
-        rb.velocity = Input.GetAxis("Horizontal") * -Vector3.right * _Speed * Time.deltaTime;
+        Carnet();
+        Movement();
+        LampeTorche();
+        Flip();
+    }
+
+    void Movement()
+    {
+        Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
+        rb.velocity = moveDir;
+    }
+
+    void Flip()
+    {
+        if (Input.GetAxis("Horizontal") > 0f)
+        {
+            _Visuals.transform.localScale = new Vector3(1, 1, 1);
+        }else if(Input.GetAxis("Horizontal") < 0f)
+        {
+            _Visuals.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void Course()
@@ -53,20 +82,20 @@ public class Player_Movements : MonoBehaviour
 
     void Carnet()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Carnet"))
         {
             if (_CanInteract)
             {
+                Debug.Log("Ouverture du carnet");
                 _CanInteract = false;
-                
+                _PanelCarnet.SetActive(true);
             }
             else
             {
+                Debug.Log("Fermeture du carnet");
                 _CanInteract = true;
-                
-            }
-
-           
+                _PanelCarnet.SetActive(false);
+            }           
         }
     }
 
@@ -125,5 +154,22 @@ public class Player_Movements : MonoBehaviour
            
         }
         
+    }
+
+    void LampeTorche()
+    {
+        if (Input.GetButtonDown("LampeTorche"))
+        {
+            if (_CanLight)
+            {
+                _CanLight = false;
+                _LampeTorche.SetActive(true);
+            }
+            else
+            {
+                _CanLight = true;
+                _LampeTorche.SetActive(false);
+            }
+        }
     }
 }
