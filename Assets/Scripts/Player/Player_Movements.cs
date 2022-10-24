@@ -15,9 +15,12 @@ public class Player_Movements : MonoBehaviour
     [SerializeField]
     private float _Speed;
     public AnimationCurve _SmoothCurve;
-    public float _SmoothSpeed; 
+    public float _SmoothSpeed;
+    public GameObject _LampeTorche;
+    public GameObject _Visuals;
     
     private bool _CanInteract;
+    private bool _CanLight;
     public Camera _Camera;
 
     [Header("World Interactions")]
@@ -33,7 +36,8 @@ public class Player_Movements : MonoBehaviour
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
-        _CanInteract = true;        
+        _CanInteract = true;
+        _CanLight = true;
     }
 
     // Update is called once per frame
@@ -43,12 +47,25 @@ public class Player_Movements : MonoBehaviour
         Course();
         Carnet();
         Movement();
+        LampeTorche();
+        Flip();
     }
 
     void Movement()
     {
         Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
         rb.velocity = moveDir;
+    }
+
+    void Flip()
+    {
+        if (Input.GetAxis("Horizontal") > 0f)
+        {
+            _Visuals.transform.localScale = new Vector3(1, 1, 1);
+        }else if(Input.GetAxis("Horizontal") < 0f)
+        {
+            _Visuals.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void Course()
@@ -137,5 +154,22 @@ public class Player_Movements : MonoBehaviour
            
         }
         
+    }
+
+    void LampeTorche()
+    {
+        if (Input.GetButtonDown("LampeTorche"))
+        {
+            if (_CanLight)
+            {
+                _CanLight = false;
+                _LampeTorche.SetActive(true);
+            }
+            else
+            {
+                _CanLight = true;
+                _LampeTorche.SetActive(false);
+            }
+        }
     }
 }
