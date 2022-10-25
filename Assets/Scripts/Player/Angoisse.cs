@@ -27,7 +27,7 @@ public class Angoisse : MonoBehaviour
 
     void TimeAngoise()
     {
-        if (_PlayerMovement._InDark || _PlayerMovement._Hiding)
+        if (_PlayerData._InDark || _PlayerData._Hiding)
         {
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0 && _PlayerData._ValAngoisse < 100f)
@@ -35,7 +35,7 @@ public class Angoisse : MonoBehaviour
                 _PlayerData._ValAngoisse++;
                 timeLeft = _TimeDelay;               
             }
-        }else if (!_PlayerMovement._InDark)
+        }else if (!_PlayerData._InDark)
         {
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0 && _PlayerData._ValAngoisse > 0f)

@@ -15,7 +15,7 @@ public class CameraBehavior : MonoBehaviour
     public float _YOffset;
     public GameObject _Cible;
 
-    
+    static float t = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +26,17 @@ public class CameraBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FollowCible();
+        transform.LookAt(_Cible.transform);
+        //FollowCible();
         Zoom();
         AutoRotate();
     }
 
+    
+
     void FollowCible()
-    {
-             
-        transform.position = Vector3.Lerp(transform.position, _Cible.transform.position, _SmoothCurve.Evaluate(Time.deltaTime * _Speed));        
+    {        
+        transform.position = Vector3.Lerp(transform.position, _Cible.transform.position, _SmoothCurve.Evaluate(_Speed * Time.deltaTime));        
     }
 
     void Zoom()

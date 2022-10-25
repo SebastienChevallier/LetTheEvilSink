@@ -12,25 +12,16 @@ public class Player_Movements : MonoBehaviour
     [Header("Player Variable")]
     public float _WalkSpeed;
     public float _RunSpeed;
+
     [SerializeField]
     private float _Speed;
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
+
     public GameObject _LampeTorche;
-    public GameObject _Visuals;
+    public GameObject _Visuals;       
 
-    private Transform _LastPosition;
-
-    public bool _CanInteract;
-    public bool _CanLight;
-    public bool _CanMove = true;
-    public bool _Hiding = false;
-    public bool _InDark = false;
-
-    public Camera _Camera;
-
-    [Header("World Interactions")]
-    public GameObject _TriggerObject;
+    public Camera _Camera;    
 
     [Header("UI")]
     public GameObject _PanelObserver;
@@ -38,32 +29,44 @@ public class Player_Movements : MonoBehaviour
     public GameObject _PanelCarnet;    
     
     private Rigidbody rb;
+    private float _Dir;
 
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
-        _CanInteract = true;
-        _CanLight = true;
+        _PlayerData._CanInteract = true;
+        _PlayerData._CanLight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Interagir();
         Course();
         Carnet();
-        Movement();
+              
         LampeTorche();
         Flip();
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     void Movement()
     {
         Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
 
-        if (_CanMove)
+        if (_PlayerData._CanMove)
         {
-            rb.velocity = moveDir;
+            rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
+            
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
         
     }
@@ -95,16 +98,16 @@ public class Player_Movements : MonoBehaviour
     {
         if (Input.GetButtonDown("Carnet"))
         {
-            if (_CanInteract)
-            {                
-                _CanInteract = false;
-                _CanMove = false;
+            if (_PlayerData._CanInteract)
+            {
+                _PlayerData._CanInteract = false;
+                _PlayerData._CanMove = false;
                 _PanelCarnet.SetActive(true);
             }
             else
             {
-                _CanMove = true;
-                _CanInteract = true;
+                _PlayerData._CanMove = true;
+                _PlayerData._CanInteract = true;
                 _PanelCarnet.SetActive(false);
             }           
         }
@@ -112,23 +115,23 @@ public class Player_Movements : MonoBehaviour
 
     public void Interagir()
     {
-        if(_TriggerObject != null)
+        if(_PlayerData._TriggerObject != null)
         {
             if (Input.GetButtonDown("Interact"))
             {
-                switch (_TriggerObject.tag)
+                switch (_PlayerData._TriggerObject.tag)
                 {
                     case "Observer":                        
-                        if (_CanInteract)
+                        if (_PlayerData._CanInteract)
                         {
-                            _CanInteract = false;
+                            _PlayerData._CanInteract = false;
                             _PanelObserver.SetActive(true);
-                            _PanelObserver.transform.GetChild(0).GetComponent<Image>().sprite = _TriggerObject.GetComponent<Objets>().infoObjet.image;
-                            _PanelObserver.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _TriggerObject.GetComponent<Objets>().infoObjet.texte;
+                            _PanelObserver.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Objets>().infoObjet.image;
+                            _PanelObserver.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Objets>().infoObjet.texte;
                         }
                         else
                         {
-                            _CanInteract = true;
+                            _PlayerData._CanInteract = true;
                             _PanelObserver.SetActive(false);
                         }                        
                         break;
@@ -146,13 +149,13 @@ public class Player_Movements : MonoBehaviour
                         break;
 
                     case "Cacher":                        
-                        if (!_Hiding)
+                        if (!_PlayerData._Hiding)
                         {
                             Debug.Log("Hide");
 
-                            _Hiding = true;
-                            _CanInteract = false;
-                            _CanMove = false;
+                            _PlayerData._Hiding = true;
+                            _PlayerData._CanInteract = false;
+                            _PlayerData._CanMove = false;
                             
                             _Visuals.SetActive(false);
                             
@@ -160,9 +163,9 @@ public class Player_Movements : MonoBehaviour
                         else
                         {
                             Debug.Log("Not hide");
-                            _CanMove = true;
-                            _Hiding = false;
-                            _CanInteract = true;
+                            _PlayerData._CanMove = true;
+                            _PlayerData._Hiding = false;
+                            _PlayerData._CanInteract = true;
 
                             _Visuals.SetActive(true);
                         }                        
@@ -179,14 +182,14 @@ public class Player_Movements : MonoBehaviour
     {
         if (Input.GetButtonDown("LampeTorche"))
         {
-            if (_CanLight)
+            if (_PlayerData._CanLight)
             {
-                _CanLight = false;
+                _PlayerData._CanLight = false;
                 _LampeTorche.SetActive(true);
             }
             else
             {
-                _CanLight = true;
+                _PlayerData._CanLight = true;
                 _LampeTorche.SetActive(false);
             }
         }

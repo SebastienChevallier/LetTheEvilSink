@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PlayerColliderScript : MonoBehaviour
 {
-    private Player_Movements _Player;
-    
-
-    private void Start()
-    {
-        _Player = transform.parent.GetComponent<Player_Movements>();
-    }
+    public So_Player _Player;
+      
 
     private void OnTriggerEnter(Collider other)
     {
