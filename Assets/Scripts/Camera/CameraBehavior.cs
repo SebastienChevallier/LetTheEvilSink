@@ -6,8 +6,6 @@ public class CameraBehavior : MonoBehaviour
 {
     [Header("Data")]
     public So_Player _PlayerData;
-    private GameObject _PlayerGO;
-    private GameObject _PostProcessGO;
     private Camera _Camera;
 
     [Header("Value")]
@@ -22,24 +20,28 @@ public class CameraBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _Camera = transform.GetChild(0).GetComponent<Camera>();
-        _PlayerGO = GameObject.Find("Player");
-        _PostProcessGO = GameObject.Find("PostProcess");
+        _Camera = transform.GetChild(0).GetComponent<Camera>();        
     }
 
     // Update is called once per frame
     void Update()
     {
         FollowCible();
+        Zoom();
         AutoRotate();
     }
 
     void FollowCible()
     {
-        Vector3 zoomVal = new Vector3(_Camera.transform.localPosition.x, _Camera.transform.localPosition.y, _ZoomValue);
-        Debug.Log(zoomVal);
-        _Camera.transform.localPosition = zoomVal;        
+             
         transform.position = Vector3.Lerp(transform.position, _Cible.transform.position, _SmoothCurve.Evaluate(Time.deltaTime * _Speed));        
+    }
+
+    void Zoom()
+    {
+        Vector3 zoomVal = new Vector3(_Camera.transform.localPosition.x, _Camera.transform.localPosition.y, _ZoomValue);
+        
+        _Camera.transform.localPosition = Vector3.Lerp(_Camera.transform.localPosition, zoomVal, _SmoothCurve.Evaluate(Time.deltaTime * 10f));
     }
 
     void AutoRotate()
