@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8ef02802d5331448700c896682496d, type: 3}
   m_Name: Discution
   m_EditorClassIdentifier: 
-  _Discution:
-  - Bonjour
-  - salut!
-  - test
-  - ligne4
-  _NomPerso1: Perso1
-  _Perso1: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _NomPerso2: Perso2
-  _Perso2: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  _Dialog:
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    _NomPerso: Player
+    _Discution: 'Salut ! '
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _NomPerso: Autre
+    _Discution: Yo
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _NomPerso: Autre
+    _Discution: Aled
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    _NomPerso: Player
+    _Discution: quoi !
+  _Perso1: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  _Perso2: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
