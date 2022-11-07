@@ -27,7 +27,7 @@ public class CameraBehavior : MonoBehaviour
     void Update()
     {
         transform.LookAt(_Cible.transform);
-        //FollowCible();
+        FollowCible();
         Zoom();
         AutoRotate();
     }

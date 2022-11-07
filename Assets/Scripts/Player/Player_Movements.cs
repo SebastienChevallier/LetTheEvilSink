@@ -8,12 +8,7 @@ public class Player_Movements : MonoBehaviour
 {
     [Header("PlayerData")]
     public So_Player _PlayerData;
-
-    [Header("Player Variable")]
-    public float _WalkSpeed;
-    public float _RunSpeed;
-
-    [SerializeField]
+    
     private float _Speed;
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
@@ -30,6 +25,7 @@ public class Player_Movements : MonoBehaviour
     
     private Rigidbody rb;
     private float _Dir;
+    private int _NumDial = 0;
 
     public void Start()
     {        
@@ -86,11 +82,11 @@ public class Player_Movements : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetButton("Sprint"))
         {
-            _Speed = _RunSpeed;
+            _Speed = _PlayerData._RunSpeed;
         }
         else
         {
-            _Speed = _WalkSpeed;
+            _Speed = _PlayerData._WalkSpeed;
         }
     }
 
@@ -144,21 +140,44 @@ public class Player_Movements : MonoBehaviour
                         //Recuperation de loot                        
                         break;
 
-                    case "Parler":                        
-                         //Parler au PNJ                        
+                    case "Parler":
+                        if (_PlayerData._CanInteract || _PlayerData._CanTalk)
+                        {
+                            _PlayerData._CanInteract = false;
+                            _PlayerData._CanTalk = true;
+                            _PlayerData._CanMove = false;
+                            _PanelParler.SetActive(true);
+                            _PanelParler.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso1;
+                            _PanelParler.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._NomPerso1;
+
+                            _PanelParler.transform.GetChild(1).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso2;
+                            _PanelParler.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._NomPerso2;
+
+                            _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Discution[_NumDial];
+                            Debug.Log(_NumDial);
+
+                            if(_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Discution.Length-1)
+                            {
+                                _NumDial++;
+                            }
+                            else
+                            {
+                                _NumDial = 0;
+                                _PanelParler.SetActive(false);
+                                _PlayerData._CanMove = true;
+                                _PlayerData._CanInteract = true;
+                                _PlayerData._CanTalk = false;
+                            }
+                        }
                         break;
 
                     case "Cacher":                        
                         if (!_PlayerData._Hiding)
-                        {
-                            Debug.Log("Hide");
-
+                        {  
                             _PlayerData._Hiding = true;
                             _PlayerData._CanInteract = false;
-                            _PlayerData._CanMove = false;
-                            
-                            _Visuals.SetActive(false);
-                            
+                            _PlayerData._CanMove = false;                            
+                            _Visuals.SetActive(false);                            
                         }
                         else
                         {
