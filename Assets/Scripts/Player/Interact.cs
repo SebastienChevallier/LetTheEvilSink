@@ -88,9 +88,7 @@ public class Interact : MonoBehaviour
                                 _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._NomPerso;
                             }
                             
-                            _PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._Discution;
-
-                            Debug.Log(_NumDial + "  " + _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length);
+                            _PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._Discution;                           
                             
 
                             if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length-1)
@@ -100,7 +98,7 @@ public class Interact : MonoBehaviour
                             else
                             {
                                 _NumDial = 0;
-                                //_PanelParler.SetActive(false);
+                                _PanelParler.SetActive(false);
                                 _PlayerData._CanMove = true;
                                 _PlayerData._CanInteract = true;
                                 _PlayerData._CanTalk = false;
