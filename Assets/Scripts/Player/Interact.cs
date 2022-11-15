@@ -64,7 +64,10 @@ public class Interact : MonoBehaviour
                         break;
 
                     case "Deplacer":
-                        //Pouvoir deplacer des objets                        
+                        if (_PlayerData._CanInteract)
+                        {
+                            _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", true);
+                        }                     
                         break;
 
                     case "Recuperer":
