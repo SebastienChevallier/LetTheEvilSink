@@ -18,10 +18,26 @@ public class Interact : MonoBehaviour
     private int _NumDial = 0;
     public GameObject _Visuals;
 
+    [Header("UI")]
+    public float delay = 0.1f;
+
+    private string currentText;
+
     // Update is called once per frame
     void Update()
     {
         Interagir();
+    }
+
+    IEnumerator ShowText(string texte, GameObject obj)
+    {
+        for(int i = 0; i <= texte.Length; i++)
+        {
+            currentText = texte.Substring(0, i);
+            obj.GetComponent<TextMeshProUGUI>().text = currentText;
+            yield return new WaitForSeconds(delay);
+        }
+        
     }
 
     public void Interagir()
@@ -58,42 +74,45 @@ public class Interact : MonoBehaviour
                     case "Parler":
                         if (_PlayerData._CanInteract || _PlayerData._CanTalk)
                         {
+                            Debug.Log(_NumDial);
                             _PlayerData._CanInteract = false;
                             _PlayerData._CanTalk = true;
                             _PlayerData._CanMove = false;
                             _PanelParler.SetActive(true);
 
-                            if (_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._PlayerIsSpeaking)
-                            {
-                                _PanelParler.transform.GetChild(2).gameObject.SetActive(true);
-                                _PanelParler.transform.GetChild(3).gameObject.SetActive(false);
-
-                                _PanelParler.transform.GetChild(2).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._SpritePerso;
-                                _PanelParler.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso1;
-                                _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._NomPerso;
-
-                                _PanelParler.transform.GetChild(3).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._SpritePerso;
-                                _PanelParler.transform.GetChild(1).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso2;
-                                _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
-                            }
-                            else
-                            {
-                                _PanelParler.transform.GetChild(2).gameObject.SetActive(false);
-                                _PanelParler.transform.GetChild(3).gameObject.SetActive(true);
-
-                                _PanelParler.transform.GetChild(2).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._SpritePerso;
-                                _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
-
-                                _PanelParler.transform.GetChild(3).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._SpritePerso;
-                                _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._NomPerso;
-                            }
-                            
-                            _PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial]._Discution;                           
-                            
-
-                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length-1)
+                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length)
                             {
                                 _NumDial++;
+
+                                if (_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._PlayerIsSpeaking)
+                                {
+                                    _PanelParler.transform.GetChild(2).gameObject.SetActive(true);
+                                    _PanelParler.transform.GetChild(3).gameObject.SetActive(false);
+
+                                    _PanelParler.transform.GetChild(2).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._SpritePerso;
+                                    _PanelParler.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso1;
+                                    _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._NomPerso;
+
+                                    
+
+                                    _PanelParler.transform.GetChild(3).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._SpritePerso;
+                                    _PanelParler.transform.GetChild(1).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Perso2;
+                                    _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                                }
+                                else
+                                {
+                                    _PanelParler.transform.GetChild(2).gameObject.SetActive(false);
+                                    _PanelParler.transform.GetChild(3).gameObject.SetActive(true);
+
+                                    _PanelParler.transform.GetChild(2).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._SpritePerso;
+                                    _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+
+                                    _PanelParler.transform.GetChild(3).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._SpritePerso;
+                                    _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._NomPerso;
+                                }
+
+                                //_PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._Discution;
+                                StartCoroutine(ShowText(_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._Discution, _PanelParler.transform.GetChild(4).GetChild(0).gameObject));
                             }
                             else
                             {
@@ -102,7 +121,8 @@ public class Interact : MonoBehaviour
                                 _PlayerData._CanMove = true;
                                 _PlayerData._CanInteract = true;
                                 _PlayerData._CanTalk = false;
-                            }
+                            }                                                     
+                    
                         }
                         break;
 
