@@ -28,7 +28,7 @@ public class Player_Movements : MonoBehaviour
     {        
         rb = GetComponent<Rigidbody>();
         _PlayerData._CanInteract = true;
-        _PlayerData._CanLight = true;
+        //_PlayerData._CanLight = true;
     }
 
     // Update is called once per frame
@@ -110,11 +110,13 @@ public class Player_Movements : MonoBehaviour
         {
             if (_PlayerData._CanLight)
             {
+                _PlayerData._InDark = false;
                 _PlayerData._CanLight = false;
                 _LampeTorche.SetActive(true);
             }
             else
             {
+                _PlayerData._InDark = true;
                 _PlayerData._CanLight = true;
                 _LampeTorche.SetActive(false);
             }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class So_Player : ScriptableObject
 {
     [Header("Angoisse")]
-    public int _MaxAngoisse;
-    public int _ValAngoisse;
+    public float _MaxAngoisse;
+    public float _ValAngoisse;
 
     [Header("Vitesse")]
     public float _WalkSpeed;
