@@ -8,7 +8,8 @@ public class Trigger_Cinematiques : MonoBehaviour
     {
         Cinematique,
         Sons,
-        VFX
+        VFX,
+        Discution
     };
 
     [SerializeField]
@@ -37,6 +38,10 @@ public class Trigger_Cinematiques : MonoBehaviour
 
             case _TriggerType.VFX:
                 Debug.Log("VFX");
+                break;
+
+            case _TriggerType.Discution:
+                Debug.Log("Discution Personnage");
                 break;
 
             default:
