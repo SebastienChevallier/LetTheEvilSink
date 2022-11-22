@@ -12,6 +12,7 @@ public class So_Player : ScriptableObject
     [Header("Vitesse")]
     public float _WalkSpeed;
     public float _RunSpeed;
+    public float _DashDist;
 
     [Header("Vie")]
     public int _MaxVie;
@@ -24,6 +25,7 @@ public class So_Player : ScriptableObject
     public bool _CanMove = true;
     public bool _Hiding = false;
     public bool _InDark = false;
+    public bool _Invincible = false;
 
     
 
