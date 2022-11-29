@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Valve : MonoBehaviour
+public class Valve : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Vector2 mousePos;
     public GameObject valve;
@@ -10,12 +12,75 @@ public class Valve : MonoBehaviour
 
     private float valDegRota;
 
+
+    private PointerEventData _lastPointerData;
+    public bool dragOnSurfaces = true;
+
+    private RectTransform m_DraggingPlane;
+
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        SetDraggedPosition(eventData);
+        _lastPointerData = eventData;
+        
+    }
+
+    public void OnDrag(PointerEventData data)
+    {
+
+        if (valve != null)
+            SetDraggedPosition(data);
+    }
+
+    private void SetDraggedPosition(PointerEventData data)
+    {
+        if (dragOnSurfaces && data.pointerEnter != null && data.pointerEnter.transform as RectTransform != null)
+            m_DraggingPlane = data.pointerEnter.transform as RectTransform;
+
+        var rt = valve.GetComponent<RectTransform>();
+        Vector3 globalMousePos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(m_DraggingPlane, data.position, data.pressEventCamera, out globalMousePos))
+        {
+            
+            rt.rotation = m_DraggingPlane.rotation;
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        var rt = valve.GetComponent<RectTransform>();
+        if (valve != null)
+        {
+            rt.localPosition = new Vector3(-200, -50, rt.position.z);
+        }
+        _lastPointerData = null;
+    }
+
+    public void Complete()
+    {
+        var rt = valve.GetComponent<RectTransform>();
+
+    }
+
+    public void CancelDrag()
+    {
+        var rt = valve.GetComponent<RectTransform>();
+        if (_lastPointerData != null)
+        {
+            _lastPointerData.pointerDrag = null;
+
+            rt.localPosition = new Vector3(-200, -50, rt.position.z);
+        }
+    }
+
     private void Start()
     {
         mousePos = Vector2.zero;
     }
+
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -90,5 +155,5 @@ public class Valve : MonoBehaviour
         }   
         
         
-    }
+    }*/
 }

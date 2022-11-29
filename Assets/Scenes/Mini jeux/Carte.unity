@@ -217,6 +217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carte: {fileID: 1901800956}
   completed: 0
+  minTime: 0.5
+  maxTime: 1.5
+  dragOnSurfaces: 1
+  timer: 0
 --- !u!1 &417913995
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +556,7 @@ GameObject:
   - component: {fileID: 1918855881}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
