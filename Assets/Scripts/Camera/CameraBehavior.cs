@@ -26,10 +26,10 @@ public class CameraBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(_Cible.transform);
+        //transform.LookAt(_Cible.transform);
         FollowCible();
         Zoom();
-        AutoRotate();
+        //AutoRotate();
     }
 
     
@@ -48,6 +48,7 @@ public class CameraBehavior : MonoBehaviour
 
     void AutoRotate()
     {        
-        transform.localRotation = _Cible.transform.rotation;
+        if(!_PlayerData._Invincible)
+            transform.localRotation = _Cible.transform.rotation;
     }    
 }
