@@ -66,7 +66,15 @@ public class Interact : MonoBehaviour
                     case "Deplacer":
                         if (_PlayerData._CanInteract)
                         {
-                            _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", true);
+                            if (!_PlayerData._TriggerObject.GetComponent<Animator>().GetBool("Interact"))
+                            {
+                                _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", true);
+                            }
+                            else
+                            {
+                                _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", false);
+                            }
+                                
                         }                     
                         break;
 
@@ -135,11 +143,12 @@ public class Interact : MonoBehaviour
                             _PlayerData._Hiding = true;
                             _PlayerData._CanInteract = false;
                             _PlayerData._CanMove = false;
+                            _PlayerData._InDark = true;
                             _Visuals.SetActive(false);
                         }
                         else
                         {
-                            
+                            _PlayerData._InDark = true;
                             _PlayerData._CanMove = true;
                             _PlayerData._Hiding = false;
                             _PlayerData._CanInteract = true;
