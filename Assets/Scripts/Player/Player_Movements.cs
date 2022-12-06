@@ -29,6 +29,7 @@ public class Player_Movements : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _PlayerData._CanInteract = true;
         //_PlayerData._CanLight = true;
+        _PlayerData._CibleCamera = gameObject;
     }
 
     // Update is called once per frame
@@ -41,6 +42,26 @@ public class Player_Movements : MonoBehaviour
         Flip();
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("CamCollider"))
+        {
+            _PlayerData._CibleCamera = other.transform.GetChild(0).gameObject;
+        }
+
+        if (other.CompareTag("PlanCollider") && Input.GetButtonDown("Interact"))
+        {
+            transform.position = other.transform.GetChild(0).transform.position;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CamCollider"))
+        {
+            _PlayerData._CibleCamera = gameObject;
+        }
+    }
     private void FixedUpdate()
     {
         Movement();
