@@ -128,7 +128,11 @@ public class Player_Movements : MonoBehaviour
 
     void SonDePas(float duration)
     {
-        if (rb.velocity.x != 0)
+        if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
             _StepSound.Step(duration);
+        else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))
+            _StepSound.Step(duration / 2);
+        else if ((rb.velocity.x <= 0.5f && rb.velocity.x > 0) || (rb.velocity.x >= -0.5f && rb.velocity.x < 0))
+            _StepSound.Step(duration / 4);
     }
 }
