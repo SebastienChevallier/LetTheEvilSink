@@ -31,7 +31,6 @@ public class Player_Movements : MonoBehaviour
         //_PlayerData._CanLight = true;
     }
 
-    // Update is called once per frame
     void Update()
     {  
         Course();
@@ -41,7 +40,7 @@ public class Player_Movements : MonoBehaviour
         Flip();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Movement();
     }
@@ -53,7 +52,6 @@ public class Player_Movements : MonoBehaviour
         if (_PlayerData._CanMove)
         {
             rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
-            
         }
         else
         {
@@ -67,7 +65,8 @@ public class Player_Movements : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0f)
         {
             _Visuals.transform.localScale = new Vector3(1, 1, 1);
-        }else if(Input.GetAxis("Horizontal") < 0f)
+        }
+        else if (Input.GetAxis("Horizontal") < 0f)
         {
             _Visuals.transform.localScale = new Vector3(-1, 1, 1);
         }
