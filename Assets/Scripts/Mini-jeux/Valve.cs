@@ -41,8 +41,7 @@ public class Valve : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         var rt = valve.GetComponent<RectTransform>();
         Vector3 globalMousePos;
         if (RectTransformUtility.ScreenPointToWorldPointInRectangle(m_DraggingPlane, data.position, data.pressEventCamera, out globalMousePos))
-        {
-            
+        {            
             rt.rotation = m_DraggingPlane.rotation;
         }
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5266280464662899177}
   - component: {fileID: 5266280464662899174}
+  - component: {fileID: 6455667161585209079}
   m_Layer: 0
   m_Name: CamCollider
   m_TagString: CamCollider
@@ -46,6 +47,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1522598, y: 4.579523, z: 1.5622082}
   m_Center: {x: 0.019147873, y: -0.13583708, z: -0.2811041}
+--- !u!114 &6455667161585209079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266280464662899176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93035dd5ea6254b4ea44473b5ec2f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
 --- !u!1 &5266280465076501673
 GameObject:
   m_ObjectHideFlags: 0
