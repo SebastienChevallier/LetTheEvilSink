@@ -13,7 +13,8 @@ public class So_Creature : ScriptableObject
     [Header("Parametres")]
 
     public float speed;
-    public float visionRadius;
+    public float visionRadiusDark;
+    public float visionRadiusLight;
     public float hearingRadius;
     public float roomRatioForWander;
     public float maxApparationTimer;
@@ -24,13 +25,16 @@ public class So_Creature : ScriptableObject
     [Header("Autre")]
 
     public bool summoned;
-    public bool canSeePlayer;
+    public bool playerDetected;
 
     private void OnEnable()
     {
         apparitionTimer = maxApparationTimer;
         wanderTimer = maxWanderTimer;
         summoned = false;
-        canSeePlayer = false;
+        playerDetected = false;
+
+        // Don't unload scriptable
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 }
