@@ -32,7 +32,6 @@ public class Player_Movements : MonoBehaviour
         _PlayerData._CibleCamera = gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {  
         Course();
@@ -41,6 +40,7 @@ public class Player_Movements : MonoBehaviour
         LampeTorche();
         Flip();
     }
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -63,6 +63,7 @@ public class Player_Movements : MonoBehaviour
         }
     }
     private void FixedUpdate()
+
     {
         Movement();
     }
@@ -74,7 +75,6 @@ public class Player_Movements : MonoBehaviour
         if (_PlayerData._CanMove)
         {
             rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
-            
         }
         else
         {
@@ -88,7 +88,8 @@ public class Player_Movements : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0f)
         {
             _Visuals.transform.localScale = new Vector3(1, 1, 1);
-        }else if(Input.GetAxis("Horizontal") < 0f)
+        }
+        else if (Input.GetAxis("Horizontal") < 0f)
         {
             _Visuals.transform.localScale = new Vector3(-1, 1, 1);
         }
