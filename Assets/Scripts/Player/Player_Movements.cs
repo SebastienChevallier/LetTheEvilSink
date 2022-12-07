@@ -13,13 +13,10 @@ public class Player_Movements : MonoBehaviour
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
 
-    [Header("UI")]
-    
+    [Header("UI")]    
     public GameObject _PanelCarnet;
-
     public GameObject _LampeTorche;
     public GameObject _Visuals;
-
     public Camera _Camera;
     private Rigidbody rb;
     
@@ -40,28 +37,9 @@ public class Player_Movements : MonoBehaviour
         LampeTorche();
         Flip();
     }
+        
 
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("CamCollider"))
-        {
-            _PlayerData._CibleCamera = other.transform.GetChild(0).gameObject;
-        }
-
-        if (other.CompareTag("PlanCollider") && Input.GetButtonDown("Interact"))
-        {
-            transform.position = other.transform.GetChild(0).transform.position;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("CamCollider"))
-        {
-            _PlayerData._CibleCamera = gameObject;
-        }
-    }
+    
     private void FixedUpdate()
 
     {
