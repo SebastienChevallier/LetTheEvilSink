@@ -26,6 +26,11 @@ public class CreatureStateManager : MonoBehaviour
         currentState.OnCollisionEnter(this, collision);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        currentState.OnTriggerEnter(this, other);
+    }
+
     public void SwitchState(CreatureBaseState state)
     {
         currentState = state;

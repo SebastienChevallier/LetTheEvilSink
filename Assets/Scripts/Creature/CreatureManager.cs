@@ -19,4 +19,12 @@ public class CreatureManager : MonoBehaviour
         else if (creature.currentState == creature.ChaseState)
             creature.ChaseState.OnCollisionEnter(creature, collision);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (creature.currentState == creature.SearchState)
+            creature.SearchState.OnTriggerEnter(creature, other);
+        else if (creature.currentState == creature.ChaseState)
+            creature.ChaseState.OnTriggerEnter(creature, other);
+    }
 }

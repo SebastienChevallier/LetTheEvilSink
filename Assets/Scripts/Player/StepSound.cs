@@ -5,18 +5,15 @@ using UnityEngine;
 public class StepSound : MonoBehaviour
 {
     public GameObject _StepZone;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Step(0.2f);
-        }
-    }
+    public GameObject _Clone;
 
     public void Step(float t)
     {
-        GameObject obj = Instantiate(_StepZone, transform);
-        Destroy(obj, t);
+        if (!_Clone)
+        {
+            GameObject obj = Instantiate(_StepZone, transform);
+            _Clone = obj;
+            Destroy(obj, t);
+        }
     }
 }

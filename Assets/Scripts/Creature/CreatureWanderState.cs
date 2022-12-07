@@ -13,6 +13,7 @@ public class CreatureWanderState : CreatureBaseState
     {
         // Load scriptable data
         so = Resources.Load<So_Creature>("Creature/SO_Creature");
+        so.currentState = "Wander state";
 
         // Set timer for gauge diminution
         timeLeft = timeDelay;
@@ -28,6 +29,11 @@ public class CreatureWanderState : CreatureBaseState
     }
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
+    {
+
+    }
+
+    public override void OnTriggerEnter(CreatureStateManager creature, Collider other)
     {
 
     }
