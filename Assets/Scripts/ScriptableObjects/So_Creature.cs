@@ -33,6 +33,7 @@ public class So_Creature : ScriptableObject
 
     private void OnEnable()
     {
+        // Reset variables after use
         apparitionTimer = maxApparationTimer;
         wanderTimer = maxWanderTimer;
         summoned = false;
@@ -44,6 +45,7 @@ public class So_Creature : ScriptableObject
 
     public void AddGauge(int value)
     {
+        // Public function to access by player to impact creature gauge (capped at 100)
         gauge += value;
         if (gauge > 100)
             gauge = 100;

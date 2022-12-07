@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatureManager : MonoBehaviour
+public class CreatureColliderManager : MonoBehaviour
 {
     CreatureStateManager creature;
 
@@ -14,6 +14,7 @@ public class CreatureManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        // Trigger state colliders
         if (creature.currentState == creature.SearchState)
             creature.SearchState.OnCollisionEnter(creature, collision);
         else if (creature.currentState == creature.ChaseState)
@@ -22,6 +23,7 @@ public class CreatureManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Trigger state colliders
         if (creature.currentState == creature.SearchState)
             creature.SearchState.OnTriggerEnter(creature, other);
         else if (creature.currentState == creature.ChaseState)
