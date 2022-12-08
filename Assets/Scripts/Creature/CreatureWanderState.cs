@@ -17,10 +17,8 @@ public class CreatureWanderState : CreatureBaseState
         so = Resources.Load<So_Creature>("Creature/SO_Creature");
         so.currentState = "Wander State";
 
-        // Save player start position for checkpoint
+        // Save variables
         playerStartPosition = GameObject.FindWithTag("Player").transform;
-
-        // Set timer for gauge diminution
         timeLeft = timeDelay;
     }
 

@@ -27,6 +27,16 @@ public class CreatureChaseState : CreatureBaseState
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
     {
+        // If player gets caught, reset position to start and switch creature to wander mode
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            player.position = creature.WanderState.playerStartPosition.position;
+            so_enemy.gauge = 0;
+            so_enemy.summoned = false;
+            so_enemy.playerDetected = false;
+            Object.Destroy(enemy);
+            creature.SwitchState(creature.WanderState);
+        }
         // Destroy obstacles that the player may have placed
         if (collision.gameObject.CompareTag("Deplacer"))
             Object.Destroy(collision.gameObject);
@@ -34,10 +44,9 @@ public class CreatureChaseState : CreatureBaseState
 
     public override void OnTriggerEnter(CreatureStateManager creature, Collider other)
     {
-        // If player gets caught, reset position to start and switch creature to wander mode
+        // Checks if player is hided (doesn't matter in this mode)
         if (other.CompareTag("Player"))
         {
-            Debug.Log("GAME OVER");
             player.position = creature.WanderState.playerStartPosition.position;
             creature.SwitchState(creature.WanderState);
         }
@@ -45,6 +54,7 @@ public class CreatureChaseState : CreatureBaseState
 
     void ChasePlayer()
     {
+        // Chase player desperately
         enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, player.position, so_enemy.chaseSpeed * Time.fixedDeltaTime);
     }
 
