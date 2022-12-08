@@ -17,18 +17,13 @@ public class So_Creature : ScriptableObject
     public float visionDetectionInLight;
     public float hearingDetection;
 
-    [Header("Search Mode")]
+    [Header("Patterns")]
 
     public float maxApparationTimer;
     public float apparitionTimer;
     public float maxWanderTimer;
     public float wanderTimer;
     public float roomRatioForWander;
-
-    [Header("Chase Mode")]
-
-    public float maxChaseTimer;
-    public float chaseTimer;
     public float chaseDistance;
 
     [Header("Autre")]
@@ -42,7 +37,6 @@ public class So_Creature : ScriptableObject
         // Reset variables after use
         apparitionTimer = maxApparationTimer;
         wanderTimer = maxWanderTimer;
-        chaseTimer = maxChaseTimer;
         summoned = false;
         playerDetected = false;
 
@@ -53,7 +47,10 @@ public class So_Creature : ScriptableObject
     public void AddGauge(int value)
     {
         gauge += value;
+
         if (gauge > 100)
             gauge = 100;
+        else if (gauge < 0)
+            gauge = 0;
     }
 }

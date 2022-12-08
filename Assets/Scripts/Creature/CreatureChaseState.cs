@@ -8,7 +8,7 @@ public class CreatureChaseState : CreatureBaseState
 
     Transform player;
 
-    float smoothTimer = 0.2f;
+    public bool backFromChaseMode = false;
 
 
     public override void EnterState(CreatureStateManager creature)
@@ -23,7 +23,7 @@ public class CreatureChaseState : CreatureBaseState
 
     public override void UpdateState(CreatureStateManager creature)
     {
-        LostPlayer();
+        LostPlayer(creature);
     }
 
     public override void FixedUpdateState(CreatureStateManager creature)
@@ -38,6 +38,7 @@ public class CreatureChaseState : CreatureBaseState
         {
             ResetState();
             player.position = creature.WanderState.playerStartPosition.position;
+            Object.Destroy(enemy);
             creature.SwitchState(creature.WanderState);
         }
         // Destroy obstacles that the player may have placed
@@ -52,6 +53,7 @@ public class CreatureChaseState : CreatureBaseState
         {
             ResetState();
             player.position = creature.WanderState.playerStartPosition.position;
+            Object.Destroy(enemy);
             creature.SwitchState(creature.WanderState);
         }
     }
@@ -68,14 +70,15 @@ public class CreatureChaseState : CreatureBaseState
             enemyVisuals.localScale = new Vector3(-1, 1, 1);
     }
 
-    void LostPlayer()
+    void LostPlayer(CreatureStateManager creature)
     {
-        // Make creature walk away after the wander timer
-        so_enemy.chaseTimer -= Time.fixedDeltaTime * smoothTimer;
-
-        if (so_enemy.chaseTimer <= 0f || Mathf.Abs(player.position.x - enemy.transform.position.x) >= so_enemy.chaseDistance)
+        // Creature loses sight of player when too far
+        if (Mathf.Abs(player.position.x - enemy.transform.position.x) >= so_enemy.chaseDistance)
         {
-            
+            so_enemy.apparitionTimer = 0;
+            so_enemy.playerDetected = false;
+            backFromChaseMode = true;
+            creature.SwitchState(creature.SearchState);
         }
     }
 
@@ -83,9 +86,7 @@ public class CreatureChaseState : CreatureBaseState
     {
         // Reset all variables for next instance of this state
         so_enemy.gauge = 0;
-        so_enemy.chaseTimer = so_enemy.maxChaseTimer;
         so_enemy.summoned = false;
         so_enemy.playerDetected = false;
-        Object.Destroy(enemy);
     }
 }

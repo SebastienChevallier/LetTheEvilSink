@@ -52,7 +52,7 @@ public class CreatureWanderState : CreatureBaseState
         timeLeft -= Time.fixedDeltaTime;
         if (timeLeft < 0 && !so.summoned)
         {
-            so.gauge -= gaugeDiminution;
+            so.AddGauge(-gaugeDiminution);
             timeLeft = timeDelay;
         }
     }
