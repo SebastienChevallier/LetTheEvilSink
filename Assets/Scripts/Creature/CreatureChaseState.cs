@@ -8,8 +8,6 @@ public class CreatureChaseState : CreatureBaseState
 
     Transform player;
 
-    public bool backFromChaseMode = false;
-
 
     public override void EnterState(CreatureStateManager creature)
     {
@@ -77,7 +75,7 @@ public class CreatureChaseState : CreatureBaseState
         {
             so_enemy.apparitionTimer = 0;
             so_enemy.playerDetected = false;
-            backFromChaseMode = true;
+            so_enemy.backFromChaseMode = true;
             creature.SwitchState(creature.SearchState);
         }
     }

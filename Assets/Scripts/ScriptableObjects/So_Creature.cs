@@ -8,6 +8,7 @@ public class So_Creature : ScriptableObject
     public string currentState;
     [Range(0, 100)]
     public int gauge;
+    public bool summoned;
 
     [Header("Parametres")]
 
@@ -25,11 +26,8 @@ public class So_Creature : ScriptableObject
     public float wanderTimer;
     public float roomRatioForWander;
     public float chaseDistance;
-
-    [Header("Autre")]
-
-    public bool summoned;
     public bool playerDetected;
+    public bool backFromChaseMode;
 
 
     private void OnEnable()
@@ -39,6 +37,7 @@ public class So_Creature : ScriptableObject
         wanderTimer = maxWanderTimer;
         summoned = false;
         playerDetected = false;
+        backFromChaseMode = false;
 
         // Don't unload scriptable
         hideFlags = HideFlags.DontUnloadUnusedAsset;

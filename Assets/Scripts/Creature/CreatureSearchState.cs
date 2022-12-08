@@ -37,7 +37,7 @@ public class CreatureSearchState : CreatureBaseState
         so_player = player.GetComponent<Player_Movements>()._PlayerData;
         room = GameObject.FindWithTag("Room").transform;
 
-        if (!creature.ChaseState.backFromChaseMode)
+        if (so_enemy.backFromChaseMode)
             SpawnCreature();
     }
 
@@ -53,7 +53,7 @@ public class CreatureSearchState : CreatureBaseState
         {
             WanderTimer();
 
-            if (!creature.ChaseState.backFromChaseMode)
+            if (so_enemy.backFromChaseMode)
             {
                 if (!searchFinished)
                     CheckLastPlayerPosition();
@@ -206,10 +206,10 @@ public class CreatureSearchState : CreatureBaseState
         // Reset all variables for next instance of this state
         so_enemy.apparitionTimer = so_enemy.maxApparationTimer;
         so_enemy.wanderTimer = so_enemy.maxWanderTimer;
+        so_enemy.backFromChaseMode = false;
         firstRoundFinished = false;
         searchFinished = false;
         walkAway = false;
         soundHeard = false;
-        creature.ChaseState.backFromChaseMode = false;
     }
 }

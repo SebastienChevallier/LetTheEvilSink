@@ -39,10 +39,10 @@ public class DoorsSceneTransition : MonoBehaviour
         so.wanderTimer = so.maxWanderTimer;
         so.summoned = false;
         so.playerDetected = false;
+        so.backFromChaseMode = false;
         creature.SearchState.firstRoundFinished = false;
         creature.SearchState.searchFinished = false;
         creature.SearchState.walkAway = false;
         creature.SearchState.soundHeard = false;
-        creature.ChaseState.backFromChaseMode = false;
     }
 }
