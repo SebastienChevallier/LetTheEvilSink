@@ -73,7 +73,7 @@ public class CreatureChaseState : CreatureBaseState
         // Make creature walk away after the wander timer
         so_enemy.chaseTimer -= Time.fixedDeltaTime * smoothTimer;
 
-        if (so_enemy.chaseTimer <= 0f)
+        if (so_enemy.chaseTimer <= 0f || Mathf.Abs(player.position.x - enemy.transform.position.x) >= so_enemy.chaseDistance)
         {
             
         }

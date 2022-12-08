@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: Search State
   gauge: 100
-  searchSpeed: 1
-  chaseSpeed: 1.5
+  searchSpeed: 2
+  chaseSpeed: 3
   visionDetectionInDark: 3
   visionDetectionInLight: 7
-  hearingDetection: 10
+  hearingDetection: 20
   maxApparationTimer: 30
-  apparitionTimer: 27.52418
+  apparitionTimer: 30
   maxWanderTimer: 3
   wanderTimer: 3
   roomRatioForWander: 5
   maxChaseTimer: 10
   chaseTimer: 10
+  chaseDistance: 20
   summoned: 0
   playerDetected: 0

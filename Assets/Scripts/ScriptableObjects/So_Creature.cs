@@ -17,15 +17,19 @@ public class So_Creature : ScriptableObject
     public float visionDetectionInLight;
     public float hearingDetection;
 
-    [Header("Patterns")]
+    [Header("Search Mode")]
 
     public float maxApparationTimer;
     public float apparitionTimer;
     public float maxWanderTimer;
     public float wanderTimer;
     public float roomRatioForWander;
+
+    [Header("Chase Mode")]
+
     public float maxChaseTimer;
     public float chaseTimer;
+    public float chaseDistance;
 
     [Header("Autre")]
 
