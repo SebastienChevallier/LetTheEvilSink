@@ -9,7 +9,7 @@ public class CreatureColliderManager : MonoBehaviour
 
     void Start()
     {
-        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        creature = GameObject.FindWithTag("CreatureManager").GetComponent<CreatureStateManager>();
     }
 
     void OnCollisionEnter(Collision collision)

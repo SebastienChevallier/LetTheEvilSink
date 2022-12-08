@@ -4,6 +4,8 @@ public class CreatureWanderState : CreatureBaseState
 {
     So_Creature so;
 
+    public Transform playerStartPosition;
+
     float timeDelay = 10f;
     float timeLeft;
     int gaugeDiminution = 1;
@@ -13,7 +15,10 @@ public class CreatureWanderState : CreatureBaseState
     {
         // Load scriptable data
         so = Resources.Load<So_Creature>("Creature/SO_Creature");
-        so.currentState = "Wander state";
+        so.currentState = "Wander State";
+
+        // Save player start position for checkpoint
+        playerStartPosition = GameObject.FindWithTag("Player").transform;
 
         // Set timer for gauge diminution
         timeLeft = timeDelay;

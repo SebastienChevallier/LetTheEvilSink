@@ -32,7 +32,7 @@ public class CreatureSearchState : CreatureBaseState
     {
         // Load resources
         so_enemy = Resources.Load<So_Creature>("Creature/SO_Creature");
-        so_enemy.currentState = "Search state";
+        so_enemy.currentState = "Search State";
         player = GameObject.FindWithTag("Player").transform;
         so_player = player.GetComponent<Player_Movements>()._PlayerData;
         room = GameObject.FindWithTag("Room").transform;
@@ -80,6 +80,7 @@ public class CreatureSearchState : CreatureBaseState
         if (other.CompareTag("StepSound"))
         {
             randomPosition = new Vector3(player.position.x, enemy.transform.position.y, enemy.transform.position.z);
+            FlipCreature(randomPosition);
             soundHeard = true;
         }
     }
@@ -99,6 +100,7 @@ public class CreatureSearchState : CreatureBaseState
         firstPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z);
         secondPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z);
         targetPosition = firstPosition;
+        FlipCreature(targetPosition);
     }
 
     void CheckLastPlayerPosition()
@@ -142,6 +144,7 @@ public class CreatureSearchState : CreatureBaseState
         if (enemy.transform.position.x == randomPosition.x)
         {
             randomPosition = new Vector3(enemy.transform.position.x + Random.Range(-room.localScale.x / so_enemy.roomRatioForWander, room.localScale.x / so_enemy.roomRatioForWander), enemy.transform.position.y, enemy.transform.position.z);
+            FlipCreature(randomPosition);
             soundHeard = false;
         }
     }
@@ -162,13 +165,9 @@ public class CreatureSearchState : CreatureBaseState
     {
         //Flip creature to make it face the player when moving
         if (enemy.transform.position.x > destination.x)
-        {
             enemyVisuals.localScale = new Vector3(1, 1, 1);
-        }
         else
-        {
             enemyVisuals.localScale = new Vector3(-1, 1, 1);
-        }
     }
 
     void CreatureVisualDetection(CreatureStateManager creature)
