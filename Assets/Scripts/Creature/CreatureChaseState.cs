@@ -8,6 +8,8 @@ public class CreatureChaseState : CreatureBaseState
 
     Transform player;
 
+    float smoothTimer = 0.2f;
+
 
     public override void EnterState(CreatureStateManager creature)
     {
@@ -21,8 +23,12 @@ public class CreatureChaseState : CreatureBaseState
 
     public override void UpdateState(CreatureStateManager creature)
     {
-        ChasePlayer();
-        FlipCreature();
+        LostPlayer();
+    }
+
+    public override void FixedUpdateState(CreatureStateManager creature)
+    {
+        CreatureMovement();
     }
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
@@ -50,14 +56,11 @@ public class CreatureChaseState : CreatureBaseState
         }
     }
 
-    void ChasePlayer()
+    void CreatureMovement()
     {
         // Chase player desperately
         enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, player.position, so_enemy.chaseSpeed * Time.fixedDeltaTime);
-    }
 
-    void FlipCreature()
-    {
         //Flip creature to make it face the player when moving
         if (enemy.transform.position.x > player.position.x)
             enemyVisuals.localScale = new Vector3(1, 1, 1);
@@ -65,9 +68,22 @@ public class CreatureChaseState : CreatureBaseState
             enemyVisuals.localScale = new Vector3(-1, 1, 1);
     }
 
+    void LostPlayer()
+    {
+        // Make creature walk away after the wander timer
+        so_enemy.chaseTimer -= Time.fixedDeltaTime * smoothTimer;
+
+        if (so_enemy.chaseTimer <= 0f)
+        {
+            
+        }
+    }
+
     void ResetState()
     {
+        // Reset all variables for next instance of this state
         so_enemy.gauge = 0;
+        so_enemy.chaseTimer = so_enemy.maxChaseTimer;
         so_enemy.summoned = false;
         so_enemy.playerDetected = false;
         Object.Destroy(enemy);

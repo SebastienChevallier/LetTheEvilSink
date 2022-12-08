@@ -31,6 +31,11 @@ public class CreatureWanderState : CreatureBaseState
             creature.SwitchState(creature.SearchState);
     }
 
+    public override void FixedUpdateState(CreatureStateManager creature)
+    {
+        
+    }
+
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
     {
 

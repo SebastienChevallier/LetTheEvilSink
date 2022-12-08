@@ -42,6 +42,11 @@ public class CreatureSearchState : CreatureBaseState
 
     public override void UpdateState(CreatureStateManager creature)
     {
+        CreatureVisualDetection(creature);
+    }
+
+    public override void FixedUpdateState(CreatureStateManager creature)
+    {
         // Movement patterns
         if (!soundHeard)
         {
@@ -54,8 +59,6 @@ public class CreatureSearchState : CreatureBaseState
         }
         else
             CheckHeardSoundPosition();
-
-        CreatureVisualDetection(creature);
     }
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
@@ -153,6 +156,7 @@ public class CreatureSearchState : CreatureBaseState
     {
         // Make creature walk away after the wander timer
         so_enemy.apparitionTimer -= Time.fixedDeltaTime * smoothTimer;
+
         if (so_enemy.apparitionTimer <= 0f)
         {
             randomPosition = new Vector3(spawnPoint.position.x, enemy.transform.position.y, enemy.transform.position.z);

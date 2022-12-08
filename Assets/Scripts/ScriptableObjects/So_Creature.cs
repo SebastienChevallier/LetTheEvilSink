@@ -24,6 +24,8 @@ public class So_Creature : ScriptableObject
     public float maxWanderTimer;
     public float wanderTimer;
     public float roomRatioForWander;
+    public float maxChaseTimer;
+    public float chaseTimer;
 
     [Header("Autre")]
 
@@ -36,6 +38,7 @@ public class So_Creature : ScriptableObject
         // Reset variables after use
         apparitionTimer = maxApparationTimer;
         wanderTimer = maxWanderTimer;
+        chaseTimer = maxChaseTimer;
         summoned = false;
         playerDetected = false;
 

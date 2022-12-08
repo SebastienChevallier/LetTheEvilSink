@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e976968b8c3d09f4faada467ad02a7ff, type: 3}
   m_Name: SO_Creature
   m_EditorClassIdentifier: 
-  currentState: Chase state
+  currentState: Search State
   gauge: 100
   searchSpeed: 1
   chaseSpeed: 1.5
@@ -20,9 +20,11 @@ MonoBehaviour:
   visionDetectionInLight: 7
   hearingDetection: 10
   maxApparationTimer: 30
-  apparitionTimer: 30
+  apparitionTimer: 27.52418
   maxWanderTimer: 3
   wanderTimer: 3
   roomRatioForWander: 5
+  maxChaseTimer: 10
+  chaseTimer: 10
   summoned: 0
   playerDetected: 0
