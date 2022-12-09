@@ -6,6 +6,9 @@ public class StepSound : MonoBehaviour
 {
     public GameObject _StepZone;
     public GameObject _Clone;
+    public So_Creature _Creature;
+
+
 
     public void Step(float t)
     {

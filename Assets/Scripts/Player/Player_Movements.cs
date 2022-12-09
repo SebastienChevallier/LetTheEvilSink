@@ -7,6 +7,7 @@ using TMPro;
 public class Player_Movements : MonoBehaviour
 {
     [Header("PlayerData")]
+    public So_Creature _creature;
     public So_Player _PlayerData;
     
     private float _Speed;
@@ -116,6 +117,7 @@ public class Player_Movements : MonoBehaviour
                 _PlayerData._InDark = false;
                 _PlayerData._CanLight = false;
                 _LampeTorche.SetActive(true);
+                _creature.AddGauge(5);
             }
             else
             {
@@ -129,10 +131,20 @@ public class Player_Movements : MonoBehaviour
     void SonDePas(float duration)
     {
         if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
+        {
             _StepSound.Step(duration);
+            
+        }
+            
         else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))
+        {
             _StepSound.Step(duration / 2);
+            
+        }
         else if ((rb.velocity.x <= 0.5f && rb.velocity.x > 0) || (rb.velocity.x >= -0.5f && rb.velocity.x < 0))
+        {
             _StepSound.Step(duration / 4);
+        }
+            
     }
 }
