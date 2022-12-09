@@ -13,6 +13,8 @@ public class Player_Movements : MonoBehaviour
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
 
+    private StepSound _StepSound;
+
     [Header("UI")]    
     public GameObject _PanelCarnet;
     public GameObject _LampeTorche;
@@ -24,6 +26,7 @@ public class Player_Movements : MonoBehaviour
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
+        _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
         //_PlayerData._CanLight = true;
         _PlayerData._CibleCamera = gameObject;
@@ -36,12 +39,12 @@ public class Player_Movements : MonoBehaviour
               
         LampeTorche();
         Flip();
+        SonDePas(1f);
     }
         
 
     
     private void FixedUpdate()
-
     {
         Movement();
     }
@@ -121,5 +124,15 @@ public class Player_Movements : MonoBehaviour
                 _LampeTorche.SetActive(false);
             }
         }
+    }
+
+    void SonDePas(float duration)
+    {
+        if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
+            _StepSound.Step(duration);
+        else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))
+            _StepSound.Step(duration / 2);
+        else if ((rb.velocity.x <= 0.5f && rb.velocity.x > 0) || (rb.velocity.x >= -0.5f && rb.velocity.x < 0))
+            _StepSound.Step(duration / 4);
     }
 }

@@ -4,6 +4,8 @@ public class CreatureWanderState : CreatureBaseState
 {
     So_Creature so;
 
+    public Transform playerStartPosition;
+
     float timeDelay = 10f;
     float timeLeft;
     int gaugeDiminution = 1;
@@ -13,8 +15,10 @@ public class CreatureWanderState : CreatureBaseState
     {
         // Load scriptable data
         so = Resources.Load<So_Creature>("Creature/SO_Creature");
+        so.currentState = "Wander State";
 
-        // Set timer for gauge diminution
+        // Save variables
+        playerStartPosition = GameObject.FindWithTag("Player").transform;
         timeLeft = timeDelay;
     }
 
@@ -27,7 +31,17 @@ public class CreatureWanderState : CreatureBaseState
             creature.SwitchState(creature.SearchState);
     }
 
+    public override void FixedUpdateState(CreatureStateManager creature)
+    {
+        
+    }
+
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
+    {
+
+    }
+
+    public override void OnTriggerEnter(CreatureStateManager creature, Collider other)
     {
 
     }
@@ -38,7 +52,7 @@ public class CreatureWanderState : CreatureBaseState
         timeLeft -= Time.fixedDeltaTime;
         if (timeLeft < 0 && !so.summoned)
         {
-            so.gauge -= gaugeDiminution;
+            so.AddGauge(-gaugeDiminution);
             timeLeft = timeDelay;
         }
     }
