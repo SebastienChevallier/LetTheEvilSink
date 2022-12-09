@@ -22,9 +22,10 @@ public class CreatureSearchState : CreatureBaseState
     public bool walkAway = false;
     public bool soundHeard = false;
 
-    float spawnOffset = 1f;
+    float spawnHeight = 2.5f;
+    float spawnOffset = 2f;
     float searchOffset = 2f;
-    float smoothTimer = 0.2f;
+    float smoothTimer = 1f;
     int gaugeDiminution = 25;
 
 
@@ -37,7 +38,7 @@ public class CreatureSearchState : CreatureBaseState
         so_player = player.GetComponent<Player_Movements>()._PlayerData;
         room = GameObject.FindWithTag("Room").transform;
 
-        if (so_enemy.backFromChaseMode)
+        if (!so_enemy.backFromChaseMode)
             SpawnCreature();
     }
 
@@ -53,7 +54,7 @@ public class CreatureSearchState : CreatureBaseState
         {
             WanderTimer();
 
-            if (so_enemy.backFromChaseMode)
+            if (!so_enemy.backFromChaseMode)
             {
                 if (!searchFinished)
                     CheckLastPlayerPosition();
@@ -96,7 +97,7 @@ public class CreatureSearchState : CreatureBaseState
     {
         // Calculate spawn point
         spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
-        Vector3 spawnPosition = spawnPoint.position.x > player.position.x ? new Vector3(spawnPoint.position.x - spawnOffset, 1.5f, 0f) : new Vector3(spawnPoint.position.x + spawnOffset, 1.5f, 0f);
+        Vector3 spawnPosition = spawnPoint.position.x > player.position.x ? new Vector3(spawnPoint.position.x - spawnOffset, spawnHeight, player.position.z) : new Vector3(spawnPoint.position.x + spawnOffset, spawnHeight, player.position.z);
 
         // Swpawn creature
         enemy = GameObject.Instantiate(Resources.Load<GameObject>("Creature/Creature"), spawnPosition, Quaternion.identity, GameObject.FindWithTag("Environnement").transform) as GameObject;

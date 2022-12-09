@@ -15,6 +15,11 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadAsyncScene("Salle 1"));
     }
 
+    public void MiniJeux()
+    {
+        StartCoroutine(LoadAsyncScene("Mini Jeux"));
+    }
+
     public void Option()
     {
         SceneManager.UnloadSceneAsync(1);

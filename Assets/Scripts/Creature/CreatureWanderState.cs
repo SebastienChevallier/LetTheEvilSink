@@ -8,6 +8,7 @@ public class CreatureWanderState : CreatureBaseState
 
     float timeDelay = 10f;
     float timeLeft;
+    float smoothTimer = 2f;
     int gaugeDiminution = 1;
 
 
@@ -49,7 +50,7 @@ public class CreatureWanderState : CreatureBaseState
     void LowerGauge()
     {
         // Lower gauge every second
-        timeLeft -= Time.fixedDeltaTime;
+        timeLeft -= Time.fixedDeltaTime * smoothTimer;
         if (timeLeft < 0 && !so.summoned)
         {
             so.AddGauge(-gaugeDiminution);
