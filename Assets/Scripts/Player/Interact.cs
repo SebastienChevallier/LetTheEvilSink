@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Interact : MonoBehaviour
@@ -76,6 +77,11 @@ public class Interact : MonoBehaviour
                             }
                                 
                         }                     
+                        break;
+
+                    case "Cables":
+                        //SceneManager.LoadSceneAsync("Cables", LoadSceneMode.Additive);
+
                         break;
 
                     case "Recuperer":

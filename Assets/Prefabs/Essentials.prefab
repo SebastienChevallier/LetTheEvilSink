@@ -2207,6 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2828733718fad641bfd71e6f7eef338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _creature: {fileID: 11400000, guid: 15f349b1112abd64c94dfc4ac81e2df1, type: 2}
   _PlayerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   _SmoothCurve:
     serializedVersion: 2
@@ -2252,6 +2253,7 @@ MonoBehaviour:
   _StepZone: {fileID: 6883884288737110754, guid: bf26e145c7e09974283198c30f1b8972,
     type: 3}
   _Clone: {fileID: 0}
+  _Creature: {fileID: 0}
 --- !u!114 &7034795687173049181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2265,6 +2267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
+  _creature: {fileID: 0}
   _TimeDelay: 0.1
   _ValUp: 0.5
   _ValDown: 1.5
