@@ -30,7 +30,7 @@ public class Player_Movements : MonoBehaviour
         _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
         //_PlayerData._CanLight = true;
-        _PlayerData._CibleCamera = gameObject;
+        _PlayerData._CibleCamera = transform.gameObject;
     }
 
     void Update()

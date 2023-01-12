@@ -48,7 +48,7 @@ MonoBehaviour:
   _PlayerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   _Speed: 0.1
   _ZoomSpeed: 0.3
-  _ZoomValue: 3.71
+  _ZoomValue: 4.2
   _YOffset: 0.5
 --- !u!1 &2294055580343290562
 GameObject:
@@ -1812,7 +1812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7034795686643464325
 Transform:
   m_ObjectHideFlags: 0
@@ -2103,6 +2103,7 @@ GameObject:
   - component: {fileID: 7034795687173049170}
   - component: {fileID: 7034795687173049168}
   - component: {fileID: 7034795687173049169}
+  - component: {fileID: 4336124444796873412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2191,8 +2192,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 7f30c05b43d2d8746bb4c16a541fa2f1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 2.1360517
+  m_Radius: 0.6
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.012775898, y: 0.042165995, z: 0}
 --- !u!114 &7034795687173049183
@@ -2317,3 +2318,17 @@ MonoBehaviour:
   delay: 1
   timeLeft: 0
   dir: {x: 0, y: 0, z: 0}
+--- !u!114 &4336124444796873412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034795687173049179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b679d93481824ab9173e1e13f0407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
+  lampeTorche: {fileID: 7034795686643464324}

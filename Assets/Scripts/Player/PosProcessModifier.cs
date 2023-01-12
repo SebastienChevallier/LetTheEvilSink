@@ -16,7 +16,7 @@ public class PosProcessModifier : MonoBehaviour
     private void Start()
     {
         _Camera = GameObject.Find("ArmCamera").GetComponent<CameraBehavior>();
-        _Zoom = _Camera._ZoomValue;
+        //_Zoom = _Camera._ZoomValue;
         _Volume = GetComponent<Volume>();
         _Volume.profile.TryGet(out _CA);
         _Volume.profile.TryGet(out _VG);
@@ -25,7 +25,7 @@ public class PosProcessModifier : MonoBehaviour
 
     public void ChromaticChange(float value)
     {        
-        _Camera._ZoomValue = Mathf.Clamp(_Zoom * (1 - (value / 100)), 2, 10);
+        //_Camera._ZoomValue = Mathf.Clamp(_Zoom * (1 - (value / 100)), 2, 10);
         _CA.intensity.value = Mathf.Clamp((value + 20) / 100, 0.2f, 1f);
         _VG.intensity.value = Mathf.Clamp((value + 20) / 200, 0.2f, 1f);
         _FG.intensity.value = Mathf.Clamp((value + 20) / 100, 0.2f, 1f);

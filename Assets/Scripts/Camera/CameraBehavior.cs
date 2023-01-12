@@ -10,8 +10,10 @@ public class CameraBehavior : MonoBehaviour
 
     [Header("Value")]
     public float _Speed;    
-    public float _ZoomSpeed;    
-    public float _ZoomValue;
+    public float _ZoomSpeed;
+
+
+    [Range(2, 50)] public float _ZoomValue;
     public float _YOffset;
 
     private Vector3 velocity = Vector3.zero;    
@@ -23,12 +25,12 @@ public class CameraBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //transform.LookAt(_Cible.transform);
         FollowCible();
         Zoom();
-        //AutoRotate();
+        AutoRotate();
     }
 
     
@@ -40,8 +42,8 @@ public class CameraBehavior : MonoBehaviour
 
     void Zoom()
     {
-        Vector3 zoomVal = new Vector3(_Camera.transform.localPosition.x, _Camera.transform.localPosition.y, _ZoomValue);
-        
+        Vector3 zoomVal = -_Camera.transform.forward * (Mathf.Clamp(_ZoomValue * (1 - (_PlayerData._ValAngoisse / 150)), 2, 50));
+
         _Camera.transform.localPosition = Vector3.SmoothDamp(_Camera.transform.localPosition, zoomVal, ref velocity, _ZoomSpeed);
     }
 
