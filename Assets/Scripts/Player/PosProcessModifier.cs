@@ -26,8 +26,8 @@ public class PosProcessModifier : MonoBehaviour
     public void ChromaticChange(float value)
     {        
         //_Camera._ZoomValue = Mathf.Clamp(_Zoom * (1 - (value / 100)), 2, 10);
-        _CA.intensity.value = Mathf.Clamp((value + 20) / 100, 0.2f, 1f);
-        _VG.intensity.value = Mathf.Clamp((value + 20) / 200, 0.2f, 1f);
-        _FG.intensity.value = Mathf.Clamp((value + 20) / 100, 0.2f, 1f);
+        _CA.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
+        _VG.intensity.value = Mathf.Clamp((value) / 200, 0f, 1f);
+        _FG.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
     }
 }

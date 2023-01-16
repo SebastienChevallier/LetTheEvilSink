@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class CameraBehavior : MonoBehaviour
 {
     [Header("Data")]
     public So_Player _PlayerData;
-    private Camera _Camera;
+    public Camera _Camera;
 
     [Header("Value")]
     public float _Speed;    
@@ -37,14 +37,13 @@ public class CameraBehavior : MonoBehaviour
 
     void FollowCible()
     {        
-        transform.position = Vector3.SmoothDamp(transform.position, _PlayerData._CibleCamera.transform.position, ref velocity, _Speed);        
+        transform.position = Vector3.SmoothDamp(transform.position, _PlayerData._CibleCamera.transform.position + new Vector3(0, _YOffset, 0), ref velocity, _Speed);        
     }
 
     void Zoom()
     {
-        Vector3 zoomVal = -_Camera.transform.forward * (Mathf.Clamp(_ZoomValue * (1 - (_PlayerData._ValAngoisse / 150)), 2, 50));
-
-        _Camera.transform.localPosition = Vector3.SmoothDamp(_Camera.transform.localPosition, zoomVal, ref velocity, _ZoomSpeed);
+        Vector3 zoomVal = new Vector3(0,0,1) * (Mathf.Clamp(_ZoomValue * (1 - (_PlayerData._ValAngoisse / 100)), 2, 50));        
+        _Camera.transform.localPosition = zoomVal;
     }
 
     void AutoRotate()

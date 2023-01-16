@@ -10,7 +10,8 @@ public class Player_Movements : MonoBehaviour
     public So_Creature _creature;
     public So_Player _PlayerData;
     
-    private float _Speed;
+    public  float _Speed;
+    public float speed;
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
 
@@ -22,7 +23,10 @@ public class Player_Movements : MonoBehaviour
     public GameObject _Visuals;
     public Camera _Camera;
     private Rigidbody rb;
-    
+
+    private Vector3 velocity = Vector3.zero;
+
+
 
     public void Start()
     {        
@@ -36,8 +40,7 @@ public class Player_Movements : MonoBehaviour
     void Update()
     {  
         Course();
-        Carnet();
-              
+        Carnet();              
         LampeTorche();
         Flip();
         SonDePas(1f);
@@ -56,13 +59,13 @@ public class Player_Movements : MonoBehaviour
 
         if (_PlayerData._CanMove)
         {
-            rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
+            //rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir, ref velocity, speed);
         }
         else
         {
             rb.velocity = Vector3.zero;
-        }
-        
+        }        
     }
 
     void Flip()
