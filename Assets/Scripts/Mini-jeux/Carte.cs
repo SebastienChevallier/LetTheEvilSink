@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -86,6 +87,8 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             {
                 completed = true;
                 Debug.Log("Complete");
+                SceneManager.UnloadSceneAsync("Carte");
+                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
                 CancelDrag();
             }
             else if (timer < minTime)
