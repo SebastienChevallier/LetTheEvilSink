@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WireTask : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class WireTask : MonoBehaviour
             if(successfulWires >= _rightWires.Count)
             {
                 Debug.Log("TaskComplete");
+                SceneManager.UnloadSceneAsync("Cables");
+                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
                 IsTaskCompleted = true;
             }
             else

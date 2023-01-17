@@ -7,25 +7,25 @@ public class MenuMiniJeux : MonoBehaviour
 {
     public void Return()
     {
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync("Mini jeux");
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     public void CardSwipe()
     {
-        SceneManager.UnloadSceneAsync(2);
-        SceneManager.LoadScene("Card swipe", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Mini jeux");
+        SceneManager.LoadScene("Carte", LoadSceneMode.Additive);
     }
 
     public void Crochetage()
     {
-        SceneManager.UnloadSceneAsync(2);
-        SceneManager.LoadScene("Crochetagee", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Mini jeux");
+        SceneManager.LoadScene("Crochetage", LoadSceneMode.Additive);
     }
 
     public void Cables()
     {
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync("Mini jeux");
         SceneManager.LoadScene("Cables", LoadSceneMode.Additive);
     }
 }

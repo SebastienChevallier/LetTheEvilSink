@@ -104,6 +104,7 @@ public class CreatureSearchState : CreatureBaseState
         enemyVisuals = enemy.transform.GetChild(0);
         so_enemy.summoned = true;
 
+
         //Set destinations for creature check
         firstPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z);
         secondPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z);

@@ -28,8 +28,8 @@ public class DoorsSceneTransition : MonoBehaviour
             ResetStates();
             if (creature)
                 creature.SwitchState(creature.WanderState);
-            SceneManager.UnloadSceneAsync(_ActualIntScene);
-            SceneManager.LoadScene(_NextIntScene, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(_ActualIntScene);            
+            SceneManager.LoadScene(_NextIntScene, LoadSceneMode.Additive);           
         }
     }
 
