@@ -7,9 +7,13 @@ public class PlayerColliderScript : MonoBehaviour
     public So_Player _Player;
       
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        _Player._TriggerObject = other.gameObject;
+        if (!other.CompareTag("Untagged"))
+        {
+            _Player._TriggerObject = other.gameObject;
+        }
+        
         
     }
     private void OnTriggerExit(Collider other)

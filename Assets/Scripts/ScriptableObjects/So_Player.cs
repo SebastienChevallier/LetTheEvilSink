@@ -31,5 +31,6 @@ public class So_Player : ScriptableObject
 
     [Header("World Interactions")]
     public GameObject _TriggerObject;
+    public GameObject _CibleCamera;
 
 }

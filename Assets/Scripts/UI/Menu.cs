@@ -10,6 +10,16 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadAsyncScene());
     }
 
+    public void TrainingRoom()
+    {
+        StartCoroutine(LoadAsyncScene("Salle 1"));
+    }
+
+    public void MiniJeux()
+    {
+        StartCoroutine(LoadAsyncScene("Mini Jeux"));
+    }
+
     public void Option()
     {
         SceneManager.UnloadSceneAsync(1);
@@ -24,6 +34,28 @@ public class Menu : MonoBehaviour
     IEnumerator LoadAsyncScene()
     {      
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(1);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
+     IEnumerator LoadAsyncScene(int index)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(1);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator LoadAsyncScene(string name)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(1);
 
         while (!asyncLoad.isDone)
