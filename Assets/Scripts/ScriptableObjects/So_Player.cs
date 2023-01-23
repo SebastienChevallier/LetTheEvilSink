@@ -6,12 +6,13 @@ using UnityEngine;
 public class So_Player : ScriptableObject
 {
     [Header("Angoisse")]
-    public int _MaxAngoisse;
-    public int _ValAngoisse;
+    public float _MaxAngoisse;
+    public float _ValAngoisse;
 
     [Header("Vitesse")]
     public float _WalkSpeed;
     public float _RunSpeed;
+    public float _DashDist;
 
     [Header("Vie")]
     public int _MaxVie;
@@ -24,10 +25,12 @@ public class So_Player : ScriptableObject
     public bool _CanMove = true;
     public bool _Hiding = false;
     public bool _InDark = false;
+    public bool _Invincible = false;
 
     
 
     [Header("World Interactions")]
     public GameObject _TriggerObject;
+    public GameObject _CibleCamera;
 
 }
