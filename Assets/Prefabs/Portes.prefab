@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf56e94d7173d04ea470af1b9dcc349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 3625871361340601550}
+  portes: {fileID: 3625871361340601549}
 --- !u!1 &3625871360434827282
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf56e94d7173d04ea470af1b9dcc349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 3625871361340601550}
+  portes: {fileID: 3625871361340601549}
 --- !u!1 &3625871361340601548
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,4 +169,6 @@ MonoBehaviour:
   player: {fileID: 0}
   trigger: {fileID: 3625871359977282812}
   trigger2: {fileID: 3625871360434827282}
+  frontTriggered: 0
+  backTriggered: 0
   allow_Y_Tp: 0

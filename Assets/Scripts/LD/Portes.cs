@@ -9,6 +9,9 @@ public class Portes : MonoBehaviour
     public GameObject trigger;
     public GameObject trigger2;
 
+    public bool frontTriggered = false;
+    public bool backTriggered = false;
+
     public bool allow_Y_Tp;
 
     // Update is called once per frame
@@ -18,7 +21,7 @@ public class Portes : MonoBehaviour
         {
             if (player)
             {
-                if (trigger.activeSelf)
+                if (frontTriggered)
                 {
                     Debug.Log("En Haut");
                     if (allow_Y_Tp)
@@ -31,11 +34,11 @@ public class Portes : MonoBehaviour
                         player.transform.position = new Vector3(trigger2.transform.position.x, player.transform.position.y, trigger2.transform.position.z);
                     }
 
-                    trigger2.SetActive(true);
-                    trigger.SetActive(false);
+                    //trigger2.SetActive(true);
+                    //trigger.SetActive(false);
 
                 }
-                else
+                else if (backTriggered)
                 {
                     Debug.Log("En Bas");
                     if (allow_Y_Tp)
@@ -46,8 +49,8 @@ public class Portes : MonoBehaviour
                     {
                         player.transform.position = new Vector3(trigger.transform.position.x, player.transform.position.y, trigger.transform.position.z);
                     }
-                    trigger.SetActive(true);
-                    trigger2.SetActive(false);
+                    //trigger.SetActive(true);
+                    //trigger2.SetActive(false);
 
                 }    
             }
