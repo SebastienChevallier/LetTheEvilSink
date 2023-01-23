@@ -15,6 +15,8 @@ public class CameraBehavior : MonoBehaviour
     [Range(2, 50)] public float _ZoomValue;
     public float _YOffset;
 
+    public float dampspeed;
+
   
     private Vector3 velocity = Vector3.zero;
     
@@ -50,6 +52,7 @@ public class CameraBehavior : MonoBehaviour
     void Zoom()
     {
         Vector3 zoomVal = new Vector3(0,0,1) * (Mathf.Clamp(_ZoomValue * (1 - (_PlayerData._ValAngoisse / 100)), 2, 50));        
+        //_Camera.transform.localPosition = Vector3.SmoothDamp(_Camera.transform.localPosition, zoomVal, ref velocity, dampspeed);
         _Camera.transform.localPosition = zoomVal;
     }
 
