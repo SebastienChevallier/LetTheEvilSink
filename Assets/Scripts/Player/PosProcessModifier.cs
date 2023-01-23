@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class PosProcessModifier : MonoBehaviour
 {
     private Volume _Volume;
+    public So_Player _PlayerData;
     private CameraBehavior _Camera;
     private float _Zoom;
     private ChromaticAberration _CA;
@@ -21,6 +22,11 @@ public class PosProcessModifier : MonoBehaviour
         _Volume.profile.TryGet(out _CA);
         _Volume.profile.TryGet(out _VG);
         _Volume.profile.TryGet(out _FG);
+    }
+
+    private void Update()
+    {
+        ChromaticChange(_PlayerData._ValAngoisse);
     }
 
     public void ChromaticChange(float value)

@@ -11,12 +11,12 @@ public class Angoisse : MonoBehaviour
     public float _ValDown;
     private float timeLeft;
     private Player_Movements _PlayerMovement;
-    private PosProcessModifier _Modifier;
+    
 
     private void Start()
     {
         _PlayerMovement = GetComponent<Player_Movements>();
-        _Modifier = GetComponent<PosProcessModifier>();
+        
         timeLeft = _TimeDelay;
     }
 
@@ -25,9 +25,6 @@ public class Angoisse : MonoBehaviour
     void Update()
     {
         TimeAngoise();
-        _Modifier.ChromaticChange(_PlayerData._ValAngoisse);
-
-
     }
 
     void TimeAngoise()
