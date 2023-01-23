@@ -19,7 +19,7 @@ public class Porte : MonoBehaviour
                 portes.backTriggered = false;
             }
 
-            else
+            else if (transform == parent.GetChild(1))
             {
                 portes.frontTriggered = false;
                 portes.backTriggered = true;
@@ -38,7 +38,7 @@ public class Porte : MonoBehaviour
                 portes.backTriggered = false;
             }
 
-            else
+            else if (transform == parent.GetChild(1))
             {
                 portes.frontTriggered = false;
                 portes.backTriggered = false;
