@@ -27,7 +27,7 @@ public class Portes : MonoBehaviour
                     if (allow_Y_Tp)
                     {
                         player.transform.position = new Vector3(trigger2.transform.position.x, trigger2.transform.position.y+1, trigger2.transform.position.z);
-                        
+                        player.transform.rotation = trigger2.transform.rotation;
                     }
                     else
                     {
@@ -44,6 +44,7 @@ public class Portes : MonoBehaviour
                     if (allow_Y_Tp)
                     {
                         player.transform.position = new Vector3(trigger.transform.position.x, trigger.transform.position.y + 1, trigger.transform.position.z);
+                        player.transform.rotation = trigger.transform.rotation;
                     }
                     else
                     {
