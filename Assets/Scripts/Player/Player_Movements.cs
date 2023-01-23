@@ -11,7 +11,7 @@ public class Player_Movements : MonoBehaviour
     public So_Player _PlayerData;
     
     public  float _Speed;
-    public float speed;
+    public float inputSpeed = 1f;
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
 
@@ -60,7 +60,7 @@ public class Player_Movements : MonoBehaviour
         if (_PlayerData._CanMove)
         {
             //rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir, ref velocity, speed);
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir, ref velocity, inputSpeed);
         }
         else
         {
