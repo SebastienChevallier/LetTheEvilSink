@@ -5,6 +5,7 @@ using System.Linq;
 namespace OccaSoftware.Buto
 {
     [ExecuteAlways]
+    [AddComponentMenu("Buto/ButoLight")]
     public sealed class ButoLight : ButoPlaceableObject
     {
         [SerializeField] private bool inheritDataFromLightComponent = false;

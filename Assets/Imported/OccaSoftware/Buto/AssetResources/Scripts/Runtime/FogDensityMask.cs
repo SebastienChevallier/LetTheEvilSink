@@ -5,6 +5,7 @@ using System.Linq;
 namespace OccaSoftware.Buto
 {
     [ExecuteAlways]
+    [AddComponentMenu("Buto/FogDensityMask")]
     public sealed class FogDensityMask : ButoPlaceableObject
     {
         public enum BlendMode

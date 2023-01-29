@@ -26,14 +26,20 @@ void DepthAwareUpscale_half(half2 UV, Texture2D FogTex, SamplerState Sampler, ha
 	
 	
 	// Evaluate for the Minimum Distance diff. Then sample that UV.
-	half distanceMin = min(min(distances[0], distances[1]), min(distances[2], distances[3]));
-	half4 r = half4(0, 0, 0, 0);
+	int minDistId = 0;
+	float minDist = distances[0];
 	
-	for (int b = 0; b <= 3; b++)
+	half4 r = half4(0, 0, 0, 0);
+	for(int c = 1; c <= 3; c++)
 	{
-		if (distanceMin == distances[b])
-			r = SAMPLE_TEXTURE2D_LOD(FogTex, Sampler, UV + texcoords[b], 0);
+		if(distances[c] < minDist)
+		{
+			minDist = distances[c];
+			minDistId = c;
+		}
 	}
+	
+	r = SAMPLE_TEXTURE2D_LOD(FogTex, Sampler, UV + texcoords[minDistId], 0);
 	
 	Color = r.rgb;
 	Alpha = r.a;
