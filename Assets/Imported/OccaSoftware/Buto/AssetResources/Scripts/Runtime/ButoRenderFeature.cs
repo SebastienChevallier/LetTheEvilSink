@@ -30,6 +30,8 @@ namespace OccaSoftware.Buto
             private const string upscaleInputTexId = "_ButoUpscaleInputTex";
             private const string lowResDepthTexId = "_ButoDepth";
 
+            private const string passIdentifier = "Buto";
+
             private bool isFirst = true;
 
 
@@ -235,18 +237,35 @@ namespace OccaSoftware.Buto
             public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
             {
                 RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
-                descriptor.colorFormat = RenderTextureFormat.DefaultHDR;
-
                 fogTargetDescriptor = descriptor;
+                
+                fogTargetDescriptor.colorFormat = RenderTextureFormat.DefaultHDR;
+                fogTargetDescriptor.depthBufferBits = 0;
                 fogTargetDescriptor.width /= 2;
                 fogTargetDescriptor.height /= 2;
+
 
                 cmd.GetTemporaryRT(fogTarget.id, fogTargetDescriptor);
                 cmd.GetTemporaryRT(lowResDepthTarget.id, fogTargetDescriptor);
                 cmd.GetTemporaryRT(taaTarget.id, fogTargetDescriptor);
-
+                
+                descriptor.colorFormat = RenderTextureFormat.DefaultHDR;
                 cmd.GetTemporaryRT(finalFogTarget.id, descriptor);
                 cmd.GetTemporaryRT(finalMergeTarget.id, descriptor);
+
+
+                cmd.SetRenderTarget(fogTarget.id);
+                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.SetRenderTarget(lowResDepthTarget.id);
+                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.SetRenderTarget(taaTarget.id);
+                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.SetRenderTarget(finalFogTarget.id);
+                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.SetRenderTarget(finalMergeTarget.id);
+                cmd.ClearRenderTarget(true, true, Color.black);
+
+                cmd.SetRenderTarget(renderingData.cameraData.renderer.cameraColorTarget);
             }
 
             internal bool HasAllMaterials()
@@ -262,25 +281,29 @@ namespace OccaSoftware.Buto
                 return false;
             }
 
+            private static readonly string[] decalBuffers = { "_DBUFFER_MRT1", "_DBUFFER_MRT2", "_DBUFFER_MRT3" }; 
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
-                UnityEngine.Profiling.Profiler.BeginSample("Buto Volumetric Fog");
-                CommandBuffer cmd = CommandBufferPool.Get("ButoRenderPass");
+                UnityEngine.Profiling.Profiler.BeginSample(passIdentifier);
+                CommandBuffer cmd = CommandBufferPool.Get(passIdentifier);
                 
                 CalculateTime();
-                CleanupDictionary();
+                CleanupDictionary(); 
 
                 source = renderingData.cameraData.renderer.cameraColorTarget;
                 Camera camera = renderingData.cameraData.camera;
                 volumetricFog = VolumeManager.instance.stack.GetComponent<VolumetricFog>();
 
+                if(IsTaaEnabled())
+                    ConfigureInput(ScriptableRenderPassInput.Motion);
+
                 SetMaterialParameters();
 
                 // Exclude Decal Buffer
-                CoreUtils.SetKeyword(cmd, "_DBUFFER_MRT1", false);
-                CoreUtils.SetKeyword(cmd, "_DBUFFER_MRT2", false);
-                CoreUtils.SetKeyword(cmd, "_DBUFFER_MRT3", false);
+                CoreUtils.SetKeyword(cmd, decalBuffers[0], false);
+                CoreUtils.SetKeyword(cmd, decalBuffers[1], false);
+                CoreUtils.SetKeyword(cmd, decalBuffers[2], false);
 
                 // Samples volumetric fog
                 Blit(cmd, source, fogTarget.Identifier(), fogMaterial);
@@ -294,7 +317,6 @@ namespace OccaSoftware.Buto
                     {
                         taaMaterial.SetTexture(taaInputTexId, renderTextures[camera].RenderTexture);
                     }
-
                     Blit(cmd, fogTarget.Identifier(), taaTarget.Identifier(), taaMaterial);
 
                     if (renderTextures[camera].RenderTexture == null)
@@ -492,6 +514,7 @@ namespace OccaSoftware.Buto
                 cmd.ReleaseTemporaryRT(taaTarget.id);
                 cmd.ReleaseTemporaryRT(lowResDepthTarget.id);
                 cmd.ReleaseTemporaryRT(finalMergeTarget.id);
+                cmd.ReleaseTemporaryRT(finalFogTarget.id);
             }
         }
 
@@ -545,8 +568,11 @@ namespace OccaSoftware.Buto
             if (!renderFogPass.HasAllMaterials())
                 return;
 
+            if (renderingData.cameraData.camera.TryGetComponent(out DisableButoRendering disableButoRendering))
+                return;
 
-            renderFogPass.ConfigureInput(ScriptableRenderPassInput.Motion);
+            renderFogPass.ConfigureInput(ScriptableRenderPassInput.Color);
+            renderFogPass.ConfigureInput(ScriptableRenderPassInput.Depth);
 
             renderer.EnqueuePass(renderFogPass);
         }

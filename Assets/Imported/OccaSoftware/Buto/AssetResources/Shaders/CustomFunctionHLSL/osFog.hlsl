@@ -38,15 +38,16 @@ half3 _DirectionalLightingForward;
 half3 _DirectionalLightingBack;
 half _DirectionalLightingRatio;
 
-half InverseLerp(half a, half b, half v)
+// Returns % between start and stop
+half InverseLerp(half start, half stop, half value)
 {
-	return (v - a) / (b - a);
+	return (value - start) / (stop - start);
 }
 
-half Remap(half iMin, half iMax, half oMin, half oMax, half v)
+half Remap(half inStart, half inStop, half outStart, half outStop, half v)
 {
-	half t = InverseLerp(iMin, iMax, v);
-	return lerp(oMin, oMax, saturate(t));
+	half t = InverseLerp(inStart, inStop, v); 
+	return lerp(outStart, outStop, saturate(t));
 }
 
 half CalculateHorizonFalloff(half3 RayPosition, half3 LightDirection)
@@ -169,7 +170,6 @@ half GetFogDensityByNoise(Texture3D NoiseTexture, SamplerState Sampler, half3 Ra
 	value /= c;
 	
 	half v = value.r * 0.53 + value.g * 0.27 + value.b * 0.13 + value.a * 0.07;
-	v = saturate(v);
 	v = Remap(NoiseMin, NoiseMax, 0.0, 1.0, v);
 
 	return v;
@@ -187,6 +187,7 @@ half GetFogFalloff(float3 RayPosition)
 	for (int i = 0; i < _VolumeCountButo; i++)
 	{
 		half d = distance(RayPosition, _VolumeDataButo[i].xyz);
+		
 		half2 remapVals = half2(_VolumeIntensityButo[i], 1);
 		
 		if (_VolumeBlendMode[i] == 1)
@@ -313,7 +314,7 @@ out half3 Color, out half Alpha)
 		1.0 * AttenuationBoundarySize
 	};
 	
-
+	
 	for (int i = 1; i <= SampleCount; i++)
 	{
 		// Positioning
