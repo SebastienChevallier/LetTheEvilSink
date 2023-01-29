@@ -5,17 +5,18 @@ using UnityEngine;
 public class Angoisse : MonoBehaviour
 {
     public So_Player _PlayerData;
+    public So_Creature _creature;
     public float _TimeDelay = 1f;
     public float _ValUp;
     public float _ValDown;
     private float timeLeft;
     private Player_Movements _PlayerMovement;
-    private PosProcessModifier _Modifier;
+    
 
     private void Start()
     {
         _PlayerMovement = GetComponent<Player_Movements>();
-        _Modifier = GetComponent<PosProcessModifier>();
+        
         timeLeft = _TimeDelay;
     }
 
@@ -24,18 +25,23 @@ public class Angoisse : MonoBehaviour
     void Update()
     {
         TimeAngoise();
-        _Modifier.ChromaticChange(_PlayerData._ValAngoisse);
     }
 
     void TimeAngoise()
     {
         if (_PlayerData._InDark)
         {
+            if(timeLeft < 0 && _PlayerData._ValAngoisse >= 100)
+            {
+                _creature.AddGauge(1);
+                timeLeft = _TimeDelay;
+            }
+
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0 && _PlayerData._ValAngoisse < 100f)
             {
                 _PlayerData._ValAngoisse += _ValUp;
-                timeLeft = _TimeDelay;               
+                timeLeft = _TimeDelay;
             }
         }else
         {

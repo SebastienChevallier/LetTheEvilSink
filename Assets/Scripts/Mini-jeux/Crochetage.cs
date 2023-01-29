@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Crochetage : MonoBehaviour
 {
@@ -52,16 +54,11 @@ public class Crochetage : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("ptn");
+            
             if (_Crochet.transform.eulerAngles.z > objectifFinal - 10  && _Crochet.transform.eulerAngles.z < objectifFinal + 10)
             {
-                Debug.Log("sqgfgfg");
-                /*timeLeft -= Time.deltaTime;
-                if (timeLeft < 0 )
-                {
-                    val++;
-                    timeLeft = _TimeDelay;
-                }*/
+                SceneManager.UnloadSceneAsync("Crochetage");
+                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
             }
         }
     }

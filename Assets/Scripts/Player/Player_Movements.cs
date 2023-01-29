@@ -7,40 +7,57 @@ using TMPro;
 public class Player_Movements : MonoBehaviour
 {
     [Header("PlayerData")]
+    public So_Creature _creature;
     public So_Player _PlayerData;
     
-    private float _Speed;
+    public  float _Speed;
+    public float inputSpeed = 1f;
     public AnimationCurve _SmoothCurve;
     public float _SmoothSpeed;
 
-    [Header("UI")]
-    
-    public GameObject _PanelCarnet;
+    private StepSound _StepSound;
 
+    [Header("UI")]    
+    public GameObject _PanelCarnet;
     public GameObject _LampeTorche;
     public GameObject _Visuals;
-
     public Camera _Camera;
     private Rigidbody rb;
-    
+
+    private Vector3 velocity = Vector3.zero;
+
+
 
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
+        _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
-        //_PlayerData._CanLight = true;
+        InitPlayer();
     }
 
-    // Update is called once per frame
+    private void InitPlayer()
+    {
+        //initiate player scriptable object values
+        _PlayerData._ValAngoisse = 0f;
+        _PlayerData._CanInteract = true;
+        _PlayerData._CanLight = false;
+        _PlayerData._CanMove = true;
+        _PlayerData._InDark = false;
+        _PlayerData._CibleCamera = transform.gameObject;
+    }
+
     void Update()
     {  
         Course();
-        Carnet();
-              
+        Carnet();              
         LampeTorche();
         Flip();
+        SonDePas(1f);
     }
+        
 
+    
     private void FixedUpdate()
     {
         Movement();
@@ -52,14 +69,13 @@ public class Player_Movements : MonoBehaviour
 
         if (_PlayerData._CanMove)
         {
-            rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
-            
+            //rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir, ref velocity, inputSpeed);
         }
         else
         {
             rb.velocity = Vector3.zero;
-        }
-        
+        }        
     }
 
     void Flip()
@@ -67,7 +83,8 @@ public class Player_Movements : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0f)
         {
             _Visuals.transform.localScale = new Vector3(1, 1, 1);
-        }else if(Input.GetAxis("Horizontal") < 0f)
+        }
+        else if (Input.GetAxis("Horizontal") < 0f)
         {
             _Visuals.transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -113,6 +130,7 @@ public class Player_Movements : MonoBehaviour
                 _PlayerData._InDark = false;
                 _PlayerData._CanLight = false;
                 _LampeTorche.SetActive(true);
+                _creature.AddGauge(5);
             }
             else
             {
@@ -121,5 +139,25 @@ public class Player_Movements : MonoBehaviour
                 _LampeTorche.SetActive(false);
             }
         }
+    }
+
+    void SonDePas(float duration)
+    {
+        if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
+        {
+            _StepSound.Step(duration);
+            
+        }
+            
+        else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))
+        {
+            _StepSound.Step(duration / 2);
+            
+        }
+        else if ((rb.velocity.x <= 0.5f && rb.velocity.x > 0) || (rb.velocity.x >= -0.5f && rb.velocity.x < 0))
+        {
+            _StepSound.Step(duration / 4);
+        }
+            
     }
 }
