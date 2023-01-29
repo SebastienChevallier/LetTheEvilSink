@@ -33,7 +33,17 @@ public class Player_Movements : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
-        //_PlayerData._CanLight = true;
+        InitPlayer();
+    }
+
+    private void InitPlayer()
+    {
+        //initiate player scriptable object values
+        _PlayerData._ValAngoisse = 0f;
+        _PlayerData._CanInteract = true;
+        _PlayerData._CanLight = false;
+        _PlayerData._CanMove = true;
+        _PlayerData._InDark = false;
         _PlayerData._CibleCamera = transform.gameObject;
     }
 
