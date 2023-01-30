@@ -21,14 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: e4468eb8a8320f7488ddbb0e591f9fbc, type: 3}
+  m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
   - _IS_ANGELRING_OFF
+  - _IS_CLIPPING_OFF
   - _IS_OUTLINE_CLIPPING_NO
-  - _IS_TRANSCLIPPING_OFF
   - _OUTLINE_NML
-  - _SHADINGGRADEMAP
   m_InvalidKeywords:
   - CLIP_SPACE
   - _ADDITIONAL_LIGHTS_ENABLED
@@ -165,7 +164,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2b405d31f15c2b14e877c2ba31175ba5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapForMatCap:
@@ -267,9 +266,9 @@ Material:
     - Vector1_A7207CA3: 1
     - _1st2nd_Shades_Feather: 0.0001
     - _1st_ShadeColor_Feather: 0.0001
-    - _1st_ShadeColor_Step: 0.726
+    - _1st_ShadeColor_Step: 0.908
     - _2nd_ShadeColor_Feather: 0.0001
-    - _2nd_ShadeColor_Step: 0.432
+    - _2nd_ShadeColor_Step: 0.677
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ARSampler_AlphaOn: 0
@@ -301,14 +300,14 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.726
+    - _BaseColor_Step: 0.908
     - _BaseShade_Feather: 0.0001
     - _Base_Speed: 0
     - _Blend: 0
     - _BlendMode: 0
     - _BlurLevelMatcap: 0
     - _BlurLevelSGM: 0
-    - _BumpScale: 1
+    - _BumpScale: 0
     - _BumpScaleMatcap: 1
     - _CameraRolling_Stabilizer: 0
     - _CellShading: 251
@@ -484,7 +483,7 @@ Material:
     - _SecondShadeOverridden: 0
     - _SecondShadeVisible: 1
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.432
+    - _ShadeColor_Step: 0.677
     - _ShadowMask: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -551,7 +550,7 @@ Material:
     - _Tweak_MatcapMaskLevel: 0
     - _Tweak_RimLightMaskLevel: 0
     - _Tweak_ShadingGradeMapLevel: 0
-    - _Tweak_SystemShadowsLevel: 0.145
+    - _Tweak_SystemShadowsLevel: -0.5
     - _Tweak_transparency: 0
     - _UVBase: 0
     - _UVDetail: 0
@@ -574,14 +573,14 @@ Material:
     - _ZWriteMode: 1
     - _isUnityToonshader: 1
     - _simpleUI: 0
-    - _utsTechnique: 1
+    - _utsTechnique: 0
     - _utsVersionX: 0
     - _utsVersionY: 8
     - _utsVersionZ: 3
     m_Colors:
     - Color_5DF75355: {r: 0, g: 0, b: 0, a: 0}
-    - _1st_ShadeColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
-    - _2nd_ShadeColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+    - _1st_ShadeColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+    - _2nd_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
