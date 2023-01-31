@@ -42,18 +42,30 @@ public class Switchsalle : MonoBehaviour
                 { 
                     target = Quaternion.Euler(0, valRotaDeg, 0);
                     inverseTrigger2.SetActive(true);
-                    colliderCam2.SetActive(true);
+                    
                     inverseTrigger.SetActive(false);
-                    colliderCam.SetActive(false);
+
+                    if (hasColliderCam)
+                    {
+                        colliderCam.SetActive(false);
+                        colliderCam2.SetActive(true);
+                    }
+                    
                     
                 }
                 else
                 {
                     target = Quaternion.Euler(0, baseRotaDeg, 0);
                     inverseTrigger.SetActive(true);
-                    colliderCam.SetActive(true);
+                    
                     inverseTrigger2.SetActive(false);
-                    colliderCam2.SetActive(false);
+
+                    if (hasColliderCam)
+                    {
+                        colliderCam2.SetActive(false);
+                        colliderCam.SetActive(true);
+                    }
+                    
                     
                 }
                 

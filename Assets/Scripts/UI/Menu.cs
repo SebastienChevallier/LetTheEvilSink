@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour
 
     public void TrainingRoom()
     {
-        StartCoroutine(LoadAsyncScene("Salle 1"));
+        StartCoroutine(LoadAsyncScene(3));
     }
 
     public void MiniJeux()
