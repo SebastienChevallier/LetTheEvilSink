@@ -33,8 +33,8 @@ public class Menu : MonoBehaviour
 
     public void Option()
     {
-        //SceneManager.UnloadSceneAsync(1);
-        //SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(1);
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
     public void Quit()
