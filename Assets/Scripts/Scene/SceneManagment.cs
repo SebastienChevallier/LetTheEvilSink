@@ -11,5 +11,4 @@ public class SceneManagment : MonoBehaviour
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
-    
 }

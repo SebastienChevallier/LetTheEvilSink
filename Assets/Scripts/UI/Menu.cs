@@ -5,25 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-   public void Play()
+    public So_SceneToLoad sceneToLoad;
+
+    public void LoadSceneTransition(int index, int lastScene)
     {
-        StartCoroutine(LoadAsyncScene());
+        sceneToLoad.index = index;
+        sceneToLoad.SceneLoaderIndex = 3;
+        sceneToLoad.LastSceneIndex = lastScene;
+        SceneManager.LoadScene(sceneToLoad.SceneLoaderIndex, LoadSceneMode.Additive);
+    }
+
+    public void Play(int index)
+    {
+        LoadSceneTransition(index,1);
+        //StartCoroutine(LoadAsyncScene());
     }
 
     public void TrainingRoom()
     {
-        StartCoroutine(LoadAsyncScene(3));
+        //StartCoroutine(LoadAsyncScene(3));
     }
 
     public void MiniJeux()
     {
-        StartCoroutine(LoadAsyncScene("Mini Jeux"));
+        //StartCoroutine(LoadAsyncScene("Mini Jeux"));
     }
 
     public void Option()
     {
-        SceneManager.UnloadSceneAsync(1);
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        //SceneManager.UnloadSceneAsync(1);
+        //SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
     public void Quit()
@@ -31,37 +42,6 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator LoadAsyncScene()
-    {      
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(1);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
-
-     IEnumerator LoadAsyncScene(int index)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(1);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
-
-    IEnumerator LoadAsyncScene(string name)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(1);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
+    
 
 }
