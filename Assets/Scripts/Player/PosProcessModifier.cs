@@ -8,11 +8,14 @@ public class PosProcessModifier : MonoBehaviour
 {
     private Volume _Volume;
     public So_Player _PlayerData;
+    public So_Parametres _Parametres;
+    
     private CameraBehavior _Camera;
     private float _Zoom;
     private ChromaticAberration _CA;
     private Vignette _VG;
     private FilmGrain _FG;
+    private ShadowsMidtonesHighlights _SMH;
 
     private void Start()
     {
@@ -22,11 +25,13 @@ public class PosProcessModifier : MonoBehaviour
         _Volume.profile.TryGet(out _CA);
         _Volume.profile.TryGet(out _VG);
         _Volume.profile.TryGet(out _FG);
+        _Volume.profile.TryGet(out _SMH);
     }
 
     private void Update()
     {
         ChromaticChange(_PlayerData._ValAngoisse);
+        _SMH.shadows.value = new Vector4(0,0,_Parametres.brightness,0);
     }
 
     public void ChromaticChange(float value)
