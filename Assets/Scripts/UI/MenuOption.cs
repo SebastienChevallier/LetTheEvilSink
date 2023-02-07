@@ -73,6 +73,8 @@ public class MenuOption : MonoBehaviour
         PlayerPrefs.SetFloat("ResolutionX", parametres.resolutionX);
         PlayerPrefs.SetFloat("ResolutionY", parametres.resolutionY);
         PlayerPrefs.SetInt("Fullscreen", parametres.fullscreen ? 1 : 0);
+        
+        Screen.SetResolution((int)parametres.resolutionX, (int)parametres.resolutionY, parametres.fullscreen);
     }
     
     
