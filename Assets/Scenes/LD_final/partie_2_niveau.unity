@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 24687249}
   m_Layer: 0
   m_Name: Bas Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 24983552}
   m_Layer: 0
   m_Name: Murs Couloir gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1026,8 +1026,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1.2183, z: 0.5104712}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1792393142}
-  m_RootOrder: 36
+  m_Father: {fileID: 649624883}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &24983552
 MeshRenderer:
@@ -3317,6 +3317,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &68536774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 540937208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &70045476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,7 +4133,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 24
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &90792658
 MeshRenderer:
@@ -4328,6 +4334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_BarreRambarde (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
@@ -6495,6 +6506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_BarreRambarde (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
@@ -10282,7 +10298,7 @@ GameObject:
   - component: {fileID: 217315717}
   m_Layer: 0
   m_Name: Bas Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11097,6 +11113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_BarreRambarde (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
@@ -12389,7 +12410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1792393142}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &258750821
 MeshRenderer:
@@ -15208,7 +15229,7 @@ GameObject:
   - component: {fileID: 307527337}
   m_Layer: 0
   m_Name: Bas Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16238,6 +16259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HublotContour (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8413243744336664838, guid: df7ed4d4adff7694a8383704ad088ec0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df7ed4d4adff7694a8383704ad088ec0, type: 3}
 --- !u!4 &331183885 stripped
@@ -16277,7 +16303,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1792393142}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &333349410
 MeshRenderer:
@@ -18812,6 +18838,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotationCouloir (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861507638112283535, guid: bd252d22fe2dcf54b9e5addaf5243e15,
+        type: 3}
+      propertyPath: hasColliderCam
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd252d22fe2dcf54b9e5addaf5243e15, type: 3}
@@ -21407,6 +21438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HublotContour (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8413243744336664838, guid: df7ed4d4adff7694a8383704ad088ec0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df7ed4d4adff7694a8383704ad088ec0, type: 3}
 --- !u!4 &422920301 stripped
@@ -23426,6 +23462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_BarreRambarde (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
@@ -25465,6 +25506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_BarreRambarde (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
 --- !u!4 &483271916 stripped
@@ -25948,7 +25994,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 29
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &493517192
 MeshRenderer:
@@ -28319,6 +28365,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3531506495141482200, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: inputSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -28484,6 +28535,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5725460995780874049, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 5725460995780874051, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_RendererIndex
@@ -28497,6 +28553,28 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3531506494595382781, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
+--- !u!1 &540937210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5725460995780874053, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 540937208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &540937211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540937210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ff248485751ec44aa194c56ac6731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 68536774}
+  obstruction: {fileID: 0}
+  distance: 25
+  dontShowList: []
 --- !u!1 &541768024
 GameObject:
   m_ObjectHideFlags: 0
@@ -32249,6 +32327,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_BarreRambarde (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
 --- !u!4 &608347450 stripped
@@ -34032,6 +34115,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648595199}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &649624882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649624883}
+  - component: {fileID: 649624884}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649624883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649624882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 591320634696438936}
+  - {fileID: 1676527099}
+  - {fileID: 745094177}
+  - {fileID: 1976947952}
+  - {fileID: 24983551}
+  m_Father: {fileID: 1452295982}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &649624884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649624882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0189352, y: 5.6160054, z: 9.519783}
+  m_Center: {x: -15.106934, y: 2.3080027, z: -10.628725}
 --- !u!1 &650639540
 GameObject:
   m_ObjectHideFlags: 0
@@ -34181,6 +34314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HublotContour (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413243744336664838, guid: df7ed4d4adff7694a8383704ad088ec0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df7ed4d4adff7694a8383704ad088ec0, type: 3}
@@ -39675,7 +39813,7 @@ GameObject:
   - component: {fileID: 745094178}
   m_Layer: 0
   m_Name: Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39692,8 +39830,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1.2183, z: 0.4088487}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1452295982}
-  m_RootOrder: 21
+  m_Father: {fileID: 649624883}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &745094178
 MeshRenderer:
@@ -45880,6 +46018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Porte_crochetage
       objectReference: {fileID: 0}
+    - target: {fileID: 2739285375023462008, guid: 80ffdc12d3cca854c9ca9bb6367d0fe2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ffdc12d3cca854c9ca9bb6367d0fe2, type: 3}
 --- !u!4 &862104902 stripped
@@ -46573,7 +46716,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1792393142}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &872752245
 MeshRenderer:
@@ -49887,6 +50030,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_BarreRambarde (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
 --- !u!4 &934391638 stripped
@@ -52329,6 +52477,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_BarreRambarde (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
 --- !u!4 &994957564 stripped
@@ -54287,7 +54440,7 @@ GameObject:
   - component: {fileID: 1032442017}
   m_Layer: 0
   m_Name: Bas Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55920,7 +56073,7 @@ GameObject:
   - component: {fileID: 1054265949}
   m_Layer: 0
   m_Name: Bas Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56528,7 +56681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1061367439
 Transform:
   m_ObjectHideFlags: 0
@@ -57414,7 +57567,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 23
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &1087702147
 MeshRenderer:
@@ -59928,7 +60081,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 26
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1141925278
 MeshRenderer:
@@ -70383,6 +70536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotationCouloir (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1861507638112283535, guid: bd252d22fe2dcf54b9e5addaf5243e15,
+        type: 3}
+      propertyPath: hasColliderCam
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd252d22fe2dcf54b9e5addaf5243e15, type: 3}
 --- !u!4 &1330977183 stripped
@@ -76934,6 +77092,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MursHublot_couloir droit
       objectReference: {fileID: 0}
+    - target: {fileID: 9130242955822349354, guid: 5f6baa2789f33c44fb5a01eb46da0907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6baa2789f33c44fb5a01eb46da0907, type: 3}
 --- !u!4 &1448968615 stripped
@@ -76987,19 +77150,16 @@ Transform:
   - {fileID: 1032442016}
   - {fileID: 499211425}
   - {fileID: 727333199}
-  - {fileID: 591320634696438936}
-  - {fileID: 1676527099}
-  - {fileID: 1448968615}
-  - {fileID: 589581267}
-  - {fileID: 745094177}
-  - {fileID: 1976947952}
   - {fileID: 1087702146}
   - {fileID: 90792657}
+  - {fileID: 1448968615}
+  - {fileID: 589581267}
   - {fileID: 1563716846}
   - {fileID: 1141925277}
   - {fileID: 1655289900}
   - {fileID: 1788383682}
   - {fileID: 493517191}
+  - {fileID: 649624883}
   m_Father: {fileID: 516847812}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79089,6 +79249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_TableauModulaire (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8509271771560414263, guid: b345a64c0d9180148b3c50acb602fea3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 9033325003993405069, guid: b345a64c0d9180148b3c50acb602fea3,
         type: 3}
       propertyPath: m_RootOrder
@@ -80730,6 +80895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_Camera2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8681549187039895708, guid: 2d4def3e9409001408fcca8bd85c3adf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d4def3e9409001408fcca8bd85c3adf, type: 3}
 --- !u!4 &1550217844 stripped
@@ -81356,7 +81526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 25
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &1563716847
 MeshRenderer:
@@ -84407,7 +84577,7 @@ GameObject:
   - component: {fileID: 1618016826}
   m_Layer: 0
   m_Name: Bas murs Balcon droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85725,7 +85895,7 @@ GameObject:
   - component: {fileID: 1649980577}
   m_Layer: 0
   m_Name: Murs Couloir gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86042,7 +86212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 27
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1655289901
 MeshRenderer:
@@ -87371,12 +87541,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1452295982}
+    m_TransformParent: {fileID: 649624883}
     m_Modifications:
     - target: {fileID: 8585042945788491714, guid: 5f6baa2789f33c44fb5a01eb46da0907,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8585042945788491714, guid: 5f6baa2789f33c44fb5a01eb46da0907,
         type: 3}
@@ -87432,6 +87602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MursHublot_couloir droit
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130242955822349354, guid: 5f6baa2789f33c44fb5a01eb46da0907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6baa2789f33c44fb5a01eb46da0907, type: 3}
@@ -89928,6 +90103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_Camera2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681549187039895708, guid: 2d4def3e9409001408fcca8bd85c3adf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d4def3e9409001408fcca8bd85c3adf, type: 3}
@@ -92703,7 +92883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452295982}
-  m_RootOrder: 28
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1788383683
 MeshRenderer:
@@ -92894,7 +93074,6 @@ Transform:
   - {fileID: 1365809731}
   - {fileID: 180442458}
   - {fileID: 1649980576}
-  - {fileID: 24983551}
   - {fileID: 258750820}
   - {fileID: 333349409}
   - {fileID: 872752244}
@@ -93516,6 +93695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: valRotaDeg
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861507638112283535, guid: bd252d22fe2dcf54b9e5addaf5243e15,
+        type: 3}
+      propertyPath: hasColliderCam
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd252d22fe2dcf54b9e5addaf5243e15, type: 3}
@@ -96222,7 +96406,7 @@ GameObject:
   - component: {fileID: 1849997688}
   m_Layer: 0
   m_Name: Bas Murs balcon droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97837,6 +98021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: valRotaDeg
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861507638112283535, guid: bd252d22fe2dcf54b9e5addaf5243e15,
+        type: 3}
+      propertyPath: hasColliderCam
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd252d22fe2dcf54b9e5addaf5243e15, type: 3}
@@ -99638,7 +99827,7 @@ GameObject:
   - component: {fileID: 1920426937}
   m_Layer: 0
   m_Name: Bas Murs balcon droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102636,7 +102825,7 @@ GameObject:
   - component: {fileID: 1976947953}
   m_Layer: 0
   m_Name: Murs Couloir Droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102653,8 +102842,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1.2183, z: 0.7903365}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1452295982}
-  m_RootOrder: 22
+  m_Father: {fileID: 649624883}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1976947953
 MeshRenderer:
@@ -104742,6 +104931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Msh_BarreRambarde (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
@@ -107297,7 +107491,7 @@ GameObject:
   - component: {fileID: 2073672840}
   m_Layer: 0
   m_Name: Bas murs Balcon droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111077,6 +111271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Msh_BarreRambarde (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3121947733120972553, guid: 7dcd9e1135714e945a9d071d21cc060e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd9e1135714e945a9d071d21cc060e, type: 3}
 --- !u!4 &2139935207 stripped
@@ -111439,6 +111638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HublotContour (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413243744336664838, guid: df7ed4d4adff7694a8383704ad088ec0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df7ed4d4adff7694a8383704ad088ec0, type: 3}
@@ -112567,12 +112771,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1452295982}
+    m_TransformParent: {fileID: 649624883}
     m_Modifications:
     - target: {fileID: 8585042945788491714, guid: 5f6baa2789f33c44fb5a01eb46da0907,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8585042945788491714, guid: 5f6baa2789f33c44fb5a01eb46da0907,
         type: 3}
@@ -112628,6 +112832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MursHublot_couloir droit
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130242955822349354, guid: 5f6baa2789f33c44fb5a01eb46da0907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6baa2789f33c44fb5a01eb46da0907, type: 3}
