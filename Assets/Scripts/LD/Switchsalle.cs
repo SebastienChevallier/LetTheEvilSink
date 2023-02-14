@@ -18,6 +18,7 @@ public class Switchsalle : MonoBehaviour
     public GameObject obj = null;
 
     private Quaternion target;
+    public bool isTriggered = false;
 
 
     private void Start()
@@ -29,56 +30,36 @@ public class Switchsalle : MonoBehaviour
     {
         if (obj)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!isTriggered)
             {
-                /*if (hasColliderCam)
-                {
-                    colliderCam.SetActive(false);
-                    playerData._CibleCamera = obj;
-                }*/
-                    
-
-                if (inverseTrigger.activeSelf)
+                isTriggered = true;
+                Debug.Log(obj.transform.rotation.eulerAngles.y);
+                if (obj.transform.rotation.eulerAngles.y <= baseRotaDeg + 0.1f)
                 { 
+                    
                     target = Quaternion.Euler(0, valRotaDeg, 0);
                     inverseTrigger2.SetActive(true);
-                    
                     inverseTrigger.SetActive(false);
-
                     if (hasColliderCam)
                     {
                         colliderCam.SetActive(false);
                         colliderCam2.SetActive(true);
                     }
-                    
-                    
                 }
                 else
                 {
                     target = Quaternion.Euler(0, baseRotaDeg, 0);
                     inverseTrigger.SetActive(true);
-                    
                     inverseTrigger2.SetActive(false);
-
                     if (hasColliderCam)
                     {
                         colliderCam2.SetActive(false);
                         colliderCam.SetActive(true);
                     }
-                    
-                    
                 }
-                
                 obj.transform.position = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
-
-                
             }
             obj.transform.rotation = Quaternion.Slerp(obj.transform.rotation, target, Time.deltaTime * speedRotation);
-
-            /*if(obj.transform.rotation == target && hasColliderCam)
-                colliderCam.SetActive(true); */
-
         }
-        
     }
 }

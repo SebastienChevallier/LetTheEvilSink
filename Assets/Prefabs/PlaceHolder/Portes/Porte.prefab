@@ -44,6 +44,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Porte
       objectReference: {fileID: 0}
+    - target: {fileID: 6839192820828445949, guid: 378f2029b6c9c3c49a3d109f10d2a3a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 8677052385211792016, guid: 378f2029b6c9c3c49a3d109f10d2a3a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -101,6 +106,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378f2029b6c9c3c49a3d109f10d2a3a1, type: 3}
+--- !u!1 &5449819795828734334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6839192820828445949, guid: 378f2029b6c9c3c49a3d109f10d2a3a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1533501616192415107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2254080750988668853
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5449819795828734334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8452681322382804519, guid: 083a6c6ba1b96764fb055100859659fd, type: 3}
 --- !u!4 &7864132344450637587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8677052385211792016, guid: 378f2029b6c9c3c49a3d109f10d2a3a1,
