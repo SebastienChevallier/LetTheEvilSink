@@ -119,7 +119,7 @@ public class Interact : MonoBehaviour
                         break;
 
                     case "Parler":
-                        if (_PlayerData._CanInteract)
+                        if (_PlayerData._CanInteract || _PlayerData._CanTalk)
                         {
                             Debug.Log(_NumDial);
                             Debug.Log(_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length);
@@ -169,8 +169,7 @@ public class Interact : MonoBehaviour
                                 _PlayerData._CanMove = true;
                                 _PlayerData._CanInteract = true;
                                 _PlayerData._CanTalk = false;
-                            }                                                     
-                    
+                            }   
                         }
                         break;
 
