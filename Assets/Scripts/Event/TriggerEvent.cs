@@ -16,7 +16,7 @@ public class TriggerEvent : MonoBehaviour
     public int _NumDial = 0;
 
     public float delay = 0.1f;
-    public float delaySuiteDial = 0.1f;
+    public float delaySuiteDial = 1f;
     private float timer;
     public enum eventType
     {
@@ -33,32 +33,56 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_Player._CanInteract && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            if (isTriggered && animName != "")
+            if (!isTriggered)
             {
                 switch (_event)
                 {
                     case eventType.discution:
                         texteNarrateur.SetActive(true);
-                        StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur));
+                        _Player._CanInteract = false;
+                        isTriggered = true;
                         break;
                     
                     case eventType.animation:
-                        animator.SetTrigger(animName);
+                        if (animName != "")
+                        {
+                            animator.SetTrigger(animName);
+                            _Player._CanMove = false;
+                            _Player._CanInteract = false;
+                            isTriggered = true;
+                        }
                         break;
                     
                     default:
                         break;
                 }
-                isTriggered = true;
             }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player") && !isTriggered)
+        {
+            timer += Time.deltaTime;
+            if (timer > delaySuiteDial)
+            {
+                Debug.Log("In");
+                StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur.transform.GetChild(0).gameObject));
+                _NumDial++;
+                timer = 0;
+            }
+            
+            if(_NumDial > _Discution._Dialog.Length)
+            {
+                _Player._CanMove = true;
+                _Player._CanInteract = true;
+                texteNarrateur.SetActive(false);
+                _NumDial = 0;
+            }
+        }
     }
 
     private string currentText;
@@ -69,7 +93,11 @@ public class TriggerEvent : MonoBehaviour
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
             yield return new WaitForSeconds(delay);
+            
+            if (Input.GetButtonDown("Interact") && _NumDial > 0)
+            {
+                i = texte.Length;
+            }
         }
-        
     }
 }
