@@ -1879,7 +1879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.98760986, y: 34}
+  m_AnchoredPosition: {x: -0.9875488, y: 34}
   m_SizeDelta: {x: -13.8255, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &101524929
@@ -7184,7 +7184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484163249
@@ -11412,7 +11412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806908843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13021,14 +13021,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: 0
-  _Discution: {fileID: 0}
+  _Discution: {fileID: 11400000, guid: 518726c852bc74d43b4ec55ddf754b01, type: 2}
   _Player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   animName: 
   isTriggered: 0
-  texteNarrateur: {fileID: 0}
+  texteNarrateur: {fileID: 806908842}
   _NumDial: 0
-  delay: 0.1
-  delaySuiteDial: 0.1
+  delay: 0.01
+  delaySuiteDial: 0.5
 --- !u!1 &893758335
 GameObject:
   m_ObjectHideFlags: 0
