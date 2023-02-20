@@ -37,6 +37,11 @@ public class Interact : MonoBehaviour
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
             yield return new WaitForSeconds(delay);
+            
+            if (Input.GetButtonDown("Interact") && _NumDial > 0)
+            {
+                i = texte.Length;
+            }
         }
         
     }
