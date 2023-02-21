@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2271802153606366527}
   - component: {fileID: 6997868120499920751}
   - component: {fileID: 1463025837258513588}
+  - component: {fileID: 7643408923341949073}
   m_Layer: 0
   m_Name: BasMur_modulaire
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f239b938945810942900c52d7f963c71, type: 2}
+  - {fileID: 2100000, guid: 9cf3b4a3066289e4596807a794b344f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7643408923341949073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137289432038456044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1336675, y: 1.2520276, z: 0.063683614}
+  m_Center: {x: 0.0000001192093, y: 0.25322494, z: 0}
