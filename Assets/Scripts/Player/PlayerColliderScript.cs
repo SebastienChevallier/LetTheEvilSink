@@ -9,10 +9,9 @@ public class PlayerColliderScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("Untagged") && !other.CompareTag("Player") && !other.CompareTag("Wall"))
+        if (!other.CompareTag("Untagged"))
         {
             _Player._TriggerObject = other.gameObject;
-            transform.parent.GetComponent<Interact>().triggeredObject = other.gameObject;
         }
         
         
@@ -20,6 +19,5 @@ public class PlayerColliderScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _Player._TriggerObject = null;
-        transform.parent.GetComponent<Interact>().triggeredObject = null;
     }
 }
