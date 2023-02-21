@@ -8,7 +8,7 @@ public class GridManager : MonoBehaviour
     public List<Tuyauterie> puzzleTiles;
 
 
-    void Start()
+    void OnEnable()
     {
         foreach (Transform t in grid)
         {
@@ -37,6 +37,6 @@ public class GridManager : MonoBehaviour
         }
 
         // PUZZLE FINI
-        Debug.Log("FINI");
+        transform.parent.GetComponent<Trigger_Minijeu>().validated = true;
     }
 }

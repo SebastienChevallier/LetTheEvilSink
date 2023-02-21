@@ -14,7 +14,7 @@ public class Crochetage : MonoBehaviour
     private float objectif2;
 
 
-    void Start()
+    void OnEnable()
     {
         objectif1 = Random.Range(0f, 110f);
         objectif2 = Random.Range(240f, 360f);
@@ -50,8 +50,7 @@ public class Crochetage : MonoBehaviour
             if (_Crochet.transform.eulerAngles.z > objectifFinal - 10  && _Crochet.transform.eulerAngles.z < objectifFinal + 10)
             {
                 Debug.Log("REUSSI");
-                //SceneManager.UnloadSceneAsync("Crochetage");
-                //SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
+                transform.parent.parent.GetComponent<Trigger_Minijeu>().validated = true;
             }
         }
     }

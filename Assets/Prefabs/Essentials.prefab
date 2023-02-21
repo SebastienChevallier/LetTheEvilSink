@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 1620462949}
   - component: {fileID: 1620462950}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlanePNG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 1620462948}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3531506494162388422}
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _PlayerData: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   _Camera: {fileID: 5725460995780874049}
-  _CameraParam: {fileID: 0}
+  _CameraParam: {fileID: 11400000, guid: 225d1768dca9ea94397a1619cc81434d, type: 2}
   _Speed: 0.22
   _ZoomSpeed: 0.3
   _ZoomValue: 5.8
