@@ -86,9 +86,7 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             if(timer > minTime && timer < maxTime)
             {
                 completed = true;
-                Debug.Log("Complete");
-                SceneManager.UnloadSceneAsync("Carte");
-                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
+                
                 CancelDrag();
             }
             else if (timer < minTime)
