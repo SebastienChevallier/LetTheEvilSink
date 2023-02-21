@@ -5,7 +5,6 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public Transform grid;
-
     public List<Tuyauterie> puzzleTiles;
 
 
@@ -37,6 +36,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
+        // PUZZLE FINI
         Debug.Log("FINI");
     }
 }
