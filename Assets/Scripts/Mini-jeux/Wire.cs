@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public bool IsLeftWire;  
+    public bool IsLeftWire;
     private Image _image;
 
     public Color CustomColor;
@@ -20,6 +20,9 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public bool isSuccess = false;
 
+    public float timer = 0f;
+
+
     private void Awake()
     {
         _image = GetComponent<Image>();
@@ -32,6 +35,8 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         if (_isDragStarted)
         {
+            timer += Time.deltaTime;
+
             Vector2 movePos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                     _canvas.transform as RectTransform,
@@ -49,7 +54,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                 _lineRenderer.SetPosition(0, Vector3.zero);
                 _lineRenderer.SetPosition(1, Vector3.zero);
             }
-            
+
         }
 
         bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition, _canvas.worldCamera);
@@ -70,30 +75,40 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!IsLeftWire) { return; }
-        if(isSuccess) { return; }
+        if (isSuccess) { return; }
         _isDragStarted = true;
         _wireTask.CurrentDraggedWire = this;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(_wireTask.CurrentHoveredWire != null)
+        if (_wireTask.CurrentHoveredWire != null && (timer > 1f && timer < 3f))
         {
-            if(_wireTask.CurrentHoveredWire.CustomColor == CustomColor && !_wireTask.CurrentHoveredWire.IsLeftWire)
+            if (_wireTask.CurrentHoveredWire.CustomColor == CustomColor && !_wireTask.CurrentHoveredWire.IsLeftWire && _wireTask.wireTriggered)
             {
                 isSuccess = true;
                 _wireTask.CurrentHoveredWire.isSuccess = true;
             }
         }
 
-
+        timer = 0f;
         _isDragStarted = false;
         _wireTask.CurrentDraggedWire = null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _wireTask.wireTriggered = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _wireTask.wireTriggered = false;
     }
 }
