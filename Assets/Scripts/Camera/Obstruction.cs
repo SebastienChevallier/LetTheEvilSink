@@ -13,15 +13,31 @@ public class Obstruction : MonoBehaviour
         {
             obstruction = other.transform;
             obstruction.gameObject.layer = LayerMask.NameToLayer("DontShow");
+            for(int i = 0; i < other.transform.childCount; i++)
+            {
+                other.transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("DontShow");
+            }
         }
     }
-    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            obstruction = other.transform;
+            //obstruction.gameObject.layer = LayerMask.NameToLayer("DontShow");
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Wall"))
         {
             obstruction = other.transform;
-            obstruction.gameObject.layer = LayerMask.NameToLayer("Default");
+            for(int i = 0; i < other.transform.childCount; i++)
+            {
+                other.transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Default");
+            }
         }
     }
     
