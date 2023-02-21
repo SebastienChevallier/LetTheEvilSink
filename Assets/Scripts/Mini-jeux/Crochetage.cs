@@ -7,58 +7,51 @@ using UnityEngine.SceneManagement;
 
 public class Crochetage : MonoBehaviour
 {
-
     public GameObject _Crochet;
-    [SerializeField]
+    public GameObject _CrochetFinal;
     private float objectifFinal;
     private float objectif1;
     private float objectif2;
-    private float timeLeft;
-    private float _TimeDelay = 1f;
-
-    private float val;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         objectif1 = Random.Range(0f, 110f);
         objectif2 = Random.Range(240f, 360f);
         var var_crochet = Random.Range(0, 2);
+
         if (var_crochet == 0)
             objectifFinal = objectif1;
         else
             objectifFinal = objectif2;
+
+        _CrochetFinal.transform.eulerAngles = new Vector3(0, 0, objectifFinal);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Rotate();
+        CheckPosition();
         
-        if (Input.GetKey(KeyCode.A) && (_Crochet.transform.eulerAngles.z < 110 || _Crochet.transform.eulerAngles.z > 230))
+        if (Input.GetAxis("Horizontal") < 0 && (_Crochet.transform.eulerAngles.z < 110 || _Crochet.transform.eulerAngles.z > 230))
         {
-            _Crochet.transform.Rotate(0, 0, 1f);
+            _Crochet.transform.Rotate(0, 0, 0.1f);
         }
 
-        if (Input.GetKey(KeyCode.D) && (_Crochet.transform.eulerAngles.z < 120 || _Crochet.transform.eulerAngles.z > 240))
+        if (Input.GetAxis("Horizontal") > 0 && (_Crochet.transform.eulerAngles.z < 120 || _Crochet.transform.eulerAngles.z > 240))
         {
-            _Crochet.transform.Rotate(0, 0, -1f);
-        }
-
-        Debug.Log(val);
-           
+            _Crochet.transform.Rotate(0, 0, -0.1f);
+        }           
     }
 
-    private void Rotate()
+    private void CheckPosition()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            
             if (_Crochet.transform.eulerAngles.z > objectifFinal - 10  && _Crochet.transform.eulerAngles.z < objectifFinal + 10)
             {
-                SceneManager.UnloadSceneAsync("Crochetage");
-                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
+                Debug.Log("REUSSI");
+                //SceneManager.UnloadSceneAsync("Crochetage");
+                //SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
             }
         }
     }
