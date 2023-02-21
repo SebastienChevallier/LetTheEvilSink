@@ -21,7 +21,6 @@ public class Interact : MonoBehaviour
 
     [Header("UI")]
     public float delay = 0.1f;
-    public GameObject triggeredObject;
 
     private string currentText;
 
@@ -29,11 +28,11 @@ public class Interact : MonoBehaviour
     void Update()
     {
         Interagir();
-        DelayInput();
+        //DelayInput();
     }
 
     public float timerInput;
-    private float delayInput = 2f;
+    private float delayInput = 3f;
     
     private void DelayInput()
     {
@@ -74,7 +73,7 @@ public class Interact : MonoBehaviour
 
     public void Interagir()
     {
-        if (triggeredObject != null)
+        if (_PlayerData._TriggerObject != null)
         {
             if (Input.GetButtonDown("Interact"))
             {
@@ -120,7 +119,7 @@ public class Interact : MonoBehaviour
                         break;
 
                     case "Parler":
-                        if (_PlayerData._CanInteract || _PlayerData._CanTalk && timerInput <= 0)
+                        if (_PlayerData._CanInteract || _PlayerData._CanTalk)
                         {
                             Debug.Log(_NumDial);
                             Debug.Log(_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length);
@@ -129,7 +128,7 @@ public class Interact : MonoBehaviour
                             _PlayerData._CanMove = false;
                             _PanelParler.SetActive(true);
 
-                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length )
+                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length)
                             {
                                 _NumDial++;
 
