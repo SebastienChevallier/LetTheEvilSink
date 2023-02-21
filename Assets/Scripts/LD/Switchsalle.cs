@@ -58,6 +58,7 @@ public class Switchsalle : MonoBehaviour
                     }
                 }
                 obj.transform.position = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
+                
             }
             obj.transform.rotation = Quaternion.Slerp(obj.transform.rotation, target, Time.deltaTime * speedRotation);
         }

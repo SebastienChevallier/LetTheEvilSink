@@ -34,12 +34,12 @@ public class Crochetage : MonoBehaviour
         
         if (Input.GetAxis("Horizontal") < 0 && (_Crochet.transform.eulerAngles.z < 110 || _Crochet.transform.eulerAngles.z > 230))
         {
-            _Crochet.transform.Rotate(0, 0, 0.1f);
+            _Crochet.transform.Rotate(0, 0, 0.5f);
         }
 
         if (Input.GetAxis("Horizontal") > 0 && (_Crochet.transform.eulerAngles.z < 120 || _Crochet.transform.eulerAngles.z > 240))
         {
-            _Crochet.transform.Rotate(0, 0, -0.1f);
+            _Crochet.transform.Rotate(0, 0, -0.5f);
         }           
     }
 

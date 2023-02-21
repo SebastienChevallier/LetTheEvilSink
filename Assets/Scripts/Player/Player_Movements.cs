@@ -123,7 +123,7 @@ public class Player_Movements : MonoBehaviour
 
     void LampeTorche()
     {
-        if (Input.GetButtonDown("LampeTorche"))
+        if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove)
         {
             if (_PlayerData._CanLight)
             {

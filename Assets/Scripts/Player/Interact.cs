@@ -28,7 +28,7 @@ public class Interact : MonoBehaviour
     void Update()
     {
         Interagir();
-        //DelayInput();
+        DelayInput();
     }
 
     public float timerInput;
@@ -132,7 +132,7 @@ public class Interact : MonoBehaviour
                             {
                                 _NumDial++;
 
-                                if (_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._PlayerIsSpeaking)
+                                if (_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._PlayerIsSpeaking && timerInput <= 0)
                                 {
                                     _PanelParler.transform.GetChild(2).gameObject.SetActive(true);
                                     _PanelParler.transform.GetChild(3).gameObject.SetActive(false);

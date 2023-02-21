@@ -28,7 +28,7 @@ public class WireTask : MonoBehaviour
 
 
 
-    private void Start()
+    private void OnEnable()
     {
         _availableColors = new List<Color>(_wireColors);
         _availableLeftWireIndex = new List<int>();
