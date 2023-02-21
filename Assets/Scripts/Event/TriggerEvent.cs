@@ -17,7 +17,7 @@ public class TriggerEvent : MonoBehaviour
 
     public float delay = 0.1f;
     public float delaySuiteDial = 1f;
-    private float timer;
+    private float timer = 1f;
     public enum eventType
     {
         discution,
@@ -62,18 +62,12 @@ public class TriggerEvent : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private bool dialogDone;
+    private void Update()
     {
-        if (other.CompareTag("Player") && !isTriggered)
+        if(isTriggered && _event == eventType.discution && !dialogDone)
         {
             timer += Time.deltaTime;
-            if (timer > delaySuiteDial)
-            {
-                Debug.Log("In");
-                StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur.transform.GetChild(0).gameObject));
-                _NumDial++;
-                timer = 0;
-            }
             
             if(_NumDial > _Discution._Dialog.Length)
             {
@@ -81,9 +75,21 @@ public class TriggerEvent : MonoBehaviour
                 _Player._CanInteract = true;
                 texteNarrateur.SetActive(false);
                 _NumDial = 0;
+                dialogDone = true;
+            }
+            else if (timer > delaySuiteDial)
+            {
+                Debug.Log("In");
+                StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur.transform.GetChild(0).gameObject));
+                _NumDial++;
+                timer = 0;
             }
         }
+        
     }
+
+
+    
 
     private string currentText;
     IEnumerator ShowText(string texte, GameObject obj)
