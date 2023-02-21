@@ -57,7 +57,8 @@ MonoBehaviour:
   - {fileID: 9186727649850620228}
   - {fileID: -3422953918925098307}
   - {fileID: 685415693553477267}
-  m_RendererFeatureMap: e106992aaf21d29f44f99ac91fd07d7fbd32f0db8b397fd093a6bb19f1158309
+  - {fileID: 2651788179629053751}
+  m_RendererFeatureMap: e106992aaf21d29f44f99ac91fd07d7fbd32f0db8b397fd093a6bb19f115830937975eb24c0bcd24
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -138,6 +139,19 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &2651788179629053751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dab975e69883249a56554e791c4fd0, type: 3}
+  m_Name: ButoRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
 --- !u!114 &9186727649850620228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +171,7 @@ MonoBehaviour:
     AfterOpaque: 1
     Source: 0
     NormalSamples: 2
-    Intensity: 1.5
+    Intensity: 4
     DirectLightingStrength: 0
     Radius: 0.03
     SampleCount: 8

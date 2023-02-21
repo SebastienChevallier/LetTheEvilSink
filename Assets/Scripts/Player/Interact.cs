@@ -21,6 +21,7 @@ public class Interact : MonoBehaviour
 
     [Header("UI")]
     public float delay = 0.1f;
+    public GameObject triggeredObject;
 
     private string currentText;
 
@@ -28,6 +29,26 @@ public class Interact : MonoBehaviour
     void Update()
     {
         Interagir();
+        DelayInput();
+    }
+
+    public float timerInput;
+    private float delayInput = 2f;
+    
+    private void DelayInput()
+    {
+        if(Input.GetButtonDown("Interact"))
+        {
+            if (timerInput <= 0)
+            {
+                timerInput = delayInput;
+            }
+        }
+
+        if (timerInput >= 0)
+        {
+            timerInput -= Time.deltaTime;
+        }
     }
 
     IEnumerator ShowText(string texte, GameObject obj)
@@ -37,13 +58,23 @@ public class Interact : MonoBehaviour
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
             yield return new WaitForSeconds(delay);
+            
+            if(texte.Length == i)
+            {
+                timerInput = 0;
+            }
+            
+            if (Input.GetButtonDown("Interact") && _NumDial > 0)
+            {
+                i = texte.Length;
+                
+            }
         }
-        
     }
 
     public void Interagir()
     {
-        if (_PlayerData._TriggerObject != null)
+        if (triggeredObject != null)
         {
             if (Input.GetButtonDown("Interact"))
             {
@@ -89,15 +120,16 @@ public class Interact : MonoBehaviour
                         break;
 
                     case "Parler":
-                        if (_PlayerData._CanInteract || _PlayerData._CanTalk)
+                        if (_PlayerData._CanInteract || _PlayerData._CanTalk && timerInput <= 0)
                         {
                             Debug.Log(_NumDial);
+                            Debug.Log(_PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length);
                             _PlayerData._CanInteract = false;
                             _PlayerData._CanTalk = true;
                             _PlayerData._CanMove = false;
                             _PanelParler.SetActive(true);
 
-                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length)
+                            if (_NumDial < _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog.Length )
                             {
                                 _NumDial++;
 
@@ -138,8 +170,7 @@ public class Interact : MonoBehaviour
                                 _PlayerData._CanMove = true;
                                 _PlayerData._CanInteract = true;
                                 _PlayerData._CanTalk = false;
-                            }                                                     
-                    
+                            }   
                         }
                         break;
 
