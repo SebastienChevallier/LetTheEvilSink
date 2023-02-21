@@ -18,6 +18,7 @@ public class CamCollider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _Player._CibleCamera = GameObject.Find("Player");
+            
         }
     }
 }

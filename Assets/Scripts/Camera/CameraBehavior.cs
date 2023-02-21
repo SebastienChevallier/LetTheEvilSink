@@ -7,6 +7,7 @@ public class CameraBehavior : MonoBehaviour
     [Header("Data")]
     public So_Player _PlayerData;
     public Camera _Camera;
+    public So_CameraParam _CameraParam;
 
     [Header("Value")]
     public float _Speed;    
@@ -25,7 +26,10 @@ public class CameraBehavior : MonoBehaviour
     void Start()
     {
         _Camera = transform.GetChild(0).GetComponent<Camera>();
-       
+        _CameraParam._ZoomValue = _ZoomValue;
+        _CameraParam._YOffset = _YOffset;
+        _CameraParam._Speed = _Speed;
+        
     }
 
     // Update is called once per frame
@@ -46,12 +50,12 @@ public class CameraBehavior : MonoBehaviour
 
     void FollowCible()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, _PlayerData._CibleCamera.transform.position + new Vector3(0, _YOffset, 0), ref velocity, _Speed);
+        transform.position = Vector3.SmoothDamp(transform.position, _PlayerData._CibleCamera.transform.position + new Vector3(0, _CameraParam._YOffset, 0), ref velocity, _CameraParam._Speed);
     }
 
     void Zoom()
     {
-        Vector3 zoomVal = new Vector3(0,0,1) * (Mathf.Clamp(_ZoomValue * (1 - (_PlayerData._ValAngoisse / 100)), 2, 50));        
+        Vector3 zoomVal = new Vector3(0,0,1) * (Mathf.Clamp(_CameraParam._ZoomValue * (1 - (_PlayerData._ValAngoisse / 100)), 2, 50));        
         //_Camera.transform.localPosition = Vector3.SmoothDamp(_Camera.transform.localPosition, zoomVal, ref velocity, dampspeed);
         _Camera.transform.localPosition = zoomVal;
     }
