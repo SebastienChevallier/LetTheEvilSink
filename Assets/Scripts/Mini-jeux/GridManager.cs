@@ -37,6 +37,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
+        // PUZZLE FINI
         Debug.Log("FINI");
     }
 }
