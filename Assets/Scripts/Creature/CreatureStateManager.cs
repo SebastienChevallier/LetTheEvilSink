@@ -1,19 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreatureStateManager : MonoBehaviour
 {
+    [Header("Etats")]
     public CreatureBaseState currentState;
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
+
+    [Header("SO")]
+    public So_Player so_player;
+    public So_Creature so_creature;
+
+    [Header("Characters")]
+    public Transform player;
+    public Transform enemy;
+
 
 
     void Start()
     {
         currentState = WanderState;
         currentState.EnterState(this);
+
+        player = GameObject.FindWithTag("Player").transform;
+        enemy = GameObject.FindWithTag("Creature").transform;
     }
 
     void Update()

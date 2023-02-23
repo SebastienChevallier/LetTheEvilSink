@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class CreatureWanderState : CreatureBaseState
 {
-    So_Creature so;
-
-    public Transform playerStartPosition;
-
     float timeDelay = 10f;
     float timeLeft;
     float smoothTimer = 2f;
@@ -15,20 +11,19 @@ public class CreatureWanderState : CreatureBaseState
     public override void EnterState(CreatureStateManager creature)
     {
         // Load scriptable data
-        so = Resources.Load<So_Creature>("Creature/SO_Creature");
-        so.currentState = "Wander State";
+        creature.so_creature.currentState = "Wander State";
 
         // Save variables
-        playerStartPosition = GameObject.FindWithTag("Player").transform;
+        creature.player = GameObject.FindWithTag("Player").transform;
         timeLeft = timeDelay;
     }
 
     public override void UpdateState(CreatureStateManager creature)
     {
-        LowerGauge();
+        LowerGauge(creature);
 
         // Switch to search state when player did too much shit
-        if (so.gauge >= 100)
+        if (creature.so_creature.gauge >= 100)
             creature.SwitchState(creature.SearchState);
     }
 
@@ -47,13 +42,13 @@ public class CreatureWanderState : CreatureBaseState
 
     }
 
-    void LowerGauge()
+    void LowerGauge(CreatureStateManager creature)
     {
         // Lower gauge every second
         timeLeft -= Time.fixedDeltaTime * smoothTimer;
-        if (timeLeft < 0 && !so.summoned)
+        if (timeLeft < 0 && !creature.so_creature.summoned)
         {
-            so.AddGauge(-gaugeDiminution);
+            creature.so_creature.AddGauge(-gaugeDiminution);
             timeLeft = timeDelay;
         }
     }
