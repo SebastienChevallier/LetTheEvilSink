@@ -97,15 +97,11 @@ public class Interact : MonoBehaviour
                     case "Deplacer":
                         if (_PlayerData._CanInteract)
                         {
-                            if (!_PlayerData._TriggerObject.GetComponent<Animator>().GetBool("Interact"))
+                            if(_PlayerData._TriggerObject.GetComponent<AddForceCollider>() != null)
                             {
-                                _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", true);
+                                _PlayerData._TriggerObject.GetComponent<AddForceCollider>().Impulse();
                             }
-                            else
-                            {
-                                _PlayerData._TriggerObject.GetComponent<Animator>().SetBool("Interact", false);
-                            }
-                                
+
                         }                     
                         break;
 

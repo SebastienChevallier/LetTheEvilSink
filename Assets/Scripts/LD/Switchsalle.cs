@@ -28,7 +28,7 @@ public class Switchsalle : MonoBehaviour
   
     private void Update()
     {
-        if (obj)
+        if (obj && Input.GetKeyDown(KeyCode.E))
         {
             if (!isTriggered)
             {
