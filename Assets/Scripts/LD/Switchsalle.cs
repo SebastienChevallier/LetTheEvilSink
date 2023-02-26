@@ -21,6 +21,8 @@ public class Switchsalle : MonoBehaviour
     public So_Player _Player;
     
     public AnimationCurve curve;
+    
+    private bool rotate = false;
 
 
     private void Start()
@@ -50,6 +52,16 @@ public class Switchsalle : MonoBehaviour
         {
             _Player._CanMove = false;
         }
+        
+        if (curve.Evaluate(time) >= 0.99f)
+        {
+            rotate = false;
+        }
+        else 
+        {
+            rotate = true;
+        }
+        
     }
   
     private Quaternion temp;
@@ -59,7 +71,11 @@ public class Switchsalle : MonoBehaviour
         SetValueCurve();
         if (obj != null)
         {
-            obj.transform.rotation = Quaternion.Slerp(temp, target, curve.Evaluate(time));
+           
+            
+            if(rotate) 
+                obj.transform.rotation = Quaternion.Slerp(temp, target, curve.Evaluate(time));
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
                 temp = obj.transform.rotation;
@@ -88,6 +104,8 @@ public class Switchsalle : MonoBehaviour
                         colliderCam.SetActive(true);
                     }
                 }
+                  
+                    
                 obj.transform.position = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
                 
             }
