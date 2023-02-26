@@ -19,7 +19,7 @@ public class ColliderSwitch : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             transform.parent.GetComponent<Switchsalle>().obj = null;
-            GetComponentInParent<Switchsalle>().isTriggered = false;
+            
         }
             
     }

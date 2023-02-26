@@ -5,11 +5,10 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public Transform grid;
-
     public List<Tuyauterie> puzzleTiles;
 
 
-    void Start()
+    void OnEnable()
     {
         foreach (Transform t in grid)
         {
@@ -37,6 +36,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        Debug.Log("FINI");
+        // PUZZLE FINI
+        transform.parent.GetComponent<Trigger_Minijeu>().validated = true;
     }
 }

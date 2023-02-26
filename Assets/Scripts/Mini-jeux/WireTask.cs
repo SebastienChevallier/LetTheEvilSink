@@ -14,9 +14,9 @@ public class WireTask : MonoBehaviour
 
     private List<Color> _availableColors;
 
-    private List<int> _availableLeftWireIndex;
+    public List<int> _availableLeftWireIndex;
 
-    private List<int> _availableRightWireIndex;
+    public List<int> _availableRightWireIndex;
 
     public Wire CurrentDraggedWire;
 
@@ -66,14 +66,13 @@ public class WireTask : MonoBehaviour
 
             if(successfulWires >= _rightWires.Count)
             {
-                Debug.Log("TaskComplete");
-                SceneManager.UnloadSceneAsync("Cables");
-                SceneManager.LoadScene("Mini jeux", LoadSceneMode.Additive);
+                //Debug.Log("TaskComplete");
+                transform.parent.parent.parent.GetComponent<Trigger_Minijeu>().validated = true;
                 IsTaskCompleted = true;
             }
             else
             {
-                Debug.Log("Task InComplete");
+                //Debug.Log("Task InComplete");
             }
             yield return new WaitForSeconds(0.5f);
         }

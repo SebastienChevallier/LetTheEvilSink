@@ -36,6 +36,13 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (_isDragStarted)
         {
             timer += Time.deltaTime;
+            if (timer > 4f)
+            {
+                _lineRenderer.SetPosition(0, Vector3.zero);
+                _lineRenderer.SetPosition(1, Vector3.zero);
+                _isDragStarted = false;
+                _wireTask.CurrentDraggedWire = null;
+            }
 
             Vector2 movePos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -75,7 +82,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-
+    
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -88,7 +95,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (_wireTask.CurrentHoveredWire != null && (timer > 1f && timer < 3f))
+        if (_wireTask.CurrentHoveredWire != null && timer > 1f)
         {
             if (_wireTask.CurrentHoveredWire.CustomColor == CustomColor && !_wireTask.CurrentHoveredWire.IsLeftWire && _wireTask.wireTriggered)
             {
