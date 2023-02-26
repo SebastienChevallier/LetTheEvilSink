@@ -27,46 +27,22 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Interagir();
-        DelayInput();
+        Interagir();  
+        Carnet();
     }
-
-    public float timerInput;
-    private float delayInput = 3f;
     
-    private void DelayInput()
+    public bool carnet = false;
+    private void Carnet()
     {
-        if(Input.GetButtonDown("Interact"))
+        if (_PlayerData._CanInteract && Input.GetButtonDown("Carnet"))
         {
-            if (timerInput <= 0)
+            if (carnet)
             {
-                timerInput = delayInput;
+                _PanelCarnet.SetActive(true);
             }
-        }
-
-        if (timerInput >= 0)
-        {
-            timerInput -= Time.deltaTime;
-        }
-    }
-
-    IEnumerator ShowText(string texte, GameObject obj)
-    {
-        for(int i = 0; i <= texte.Length; i++)
-        {
-            currentText = texte.Substring(0, i);
-            obj.GetComponent<TextMeshProUGUI>().text = currentText;
-            yield return new WaitForSeconds(delay);
-            
-            if(texte.Length == i)
+            else
             {
-                timerInput = 0;
-            }
-            
-            if (Input.GetButtonDown("Interact") && _NumDial > 0)
-            {
-                i = texte.Length;
-                
+                _PanelCarnet.SetActive(false);
             }
         }
     }
@@ -103,19 +79,6 @@ public class Interact : MonoBehaviour
                             }
 
                         }                     
-                        break;
-
-                    case "Cables":
-                        //SceneManager.LoadSceneAsync("Cables", LoadSceneMode.Additive);
-
-                        break;
-
-                    case "Recuperer":
-                        //Recuperation de loot                        
-                        break;
-
-                    case "Parler":
-                        
                         break;
 
                     case "Cacher":

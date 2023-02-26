@@ -46,10 +46,8 @@ public class Personnage : MonoBehaviour
         
         if(Input.GetButtonDown("Interact") && timerInput <= 0)
         {
-            Debug.Log("E");
             if(isTrigger)
             {
-                Debug.Log("isTrigger");
                 Parler(); 
             }
         }
@@ -76,8 +74,6 @@ public class Personnage : MonoBehaviour
     {
         if (_PlayerData._CanInteract || _PlayerData._CanTalk)
         {
-            Debug.Log(_NumDial);
-            Debug.Log(_Dis._Dialog.Length);
             _PlayerData._CanInteract = false;
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
