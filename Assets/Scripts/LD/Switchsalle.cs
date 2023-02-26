@@ -19,7 +19,7 @@ public class Switchsalle : MonoBehaviour
 
     private Quaternion target;
     public So_Player _Player;
-    public bool isTriggered = false;
+    
     public AnimationCurve curve;
 
 
@@ -57,15 +57,14 @@ public class Switchsalle : MonoBehaviour
     {
         BlockPlayer();
         SetValueCurve();
-        if (obj)
+        if (obj != null)
         {
             obj.transform.rotation = Quaternion.Slerp(temp, target, curve.Evaluate(time));
             if (Input.GetKeyDown(KeyCode.E))
             {
                 temp = obj.transform.rotation;
                 time = 0;
-                isTriggered = true;
-                Debug.Log(obj.transform.rotation.eulerAngles.y);
+
                 if (obj.transform.rotation.eulerAngles.y <= baseRotaDeg + 0.1f)
                 { 
                 

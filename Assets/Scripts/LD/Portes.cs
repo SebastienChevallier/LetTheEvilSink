@@ -38,7 +38,7 @@ public class Portes : MonoBehaviour
                 fadeValue = 1f;
                 if (frontTriggered)
                 {
-                    Debug.Log("En Haut");
+                    
                     if (allow_Y_Tp)
                     {
                         player.transform.position = new Vector3(trigger2.transform.position.x, trigger2.transform.position.y+1, trigger2.transform.position.z);
@@ -56,7 +56,7 @@ public class Portes : MonoBehaviour
                 }
                 else if (backTriggered)
                 {
-                    Debug.Log("En Bas");
+                    
                     if (allow_Y_Tp)
                     {
                         player.transform.position = new Vector3(trigger.transform.position.x, trigger.transform.position.y + 1, trigger.transform.position.z);
