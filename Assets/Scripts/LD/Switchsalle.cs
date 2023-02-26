@@ -18,25 +18,56 @@ public class Switchsalle : MonoBehaviour
     public GameObject obj = null;
 
     private Quaternion target;
-    public bool isTriggered = false;
+    public So_Player _Player;
+    
+    public AnimationCurve curve;
 
 
     private void Start()
     {
         target = Quaternion.Euler(0, baseRotaDeg, 0);
+        temp = target;
+        time = 0;
+    }
+
+    private float time;
+    private void SetValueCurve()
+    {
+        if(time <= 1)
+        {
+            time += Time.deltaTime * speedRotation;
+            curve.Evaluate(time);
+        }
+    }
+    
+    private void BlockPlayer()
+    {
+        if (curve.Evaluate(time) >= 0.9f)
+        {
+            _Player._CanMove = true;
+        }
+        else 
+        {
+            _Player._CanMove = false;
+        }
     }
   
+    private Quaternion temp;
     private void Update()
     {
-        if (obj)
+        BlockPlayer();
+        SetValueCurve();
+        if (obj != null)
         {
-            if (!isTriggered)
+            obj.transform.rotation = Quaternion.Slerp(temp, target, curve.Evaluate(time));
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                isTriggered = true;
-                Debug.Log(obj.transform.rotation.eulerAngles.y);
+                temp = obj.transform.rotation;
+                time = 0;
+
                 if (obj.transform.rotation.eulerAngles.y <= baseRotaDeg + 0.1f)
                 { 
-                    
+                
                     target = Quaternion.Euler(0, valRotaDeg, 0);
                     inverseTrigger2.SetActive(true);
                     inverseTrigger.SetActive(false);
@@ -60,7 +91,9 @@ public class Switchsalle : MonoBehaviour
                 obj.transform.position = new Vector3(transform.position.x, obj.transform.position.y, transform.position.z);
                 
             }
-            obj.transform.rotation = Quaternion.Slerp(obj.transform.rotation, target, Time.deltaTime * speedRotation);
+            
         }
+        
+        
     }
 }
