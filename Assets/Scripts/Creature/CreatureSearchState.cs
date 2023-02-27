@@ -19,7 +19,10 @@ public class CreatureSearchState : CreatureBaseState
         creature.agent.speed = creature.searchSpeed;
 
         // Spawn Creature
-        SpawnCreature(creature);
+        if (!creature.backFromChaseMode)
+            SpawnCreature(creature);
+        else
+            positionChecked = true;
     }
 
     public override void UpdateState(CreatureStateManager creature)
@@ -46,8 +49,9 @@ public class CreatureSearchState : CreatureBaseState
             ResetState(creature);
             creature.AddGauge(-creature.searchGaugeDiminution);
             creature.summoned = false;
-            Object.Destroy(creature.enemy.gameObject);
+            creature.agent.Warp(Vector3.zero);
             creature.SwitchState(creature.WanderState);
+            Debug.Log("Hello");
         }
         // Destroy obstacles that the player may have placed
         else if (collision.gameObject.CompareTag("Deplacer"))
@@ -72,7 +76,7 @@ public class CreatureSearchState : CreatureBaseState
         Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
 
         // Set creature Transform
-        creature.enemy.position = spawnPoint.position;
+        creature.agent.Warp(spawnPoint.position);
 
         // Swpawn creature
         creature.summoned = true;
