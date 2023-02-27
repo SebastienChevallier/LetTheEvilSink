@@ -12,9 +12,8 @@ public class CreatureStateManager : MonoBehaviour
     public So_Player so_player;
     public So_Creature so_creature;
 
-    [Header("Characters")]
-    public Transform player;
-    public Transform enemy;
+    [HideInInspector] public Transform player;
+    [HideInInspector] public Transform enemy;
 
 
 

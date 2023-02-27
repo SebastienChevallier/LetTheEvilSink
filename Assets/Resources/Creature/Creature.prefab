@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 3001450174386114351}
   - component: {fileID: 3001450174386114322}
   - component: {fileID: 3001450174386114321}
-  - component: {fileID: 6912724455378310835}
   - component: {fileID: 5105552212111289176}
+  - component: {fileID: 8686753018806499284}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Creature
@@ -98,18 +98,6 @@ CapsuleCollider:
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6912724455378310835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3001450174386114350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2d576596ffa204dbd668b9aaf405b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &5105552212111289176
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -132,6 +120,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8686753018806499284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001450174386114350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16af8d0d508de1e4292079cc0840dabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so_player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
+  so_creature: {fileID: 11400000, guid: 15f349b1112abd64c94dfc4ac81e2df1, type: 2}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1 &4278645864788744930
 GameObject:
   m_ObjectHideFlags: 0
