@@ -10,14 +10,14 @@ public class CreatureStateManager : MonoBehaviour
     [HideInInspector] public NavMeshAgent agent;
 
     [Header("States")]
+    [Range(0, 100)]
+    public int gauge;
     public string currentStateName;
     public CreatureBaseState currentState;
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
     public bool summoned;
-    [Range(0, 100)]
-    public int gauge;
 
     [Header("Detection")]
     public float visionDetectionInDark;
@@ -31,12 +31,12 @@ public class CreatureStateManager : MonoBehaviour
     [Header("Search State")]
     public float searchSpeed;
     public int searchGaugeDiminution;
-    public bool playerDetected;
+    [HideInInspector] public bool playerDetected;
 
     [Header("Chase State")]
     public float chaseSpeed;
     public float chaseDistance;
-    public bool backFromChaseMode;
+    [HideInInspector] public bool backFromChaseMode;
 
 
 

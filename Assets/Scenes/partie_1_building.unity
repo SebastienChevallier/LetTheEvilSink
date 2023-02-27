@@ -22275,7 +22275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805571028, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 805571031, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
       propertyPath: m_Enabled
@@ -61461,11 +61461,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3001450174386114322, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 3001450174386114350, guid: fc4e9a953597e8145bd1ae8198cb6478,
         type: 3}
       propertyPath: m_Name
@@ -61525,41 +61520,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5105552212111289176, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: m_BaseOffset
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: chaseSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: searchSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: hearingDetection
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: wanderGaugeDelay
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: visionDetectionInDark
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
-        type: 3}
-      propertyPath: visionDetectionInLight
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc4e9a953597e8145bd1ae8198cb6478, type: 3}

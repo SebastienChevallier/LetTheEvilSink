@@ -59,7 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001450174386114350}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -82,7 +82,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 120
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!136 &3001450174386114321
 CapsuleCollider:
@@ -117,7 +117,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1.8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8686753018806499284
@@ -136,18 +136,18 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 0}
   agent: {fileID: 0}
+  gauge: 0
   currentStateName: 
   summoned: 0
-  gauge: 0
-  visionDetectionInDark: 8
-  visionDetectionInLight: 15
-  hearingDetection: 10
-  wanderGaugeDelay: 10
+  visionDetectionInDark: 4
+  visionDetectionInLight: 8
+  hearingDetection: 8
+  wanderGaugeDelay: 5
   wanderGaugeDiminution: 1
-  searchSpeed: 5
-  searchGaugeDiminution: 25
+  searchSpeed: 3
+  searchGaugeDiminution: 10
   playerDetected: 0
-  chaseSpeed: 3
+  chaseSpeed: 5
   chaseDistance: 8
   backFromChaseMode: 0
 --- !u!1 &4278645864788744930
