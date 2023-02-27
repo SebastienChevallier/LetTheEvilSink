@@ -20,22 +20,22 @@ public class CreatureStateManager : MonoBehaviour
     public int gauge;
 
     [Header("Detection")]
-    public float visionDetectionInDark = 8f;
-    public float visionDetectionInLight = 15f;
-    public float hearingDetection = 10f;
+    public float visionDetectionInDark;
+    public float visionDetectionInLight;
+    public float hearingDetection;
 
     [Header("Wander State")]
-    public float wanderGaugeDelay = 10f;
-    public int wanderGaugeDiminution = 1;
+    public float wanderGaugeDelay;
+    public int wanderGaugeDiminution;
 
     [Header("Search State")]
-    public float searchSpeed = 5f;
-    public int searchGaugeDiminution = 25;
+    public float searchSpeed;
+    public int searchGaugeDiminution;
     public bool playerDetected;
 
     [Header("Chase State")]
-    public float chaseSpeed = 3f;
-    public float chaseDistance = 8f;
+    public float chaseSpeed;
+    public float chaseDistance;
     public bool backFromChaseMode;
 
 

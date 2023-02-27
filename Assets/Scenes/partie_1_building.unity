@@ -61529,7 +61529,37 @@ PrefabInstance:
     - target: {fileID: 5105552212111289176, guid: fc4e9a953597e8145bd1ae8198cb6478,
         type: 3}
       propertyPath: m_BaseOffset
-      value: 2
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: chaseSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: searchSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: hearingDetection
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: wanderGaugeDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: visionDetectionInDark
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+        type: 3}
+      propertyPath: visionDetectionInLight
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc4e9a953597e8145bd1ae8198cb6478, type: 3}
@@ -71824,7 +71854,7 @@ GameObject:
   - component: {fileID: 1887703813}
   - component: {fileID: 1887703812}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CreaturePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71838,7 +71868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887703810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.27, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []

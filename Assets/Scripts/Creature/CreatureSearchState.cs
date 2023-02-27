@@ -5,11 +5,15 @@ public class CreatureSearchState : CreatureBaseState
 {
     Vector3 lastPositionHeard;
     Vector3 lastPlayerPosition;
+    Vector3 randomPosition;
 
     public bool soundHeard = false;
     public bool positionChecked = false;
 
     float radius = 5f;
+
+    float timer = 3f;
+    float smoothTimer = 2f;
 
 
     public override void EnterState(CreatureStateManager creature)
@@ -17,6 +21,8 @@ public class CreatureSearchState : CreatureBaseState
         // Load resources
         creature.currentStateName = "Search State";
         creature.agent.speed = creature.searchSpeed;
+
+        randomPosition = creature.enemy.position;
 
         // Spawn Creature
         if (!creature.backFromChaseMode)
@@ -103,7 +109,11 @@ public class CreatureSearchState : CreatureBaseState
 
     void WanderInRoom(CreatureStateManager creature)
     {
-        creature.agent.SetDestination(RandomPosition(creature));
+        timer -= Time.fixedDeltaTime * smoothTimer;
+
+        if (timer <= 0) randomPosition = RandomPosition(creature);
+
+        creature.agent.SetDestination(randomPosition);
     }
 
     void CheckLastPlayerPosition(CreatureStateManager creature)
