@@ -9,10 +9,10 @@ public class CreatureWanderState : CreatureBaseState
     public override void EnterState(CreatureStateManager creature)
     {
         // Load scriptable data
-        creature.so_creature.currentState = "Wander State";
+        creature.currentStateName = "Wander State";
 
         // Save variables
-        timeLeft = creature.wanderTimeDelay;
+        timeLeft = creature.wanderGaugeDelay;
     }
 
     public override void UpdateState(CreatureStateManager creature)
@@ -20,7 +20,7 @@ public class CreatureWanderState : CreatureBaseState
         LowerGauge(creature);
 
         // Switch to search state when player did too much shit
-        if (creature.so_creature.gauge >= 100)
+        if (creature.gauge >= 100)
         {
             creature.SwitchState(creature.SearchState);
         }
@@ -41,10 +41,10 @@ public class CreatureWanderState : CreatureBaseState
         // Lower gauge every second
         timeLeft -= Time.fixedDeltaTime * smoothTimer;
 
-        if (timeLeft < 0 && !creature.so_creature.summoned)
+        if (timeLeft < 0 && !creature.summoned)
         {
-            creature.so_creature.AddGauge(-creature.wanderGaugeDiminution);
-            timeLeft = creature.wanderTimeDelay;
+            creature.AddGauge(-creature.wanderGaugeDiminution);
+            timeLeft = creature.wanderGaugeDelay;
         }
     }
 }

@@ -5,7 +5,8 @@ public class CreatureChaseState : CreatureBaseState
     public override void EnterState(CreatureStateManager creature)
     {
         // Load Resources
-        creature.so_creature.currentState = "Chase State";
+        creature.currentStateName = "Chase State";
+        creature.agent.speed = creature.chaseSpeed;
     }
 
     public override void UpdateState(CreatureStateManager creature)
@@ -50,7 +51,7 @@ public class CreatureChaseState : CreatureBaseState
     void LostPlayer(CreatureStateManager creature)
     {
         // Creature loses sight of player when too far
-        if (Vector3.Distance(creature.player.position, creature.enemy.position) >= creature.so_creature.chaseDistance)
+        if (Vector3.Distance(creature.player.position, creature.enemy.position) >= creature.chaseDistance)
         {
             creature.playerDetected = false;
             creature.backFromChaseMode = true;
@@ -61,8 +62,8 @@ public class CreatureChaseState : CreatureBaseState
     void ResetState(CreatureStateManager creature)
     {
         // Reset all variables for next instance of this state
-        creature.so_creature.gauge = 0;
-        creature.so_creature.summoned = false;
+        creature.gauge = 0;
+        creature.summoned = false;
         creature.playerDetected = false;
     }
 }

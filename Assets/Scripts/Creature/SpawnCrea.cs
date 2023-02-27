@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SpawnCrea : MonoBehaviour
 {
-    public So_Creature _creature;
+    public CreatureStateManager _creature;
+
+    private void Start()
+    {
+        _creature = FindObjectOfType<CreatureStateManager>();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         _creature.AddGauge(1);

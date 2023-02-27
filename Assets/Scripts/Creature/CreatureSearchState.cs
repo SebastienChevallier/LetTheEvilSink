@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class CreatureSearchState : CreatureBaseState
 {
-    Transform spawnPoint;
-
     Vector3 lastPositionHeard;
+    Vector3 lastPlayerPosition;
 
     public bool soundHeard = false;
-
-    float spawnHeight = 2.5f;
-    float spawnOffset = 2f;
-    float searchOffset = 2f;
-    float smoothTimer = 1f;
+    public bool positionChecked = false;
 
 
     public override void EnterState(CreatureStateManager creature)
     {
         // Load resources
-        creature.so_creature.currentState = "Search State";
+        creature.currentStateName = "Search State";
+        creature.agent.speed = creature.searchSpeed;
 
         // Spawn Creature
         SpawnCreature(creature);
@@ -28,8 +24,15 @@ public class CreatureSearchState : CreatureBaseState
         CreatureVisualDetection(creature);
 
         // Movement patterns
-        if (!soundHeard) CheckLastPlayerPosition(creature);
-        else CheckHeardSoundPosition(creature);
+        if (positionChecked)
+        {
+            if (!soundHeard)
+            {
+                WanderInRoom(creature);
+            }
+            else
+                CheckHeardSoundPosition(creature);
+        }
     }
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
@@ -38,8 +41,8 @@ public class CreatureSearchState : CreatureBaseState
         if (collision.gameObject.CompareTag("Door"))
         {
             ResetState(creature);
-            creature.so_creature.AddGauge(-creature.searchGaugeDiminution);
-            creature.so_creature.summoned = false;
+            creature.AddGauge(-creature.searchGaugeDiminution);
+            creature.summoned = false;
             Object.Destroy(creature.enemy.gameObject);
             creature.SwitchState(creature.WanderState);
         }
@@ -63,25 +66,41 @@ public class CreatureSearchState : CreatureBaseState
     void SpawnCreature(CreatureStateManager creature)
     {
         // Calculate spawn point
-        spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+        Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
 
         // Set creature Transform
+        ///
 
         // Swpawn creature
-        creature.so_creature.summoned = true;
+        creature.summoned = true;
+
+        // Make creature check last player position
+        lastPlayerPosition = creature.player.position;
+        CheckLastPlayerPosition(creature);
+    }
+
+    void WanderInRoom(CreatureStateManager creature)
+    {
+        // Chase player desperately
+        creature.agent.SetDestination(creature.player.position);
     }
 
     void CheckLastPlayerPosition(CreatureStateManager creature)
     {
-        // Make creature move to last player position and check around
-        creature.agent.SetDestination(creature.player.position);
+        // Make creature move to last player position
+        creature.agent.SetDestination(lastPlayerPosition);
+
+        if (creature.enemy.position == lastPlayerPosition)
+        {
+            positionChecked = false;
+        }
     }
 
 
     void CheckHeardSoundPosition(CreatureStateManager creature)
     {
         // Make the creature check where it heard a sound
-        creature.agent.SetDestination(creature.player.position);
+        creature.agent.SetDestination(lastPositionHeard);
 
         if (creature.enemy.position == lastPositionHeard)
         {
@@ -94,7 +113,7 @@ public class CreatureSearchState : CreatureBaseState
         // Switch to chase mode if creature gets close enough to player
         if (creature.so_player._InDark)
         {
-            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.so_creature.visionDetectionInDark)
+            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.visionDetectionInDark)
             {
                 ResetState(creature);
                 creature.playerDetected = true;
@@ -103,7 +122,7 @@ public class CreatureSearchState : CreatureBaseState
         }
         else
         {
-            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.so_creature.visionDetectionInLight)
+            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.visionDetectionInLight)
             {
                 ResetState(creature);
                 creature.playerDetected = true;
@@ -117,5 +136,7 @@ public class CreatureSearchState : CreatureBaseState
         // Reset all variables for next instance of this state
         creature.backFromChaseMode = false;
         soundHeard = false;
-    }
+        positionChecked = false;
+
+}
 }

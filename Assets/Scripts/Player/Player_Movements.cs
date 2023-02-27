@@ -7,7 +7,7 @@ using TMPro;
 public class Player_Movements : MonoBehaviour
 {
     [Header("PlayerData")]
-    public So_Creature _creature;
+    public CreatureStateManager _creature;
     public So_Player _PlayerData;
     
     public  float _Speed;
@@ -34,6 +34,8 @@ public class Player_Movements : MonoBehaviour
         _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
         InitPlayer();
+
+        _creature = FindObjectOfType<CreatureStateManager>();
     }
 
     private void InitPlayer()
