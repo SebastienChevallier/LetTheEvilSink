@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CreatureSearchState : CreatureBaseState
 {
@@ -7,6 +8,8 @@ public class CreatureSearchState : CreatureBaseState
 
     public bool soundHeard = false;
     public bool positionChecked = false;
+
+    float radius = 5f;
 
 
     public override void EnterState(CreatureStateManager creature)
@@ -69,7 +72,7 @@ public class CreatureSearchState : CreatureBaseState
         Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
 
         // Set creature Transform
-        ///
+        creature.enemy.position = spawnPoint.position;
 
         // Swpawn creature
         creature.summoned = true;
@@ -79,10 +82,24 @@ public class CreatureSearchState : CreatureBaseState
         CheckLastPlayerPosition(creature);
     }
 
+    private Vector3 RandomPosition(CreatureStateManager creature)
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += creature.enemy.position;
+
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
+        {
+            finalPosition = hit.position;            
+        }
+        return finalPosition;
+    }
+
     void WanderInRoom(CreatureStateManager creature)
     {
-        // Chase player desperately
-        creature.agent.SetDestination(creature.player.position);
+        creature.agent.SetDestination(RandomPosition(creature));
     }
 
     void CheckLastPlayerPosition(CreatureStateManager creature)
@@ -92,7 +109,7 @@ public class CreatureSearchState : CreatureBaseState
 
         if (creature.enemy.position == lastPlayerPosition)
         {
-            positionChecked = false;
+            positionChecked = true;
         }
     }
 
@@ -137,6 +154,5 @@ public class CreatureSearchState : CreatureBaseState
         creature.backFromChaseMode = false;
         soundHeard = false;
         positionChecked = false;
-
-}
+    }
 }
