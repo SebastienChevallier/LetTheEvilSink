@@ -8399,6 +8399,12 @@ Transform:
   m_Father: {fileID: 43363737}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &240541027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3625871361340601548, guid: b126989d21d74e148bae85615116a2aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 584535914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &241532580
 GameObject:
   m_ObjectHideFlags: 0
@@ -22507,6 +22513,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Essentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014773023034532377, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
@@ -44589,7 +44600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   _canvaMinijeu: {fileID: 417913995}
-  triggerPorte: {fileID: 891620320}
+  triggerPorte: {fileID: 240541027}
   validated: 0
 --- !u!65 &1152801436
 BoxCollider:
@@ -53717,6 +53728,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1385460715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1386222864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386222866}
+  - component: {fileID: 1386222865}
+  m_Layer: 0
+  m_Name: CheatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1386222865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386222864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9830f8fd3681419a6ac31c9a02ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 1687036250}
+  player: {fileID: 1609463005}
+--- !u!4 &1386222866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386222864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1388997400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58727,8 +58784,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512283176}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 11.5, y: 2, z: 3.9061}
-  m_LocalScale: {x: 18.812317, y: 5, z: 1}
+  m_LocalPosition: {x: 11.5, y: 2, z: 5.3942}
+  m_LocalScale: {x: 21.788425, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1288881565}
@@ -61604,6 +61661,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 589441682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1609463005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3531506495141482200, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 589441682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609462999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2828733718fad641bfd71e6f7eef338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1609885572
 GameObject:
   m_ObjectHideFlags: 0
@@ -64948,6 +65017,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1685541670}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687036250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8686753018806499284, guid: fc4e9a953597e8145bd1ae8198cb6478,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596568719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16af8d0d508de1e4292079cc0840dabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1690529301
 GameObject:
   m_ObjectHideFlags: 0
@@ -77923,8 +78004,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047712581}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -6, y: 2, z: 3.8689}
-  m_LocalScale: {x: 18.737598, y: 5, z: 1}
+  m_LocalPosition: {x: -6, y: 2, z: 5.3512}
+  m_LocalScale: {x: 21.701887, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1288881565}
@@ -79041,7 +79122,7 @@ PrefabInstance:
     - target: {fileID: 3625871360434827283, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.035
+      value: -13.54
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601548, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
@@ -81586,7 +81667,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -81685,7 +81766,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -82142,7 +82223,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -82349,7 +82430,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -82589,7 +82670,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -83047,7 +83128,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -83154,7 +83235,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -83508,7 +83589,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:

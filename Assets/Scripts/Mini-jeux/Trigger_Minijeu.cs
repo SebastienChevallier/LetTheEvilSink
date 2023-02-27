@@ -10,6 +10,7 @@ public class Trigger_Minijeu : MonoBehaviour
     public GameObject triggerPorte;
 
     public bool validated;
+    private bool _isTrigger = false;
 
     private void Start()
     {
@@ -17,9 +18,9 @@ public class Trigger_Minijeu : MonoBehaviour
         triggerPorte.SetActive(false);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Player") && Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf && !validated)
+        if (Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf && !validated && _isTrigger)
         {
             _player._CanMove = false;
             _canvaMinijeu.SetActive(true);
@@ -31,5 +32,26 @@ public class Trigger_Minijeu : MonoBehaviour
             _canvaMinijeu.SetActive(false);
             triggerPorte.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isTrigger = true;
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isTrigger = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }

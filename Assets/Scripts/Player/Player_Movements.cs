@@ -38,7 +38,7 @@ public class Player_Movements : MonoBehaviour
         _creature = FindObjectOfType<CreatureStateManager>();
     }
 
-    private void InitPlayer()
+    public void InitPlayer()
     {
         //initiate player scriptable object values
         _PlayerData._ValAngoisse = 0f;

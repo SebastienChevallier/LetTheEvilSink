@@ -67,12 +67,12 @@ public class Switchsalle : MonoBehaviour
     private Quaternion temp;
     private void Update()
     {
-        BlockPlayer();
+        if (obj != null)
+            BlockPlayer();
+        
         SetValueCurve();
         if (obj != null)
         {
-           
-            
             if(rotate) 
                 obj.transform.rotation = Quaternion.Slerp(temp, target, curve.Evaluate(time));
             

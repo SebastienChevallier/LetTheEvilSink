@@ -88,6 +88,7 @@ public class Interact : MonoBehaviour
                             _PlayerData._CanInteract = false;
                             _PlayerData._CanMove = false;
                             _PlayerData._InDark = true;
+                            GetComponent<Player_Movements>()._LampeTorche.SetActive(false);
                             _Visuals.SetActive(false);
                         }
                         else
