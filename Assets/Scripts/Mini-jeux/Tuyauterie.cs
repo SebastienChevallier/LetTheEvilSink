@@ -8,7 +8,7 @@ public class Tuyauterie : MonoBehaviour, IPointerClickHandler
     public bool isPuzzle;
 
     public float actualRotation;
-    public float puzzleRotation;
+    public List<float> puzzleRotation;
 
     private GridManager gridManager;
 
@@ -25,10 +25,7 @@ public class Tuyauterie : MonoBehaviour, IPointerClickHandler
         {
             transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z - 90);
             actualRotation = transform.eulerAngles.z;
-
-            Debug.Log(actualRotation);
-            Debug.Log(puzzleRotation);
-
+            if (actualRotation == 360) actualRotation = 0;
             gridManager.CheckPuzzle();
         }
     }

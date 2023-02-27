@@ -29,6 +29,7 @@ public class TriggerEvent : MonoBehaviour
     private void Start()
     {
         animator = transform.parent.GetComponent<Animator>();
+        
     }
 
     private void OnTriggerEnter(Collider other)

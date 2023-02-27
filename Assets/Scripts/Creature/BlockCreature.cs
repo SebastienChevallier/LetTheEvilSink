@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class BlockCreature : MonoBehaviour
 {
-    public So_Creature _creature;
+    public CreatureStateManager _creature;
+
+    private void Start()
+    {
+        _creature = FindObjectOfType<CreatureStateManager>();
+    }
 
     private void Update()
     {

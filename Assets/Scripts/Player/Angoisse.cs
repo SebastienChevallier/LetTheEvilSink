@@ -5,7 +5,7 @@ using UnityEngine;
 public class Angoisse : MonoBehaviour
 {
     public So_Player _PlayerData;
-    public So_Creature _creature;
+    public CreatureStateManager _creature;
     public float _TimeDelay = 1f;
     public float _ValUp;
     public float _ValDown;
@@ -16,7 +16,8 @@ public class Angoisse : MonoBehaviour
     private void Start()
     {
         _PlayerMovement = GetComponent<Player_Movements>();
-        
+        _creature = FindObjectOfType<CreatureStateManager>();
+
         timeLeft = _TimeDelay;
     }
 
