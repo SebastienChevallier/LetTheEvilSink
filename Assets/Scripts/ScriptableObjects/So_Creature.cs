@@ -38,9 +38,6 @@ public class So_Creature : ScriptableObject
         summoned = false;
         playerDetected = false;
         backFromChaseMode = false;
-
-        // Don't unload scriptable
-        hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 
     public void AddGauge(int value)

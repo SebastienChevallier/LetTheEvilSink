@@ -48,13 +48,13 @@ public class CreatureChaseState : CreatureBaseState
     void CreatureMovement(CreatureStateManager creature)
     {
         // Chase player desperately
-        creature.enemy.position = Vector3.MoveTowards(creature.enemy.position, creature.player.position, creature.so_creature.chaseSpeed * Time.fixedDeltaTime);
+        creature.agent.SetDestination(creature.player.position);
     }
 
     void LostPlayer(CreatureStateManager creature)
     {
         // Creature loses sight of player when too far
-        if (Mathf.Abs(creature.player.position.x - creature.enemy.position.x) >= creature.so_creature.chaseDistance)
+        if (Vector3.Distance(creature.player.position, creature.enemy.position) >= creature.so_creature.chaseDistance)
         {
             creature.so_creature.apparitionTimer = 0;
             creature.so_creature.playerDetected = false;

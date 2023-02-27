@@ -19,7 +19,6 @@ public class CreatureSearchState : CreatureBaseState
     float spawnOffset = 2f;
     float searchOffset = 2f;
     float smoothTimer = 1f;
-    int gaugeDiminution = 25;
 
 
     public override void EnterState(CreatureStateManager creature)
@@ -63,7 +62,7 @@ public class CreatureSearchState : CreatureBaseState
         if (collision.gameObject.CompareTag("SpawnPoint") || collision.gameObject.CompareTag("Door"))
         {
             ResetState(creature);
-            creature.so_creature.AddGauge(-gaugeDiminution);
+            creature.so_creature.AddGauge(-creature.searchGaugeDiminution);
             creature.so_creature.summoned = false;
             Object.Destroy(creature.enemy.gameObject);
             creature.SwitchState(creature.WanderState);

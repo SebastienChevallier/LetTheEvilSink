@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CreatureStateManager : MonoBehaviour
 {
@@ -14,16 +15,26 @@ public class CreatureStateManager : MonoBehaviour
 
     [HideInInspector] public Transform player;
     [HideInInspector] public Transform enemy;
+    [HideInInspector] public NavMeshAgent agent;
+
+    [Header("Wander State")]
+    public float wanderTimeDelay = 10f;
+    public int wanderGaugeDiminution = 1;
+
+    [Header("Search State")]
+    public int searchGaugeDiminution = 25;
+
 
 
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
+        enemy = transform;
+        agent = enemy.GetComponent<NavMeshAgent>();
+
         currentState = WanderState;
         currentState.EnterState(this);
-
-        player = GameObject.FindWithTag("Player").transform;
-        enemy = GameObject.FindWithTag("Creature").transform;
     }
 
     void Update()
