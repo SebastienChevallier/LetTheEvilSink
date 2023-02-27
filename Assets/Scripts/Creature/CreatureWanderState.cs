@@ -26,11 +26,6 @@ public class CreatureWanderState : CreatureBaseState
         }
     }
 
-    public override void FixedUpdateState(CreatureStateManager creature)
-    {
-        
-    }
-
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
     {
 

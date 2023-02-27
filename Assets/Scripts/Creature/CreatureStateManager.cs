@@ -3,17 +3,16 @@ using UnityEngine.AI;
 
 public class CreatureStateManager : MonoBehaviour
 {
-    [Header("Etats")]
+    [Header("States")]
     public CreatureBaseState currentState;
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
 
-    [Header("SO")]
+    [Header("Characters")]
     public So_Player so_player;
-    public So_Creature so_creature;
-
     [HideInInspector] public Transform player;
+    public So_Creature so_creature;
     [HideInInspector] public Transform enemy;
     [HideInInspector] public NavMeshAgent agent;
 
@@ -23,6 +22,10 @@ public class CreatureStateManager : MonoBehaviour
 
     [Header("Search State")]
     public int searchGaugeDiminution = 25;
+    public bool playerDetected;
+
+    [Header("Chase State")]
+    public bool backFromChaseMode;
 
 
 
@@ -40,11 +43,6 @@ public class CreatureStateManager : MonoBehaviour
     void Update()
     { 
         currentState.UpdateState(this);
-    }
-
-    void FixedUpdate()
-    {
-        currentState.FixedUpdateState(this);
     }
 
     void OnCollisionEnter(Collision collision)

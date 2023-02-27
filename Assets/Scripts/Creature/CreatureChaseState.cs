@@ -11,10 +11,6 @@ public class CreatureChaseState : CreatureBaseState
     public override void UpdateState(CreatureStateManager creature)
     {
         LostPlayer(creature);
-    }
-
-    public override void FixedUpdateState(CreatureStateManager creature)
-    {
         CreatureMovement(creature);
     }
 
@@ -56,9 +52,8 @@ public class CreatureChaseState : CreatureBaseState
         // Creature loses sight of player when too far
         if (Vector3.Distance(creature.player.position, creature.enemy.position) >= creature.so_creature.chaseDistance)
         {
-            creature.so_creature.apparitionTimer = 0;
-            creature.so_creature.playerDetected = false;
-            creature.so_creature.backFromChaseMode = true;
+            creature.playerDetected = false;
+            creature.backFromChaseMode = true;
             creature.SwitchState(creature.SearchState);
         }
     }
@@ -68,6 +63,6 @@ public class CreatureChaseState : CreatureBaseState
         // Reset all variables for next instance of this state
         creature.so_creature.gauge = 0;
         creature.so_creature.summoned = false;
-        creature.so_creature.playerDetected = false;
+        creature.playerDetected = false;
     }
 }

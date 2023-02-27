@@ -4,14 +4,12 @@ using UnityEngine;
 public class So_Creature : ScriptableObject
 {
     [Header("Etat")]
-
     public string currentState;
     [Range(0, 100)]
     public int gauge;
     public bool summoned;
 
     [Header("Parametres")]
-
     public float searchSpeed;
     public float chaseSpeed;
     public float visionDetectionInDark;
@@ -19,15 +17,12 @@ public class So_Creature : ScriptableObject
     public float hearingDetection;
 
     [Header("Patterns")]
-
     public float maxApparationTimer;
     public float apparitionTimer;
     public float maxWanderTimer;
     public float wanderTimer;
     public float roomRatioForWander;
     public float chaseDistance;
-    public bool playerDetected;
-    public bool backFromChaseMode;
 
 
     private void OnEnable()
@@ -36,17 +31,13 @@ public class So_Creature : ScriptableObject
         apparitionTimer = maxApparationTimer;
         wanderTimer = maxWanderTimer;
         summoned = false;
-        playerDetected = false;
-        backFromChaseMode = false;
     }
 
     public void AddGauge(int value)
     {
         gauge += value;
 
-        if (gauge > 100)
-            gauge = 100;
-        else if (gauge < 0)
-            gauge = 0;
+        if (gauge > 100) gauge = 100;
+        else if (gauge < 0) gauge = 0;
     }
 }
