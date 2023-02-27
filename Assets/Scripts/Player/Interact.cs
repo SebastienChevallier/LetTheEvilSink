@@ -23,6 +23,14 @@ public class Interact : MonoBehaviour
     public float delay = 0.1f;
 
     private string currentText;
+    
+    
+    public CreatureStateManager creature;
+
+    private void Start()
+    {
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -76,6 +84,7 @@ public class Interact : MonoBehaviour
                             if(_PlayerData._TriggerObject.GetComponent<AddForceCollider>() != null)
                             {
                                 _PlayerData._TriggerObject.GetComponent<AddForceCollider>().Impulse();
+                                creature.AddGauge(20);
                             }
 
                         }                     
