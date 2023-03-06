@@ -53,7 +53,7 @@ public class Switchsalle : MonoBehaviour
             _Player._CanMove = false;
         }
         
-        if (curve.Evaluate(time) >= 0.99f)
+        if (curve.Evaluate(time) >= 1f)
         {
             rotate = false;
         }

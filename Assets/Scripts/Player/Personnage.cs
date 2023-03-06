@@ -22,7 +22,7 @@ public class Personnage : MonoBehaviour
     [Header("Delay")]
     public float delay = 0.01f;
     public float timerInput;
-    private float delayInput = 3f;
+    private float delayInput = 2f;
     
     private void DelayInput()
     {
@@ -43,12 +43,11 @@ public class Personnage : MonoBehaviour
     public bool isTrigger = false;
     void Update()
     {
-        
         if(Input.GetButtonDown("Interact") && timerInput <= 0)
         {
             if(isTrigger)
             {
-                Parler(); 
+                Parler();
             }
         }
         DelayInput();
@@ -78,6 +77,7 @@ public class Personnage : MonoBehaviour
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
+            tempDelay = delay;
 
             if (_NumDial < _Dis._Dialog.Length)
             {
@@ -120,28 +120,31 @@ public class Personnage : MonoBehaviour
                 _PlayerData._CanMove = true;
                 _PlayerData._CanInteract = true;
                 _PlayerData._CanTalk = false;
+                
             }   
         }
     }
-    
+
+    public float tempDelay;
+
+    private void Start()
+    {
+        tempDelay = delay;
+    }
+
     IEnumerator ShowText(string texte, GameObject obj)
     {
         for(int i = 0; i <= texte.Length; i++)
         {
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
-            yield return new WaitForSeconds(delay);
-            
+
             if(texte.Length == i)
             {
                 timerInput = 0;
+                tempDelay = delay;
             }
-            
-            if (Input.GetButtonDown("Interact") && _NumDial > 0)
-            {
-                i = texte.Length;
-                
-            }
+            yield return new WaitForSeconds(tempDelay);
         }
     }
 }
