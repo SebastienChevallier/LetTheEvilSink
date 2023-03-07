@@ -1,85 +1,69 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CreatureSearchState : CreatureBaseState
 {
-    So_Creature so_enemy;
-    GameObject enemy;
-    Transform enemyVisuals;
-
-    Transform player;
-    So_Player so_player;
-
-    Transform room;
-    Transform spawnPoint;
-
-    Vector3 firstPosition;
-    Vector3 secondPosition;
-    Vector3 targetPosition;
+    Vector3 lastPositionHeard;
+    Vector3 lastPlayerPosition;
     Vector3 randomPosition;
 
-    public bool firstRoundFinished = false;
-    public bool searchFinished = false;
-    public bool walkAway = false;
     public bool soundHeard = false;
+    public bool positionChecked = false;
 
-    float spawnHeight = 2.5f;
-    float spawnOffset = 2f;
-    float searchOffset = 2f;
-    float smoothTimer = 1f;
-    int gaugeDiminution = 25;
+    float radius = 5f;
+
+    float timer = 3f;
+    float smoothTimer = 2f;
 
 
     public override void EnterState(CreatureStateManager creature)
     {
         // Load resources
-        so_enemy = Resources.Load<So_Creature>("Creature/SO_Creature");
-        so_enemy.currentState = "Search State";
-        player = GameObject.FindWithTag("Player").transform;
-        so_player = player.GetComponent<Player_Movements>()._PlayerData;
-        room = GameObject.FindWithTag("Room").transform;
+        creature.currentStateName = "Search State";
+        creature.agent.speed = creature.searchSpeed;
 
-        if (!so_enemy.backFromChaseMode)
-            SpawnCreature();
+        randomPosition = creature.enemy.position;
+
+        // Spawn Creature
+        if (!creature.backFromChaseMode)
+            SpawnCreature(creature);
+        else
+            positionChecked = true;
     }
 
     public override void UpdateState(CreatureStateManager creature)
     {
         CreatureVisualDetection(creature);
-    }
 
-    public override void FixedUpdateState(CreatureStateManager creature)
-    {
         // Movement patterns
-        if (!soundHeard)
+        if (positionChecked)
         {
-            WanderTimer();
-
-            if (!so_enemy.backFromChaseMode)
+            if (!soundHeard)
             {
-                if (!searchFinished)
-                    CheckLastPlayerPosition();
-                else if (searchFinished)
-                    WanderInRoom();
+                WanderInRoom(creature);
             }
+            else
+                CheckHeardSoundPosition(creature);
         }
-        else
-            CheckHeardSoundPosition();
     }
 
     public override void OnCollisionEnter(CreatureStateManager creature, Collision collision)
     {
         // Makes the creature disappear when it reaches a door
-        if (collision.gameObject.CompareTag("SpawnPoint") || collision.gameObject.CompareTag("Door"))
+        if (collision.gameObject.CompareTag("Door"))
         {
             ResetState(creature);
-            so_enemy.AddGauge(-gaugeDiminution);
-            so_enemy.summoned = false;
-            Object.Destroy(enemy);
+            creature.AddGauge(-creature.searchGaugeDiminution);
+            creature.summoned = false;
+            creature.agent.Warp(Vector3.zero);
             creature.SwitchState(creature.WanderState);
+            Debug.Log("Hello");
         }
         // Destroy obstacles that the player may have placed
         else if (collision.gameObject.CompareTag("Deplacer"))
+        {
             Object.Destroy(collision.gameObject);
+        }
     }
 
     public override void OnTriggerEnter(CreatureStateManager creature, Collider other)
@@ -87,117 +71,92 @@ public class CreatureSearchState : CreatureBaseState
         // Set destination where creature heard a sound
         if (other.CompareTag("StepSound"))
         {
-            randomPosition = new Vector3(player.position.x, enemy.transform.position.y, enemy.transform.position.z);
-            FlipCreature(randomPosition);
+            lastPositionHeard = creature.player.position;
             soundHeard = true;
         }
     }
 
-    void SpawnCreature()
+    void SpawnCreature(CreatureStateManager creature)
     {
         // Calculate spawn point
-        spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
-        Vector3 spawnPosition = spawnPoint.position.x > player.position.x ? new Vector3(spawnPoint.position.x - spawnOffset, spawnHeight, player.position.z) : new Vector3(spawnPoint.position.x + spawnOffset, spawnHeight, player.position.z);
+        Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+
+        // Set creature Transform
+        creature.agent.Warp(spawnPoint.position);
 
         // Swpawn creature
-        enemy = GameObject.Instantiate(Resources.Load<GameObject>("Creature/Creature"), spawnPosition, Quaternion.identity, GameObject.FindWithTag("Environnement").transform) as GameObject;
-        enemyVisuals = enemy.transform.GetChild(0);
-        so_enemy.summoned = true;
+        creature.summoned = true;
 
-
-        //Set destinations for creature check
-        firstPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z);
-        secondPosition = enemy.transform.position.x > player.position.x ? new Vector3(player.position.x + searchOffset, enemy.transform.position.y, enemy.transform.position.z) : new Vector3(player.position.x - searchOffset, enemy.transform.position.y, enemy.transform.position.z);
-        targetPosition = firstPosition;
-        FlipCreature(targetPosition);
+        // Make creature check last player position
+        lastPlayerPosition = creature.player.position;
+        CheckLastPlayerPosition(creature);
     }
 
-    void CheckLastPlayerPosition()
+    private Vector3 RandomPosition(CreatureStateManager creature)
     {
-        // Make creature move to last player position and check around
-        enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, targetPosition, so_enemy.searchSpeed * Time.fixedDeltaTime);
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += creature.enemy.position;
 
-        if (enemy.transform.position.x <= firstPosition.x)
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
-            targetPosition = secondPosition;
-            FlipCreature(targetPosition);
-            firstRoundFinished = true;
+            finalPosition = hit.position;            
         }
-        else if (enemy.transform.position.x >= secondPosition.x && firstRoundFinished)
-        {
-            randomPosition = new Vector3(enemy.transform.position.x + Random.Range(-room.localScale.x / so_enemy.roomRatioForWander, room.localScale.x / so_enemy.roomRatioForWander), enemy.transform.position.y, enemy.transform.position.z);
-            FlipCreature(randomPosition);
-            searchFinished = true;
-        }
+        return finalPosition;
     }
 
-    void WanderInRoom()
+    void WanderInRoom(CreatureStateManager creature)
     {
-        // Make creature wander with a new positions every X seconds
-        enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, randomPosition, so_enemy.searchSpeed * Time.fixedDeltaTime);
+        timer -= Time.fixedDeltaTime * smoothTimer;
 
-        so_enemy.wanderTimer -= Time.fixedDeltaTime * smoothTimer;
-        if (so_enemy.wanderTimer <= 0f && !walkAway)
+        if (timer <= 0) randomPosition = RandomPosition(creature);
+
+        creature.agent.SetDestination(randomPosition);
+    }
+
+    void CheckLastPlayerPosition(CreatureStateManager creature)
+    {
+        // Make creature move to last player position
+        creature.agent.SetDestination(lastPlayerPosition);
+
+        if (creature.enemy.position == lastPlayerPosition)
         {
-            randomPosition = new Vector3(enemy.transform.position.x + Random.Range(-room.localScale.x / so_enemy.roomRatioForWander, room.localScale.x / so_enemy.roomRatioForWander), enemy.transform.position.y, enemy.transform.position.z);
-            FlipCreature(randomPosition);
-            so_enemy.wanderTimer = so_enemy.maxWanderTimer;
+            positionChecked = true;
         }
     }
 
-    void CheckHeardSoundPosition()
+
+    void CheckHeardSoundPosition(CreatureStateManager creature)
     {
         // Make the creature check where it heard a sound
-        enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, randomPosition, so_enemy.searchSpeed * Time.fixedDeltaTime);
+        creature.agent.SetDestination(lastPositionHeard);
 
-        if (enemy.transform.position.x == randomPosition.x)
+        if (creature.enemy.position == lastPositionHeard)
         {
-            randomPosition = new Vector3(enemy.transform.position.x + Random.Range(-room.localScale.x / so_enemy.roomRatioForWander, room.localScale.x / so_enemy.roomRatioForWander), enemy.transform.position.y, enemy.transform.position.z);
-            FlipCreature(randomPosition);
             soundHeard = false;
         }
-    }
-
-    void WanderTimer()
-    {
-        // Make creature walk away after the wander timer
-        so_enemy.apparitionTimer -= Time.fixedDeltaTime * smoothTimer;
-
-        if (so_enemy.apparitionTimer <= 0f)
-        {
-            randomPosition = new Vector3(spawnPoint.position.x, enemy.transform.position.y, enemy.transform.position.z);
-            FlipCreature(randomPosition);
-            walkAway = true;
-        }
-    }
-
-    void FlipCreature(Vector3 destination)
-    {
-        //Flip creature to make it face the player when moving
-        if (enemy.transform.position.x > destination.x)
-            enemyVisuals.localScale = new Vector3(1, 1, 1);
-        else
-            enemyVisuals.localScale = new Vector3(-1, 1, 1);
     }
 
     void CreatureVisualDetection(CreatureStateManager creature)
     {
         // Switch to chase mode if creature gets close enough to player
-        if (so_player._InDark)
+        if (creature.so_player._InDark)
         {
-            if (Mathf.Abs(player.position.x - enemy.transform.position.x) <= so_enemy.visionDetectionInDark)
+            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.visionDetectionInDark)
             {
                 ResetState(creature);
-                so_enemy.playerDetected = true;
+                creature.playerDetected = true;
                 creature.SwitchState(creature.ChaseState);
             }
         }
         else
         {
-            if (Mathf.Abs(player.position.x - enemy.transform.position.x) <= so_enemy.visionDetectionInLight)
+            if (Vector3.Distance(creature.player.position, creature.enemy.position) <= creature.visionDetectionInLight)
             {
                 ResetState(creature);
-                so_enemy.playerDetected = true;
+                creature.playerDetected = true;
                 creature.SwitchState(creature.ChaseState);
             }
         }
@@ -206,12 +165,8 @@ public class CreatureSearchState : CreatureBaseState
     void ResetState(CreatureStateManager creature)
     {
         // Reset all variables for next instance of this state
-        so_enemy.apparitionTimer = so_enemy.maxApparationTimer;
-        so_enemy.wanderTimer = so_enemy.maxWanderTimer;
-        so_enemy.backFromChaseMode = false;
-        firstRoundFinished = false;
-        searchFinished = false;
-        walkAway = false;
+        creature.backFromChaseMode = false;
         soundHeard = false;
+        positionChecked = false;
     }
 }

@@ -8,7 +8,6 @@ public class DoorsSceneTransition : MonoBehaviour
     public int _ActualIntScene;
     public int _NextIntScene;
 
-    So_Creature so;
     CreatureStateManager creature;
 
     public int gaugeDiminution;
@@ -16,7 +15,6 @@ public class DoorsSceneTransition : MonoBehaviour
 
     private void Start()
     {
-        so = Resources.Load<So_Creature>("Creature/So_Creature");
         creature = GameObject.FindWithTag("CreatureManager").GetComponent<CreatureStateManager>();
     }
 
@@ -24,7 +22,7 @@ public class DoorsSceneTransition : MonoBehaviour
     {      
         if (Input.GetButtonDown("Interact") && other.CompareTag("Player"))
         {
-            so.AddGauge(-gaugeDiminution);
+            creature.AddGauge(-gaugeDiminution);
             ResetStates();
             if (creature)
                 creature.SwitchState(creature.WanderState);
@@ -35,14 +33,10 @@ public class DoorsSceneTransition : MonoBehaviour
 
     void ResetStates()
     {
-        so.apparitionTimer = so.maxApparationTimer;
-        so.wanderTimer = so.maxWanderTimer;
-        so.summoned = false;
-        so.playerDetected = false;
-        so.backFromChaseMode = false;
-        creature.SearchState.firstRoundFinished = false;
-        creature.SearchState.searchFinished = false;
-        creature.SearchState.walkAway = false;
+        creature.summoned = false;
+        creature.playerDetected = false;
+        creature.backFromChaseMode = false;
         creature.SearchState.soundHeard = false;
+        creature.SearchState.positionChecked = false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,55 @@ public class Trigger_Minijeu : MonoBehaviour
 {
     public So_Player _player;
     public GameObject _canvaMinijeu;
-    private void OnTriggerStay(Collider other)
+    public GameObject triggerPorte;
+
+    public bool validated;
+    private bool _isTrigger = false;
+
+    public CreatureStateManager creature;
+
+    private void Start()
     {
-        if (other.CompareTag("Player") && Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf)
+        _canvaMinijeu.SetActive(false);
+        triggerPorte.SetActive(false);
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf && !validated && _isTrigger)
         {
             _player._CanMove = false;
             _canvaMinijeu.SetActive(true);
+            creature.AddGauge(5);
         }
 
-        if (_canvaMinijeu.activeSelf && Input.GetButtonDown("Interact"))
+        if (_canvaMinijeu.activeSelf && validated)
         {
             _player._CanMove = true;
             _canvaMinijeu.SetActive(false);
+            triggerPorte.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isTrigger = true;
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isTrigger = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }

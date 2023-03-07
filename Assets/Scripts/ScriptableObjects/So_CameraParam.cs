@@ -11,4 +11,6 @@ public class So_CameraParam : ScriptableObject
 
     [Range(2, 50)] public float _ZoomValue;
     public float _YOffset;
+
+    public float _FOV;
 }
