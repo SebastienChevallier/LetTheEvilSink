@@ -23,6 +23,7 @@ public class Portes : MonoBehaviour
     private void Start()
     {
         panelFade = GameObject.Find("Fade-In-Out").GetComponent<Image>();
+        fadeValue = 0f;
     }
 
     // Update is called once per frame
@@ -31,7 +32,6 @@ public class Portes : MonoBehaviour
         Fade();
         if (Input.GetKeyDown(KeyCode.E))
         {
-           
             if (player)
             {
                 StartCoroutine(DelayFade(fadeSpeed));
