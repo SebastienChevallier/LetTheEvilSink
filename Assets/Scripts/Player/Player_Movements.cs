@@ -7,7 +7,7 @@ using TMPro;
 public class Player_Movements : MonoBehaviour
 {
     [Header("PlayerData")]
-    public So_Creature _creature;
+    public CreatureStateManager _creature;
     public So_Player _PlayerData;
     
     public  float _Speed;
@@ -26,17 +26,17 @@ public class Player_Movements : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-
-
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
         _StepSound = GetComponent<StepSound>();
         _PlayerData._CanInteract = true;
         InitPlayer();
+
+        _creature = FindObjectOfType<CreatureStateManager>();
     }
 
-    private void InitPlayer()
+    public void InitPlayer()
     {
         //initiate player scriptable object values
         _PlayerData._ValAngoisse = 0f;
@@ -65,7 +65,8 @@ public class Player_Movements : MonoBehaviour
 
     void Movement()
     {
-        Vector3 moveDir = Input.GetAxis("Horizontal") * _Camera.gameObject.transform.right * _Speed;
+        Vector3 moveDir = _Camera.gameObject.transform.right * (Input.GetAxis("Horizontal") * _Speed);
+        //moveDir += Input.GetAxis("Vertical") * _Camera.gameObject.transform.forward * _Speed;
 
         if (_PlayerData._CanMove)
         {

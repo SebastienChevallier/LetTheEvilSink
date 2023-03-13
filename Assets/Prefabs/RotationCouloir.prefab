@@ -55,6 +55,13 @@ MonoBehaviour:
   colliderCam: {fileID: 0}
   colliderCam2: {fileID: 0}
   obj: {fileID: 0}
+  _Player: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1861507638987991920
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +75,7 @@ GameObject:
   - component: {fileID: 1861507638987991932}
   m_Layer: 0
   m_Name: Swicth cam
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,11 +133,11 @@ GameObject:
   - component: {fileID: 1861507639137707190}
   m_Layer: 0
   m_Name: Swicth cam (1)
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1861507639137707189
 Transform:
   m_ObjectHideFlags: 0

@@ -1,40 +1,59 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CreatureStateManager : MonoBehaviour
 {
-    [Header("Etats")]
+    [Header("Characters")]
+    public So_Player so_player;
+    [HideInInspector] public Transform player;
+    [HideInInspector] public Transform enemy;
+    [HideInInspector] public NavMeshAgent agent;
+
+    [Header("States")]
+    [Range(0, 100)]
+    public int gauge;
+    public string currentStateName;
     public CreatureBaseState currentState;
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
+    public bool summoned;
 
-    [Header("SO")]
-    public So_Player so_player;
-    public So_Creature so_creature;
+    [Header("Detection")]
+    public float visionDetectionInDark;
+    public float visionDetectionInLight;
+    public float hearingDetection;
 
-    [Header("Characters")]
-    public Transform player;
-    public Transform enemy;
+    [Header("Wander State")]
+    public float wanderGaugeDelay;
+    public int wanderGaugeDiminution;
+
+    [Header("Search State")]
+    public float searchSpeed;
+    public int searchGaugeDiminution;
+    [HideInInspector] public bool playerDetected;
+
+    [Header("Chase State")]
+    public float chaseSpeed;
+    public float chaseDistance;
+    [HideInInspector] public bool backFromChaseMode;
+
 
 
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
+        enemy = transform;
+        agent = GetComponent<NavMeshAgent>();
+
         currentState = WanderState;
         currentState.EnterState(this);
-
-        player = GameObject.FindWithTag("Player").transform;
-        enemy = GameObject.FindWithTag("Creature").transform;
     }
 
     void Update()
     { 
         currentState.UpdateState(this);
-    }
-
-    void FixedUpdate()
-    {
-        currentState.FixedUpdateState(this);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -51,5 +70,13 @@ public class CreatureStateManager : MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void AddGauge(int value)
+    {
+        gauge += value;
+
+        if (gauge > 100) gauge = 100;
+        else if (gauge < 0) gauge = 0;
     }
 }

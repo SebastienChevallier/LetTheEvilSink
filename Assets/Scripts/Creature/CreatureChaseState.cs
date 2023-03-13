@@ -5,16 +5,13 @@ public class CreatureChaseState : CreatureBaseState
     public override void EnterState(CreatureStateManager creature)
     {
         // Load Resources
-        creature.so_creature.currentState = "Chase State";
+        creature.currentStateName = "Chase State";
+        creature.agent.speed = creature.chaseSpeed;
     }
 
     public override void UpdateState(CreatureStateManager creature)
     {
         LostPlayer(creature);
-    }
-
-    public override void FixedUpdateState(CreatureStateManager creature)
-    {
         CreatureMovement(creature);
     }
 
@@ -24,8 +21,8 @@ public class CreatureChaseState : CreatureBaseState
         if (collision.gameObject.CompareTag("Player"))
         {
             ResetState(creature);
-            //player.position = creature.WanderState.player.position;
-            Object.Destroy(creature.enemy.gameObject);
+            creature.player.position = GameObject.FindWithTag("CheckPoint").transform.position;
+            creature.agent.Warp(Vector3.zero);
             creature.SwitchState(creature.WanderState);
         }
         // Destroy obstacles that the player may have placed
@@ -39,7 +36,7 @@ public class CreatureChaseState : CreatureBaseState
         if (other.CompareTag("Player"))
         {
             ResetState(creature);
-            //player.position = creature.WanderState.player.position;
+            creature.player.position = GameObject.FindWithTag("CheckPoint").transform.position;
             Object.Destroy(creature.enemy.gameObject);
             creature.SwitchState(creature.WanderState);
         }
@@ -48,17 +45,16 @@ public class CreatureChaseState : CreatureBaseState
     void CreatureMovement(CreatureStateManager creature)
     {
         // Chase player desperately
-        creature.enemy.position = Vector3.MoveTowards(creature.enemy.position, creature.player.position, creature.so_creature.chaseSpeed * Time.fixedDeltaTime);
+        creature.agent.SetDestination(creature.player.position);
     }
 
     void LostPlayer(CreatureStateManager creature)
     {
         // Creature loses sight of player when too far
-        if (Mathf.Abs(creature.player.position.x - creature.enemy.position.x) >= creature.so_creature.chaseDistance)
+        if (Vector3.Distance(creature.player.position, creature.enemy.position) >= creature.chaseDistance)
         {
-            creature.so_creature.apparitionTimer = 0;
-            creature.so_creature.playerDetected = false;
-            creature.so_creature.backFromChaseMode = true;
+            creature.playerDetected = false;
+            creature.backFromChaseMode = true;
             creature.SwitchState(creature.SearchState);
         }
     }
@@ -66,8 +62,8 @@ public class CreatureChaseState : CreatureBaseState
     void ResetState(CreatureStateManager creature)
     {
         // Reset all variables for next instance of this state
-        creature.so_creature.gauge = 0;
-        creature.so_creature.summoned = false;
-        creature.so_creature.playerDetected = false;
+        creature.gauge = 0;
+        creature.summoned = false;
+        creature.playerDetected = false;
     }
 }

@@ -28,4 +28,37 @@ public class So_ObjectifsCarnet : ScriptableObject
         _Carnet5 = false;
         _Carnet6 = false;
     }
+
+    public void SetCarnet(string reference)
+    {
+        switch (reference)
+        {
+            case "Carnet1":
+                _Carnet1 = true;
+                break;
+            
+            case "Carnet2":
+                _Carnet2 = true;
+                break;
+            
+            case "Carnet3":
+                _Carnet3 = true;
+                break;
+            
+            case "Carnet4":
+                _Carnet4 = true;
+                break;
+            
+            case " Carnet5":
+                _Carnet5 = true;
+                break;
+            
+            case "Carnet6":
+                _Carnet6 = true;
+                break;
+            
+            default:            
+                break;
+        }
+    }
 }
