@@ -26331,6 +26331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 9014773023034532377, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
 --- !u!20 &589441683 stripped
@@ -32390,6 +32395,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 758028253}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &759647801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9014773023034532377, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 589441682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &760872077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88317,18 +88334,6 @@ Transform:
   m_Father: {fileID: 1999573706}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2033027795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7090287145233809920, guid: 269cb1e315c2b3b43b103ac70797efa2,
-    type: 3}
-  m_PrefabInstance: {fileID: 589441682}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2034469285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90863,6 +90868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
+      propertyPath: speedVal
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
+        type: 3}
       propertyPath: fadeSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -90875,7 +90885,7 @@ PrefabInstance:
         type: 3}
       propertyPath: panelFade
       value: 
-      objectReference: {fileID: 2033027795}
+      objectReference: {fileID: 759647801}
     - target: {fileID: 3625871361340601550, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: m_RootOrder
