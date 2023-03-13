@@ -8,7 +8,7 @@ public class Tuyauterie : MonoBehaviour, IPointerClickHandler
     public bool isPuzzle;
 
     public float actualRotation;
-    public float puzzleRotation;
+    public List<float> puzzleRotation;
 
     private GridManager gridManager;
 

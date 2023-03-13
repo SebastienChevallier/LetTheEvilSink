@@ -22,7 +22,7 @@ public class Personnage : MonoBehaviour
     [Header("Delay")]
     public float delay = 0.01f;
     public float timerInput;
-    private float delayInput = 3f;
+    private float delayInput = 2f;
     
     private void DelayInput()
     {
@@ -43,17 +43,19 @@ public class Personnage : MonoBehaviour
     public bool isTrigger = false;
     void Update()
     {
-        
         if(Input.GetButtonDown("Interact") && timerInput <= 0)
         {
-            Debug.Log("E");
             if(isTrigger)
             {
-                Debug.Log("isTrigger");
-                Parler(); 
+                Parler();
             }
         }
         DelayInput();
+        
+        if(Input.GetButtonDown("Interact") && tempI > 0)
+        {
+            tempDelay = 0;
+        }
     }
     
     void OnTriggerEnter(Collider other)
@@ -74,18 +76,19 @@ public class Personnage : MonoBehaviour
 
     public void Parler()
     {
-        if (_PlayerData._CanInteract || _PlayerData._CanTalk)
+        if(_PlayerData._CanInteract || _PlayerData._CanTalk)
         {
-            Debug.Log(_NumDial);
-            Debug.Log(_Dis._Dialog.Length);
             _PlayerData._CanInteract = false;
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
+            
+            
 
             if (_NumDial < _Dis._Dialog.Length)
             {
                 _NumDial++;
+                tempDelay = delay;
 
                 if (_Dis._Dialog[_NumDial - 1]._PlayerIsSpeaking && timerInput <= 0)
                 {
@@ -124,28 +127,33 @@ public class Personnage : MonoBehaviour
                 _PlayerData._CanMove = true;
                 _PlayerData._CanInteract = true;
                 _PlayerData._CanTalk = false;
+                timerInput = 0;
             }   
         }
     }
-    
+
+    public float tempDelay;
+
+    private void Start()
+    {
+        tempDelay = delay;
+    }
+
+    public int tempI;
     IEnumerator ShowText(string texte, GameObject obj)
     {
         for(int i = 0; i <= texte.Length; i++)
         {
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
-            yield return new WaitForSeconds(delay);
-            
+            tempI = i;
+
             if(texte.Length == i)
             {
                 timerInput = 0;
+                tempDelay = delay;
             }
-            
-            if (Input.GetButtonDown("Interact") && _NumDial > 0)
-            {
-                i = texte.Length;
-                
-            }
+            yield return new WaitForSeconds(tempDelay);
         }
     }
 }

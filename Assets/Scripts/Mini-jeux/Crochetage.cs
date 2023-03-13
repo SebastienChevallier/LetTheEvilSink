@@ -45,7 +45,7 @@ public class Crochetage : MonoBehaviour
 
     private void CheckPosition()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (_Crochet.transform.eulerAngles.z > objectifFinal - 10  && _Crochet.transform.eulerAngles.z < objectifFinal + 10)
             {

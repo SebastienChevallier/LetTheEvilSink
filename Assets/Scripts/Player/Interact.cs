@@ -23,50 +23,34 @@ public class Interact : MonoBehaviour
     public float delay = 0.1f;
 
     private string currentText;
+    
+    
+    public CreatureStateManager creature;
+
+    private void Start()
+    {
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Interagir();
-        DelayInput();
+        Interagir();  
+        Carnet();
     }
-
-    public float timerInput;
-    private float delayInput = 3f;
     
-    private void DelayInput()
+    public bool carnet = false;
+    private void Carnet()
     {
-        if(Input.GetButtonDown("Interact"))
+        if (_PlayerData._CanInteract && Input.GetButtonDown("Carnet"))
         {
-            if (timerInput <= 0)
+            if (carnet)
             {
-                timerInput = delayInput;
+                _PanelCarnet.SetActive(true);
             }
-        }
-
-        if (timerInput >= 0)
-        {
-            timerInput -= Time.deltaTime;
-        }
-    }
-
-    IEnumerator ShowText(string texte, GameObject obj)
-    {
-        for(int i = 0; i <= texte.Length; i++)
-        {
-            currentText = texte.Substring(0, i);
-            obj.GetComponent<TextMeshProUGUI>().text = currentText;
-            yield return new WaitForSeconds(delay);
-            
-            if(texte.Length == i)
+            else
             {
-                timerInput = 0;
-            }
-            
-            if (Input.GetButtonDown("Interact") && _NumDial > 0)
-            {
-                i = texte.Length;
-                
+                _PanelCarnet.SetActive(false);
             }
         }
     }
@@ -100,22 +84,10 @@ public class Interact : MonoBehaviour
                             if(_PlayerData._TriggerObject.GetComponent<AddForceCollider>() != null)
                             {
                                 _PlayerData._TriggerObject.GetComponent<AddForceCollider>().Impulse();
+                                creature.AddGauge(20);
                             }
 
                         }                     
-                        break;
-
-                    case "Cables":
-                        //SceneManager.LoadSceneAsync("Cables", LoadSceneMode.Additive);
-
-                        break;
-
-                    case "Recuperer":
-                        //Recuperation de loot                        
-                        break;
-
-                    case "Parler":
-                        
                         break;
 
                     case "Cacher":
@@ -125,6 +97,7 @@ public class Interact : MonoBehaviour
                             _PlayerData._CanInteract = false;
                             _PlayerData._CanMove = false;
                             _PlayerData._InDark = true;
+                            GetComponent<Player_Movements>()._LampeTorche.SetActive(false);
                             _Visuals.SetActive(false);
                         }
                         else

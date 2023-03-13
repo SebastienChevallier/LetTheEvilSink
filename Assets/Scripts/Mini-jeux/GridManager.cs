@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +29,7 @@ public class GridManager : MonoBehaviour
     {
         foreach (Tuyauterie t in puzzleTiles)
         {
-            if (t.actualRotation != t.puzzleRotation)
+            if (!CheckPuzzleRot(t.actualRotation, t.puzzleRotation))
             {
                 return;
             }
@@ -38,5 +37,18 @@ public class GridManager : MonoBehaviour
 
         // PUZZLE FINI
         transform.parent.GetComponent<Trigger_Minijeu>().validated = true;
+    }
+
+    private bool CheckPuzzleRot(float actualRot, List<float> puzzleRot)
+    {
+        foreach (float rot in puzzleRot)
+        {
+            if (actualRot == rot)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
