@@ -65,25 +65,29 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && !isTriggered)
+        if (_event != eventType.discution)
         {
-            timer += Time.deltaTime;
-            if (timer > delaySuiteDial)
+            if (other.CompareTag("Player") && !isTriggered)
             {
-                Debug.Log("In");
-                StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur.transform.GetChild(0).gameObject));
-                _NumDial++;
-                timer = 0;
-            }
+                timer += Time.deltaTime;
+                if (timer > delaySuiteDial)
+                {
+                    Debug.Log("In");
+                    StartCoroutine(ShowText(_Discution._Dialog[_NumDial]._Discution, texteNarrateur.transform.GetChild(0).gameObject));
+                    _NumDial++;
+                    timer = 0;
+                }
             
-            if(_NumDial > _Discution._Dialog.Length)
-            {
-                _Player._CanMove = true;
-                _Player._CanInteract = true;
-                texteNarrateur.SetActive(false);
-                _NumDial = 0;
+                if(_NumDial > _Discution._Dialog.Length)
+                {
+                    _Player._CanMove = true;
+                    _Player._CanInteract = true;
+                    texteNarrateur.SetActive(false);
+                    _NumDial = 0;
+                }
             }
         }
+        
     }
 
     private string currentText;
