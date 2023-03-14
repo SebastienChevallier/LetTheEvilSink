@@ -26141,6 +26141,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 17375583175303432, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879787063555233554, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_IsActive
@@ -32395,18 +32400,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 758028253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &759647801 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9014773023034532377, guid: 269cb1e315c2b3b43b103ac70797efa2,
-    type: 3}
-  m_PrefabInstance: {fileID: 589441682}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &760872077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71119,6 +71112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615255163}
   - component: {fileID: 1615255164}
+  - component: {fileID: 1615255165}
   m_Layer: 0
   m_Name: ApparitionCreature
   m_TagString: Untagged
@@ -71134,7 +71128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615255162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 35.43, y: 0, z: 9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71162,6 +71156,19 @@ MonoBehaviour:
   _NumDial: 0
   delay: 0.1
   delaySuiteDial: 1
+--- !u!65 &1615255165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615255162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1620325230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74784,6 +74791,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1716674186}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716708526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6815081722478309734, guid: b126989d21d74e148bae85615116a2aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076733071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718819055
 GameObject:
   m_ObjectHideFlags: 0
@@ -90869,27 +90888,27 @@ PrefabInstance:
     - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: speedVal
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: fadeSpeed
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: fadeValue
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601549, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: panelFade
       value: 
-      objectReference: {fileID: 759647801}
+      objectReference: {fileID: 1716708526}
     - target: {fileID: 3625871361340601550, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3625871361340601550, guid: b126989d21d74e148bae85615116a2aa,
         type: 3}

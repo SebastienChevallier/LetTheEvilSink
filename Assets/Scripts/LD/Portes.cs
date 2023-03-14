@@ -22,7 +22,7 @@ public class Portes : MonoBehaviour
 
     private void Start()
     {
-        panelFade = GameObject.Find("Fade-In-Out").GetComponent<Image>();
+        //panelFade = GameObject.Find("Fade-In-Out").GetComponent<Image>();
         fadeValue = 0f;
     }
 
