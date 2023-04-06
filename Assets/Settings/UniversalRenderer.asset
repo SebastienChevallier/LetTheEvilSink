@@ -57,7 +57,8 @@ MonoBehaviour:
   - {fileID: 9186727649850620228}
   - {fileID: -3422953918925098307}
   - {fileID: 2651788179629053751}
-  m_RendererFeatureMap: e106992aaf21d29f44f99ac91fd07d7fbd32f0db8b397fd037975eb24c0bcd24
+  - {fileID: 8550761233980016171}
+  m_RendererFeatureMap: e106992aaf21d29f44f99ac91fd07d7fbd32f0db8b397fd037975eb24c0bcd242b468fd60968aa76
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -112,6 +113,22 @@ MonoBehaviour:
   m_Name: ButoRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
+--- !u!114 &8550761233980016171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b21ce1c96a20b499c37eb5586734c3, type: 3}
+  m_Name: ColorBlitRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: -6465566751694194690, guid: 5872b750e1c9d7d4ba3a1577d87ee209,
+    type: 3}
+  m_Intensity: -7.13
 --- !u!114 &9186727649850620228
 MonoBehaviour:
   m_ObjectHideFlags: 0
