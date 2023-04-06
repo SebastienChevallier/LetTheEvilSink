@@ -82,9 +82,6 @@ public class Personnage : MonoBehaviour
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
-            
-            
-
             if (_NumDial < _Dis._Dialog.Length)
             {
                 _NumDial++;
