@@ -8,8 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_VHS
-  m_Shader: {fileID: -6465566751694194690, guid: 5872b750e1c9d7d4ba3a1577d87ee209,
+  m_Shader: {fileID: -6465566751694194690, guid: 0849b27bb164b0b4994fd61d7237aec4,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -18,6 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -44,17 +47,33 @@ Material:
     m_Ints: []
     m_Floats:
     - Normal_Blend: 0.5
+    - _Alpha: 1
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
+    - _Fullscreen_AlphaBlendOperation: 0
+    - _Fullscreen_BlendMode: 1
+    - _Fullscreen_ColorBlendOperation: 0
+    - _Fullscreen_DepthWrite: 0
+    - _Fullscreen_DstAlphaBlend: 10
+    - _Fullscreen_DstColorBlend: 10
+    - _Fullscreen_SrcAlphaBlend: 1
+    - _Fullscreen_SrcColorBlend: 5
+    - _Nb: 12
+    - _NoiseHeight: 1
+    - _NoiseWidth: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 3.33
-    - _Step: 0.34
-    - _nbOfLines: 6
+    - _Step: 0.96
+    - _nbOfLines: 12
     m_Colors:
+    - _Color: {r: 1, g: 0, b: 0, a: 0}
+    - _ColorParam_1: {r: 2, g: 1, b: 1, a: 0}
+    - _ColorParam_2: {r: 0, g: 0.002, b: 0.001, a: 0}
     - _MainTex: {r: 1, g: 0, b: 0, a: 1}
+    - _step: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4399507406491431083
 MonoBehaviour:
@@ -68,4 +87,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 5
+  version: 7
