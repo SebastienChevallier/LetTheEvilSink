@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7517435830688495443}
   - component: {fileID: 8809398313328979822}
   - component: {fileID: 8320845239534507908}
-  - component: {fileID: 184125578798075763}
-  - component: {fileID: 6962375032898981752}
   m_Layer: 0
   m_Name: Msh_MurPorteModulaire
   m_TagString: Untagged
@@ -85,29 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &184125578798075763
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971563571514201632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2765801, y: 5.256045, z: 0.16700928}
-  m_Center: {x: -1.3657923, y: 0, z: 5.1982243e-15}
---- !u!65 &6962375032898981752
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971563571514201632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1699088, y: 5.256045, z: 0.16700932}
-  m_Center: {x: 1.4191284, y: 0, z: -5.9561764e-15}

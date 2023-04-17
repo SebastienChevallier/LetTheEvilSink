@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5864019113414828246}
   - component: {fileID: 5687406985549203848}
   - component: {fileID: 1369425945870923105}
-  - component: {fileID: 1188028015}
-  - component: {fileID: 2138559856}
   m_Layer: 0
   m_Name: MurModulaire1m
   m_TagString: Untagged
@@ -85,29 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1188028015
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6987425262020198134}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16703124, y: 5.2560444, z: 0.79886717}
-  m_Center: {x: 0.000002965331, y: -0.00000023841858, z: -0.0000003874302}
---- !u!65 &2138559856
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6987425262020198134}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16703129, y: 5.2560444, z: 0.79886734}
-  m_Center: {x: 0.000003442169, y: 0, z: -0.000008016825}
