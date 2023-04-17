@@ -148,6 +148,7 @@ Transform:
   - {fileID: 8107770841478612818}
   - {fileID: 8599044162381198917}
   - {fileID: 8400198973905282543}
+  - {fileID: 4959475423041478094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,6 +203,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6070796114497372406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4959475423041478094}
+  - component: {fileID: 4924796148263922636}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4959475423041478094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070796114497372406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2451075547954716628}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &4924796148263922636
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070796114497372406}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -0.06321323, z: 1}
+  - {x: 1, y: -0.06321323, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -0.06321323, z: 1}
+  - {x: -1, y: -0.06321323, z: -1}
+  - {x: 0.9999943, y: -0.06321323, z: 2.1382809}
+  - {x: -1.0000057, y: -0.06321323, z: 2.1382809}
+  - {x: 0.9999943, y: -0.06321323, z: -2.164301}
+  - {x: -1.0000057, y: -0.06321323, z: -2.164301}
+  - {x: 2.0342045, y: -0.06321323, z: 0.9999981}
+  - {x: 2.0342045, y: -0.06321323, z: -1.0000019}
+  - {x: 2.0342045, y: -0.06321323, z: 2.1382809}
+  - {x: 2.0342045, y: -0.06321323, z: -2.164301}
+  - {x: -2.1057644, y: -0.06321323, z: 0.9999981}
+  - {x: -2.1057644, y: -0.06321323, z: -1.0000019}
+  - {x: -2.1057644, y: -0.06321323, z: 2.1382809}
+  - {x: -2.1057644, y: -0.06321323, z: -2.164301}
+  m_Dering: 1
 --- !u!1001 &4172381351005805377
 PrefabInstance:
   m_ObjectHideFlags: 0
