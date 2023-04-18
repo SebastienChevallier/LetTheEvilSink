@@ -39,6 +39,7 @@ public class CameraBehavior : MonoBehaviour
         
         Zoom();
         AutoRotate();
+        //FollowCible();
     }
 
     private void Update()
