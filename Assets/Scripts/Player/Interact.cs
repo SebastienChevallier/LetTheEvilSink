@@ -86,7 +86,6 @@ public class Interact : MonoBehaviour
                                 _PlayerData._TriggerObject.GetComponent<AddForceCollider>().Impulse();
                                 creature.AddGauge(20);
                             }
-
                         }                     
                         break;
 

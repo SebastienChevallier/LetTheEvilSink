@@ -51,7 +51,7 @@ public class Player_Movements : MonoBehaviour
     {  
         Course();
         Carnet();              
-        LampeTorche();
+        //LampeTorche();
         Flip();
         SonDePas(1f);
     }

@@ -29,30 +29,27 @@ public class Portes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fade();
+        if (player) Fade();
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (player)
             {
-                StartCoroutine(DelayFade(fadeSpeed));
                 fadeValue = 1f;
+                StartCoroutine(DelayFade(fadeSpeed));
+                
                 if (frontTriggered)
                 {
-                    
                     if (allow_Y_Tp)
                     {
                         player.transform.position = new Vector3(trigger2.transform.position.x, trigger2.transform.position.y+1, trigger2.transform.position.z);
                         player.transform.rotation = trigger2.transform.rotation;
-                        
                     }
                     else
                     {
                         player.transform.position = new Vector3(trigger2.transform.position.x, player.transform.position.y, trigger2.transform.position.z);
                     }
-
                     //trigger2.SetActive(true);
                     //trigger.SetActive(false);
-
                 }
                 else if (backTriggered)
                 {
@@ -68,7 +65,6 @@ public class Portes : MonoBehaviour
                     }
                     //trigger.SetActive(true);
                     //trigger2.SetActive(false);
-
                 }    
             }
         }
@@ -85,6 +81,7 @@ public class Portes : MonoBehaviour
     {
         if(panelFade != null)
         {
+            //panelFade.color = new Vector4(panelFade.color.r, panelFade.color.g, panelFade.color.b, fadeValue);
             Vector4 color = new Vector4(panelFade.color.r, panelFade.color.g, panelFade.color.b, fadeValue);
             panelFade.color = Vector4.Lerp(panelFade.color, color, Time.deltaTime * speedVal);
         }
