@@ -95,8 +95,7 @@ public class Personnage : MonoBehaviour
                     _PanelParler.transform.GetChild(2).GetComponent<Image>().sprite = _Dis._Dialog[_NumDial - 1]._SpritePerso;
                     _PanelParler.transform.GetChild(0).GetComponent<Image>().sprite = _Dis._Perso1;
                     _PanelParler.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = _Dis._Dialog[_NumDial - 1]._NomPerso;
-
-                    
+      
 
                     _PanelParler.transform.GetChild(3).GetComponent<Image>().sprite = _Dis._Dialog[_NumDial - 1]._SpritePerso;
                     _PanelParler.transform.GetChild(1).GetComponent<Image>().sprite = _Dis._Perso2;
@@ -114,8 +113,8 @@ public class Personnage : MonoBehaviour
                     _PanelParler.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = _Dis._Dialog[_NumDial - 1]._NomPerso;
                 }
 
-                //_PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._Discution;
-                StartCoroutine(ShowText(_Dis._Dialog[_NumDial - 1]._Discution, _PanelParler.transform.GetChild(4).GetChild(0).gameObject));
+                _PanelParler.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Personnage>()._Dis._Dialog[_NumDial - 1]._Discution;
+                //StartCoroutine(ShowText(_Dis._Dialog[_NumDial - 1]._Discution, _PanelParler.transform.GetChild(4).GetChild(0).gameObject));
             }
             else
             {
@@ -134,6 +133,7 @@ public class Personnage : MonoBehaviour
     private void Start()
     {
         tempDelay = delay;
+        isTrigger = false;
     }
 
     public int tempI;

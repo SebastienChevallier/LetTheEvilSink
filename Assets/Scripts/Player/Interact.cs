@@ -29,7 +29,7 @@ public class Interact : MonoBehaviour
 
     private void Start()
     {
-        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     // Update is called once per frame
