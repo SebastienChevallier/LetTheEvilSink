@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8ef02802d5331448700c896682496d, type: 3}
+  m_Name: 10_Discution_retrouvailles_Ash
+  m_EditorClassIdentifier: 
+  _Dialog:
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
+    _NomPerso: Ash
+    _Discution: "Rachel! tu as trouv\xE9 le pass, parfait. Viens avec moi, vite!!"
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    _NomPerso: Rachel
+    _Discution: "Ash?? Qu'est ce que tu fais l\xE0? O\xF9 sont les autres?!"
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
+    _NomPerso: Ash
+    _Discution: "Ils ne sont jamais revenus \xE0 la salle des cam\xE9ras, ils se
+      sont surement fait choper! Rachel, h\xE9!! \xC9coute moi! On a pas le temps
+      de se lamenter, il faut que nous, on s'en sorte."
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    _NomPerso: Rachel
+    _Discution: "Mais\u2026Olivia et Danny \xE9taient encore avec moi il y a quelques
+      minutes."
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
+    _NomPerso: Ash
+    _Discution: "On doit continuer \xE0 avancer pour eux, on est presque \xE0 la
+      salle de radio."
+  _Perso1: {fileID: 0}
+  _Perso2: {fileID: 0}
