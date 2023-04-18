@@ -20,9 +20,8 @@ public class PlayerColliderScript : MonoBehaviour
             if (other.CompareTag("Door"))
             {
                 other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                other.GetComponentInChildren<MeshRenderer>().material.SetFloat("_Outline_Width", 100f);
+                other.GetComponentInChildren<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
             }
-            
         }
 
         if (!other.CompareTag("Untagged"))
@@ -63,10 +62,8 @@ public class PlayerColliderScript : MonoBehaviour
                     default:
                         break;
                 }
-            
         }
     }
-    
     
     private void OnTriggerExit(Collider other)
     {
