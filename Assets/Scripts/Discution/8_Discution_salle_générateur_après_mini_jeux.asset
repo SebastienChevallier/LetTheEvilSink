@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8ef02802d5331448700c896682496d, type: 3}
+  m_Name: "8_Discution_salle_g\xE9n\xE9rateur_apr\xE8s_mini_jeux"
+  m_EditorClassIdentifier: 
+  _Dialog:
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 643414ea7d6da0e4c912f9b7eefcfd93, type: 3}
+    _NomPerso: Olivia
+    _Discution: "Ouf\u2026on a r\xE9ussi! Je ne me suis pas pr\xE9sent\xE9e, je suis
+      Olivia, merci pour le coup de main. Danny, ne me fais plus jamais \xE7a ! Tu
+      m'as fait trop peur, j\u2019ai cru que tu \xE9tais poss\xE9d\xE9 ou quelque
+      chose du genre\u2026!"
+  - _PlayerIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: b20f970d89e4f6a46a68a11bd36e3ea6, type: 3}
+    _NomPerso: Danny
+    _Discution: "Ha- t\u2019inqui\xE8tes pas, \xE7a m\u2019arrive d\u2019avoir des
+      crises de ce genre depuis tout petit. Le contexte dans lequel on est, \xE7a
+      les as juste\u2026un peu accentu\xE9es, d\xE9sol\xE9."
+  _Perso1: {fileID: 21300000, guid: 643414ea7d6da0e4c912f9b7eefcfd93, type: 3}
+  _Perso2: {fileID: 21300000, guid: b20f970d89e4f6a46a68a11bd36e3ea6, type: 3}
