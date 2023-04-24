@@ -18,7 +18,7 @@ public class Trigger_Minijeu : MonoBehaviour
     {
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(false);
-        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class Trigger_Minijeu : MonoBehaviour
         {
             _player._CanMove = false;
             _canvaMinijeu.SetActive(true);
-            creature.AddGauge(5);
+            //zcreature.AddGauge(5);
         }
 
         if (_canvaMinijeu.activeSelf && validated)

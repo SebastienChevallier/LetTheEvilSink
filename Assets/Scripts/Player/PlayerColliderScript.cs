@@ -50,9 +50,6 @@ public class PlayerColliderScript : MonoBehaviour
                         //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
                     
-                    case "Door":
-                        
-                        break;
                     
                     case "Parler":
                         interact.sprite = _SpriteTalk;

@@ -31,7 +31,7 @@ public class PosProcessModifier : MonoBehaviour
     private void Update()
     {
         ChromaticChange(_PlayerData._ValAngoisse);
-        _SMH.shadows.value = new Vector4(0,0,_Parametres.brightness,0);
+        //_SMH.shadows.value = new Vector4(0,0,_Parametres.brightness,0);
     }
 
     public void ChromaticChange(float value)
