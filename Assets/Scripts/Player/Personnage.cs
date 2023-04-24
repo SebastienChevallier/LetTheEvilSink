@@ -128,7 +128,7 @@ public class Personnage : MonoBehaviour
         }
     }
 
-    public float tempDelay;
+    private float tempDelay;
 
     private void Start()
     {
@@ -143,7 +143,7 @@ public class Personnage : MonoBehaviour
         {
             currentText = texte.Substring(0, i);
             obj.GetComponent<TextMeshProUGUI>().text = currentText;
-            tempI = i;
+            
 
             if(texte.Length == i)
             {
