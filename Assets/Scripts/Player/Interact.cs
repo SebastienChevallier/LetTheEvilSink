@@ -36,7 +36,7 @@ public class Interact : MonoBehaviour
     void Update()
     {
         Interagir();  
-        Carnet();
+        //Carnet();
     }
     
     public bool carnet = false;

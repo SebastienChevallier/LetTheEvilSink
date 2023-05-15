@@ -35,45 +35,53 @@ public class Portes : MonoBehaviour
             if (player)
             {
                 fadeValue = 1f;
+                StartCoroutine(DelayTp(fadeSpeed));
                 StartCoroutine(DelayFade(fadeSpeed));
-                
-                if (frontTriggered)
-                {
-                    if (allow_Y_Tp)
-                    {
-                        player.transform.position = new Vector3(trigger2.transform.position.x, trigger2.transform.position.y+1, trigger2.transform.position.z);
-                        player.transform.rotation = trigger2.transform.rotation;
-                    }
-                    else
-                    {
-                        player.transform.position = new Vector3(trigger2.transform.position.x, player.transform.position.y, trigger2.transform.position.z);
-                    }
-                    //trigger2.SetActive(true);
-                    //trigger.SetActive(false);
-                }
-                else if (backTriggered)
-                {
-                    
-                    if (allow_Y_Tp)
-                    {
-                        player.transform.position = new Vector3(trigger.transform.position.x, trigger.transform.position.y + 1, trigger.transform.position.z);
-                        player.transform.rotation = trigger.transform.rotation;
-                    }
-                    else
-                    {
-                        player.transform.position = new Vector3(trigger.transform.position.x, player.transform.position.y, trigger.transform.position.z);
-                    }
-                    //trigger.SetActive(true);
-                    //trigger2.SetActive(false);
-                }    
             }
         }
     }
     
     IEnumerator DelayFade(float time)
     {
+        
         yield return new WaitForSeconds(time);
+        
         fadeValue = 0;
+    }
+    
+    IEnumerator DelayTp(float time)
+    {
+        yield return new WaitForSeconds(time/2);
+        
+        if (frontTriggered)
+        {
+            if (allow_Y_Tp)
+            {
+                player.transform.position = new Vector3(trigger2.transform.position.x, trigger2.transform.position.y+1, trigger2.transform.position.z);
+                player.transform.rotation = trigger2.transform.rotation;
+            }
+            else
+            {
+                player.transform.position = new Vector3(trigger2.transform.position.x, player.transform.position.y, trigger2.transform.position.z);
+            }
+            //trigger2.SetActive(true);
+            //trigger.SetActive(false);
+        }
+        else if (backTriggered)
+        {
+                    
+            if (allow_Y_Tp)
+            {
+                player.transform.position = new Vector3(trigger.transform.position.x, trigger.transform.position.y + 1, trigger.transform.position.z);
+                player.transform.rotation = trigger.transform.rotation;
+            }
+            else
+            {
+                player.transform.position = new Vector3(trigger.transform.position.x, player.transform.position.y, trigger.transform.position.z);
+            }
+            //trigger.SetActive(true);
+            //trigger2.SetActive(false);
+        }
     }
 
     public float speedVal;
