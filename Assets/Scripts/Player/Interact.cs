@@ -19,7 +19,7 @@ public class Interact : MonoBehaviour
     private int _NumDial = 0;
     public GameObject _Visuals;
 
-    [Header("UI")]
+    [Header("other")]
     public float delay = 0.1f;
 
     private string currentText;
@@ -84,7 +84,7 @@ public class Interact : MonoBehaviour
                             if(_PlayerData._TriggerObject.GetComponent<AddForceCollider>() != null)
                             {
                                 _PlayerData._TriggerObject.GetComponent<AddForceCollider>().Impulse();
-                                creature.AddGauge(20);
+                                //creature.AddGauge(20);
                             }
                         }                     
                         break;

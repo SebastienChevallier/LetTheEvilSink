@@ -51,13 +51,14 @@ public class WireTask : MonoBehaviour
             _availableRightWireIndex.RemoveAt(pickedRightWireIndex);
         }
 
-        StartCoroutine(CheckTaskCompletion());
+        //StartCoroutine(CheckTaskCompletion());
     }
 
-    private IEnumerator CheckTaskCompletion()
+    public IEnumerator CheckTaskCompletion()
     {
         while (!IsTaskCompleted)
         {
+            Debug.Log("Checking Task Completion");
             int successfulWires = 0; 
             for (int i = 0; i < _rightWires.Count; i++)
             {
@@ -66,6 +67,7 @@ public class WireTask : MonoBehaviour
 
             if(successfulWires >= _rightWires.Count)
             {
+                Debug.Log("Check !");
                 //Debug.Log("TaskComplete");
                 transform.parent.parent.parent.GetComponent<Trigger_Minijeu>().validated = true;
                 IsTaskCompleted = true;

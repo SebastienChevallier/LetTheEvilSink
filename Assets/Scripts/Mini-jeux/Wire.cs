@@ -101,6 +101,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             {
                 isSuccess = true;
                 _wireTask.CurrentHoveredWire.isSuccess = true;
+                StartCoroutine(_wireTask.CheckTaskCompletion());
             }
         }
 
