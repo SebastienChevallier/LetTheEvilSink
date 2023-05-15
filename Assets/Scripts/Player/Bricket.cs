@@ -10,9 +10,11 @@ public class Bricket : MonoBehaviour
     public GameObject _LampeTorche;
     public So_Player _PlayerData;
     public CreatureStateManager _creature;
+    public ParticleSystem _particleSystem;
     
     public float FailRate = 0f;
     public float addFailRateValue = 0.05f;
+    public float maxFailRate = 0.75f;
     
     public void Start()
     {       
@@ -31,7 +33,7 @@ public class Bricket : MonoBehaviour
             if(_creature != null)
                 _creature.AddGauge(5);
             
-            if(FailRate < 0.95f)
+            if(FailRate < maxFailRate)
                 FailRate += addFailRateValue;
             
             float random = Random.Range(0f, 1f);
@@ -47,7 +49,7 @@ public class Bricket : MonoBehaviour
                 else
                 {
                     //Spawn FX Light Fail
-                    
+                    _particleSystem.Play();
                 }
                 
             }

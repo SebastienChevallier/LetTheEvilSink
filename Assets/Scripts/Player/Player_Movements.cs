@@ -25,6 +25,7 @@ public class Player_Movements : MonoBehaviour
     private Rigidbody rb;
 
     private Vector3 velocity = Vector3.zero;
+    public Animator planeAnimator;
 
     public void Start()
     {        
@@ -50,7 +51,7 @@ public class Player_Movements : MonoBehaviour
     void Update()
     {  
         Course();
-        Carnet();              
+        //Carnet();              
         //LampeTorche();
         Flip();
         SonDePas(1f);
@@ -67,6 +68,7 @@ public class Player_Movements : MonoBehaviour
     {
         Vector3 moveDir = _Camera.gameObject.transform.right * (Input.GetAxis("Horizontal") * _Speed);
         //moveDir += Input.GetAxis("Vertical") * _Camera.gameObject.transform.forward * _Speed;
+        planeAnimator.SetFloat("Speed", moveDir.magnitude/2);
 
         if (_PlayerData._CanMove)
         {
@@ -122,25 +124,6 @@ public class Player_Movements : MonoBehaviour
         }
     }   
 
-    void LampeTorche()
-    {
-        if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove)
-        {
-            if (_PlayerData._CanLight)
-            {
-                _PlayerData._InDark = false;
-                _PlayerData._CanLight = false;
-                _LampeTorche.SetActive(true);
-                _creature.AddGauge(5);
-            }
-            else
-            {
-                _PlayerData._InDark = true;
-                _PlayerData._CanLight = true;
-                _LampeTorche.SetActive(false);
-            }
-        }
-    }
 
     void SonDePas(float duration)
     {

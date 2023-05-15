@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour {
     public bool isTrigger = false;
     void Update()
     {        
-        if (_DialogueManager.sentences.Count == 0)
+        if (_DialogueManager.sentences.Count == 0 && isTrigger)
         {
             _DialogueManager.EndDialogue();
             open = false;
