@@ -41,6 +41,7 @@ public class CreatureStateManager : MonoBehaviour
 
 
 
+    private Animator animator;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class CreatureStateManager : MonoBehaviour
         enemy = transform;
         agent = GetComponent<NavMeshAgent>();
 
+        animator = GetComponentInChildren<Animator>();
         currentState = WanderState;
         currentState.EnterState(this);
     }
@@ -55,6 +57,7 @@ public class CreatureStateManager : MonoBehaviour
     void Update()
     { 
         currentState.UpdateState(this);
+        animator.SetFloat("Speed", agent.speed);
     }
 
     void OnCollisionEnter(Collision collision)
