@@ -17,6 +17,7 @@ public class CreatureStateManager : MonoBehaviour
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
+    public bool creatureSpawnable;
     public bool summoned;
 
     [Header("Detection")]
@@ -74,6 +75,8 @@ public class CreatureStateManager : MonoBehaviour
 
     public void AddGauge(int value)
     {
+        if (!creatureSpawnable) return;
+        
         gauge += value;
 
         if (gauge > 100) gauge = 100;

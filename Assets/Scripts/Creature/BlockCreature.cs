@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,9 @@ public class BlockCreature : MonoBehaviour
         _creature = FindObjectOfType<CreatureStateManager>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        _creature.gauge = 0;
+        if(other.gameObject.CompareTag("Player"))
+            _creature.creatureSpawnable = true;
     }
 }

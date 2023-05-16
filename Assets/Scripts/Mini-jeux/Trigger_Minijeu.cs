@@ -8,6 +8,7 @@ public class Trigger_Minijeu : MonoBehaviour
     public So_Player _player;
     public GameObject _canvaMinijeu;
     public GameObject triggerPorte;
+    private WireTask _wireTask;
 
     public bool validated;
     private bool _isTrigger = false;
@@ -18,6 +19,7 @@ public class Trigger_Minijeu : MonoBehaviour
     {
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(false);
+        _wireTask = _canvaMinijeu.GetComponentInChildren<WireTask>();
         //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
@@ -56,6 +58,9 @@ public class Trigger_Minijeu : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player") && _wireTask != null)
+        {
+            validated = _wireTask.IsTaskCompleted;
+        }
     }
 }

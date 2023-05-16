@@ -11,6 +11,7 @@ public class Bricket : MonoBehaviour
     public So_Player _PlayerData;
     public CreatureStateManager _creature;
     public ParticleSystem _particleSystem;
+    public SoundPas ScriptSound;
     
     public float FailRate = 0f;
     public float addFailRateValue = 0.05f;
@@ -36,10 +37,13 @@ public class Bricket : MonoBehaviour
             if(FailRate < maxFailRate)
                 FailRate += addFailRateValue;
             
+            
+            
             float random = Random.Range(0f, 1f);
 
             if (_PlayerData._CanLight)
             {
+                ScriptSound.PlaySound();
                 if (random > FailRate)
                 {
                     _PlayerData._InDark = false;

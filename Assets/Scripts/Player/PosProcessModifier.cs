@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+
 public class PosProcessModifier : MonoBehaviour
 {
     private Volume _Volume;
@@ -24,7 +25,7 @@ public class PosProcessModifier : MonoBehaviour
         _Volume = GetComponent<Volume>();
         _Volume.profile.TryGet(out _CA);
         _Volume.profile.TryGet(out _VG);
-        _Volume.profile.TryGet(out _FG);
+        _Volume.profile.TryGet( out _FG);
         _Volume.profile.TryGet(out _SMH);
     }
 

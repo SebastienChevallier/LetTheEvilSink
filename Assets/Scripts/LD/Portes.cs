@@ -85,6 +85,8 @@ public class Portes : MonoBehaviour
     }
 
     public float speedVal;
+    //public AnimationCurve curve;
+    
     void Fade()
     {
         if(panelFade != null)
