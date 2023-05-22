@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Trigger_Minijeu : MonoBehaviour
@@ -20,7 +21,7 @@ public class Trigger_Minijeu : MonoBehaviour
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(false);
         _wireTask = _canvaMinijeu.GetComponentInChildren<WireTask>();
-        //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     private void Update()
@@ -29,15 +30,22 @@ public class Trigger_Minijeu : MonoBehaviour
         {
             _player._CanMove = false;
             _canvaMinijeu.SetActive(true);
-            //zcreature.AddGauge(5);
+            creature.AddGauge(5);
         }
 
         if (_canvaMinijeu.activeSelf && validated)
         {
-            _player._CanMove = true;
-            _canvaMinijeu.SetActive(false);
-            triggerPorte.SetActive(true);
+            StartCoroutine(EndMiniGame());
         }
+    }
+    
+    IEnumerator EndMiniGame()
+    {
+        yield return new WaitForSeconds(1f);
+        _player._CanMove = true;
+        _canvaMinijeu.SetActive(false);
+        triggerPorte.SetActive(true);
+        this.GameObject().SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

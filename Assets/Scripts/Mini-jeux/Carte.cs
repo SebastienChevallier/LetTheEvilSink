@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -11,6 +12,8 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public bool completed;
     public float minTime;
     public float maxTime;
+    
+    public TextMeshProUGUI validationText;
 
     public bool dragOnSurfaces = true;
 
@@ -72,7 +75,7 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         var rt = carte.GetComponent<RectTransform>();
         if (carte != null)
         {
-            rt.localPosition = new Vector3(-200, -50, rt.position.z);
+            rt.localPosition = new Vector3(-200,0, rt.position.z);
         }
         _lastPointerData = null;
     }
@@ -91,12 +94,14 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             }
             else if (timer < minTime)
             {
-                Debug.Log("Trop Rapide");
+                //Debug.Log("Trop Rapide");
+                validationText.text = "Trop Rapide";
                 CancelDrag();
             }
             else if (timer > maxTime)
             {
-                Debug.Log("Trop Lent");
+                //Debug.Log("Trop Lent");
+                validationText.text = "Trop Lent";
                 CancelDrag();
             }
         }
@@ -109,7 +114,7 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         {
             _lastPointerData.pointerDrag = null;
 
-            rt.localPosition = new Vector3(-200, -50, rt.position.z);
+            rt.localPosition = new Vector3(-200, 0, rt.position.z);
         }
     }
 
