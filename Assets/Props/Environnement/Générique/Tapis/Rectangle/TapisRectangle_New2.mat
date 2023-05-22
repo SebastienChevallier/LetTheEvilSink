@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TapisRectangle_New
+  m_Name: TapisRectangle_New2
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_RIM_ON
@@ -28,7 +28,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 4779d4a73b390cd408fce7c054430b4d, type: 3}
+        m_Texture: {fileID: 2800000, guid: db7a0d8fef1f3414b91a6d38aac19d17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 1}
     - _BumpMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CelStepTexture:
-        m_Texture: {fileID: 2800000, guid: c2c311fc20d334a4ebdd27709fdcc1a0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a89f5b9594bca74593d28663459d615, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -95,9 +95,9 @@ Material:
     - _FlatRimSize: 1
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
-    - _FlatSpecularEdgeSmoothness: 0.5
+    - _FlatSpecularEdgeSmoothness: 0.486
     - _FlatSpecularEnabled: 1
-    - _FlatSpecularSize: 0.712
+    - _FlatSpecularSize: 1
     - _FlatSpecularSmoothness: 0.5
     - _Flatness: 1
     - _FlatnessExtra: 1
@@ -160,14 +160,14 @@ Material:
     - _ColorDim: {r: 0.5, g: 0.09198114, b: 0.1493588, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _ColorDimExtra: {r: 0, g: 0, b: 0, a: 0.85}
-    - _ColorDimSteps: {r: 0.2735849, g: 0.021938415, b: 0.021938415, a: 0.85}
+    - _ColorDimSteps: {r: 0.023529412, g: 0.062298946, b: 0.27450982, a: 0.85}
     - _ColorGradient: {r: 0.65, g: 0.65, b: 0.65, a: 1}
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
     - _ColorShadow: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ColorShadows: {r: 0.37835297, g: 0.4602353, b: 0.72, a: 1}
     - _EmissionColor: {r: 6.574697, g: 6.574697, b: 6.574697, a: 0}
-    - _FlatRimColor: {r: 0.092156865, g: 0, b: 0.010784314, a: 1}
-    - _FlatSpecularColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    - _FlatRimColor: {r: 0, g: 0.00046956682, b: 0.09411765, a: 1}
+    - _FlatSpecularColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
     - _LightmapDirection: {r: -0.56928205, g: 0.6427875, b: -0.5125838, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _UnityShadowColor: {r: 0.33011916, g: 0.2572535, b: 0.38679248, a: 1}
