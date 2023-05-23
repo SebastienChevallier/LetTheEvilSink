@@ -15,16 +15,28 @@ public class AnimationFonction : MonoBehaviour
         
     }
 
+    private bool skip = false;
+    public GameObject skipText;
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche"))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && !skip)
         {
-            _Animator.SetFloat("Speed", 100);
+            skip = true;
+            skipText.SetActive(true);
+            return;
+        }
+        
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip)
+        {
+            _Animator.SetFloat("Speed", 50);
+            return;
         }
 
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("LampeTorche"))
         {
             _Animator.SetFloat("Speed", 1);
+            return;
         }
     }
 
