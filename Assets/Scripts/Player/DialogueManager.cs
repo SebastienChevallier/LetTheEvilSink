@@ -8,9 +8,13 @@ public class DialogueManager : MonoBehaviour {
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public Image _ImagePerso1;
+    public Image _ImagePerso2;
 
     public Queue<string> sentences;
     private Queue<string> names;
+    private Queue<bool> bools;
+    private Queue<Sprite> sprites;
     
     
     [Header("UI")]
@@ -23,6 +27,8 @@ public class DialogueManager : MonoBehaviour {
     void Start () {
         sentences = new Queue<string>();
         names = new Queue<string>();
+        bools = new Queue<bool>();
+        sprites = new Queue<Sprite>();
     }
 
     public void StartDialogue (So_Discution dialogue)
@@ -39,6 +45,8 @@ public class DialogueManager : MonoBehaviour {
         {
             sentences.Enqueue(sentence._Discution);
             names.Enqueue(sentence._NomPerso);
+            bools.Enqueue(sentence._PlayerIsSpeaking);
+            sprites.Enqueue(sentence._SpritePerso);
         }
 
         DisplayNextSentence();
@@ -47,7 +55,21 @@ public class DialogueManager : MonoBehaviour {
     public void DisplayNextSentence ()
     {
         nameText.text = names.Dequeue();
+        bool isPlayer = bools.Dequeue();
         string sentence = sentences.Dequeue();
+        Sprite sprite = sprites.Dequeue();
+
+        if (isPlayer)
+        {
+            nameText.text = "";
+            _ImagePerso1.sprite = sprite;
+        }
+        else
+        {
+            _ImagePerso2.sprite = sprite;
+        }
+            
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }

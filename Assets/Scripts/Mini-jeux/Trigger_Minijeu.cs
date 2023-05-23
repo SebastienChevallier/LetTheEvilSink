@@ -21,7 +21,7 @@ public class Trigger_Minijeu : MonoBehaviour
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(false);
         _wireTask = _canvaMinijeu.GetComponentInChildren<WireTask>();
-        //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     private void Update()
