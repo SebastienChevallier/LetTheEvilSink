@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour {
     public So_Discution _Dis;
 
     private DialogueManager _DialogueManager;
-    
+    [HideInInspector]public bool isTrigger = false;
     
     public bool open = false;
 
@@ -22,7 +22,7 @@ public class DialogueTrigger : MonoBehaviour {
         _DialogueManager.StartDialogue(_Dis);
     }
     
-    public bool isTrigger = false;
+    
     void Update()
     {        
         if (_DialogueManager.sentences.Count == 0 && isTrigger)
