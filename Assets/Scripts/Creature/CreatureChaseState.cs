@@ -21,7 +21,9 @@ public class CreatureChaseState : CreatureBaseState
         if (collision.gameObject.CompareTag("Player"))
         {
             ResetState(creature);
-            creature.player.position = GameObject.FindWithTag("CheckPoint").transform.position;
+            GameObject checkPoint = CheckPointsManager.Instance.lastCheckPoint;
+            Vector3 pos = new Vector3(checkPoint.transform.position.x, creature.player.position.y, checkPoint.transform.position.z);
+            creature.player.position = pos;
             creature.agent.Warp(Vector3.zero);
             creature.SwitchState(creature.WanderState);
         }
