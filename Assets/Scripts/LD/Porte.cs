@@ -7,11 +7,13 @@ public class Porte : MonoBehaviour
     public Transform parent;
 
     public Portes portes;
+    public string nomSalle = "";
 
     private void OnTriggerEnter(Collider other)
     {        
         if (other.CompareTag("Player"))
         {
+            FadeManager.Instance.ChangeText(nomSalle);
             transform.parent.GetComponent<Portes>().player = other.gameObject;
             if (transform == parent.GetChild(0))
             {
