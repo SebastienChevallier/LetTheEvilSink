@@ -83,6 +83,8 @@ public class Player_Movements : MonoBehaviour
 
     void Flip()
     {
+        if (!_PlayerData._CanMove) return;
+
         if (Input.GetAxis("Horizontal") > 0f)
         {
             _Visuals.transform.localScale = new Vector3(1, 1, 1);
