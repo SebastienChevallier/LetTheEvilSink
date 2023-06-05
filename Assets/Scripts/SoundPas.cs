@@ -5,7 +5,9 @@ using UnityEngine;
 public class SoundPas : MonoBehaviour
 {
     public AudioSource _AudioSource;
-    
+
+    public So_Player _PlayerData;
+
     public List<AudioClip> _Pas;
 
     public void PlaySound()

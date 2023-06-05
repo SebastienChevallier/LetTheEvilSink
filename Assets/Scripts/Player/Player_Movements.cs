@@ -49,7 +49,9 @@ public class Player_Movements : MonoBehaviour
     }
 
     void Update()
-    {  
+    {
+        if (!_PlayerData._CanMove) return;
+
         Course();
         //Carnet();              
         //LampeTorche();
@@ -61,6 +63,8 @@ public class Player_Movements : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!_PlayerData._CanMove) return;
+
         Movement();
     }
 

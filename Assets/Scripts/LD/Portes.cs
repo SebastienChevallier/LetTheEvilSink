@@ -1,12 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Portes : MonoBehaviour
 {
     public GameObject player;
+    public So_Player _PlayerData;
 
     public GameObject trigger;
     public GameObject trigger2;
@@ -21,22 +20,25 @@ public class Portes : MonoBehaviour
     
     public float fadeSpeed = 2f;
 
+    public float speedVal;
+
+
     private void Start()
     {
         panelFade = GameObject.Find("Fade-In-Out").GetComponent<Image>();
         fadeValue = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player) Fade();
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (player)
             {
                 fadeValue = 1f;
-                
+
                 StartCoroutine(DelayTp(fadeSpeed));
                 StartCoroutine(DelayFade(fadeSpeed));
             }
@@ -49,12 +51,17 @@ public class Portes : MonoBehaviour
         yield return new WaitForSeconds(time);
         
         fadeValue = 0;
+
+        _PlayerData._CanMove = true;
     }
-    
+
     IEnumerator DelayTp(float time)
     {
+        _PlayerData._CanMove = false;
+
         yield return new WaitForSeconds(time/2);
         FadeManager.Instance.FadeOut();
+
         if (frontTriggered)
         {
             if (allow_Y_Tp)
@@ -66,8 +73,6 @@ public class Portes : MonoBehaviour
             {
                 player.transform.position = new Vector3(trigger2.transform.position.x, player.transform.position.y, trigger2.transform.position.z);
             }
-            //trigger2.SetActive(true);
-            //trigger.SetActive(false);
         }
         else if (backTriggered)
         {
@@ -81,19 +86,13 @@ public class Portes : MonoBehaviour
             {
                 player.transform.position = new Vector3(trigger.transform.position.x, player.transform.position.y, trigger.transform.position.z);
             }
-            //trigger.SetActive(true);
-            //trigger2.SetActive(false);
         }
     }
-
-    public float speedVal;
-    //public AnimationCurve curve;
     
     void Fade()
     {
         if(panelFade != null)
         {
-            //panelFade.color = new Vector4(panelFade.color.r, panelFade.color.g, panelFade.color.b, fadeValue);
             Vector4 color = new Vector4(panelFade.color.r, panelFade.color.g, panelFade.color.b, fadeValue);
             panelFade.color = Vector4.Lerp(panelFade.color, color, Time.deltaTime * speedVal);
         }

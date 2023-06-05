@@ -44,7 +44,8 @@ public class Bricket : MonoBehaviour
 
             if (_PlayerData._CanLight)
             {
-                ScriptSound.PlaySound();
+                if (_PlayerData._CanMove) ScriptSound.PlaySound();
+
                 if (random > FailRate)
                 {
                     _PlayerData._InDark = false;
