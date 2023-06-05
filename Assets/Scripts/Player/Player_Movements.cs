@@ -49,7 +49,9 @@ public class Player_Movements : MonoBehaviour
     }
 
     void Update()
-    {  
+    {
+        if (!_PlayerData._CanMove) return;
+
         Course();
         //Carnet();              
         //LampeTorche();
@@ -61,6 +63,8 @@ public class Player_Movements : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!_PlayerData._CanMove) return;
+
         Movement();
     }
 
@@ -83,8 +87,6 @@ public class Player_Movements : MonoBehaviour
 
     void Flip()
     {
-        if (!_PlayerData._CanMove) return;
-
         if (Input.GetAxis("Horizontal") > 0f)
         {
             _Visuals.transform.localScale = new Vector3(1, 1, 1);

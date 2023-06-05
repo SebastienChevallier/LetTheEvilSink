@@ -15,6 +15,7 @@ public class Porte : MonoBehaviour
         {
             FadeManager.Instance.ChangeText(nomSalle);
             transform.parent.GetComponent<Portes>().player = other.gameObject;
+
             if (transform == parent.GetChild(0))
             {
                 portes.frontTriggered = true;
@@ -23,8 +24,8 @@ public class Porte : MonoBehaviour
 
             else if (transform == parent.GetChild(1))
             {
-                portes.frontTriggered = false;
                 portes.backTriggered = true;
+                portes.frontTriggered = false;
             }
         }
     }
