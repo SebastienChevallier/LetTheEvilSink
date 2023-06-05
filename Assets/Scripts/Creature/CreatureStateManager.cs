@@ -17,6 +17,7 @@ public class CreatureStateManager : MonoBehaviour
     public CreatureWanderState WanderState = new CreatureWanderState();
     public CreatureSearchState SearchState = new CreatureSearchState();
     public CreatureChaseState ChaseState = new CreatureChaseState();
+    public bool creatureSpawnable;
     public bool summoned;
 
     [Header("Detection")]
@@ -40,6 +41,7 @@ public class CreatureStateManager : MonoBehaviour
 
 
 
+    private Animator animator;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class CreatureStateManager : MonoBehaviour
         enemy = transform;
         agent = GetComponent<NavMeshAgent>();
 
+        animator = GetComponentInChildren<Animator>();
         currentState = WanderState;
         currentState.EnterState(this);
     }
@@ -54,6 +57,7 @@ public class CreatureStateManager : MonoBehaviour
     void Update()
     { 
         currentState.UpdateState(this);
+        animator.SetFloat("Speed", agent.speed);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -74,6 +78,8 @@ public class CreatureStateManager : MonoBehaviour
 
     public void AddGauge(int value)
     {
+        if (!creatureSpawnable) return;
+        
         gauge += value;
 
         if (gauge > 100) gauge = 100;

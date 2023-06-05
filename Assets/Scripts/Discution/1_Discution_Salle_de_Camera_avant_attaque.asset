@@ -68,9 +68,12 @@ MonoBehaviour:
     _Discution: "En tout cas, \xE7a a forc\xE9ment \xE9t\xE9 organis\xE9\u2026 Tout
       \xE9tait m\xE9thodiquement orchestr\xE9 selon un plan. La nourriture empoisonn\xE9e
       au repas, puis se d\xE9barrasser de tous les passagers endormis, et tout \xE7a
-      perdus en plein milieu de l'oc\xE9an avec aucun moyen d'appeler \xE0 l'aide\u2026
-      J'imagine que si nous sommes encore en vie c'est que quelque chose ne s'est
-      pas d\xE9roul\xE9 comme pr\xE9vu pour eux."
+      perdus en plein milieu de l'oc\xE9an avec aucun moyen d'appeler \xE0 l'aide\u2026 "
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
+    _NomPerso: Ash
+    _Discution: "J'imagine que si nous sommes encore en vie c'est que quelque chose
+      ne s'est pas d\xE9roul\xE9 comme pr\xE9vu pour eux."
   - _PlayerIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     _NomPerso: Rachel
@@ -96,10 +99,14 @@ MonoBehaviour:
     _Discution: "Je suis vraiment d\xE9sol\xE9 d'\xEAtre celui qui doit te dire \xE7a
       mais...il y a de fortes chances qu'il ne s'en soit pas sorti Rachel. On est
       tr\xE8s peu \xE0 avoir r\xE9ussi \xE0 survivre, et non sans mal. On est bless\xE9s
-      et couverts de sang. Personnellement je n'aurais pas surv\xE9cu sans Ash, elle
-      m'a sauv\xE9e d'un des tueurs apr\xE8s le banquet. Je lui dois la vie\u2026
-      j'ai deux filles en bas \xE2ge sur la terre ferme, elles ont besoin de moi...je
-      me dois de survivre pour les retrouver."
+      et couverts de sang."
+  - _PlayerIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: b7ff559f3a05bb747b9b37de4eee7934, type: 3}
+    _NomPerso: Isaac
+    _Discution: "Personnellement je n'aurais pas surv\xE9cu sans Ash, elle m'a sauv\xE9e
+      d'un des tueurs apr\xE8s le banquet. Je lui dois la vie\u2026 j'ai deux filles
+      en bas \xE2ge sur la terre ferme, elles ont besoin de moi...je me dois de survivre
+      pour les retrouver."
   - _PlayerIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     _NomPerso: Rachel
@@ -108,7 +115,8 @@ MonoBehaviour:
   - _PlayerIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: b7ff559f3a05bb747b9b37de4eee7934, type: 3}
     _NomPerso: Isaac
-    _Discution: "Oui bien s\xFBr, je comprends. On fera de notre mieux pour t'aider."
+    _Discution: "Oui bien s\xFBr, je comprends. *il sourit tristement* On fera de
+      notre mieux pour t'aider."
   - _PlayerIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     _NomPerso: Ash
@@ -129,8 +137,8 @@ MonoBehaviour:
       \xE0 les soigner. Si Rachel avait \xE9t\xE9 en train de se vider de son sang,
       tu aurais \xE9t\xE9 indispensable."
   - _PlayerIsSpeaking: 0
-    _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
-    _NomPerso: Ash
+    _SpritePerso: {fileID: 21300000, guid: b7ff559f3a05bb747b9b37de4eee7934, type: 3}
+    _NomPerso: Isaac
     _Discution: "Oui tu as raison\u2026"
   - _PlayerIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}

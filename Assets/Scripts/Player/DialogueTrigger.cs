@@ -6,10 +6,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour {
     
     public So_Discution _Dis;
+    public bool canBeTrigger = true;
+    private bool playingOnce = false;
 
     private DialogueManager _DialogueManager;
+    [HideInInspector]public bool isTrigger = false;
     
-    
+    [SerializeField] private List<DialogueTrigger> _ListDialogue;
+
     public bool open = false;
 
     private void Start()
@@ -22,20 +26,29 @@ public class DialogueTrigger : MonoBehaviour {
         _DialogueManager.StartDialogue(_Dis);
     }
     
-    public bool isTrigger = false;
+    
     void Update()
     {        
-        if (_DialogueManager.sentences.Count == 0 && isTrigger)
+        if (_DialogueManager.sentences.Count == 0 && isTrigger && open && !playingOnce)
         {
             _DialogueManager.EndDialogue();
             open = false;
+            if (_ListDialogue != null)
+            {
+                foreach (DialogueTrigger dialogue in _ListDialogue)
+                {
+                    dialogue.canBeTrigger = true;
+                    canBeTrigger = false;
+                    playingOnce = true;
+                }
+            }
         }
-        if (Input.GetButtonDown("Interact") && _DialogueManager.sentences.Count == 0 && isTrigger && !open)
+        if (Input.GetButtonDown("Interact") && _DialogueManager.sentences.Count == 0 && isTrigger && !open && !playingOnce && canBeTrigger)
         {
             TriggerDialogue();
             open = true;
         }
-        else if(Input.GetButtonDown("Interact") && _DialogueManager.sentences.Count != 0 && isTrigger && open)
+        else if(Input.GetButtonDown("Interact") && _DialogueManager.sentences.Count != 0 && isTrigger && open && !playingOnce && canBeTrigger)
         {
             _DialogueManager.DisplayNextSentence();
         }

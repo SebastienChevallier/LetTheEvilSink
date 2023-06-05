@@ -14,6 +14,7 @@ public class Portes : MonoBehaviour
     public bool frontTriggered = false;
     public bool backTriggered = false;
 
+    
     public bool allow_Y_Tp;
     public Image panelFade;
     public float fadeValue = 0f;
@@ -35,6 +36,7 @@ public class Portes : MonoBehaviour
             if (player)
             {
                 fadeValue = 1f;
+                
                 StartCoroutine(DelayTp(fadeSpeed));
                 StartCoroutine(DelayFade(fadeSpeed));
             }
@@ -43,7 +45,7 @@ public class Portes : MonoBehaviour
     
     IEnumerator DelayFade(float time)
     {
-        
+        FadeManager.Instance.FadeIn();
         yield return new WaitForSeconds(time);
         
         fadeValue = 0;
@@ -52,7 +54,7 @@ public class Portes : MonoBehaviour
     IEnumerator DelayTp(float time)
     {
         yield return new WaitForSeconds(time/2);
-        
+        FadeManager.Instance.FadeOut();
         if (frontTriggered)
         {
             if (allow_Y_Tp)

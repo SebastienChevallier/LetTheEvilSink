@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +34,7 @@ public class Angoisse : MonoBehaviour
         {
             if(timeLeft < 0 && _PlayerData._ValAngoisse >= 100)
             {
-                _creature.AddGauge(1);
+                //_creature.AddGauge(1);
                 timeLeft = _TimeDelay;
             }
 

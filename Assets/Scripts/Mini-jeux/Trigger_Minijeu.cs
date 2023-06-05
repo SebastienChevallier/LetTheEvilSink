@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Trigger_Minijeu : MonoBehaviour
@@ -8,6 +9,7 @@ public class Trigger_Minijeu : MonoBehaviour
     public So_Player _player;
     public GameObject _canvaMinijeu;
     public GameObject triggerPorte;
+    private WireTask _wireTask;
 
     public bool validated;
     private bool _isTrigger = false;
@@ -18,7 +20,8 @@ public class Trigger_Minijeu : MonoBehaviour
     {
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(false);
-        //creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+        _wireTask = _canvaMinijeu.GetComponentInChildren<WireTask>();
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     private void Update()
@@ -27,15 +30,22 @@ public class Trigger_Minijeu : MonoBehaviour
         {
             _player._CanMove = false;
             _canvaMinijeu.SetActive(true);
-            //zcreature.AddGauge(5);
+            creature.AddGauge(5);
         }
 
         if (_canvaMinijeu.activeSelf && validated)
         {
-            _player._CanMove = true;
-            _canvaMinijeu.SetActive(false);
-            triggerPorte.SetActive(true);
+            StartCoroutine(EndMiniGame());
         }
+    }
+    
+    IEnumerator EndMiniGame()
+    {
+        yield return new WaitForSeconds(1f);
+        _player._CanMove = true;
+        _canvaMinijeu.SetActive(false);
+        triggerPorte.SetActive(true);
+        this.GameObject().SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,6 +66,9 @@ public class Trigger_Minijeu : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player") && _wireTask != null)
+        {
+            validated = _wireTask.IsTaskCompleted;
+        }
     }
 }

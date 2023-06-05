@@ -11,6 +11,9 @@ public class PlayerColliderScript : MonoBehaviour
     public Sprite _SpriteDeplacer;
     public Sprite _SpriteCacher;
     public Sprite _SpritePorte;
+    public Sprite _SpriteCarte;
+    public Sprite _SpriteCrochetage;
+    public Sprite _SpriteCables;
       
 
     private void OnTriggerStay(Collider other)
@@ -30,6 +33,18 @@ public class PlayerColliderScript : MonoBehaviour
             
             switch (other.tag)
                 {
+                    case "Carte":
+                        interact.sprite = _SpriteCarte;
+                        break;
+                    
+                    case "Crochetage":
+                        interact.sprite = _SpriteCrochetage;
+                        break;
+                    
+                    case "Cables":
+                        interact.sprite = _SpriteCables;
+                        break;
+
                     case "Observer":
                         interact.sprite = _SpriteObserver;
                         //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
