@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AudioSource: {fileID: 3285176740265337283}
+  _PlayerData: {fileID: 0}
   _Pas:
   - {fileID: 8300000, guid: f7c2b774d8fd45644b66ccddd356a6e2, type: 3}
   - {fileID: 8300000, guid: 6f22722fce0818247bcec1fcb51927ba, type: 3}
@@ -10617,7 +10618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da1da9cfbc95c4438000f8d196a6316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Essentials: {fileID: 0}
+  _Player: {fileID: 0}
+  _Camera: {fileID: 0}
   _AudioSource: {fileID: 4847580197752408446}
   _Animator: {fileID: 4847580198222548255}
   _AnimatorPlanePNG: {fileID: 4074064707239756166}
@@ -11487,7 +11489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4847580198284724068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12020,6 +12022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  _PlayerData: {fileID: 0}
   trigger: {fileID: 4847580199139476235}
   trigger2: {fileID: 4847580197550204478}
   frontTriggered: 0
@@ -20685,6 +20688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  _PlayerData: {fileID: 0}
   trigger: {fileID: 4847580197768691559}
   trigger2: {fileID: 4847580197637011482}
   frontTriggered: 0
