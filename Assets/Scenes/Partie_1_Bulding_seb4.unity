@@ -1604,6 +1604,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764912265}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &838043638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3531506495141482204, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437762150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &954580169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 3164361590440631997, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3531506495141482200, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: _creature
@@ -2775,6 +2786,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090287145813294265, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090287146077714991, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.7000732
       objectReference: {fileID: 0}
     - target: {fileID: 7090287146077714991, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -3083,6 +3104,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72373f5f4ef3c5c479b7883f5c8ae856, type: 3}
+--- !u!1 &1800671128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5725460994740996906, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437762150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1806305146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97569,6 +97596,16 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4847580198222548252, guid: 1ea66491978a2a64b8b18ac268d48128,
+        type: 3}
+      propertyPath: _Camera
+      value: 
+      objectReference: {fileID: 1800671128}
+    - target: {fileID: 4847580198222548252, guid: 1ea66491978a2a64b8b18ac268d48128,
+        type: 3}
+      propertyPath: _Player
+      value: 
+      objectReference: {fileID: 838043638}
     - target: {fileID: 4847580198222548252, guid: 1ea66491978a2a64b8b18ac268d48128,
         type: 3}
       propertyPath: skipText

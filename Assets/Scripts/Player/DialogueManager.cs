@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour {
+public class DialogueManager : MonoSingleton<DialogueManager> {
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
@@ -68,8 +69,7 @@ public class DialogueManager : MonoBehaviour {
         {
             _ImagePerso2.sprite = sprite;
         }
-            
-
+        
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }

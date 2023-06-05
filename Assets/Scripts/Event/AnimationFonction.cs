@@ -5,21 +5,41 @@ using UnityEngine;
 
 public class AnimationFonction : MonoBehaviour
 {
-    public GameObject _Essentials;
+    public GameObject _Player;
+    public GameObject _Camera;
     public AudioSource _AudioSource;
     public Animator _Animator;
-
-    private void Awake()
+    public Animator _AnimatorPlanePNG;
+    
+    public void SetAnimatorPlayerSpeed(float speed)
     {
-        //_Essentials = GameObject.Find("Essentials");
-        
+        _AnimatorPlanePNG.SetFloat("Speed", speed);
     }
 
+    public void StartDialogue(So_Discution dis)
+    {
+        _Animator.speed = 0;
+        DialogueManager.Instance.StartDialogue(dis);
+    }
+    
+    public void EndDialogue()
+    {
+        DialogueManager.Instance.EndDialogue();
+        _Animator.speed = 1;
+    }
+    
     private bool skip = false;
     public GameObject skipText;
     
     private void Update()
     {
+        if (DialogueManager.Instance.sentences.Count == 0)
+        {
+            DialogueManager.Instance.EndDialogue();
+            _Animator.speed = 1;
+        }
+            
+        
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && !skip)
         {
             skip = true;
@@ -27,28 +47,30 @@ public class AnimationFonction : MonoBehaviour
             return;
         }
         
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {
-            _Animator.SetFloat("Speed", 50);
+            DialogueManager.Instance.DisplayNextSentence();
             return;
         }
 
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("LampeTorche"))
         {
-            _Animator.SetFloat("Speed", 1);
+            //_Animator.SetFloat("Speed", 1);
             return;
         }
     }
 
     public void StopPlaying()
     {
-        _Essentials.SetActive(true);
+        _Player.SetActive(true);
+        _Camera.SetActive(true);
         gameObject.SetActive(false);
     }
 
     public void StartPlaying()
     {
-        _Essentials.SetActive(false);
+        _Player.SetActive(false);
+        _Camera.SetActive(false);
     }
     
     public void PlaySound(AudioClip clip)
