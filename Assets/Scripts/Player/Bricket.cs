@@ -27,6 +27,8 @@ public class Bricket : MonoBehaviour
 
     public void Update()
     {
+        if (!_PlayerData._CanMove) return;
+
         LampeTorche();
     }
 

@@ -47,7 +47,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.5881265, b: 0.19576357, a: 1}
   m_Intensity: 3
-  m_Range: 10
+  m_Range: 2.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d6f629496ebd447a64976dc9e0520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickPower: 0.1
-  delayFlick: 0.5
+  flickPower: 0.01
+  delayFlick: 3
 --- !u!1 &805571028
 GameObject:
   m_ObjectHideFlags: 0
@@ -11317,7 +11317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7000122, y: -7.700012}
+  m_AnchoredPosition: {x: 3.6999512, y: -7.700012}
   m_SizeDelta: {x: -191.1223, y: -94.5836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7090287146077714985

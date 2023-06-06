@@ -30,23 +30,23 @@ public class Angoisse : MonoBehaviour
 
     void TimeAngoise()
     {
+        timeLeft -= Time.deltaTime;
+
         if (_PlayerData._InDark)
         {
-            if(timeLeft < 0 && _PlayerData._ValAngoisse >= 100)
+            if (timeLeft < 0 && _PlayerData._ValAngoisse >= 100)
             {
-                //_creature.AddGauge(1);
                 timeLeft = _TimeDelay;
             }
 
-            timeLeft -= Time.deltaTime;
             if (timeLeft < 0 && _PlayerData._ValAngoisse < 100f)
             {
                 _PlayerData._ValAngoisse += _ValUp;
                 timeLeft = _TimeDelay;
             }
-        }else
+        }
+        else
         {
-            timeLeft -= Time.deltaTime;
             if (timeLeft < 0 && _PlayerData._ValAngoisse > 0f)
             {
                 _PlayerData._ValAngoisse -= _ValDown;

@@ -21,15 +21,6 @@ public class PlayerColliderScript : MonoBehaviour
     {
         if (!other.CompareTag("Untagged"))
         {
-            if (other.CompareTag("Door"))
-            {
-                other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                other.GetComponentInChildren<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-            }
-        }
-
-        if (!other.CompareTag("Untagged"))
-        {
             _Player._TriggerObject = other.gameObject;
             
             switch (other.tag)
@@ -63,8 +54,10 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        break;
+                        other.transform.parent.GetComponent<Portes>().GO_cadre.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.transform.parent.GetComponent<Portes>().GO_cadre.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                    //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                    break;
                     
                     
                     case "Parler":
