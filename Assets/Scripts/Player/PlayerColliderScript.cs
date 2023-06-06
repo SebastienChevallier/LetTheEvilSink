@@ -11,6 +11,7 @@ public class PlayerColliderScript : MonoBehaviour
     public Sprite _SpriteDeplacer;
     public Sprite _SpriteCacher;
     public Sprite _SpritePorte;
+    public Sprite _SpritePassage;
     public Sprite _SpriteCarte;
     public Sprite _SpriteCrochetage;
     public Sprite _SpriteCables;
@@ -68,6 +69,11 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Parler":
                         interact.sprite = _SpriteTalk;
+                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        break;
+                    
+                    case "Passage":
+                        interact.sprite = _SpritePassage;
                         //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
 

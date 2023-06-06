@@ -89,6 +89,7 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             if(timer > minTime && timer < maxTime)
             {
                 completed = true;
+                validationText.text = "Validé";
                 transform.parent.parent.GetComponent<Trigger_Minijeu>().validated = true;
                 CancelDrag();
             }

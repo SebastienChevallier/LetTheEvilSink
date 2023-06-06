@@ -16,6 +16,9 @@ public class DialogueTrigger : MonoBehaviour {
 
     public bool open = false;
 
+    public bool newObjectif = false;
+    public string objectif;
+    
     private void Start()
     {
         _DialogueManager = FindObjectOfType<DialogueManager>();
@@ -24,6 +27,7 @@ public class DialogueTrigger : MonoBehaviour {
     public void TriggerDialogue ()
     {
         _DialogueManager.StartDialogue(_Dis);
+        
     }
     
     
@@ -31,7 +35,9 @@ public class DialogueTrigger : MonoBehaviour {
     {        
         if (_DialogueManager.sentences.Count == 0 && isTrigger && open && !playingOnce)
         {
+            if(newObjectif) RappelObjectif.Instance.Rappel(objectif);
             _DialogueManager.EndDialogue();
+            
             open = false;
             if (_ListDialogue != null)
             {
