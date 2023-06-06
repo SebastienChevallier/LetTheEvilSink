@@ -51,10 +51,12 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                        MeshRenderer msh_avant = other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>();
+                        MeshRenderer msh_arriere = other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>();
+                        msh_avant.material.SetColor("_Outline_Color", Color.white);
+                        msh_avant.material.SetFloat("_Outline_Width", 50f);
+                        msh_arriere.material.SetColor("_Outline_Color", Color.white);
+                        msh_arriere.material.SetFloat("_Outline_Width", 50f);
                     break;
                     
                     
@@ -81,10 +83,13 @@ public class PlayerColliderScript : MonoBehaviour
         {
             if (other.CompareTag("Finish"))
             {
-                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
-                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                MeshRenderer msh_avant = other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>();
+                MeshRenderer msh_arriere = other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>();
+
+                msh_avant.material.SetColor("_Outline_Color", Color.black);
+                msh_avant.material.SetFloat("_Outline_Width", 20f);
+                msh_arriere.material.SetColor("_Outline_Color", Color.black);
+                msh_arriere.material.SetFloat("_Outline_Width", 20f);
             }
         }
     }
