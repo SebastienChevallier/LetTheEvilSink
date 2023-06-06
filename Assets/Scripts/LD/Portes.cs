@@ -10,7 +10,8 @@ public class Portes : MonoBehaviour
     public GameObject trigger;
     public GameObject trigger2;
 
-    public GameObject GO_cadre;
+    public GameObject cadre_arriere;
+    public GameObject cadre_avant;
 
     public bool frontTriggered = false;
     public bool backTriggered = false;

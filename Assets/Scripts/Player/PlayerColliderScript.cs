@@ -39,35 +39,31 @@ public class PlayerColliderScript : MonoBehaviour
 
                     case "Observer":
                         interact.sprite = _SpriteObserver;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
 
                     case "Deplacer":
                         interact.sprite = _SpriteDeplacer;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
 
                     case "Cacher":
                         interact.sprite = _SpriteCacher;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        other.transform.parent.GetComponent<Portes>().GO_cadre.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.transform.parent.GetComponent<Portes>().GO_cadre.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-                    //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
                     break;
                     
                     
                     case "Parler":
                         interact.sprite = _SpriteTalk;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
                     
                     case "Passage":
                         interact.sprite = _SpritePassage;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
 
                     default:
@@ -83,12 +79,13 @@ public class PlayerColliderScript : MonoBehaviour
         
         if (!other.CompareTag("Untagged"))
         {
-            if (other.CompareTag("Door"))
+            if (other.CompareTag("Finish"))
             {
-                other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                other.GetComponentInChildren<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
             }
         }
-        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
     }
 }
