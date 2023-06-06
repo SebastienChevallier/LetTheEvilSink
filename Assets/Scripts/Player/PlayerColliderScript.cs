@@ -54,8 +54,8 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        other.GetComponentInParent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.GetComponentInParent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                        other.transform.parent.GetComponentInParent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.transform.parent.GetComponentInParent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
                     //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                     break;
                     
