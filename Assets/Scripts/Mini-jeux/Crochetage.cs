@@ -52,12 +52,12 @@ public class Crochetage : MonoBehaviour
             if (_Crochet.transform.eulerAngles.z > objectifFinal - 10  && _Crochet.transform.eulerAngles.z < objectifFinal + 10)
             {
                 Debug.Log("REUSSI");
-                anim.Play("CrochetageValidé");
+                anim.Play("CrochetageValide");
                 transform.parent.parent.GetComponent<Trigger_Minijeu>().validated = true;
             }
             else
             {
-                anim.Play("Crochetage");
+                anim.Play("CrochetageFail");
             }
         }
     }

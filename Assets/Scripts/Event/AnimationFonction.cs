@@ -7,6 +7,8 @@ public class AnimationFonction : MonoBehaviour
 {
     public GameObject _Player;
     public GameObject _Camera;
+    public GameObject _PlayerUI;
+    public GameObject _PlayerPostProcess;
     public AudioSource _AudioSource;
     public Animator _Animator;
     public Animator _AnimatorPlanePNG;
@@ -64,6 +66,8 @@ public class AnimationFonction : MonoBehaviour
     {
         _Player.SetActive(true);
         _Camera.SetActive(true);
+        _PlayerUI.SetActive(true);
+        _PlayerPostProcess.SetActive(true);
         gameObject.SetActive(false);
     }
 
@@ -71,6 +75,8 @@ public class AnimationFonction : MonoBehaviour
     {
         _Player.SetActive(false);
         _Camera.SetActive(false);
+        _PlayerUI.SetActive(false);
+        _PlayerPostProcess.SetActive(false);
     }
     
     public void PlaySound(AudioClip clip)
