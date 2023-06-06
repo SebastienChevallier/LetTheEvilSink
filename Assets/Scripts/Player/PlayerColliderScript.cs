@@ -11,6 +11,7 @@ public class PlayerColliderScript : MonoBehaviour
     public Sprite _SpriteDeplacer;
     public Sprite _SpriteCacher;
     public Sprite _SpritePorte;
+    public Sprite _SpritePassage;
     public Sprite _SpriteCarte;
     public Sprite _SpriteCrochetage;
     public Sprite _SpriteCables;
@@ -18,15 +19,6 @@ public class PlayerColliderScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("Untagged"))
-        {
-            if (other.CompareTag("Door"))
-            {
-                other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                other.GetComponentInChildren<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-            }
-        }
-
         if (!other.CompareTag("Untagged"))
         {
             _Player._TriggerObject = other.gameObject;
@@ -62,12 +54,19 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        break;
+                        other.GetComponentInParent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        other.GetComponentInParent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                    //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                    break;
                     
                     
                     case "Parler":
                         interact.sprite = _SpriteTalk;
+                        //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                        break;
+                    
+                    case "Passage":
+                        interact.sprite = _SpritePassage;
                         //other.GetComponentInChildren<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                         break;
 
