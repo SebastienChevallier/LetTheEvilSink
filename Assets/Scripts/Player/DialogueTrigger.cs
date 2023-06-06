@@ -56,7 +56,15 @@ public class DialogueTrigger : MonoBehaviour {
         }
         else if(Input.GetButtonDown("Interact") && _DialogueManager.sentences.Count != 0 && isTrigger && open && !playingOnce && canBeTrigger)
         {
-            _DialogueManager.DisplayNextSentence();
+            if (_DialogueManager.passSentence)
+            {
+                _DialogueManager.DisplayNextSentence();
+                _DialogueManager.passSentence = false;
+            }
+            else
+            {
+                _DialogueManager.ClickNext();
+            }
         }
     }
     

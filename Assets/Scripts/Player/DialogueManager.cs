@@ -53,8 +53,11 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         DisplayNextSentence();
     }
 
+    public bool passSentence = false;
+    
     public void DisplayNextSentence ()
     {
+        passSentence = false;
         nameText.text = names.Dequeue();
         bool isPlayer = bools.Dequeue();
         string sentence = sentences.Dequeue();
@@ -79,9 +82,22 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
+            if (passSentence)
+            {
+                dialogueText.text = sentence;
+                yield break;
+            }
+            else
+            {
+                dialogueText.text += letter;
+            }
             yield return null;
         }
+    }
+    
+    public void ClickNext()
+    {
+        passSentence = true;
     }
 
     public void EndDialogue()
@@ -91,5 +107,4 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         _PlayerData._CanInteract = true;
         _PlayerData._CanTalk = false;
     }
-
 }
