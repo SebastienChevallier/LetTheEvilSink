@@ -1349,6 +1349,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569811321}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &600976008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8966460290265943018, guid: 78179960636709c4bbcee36befb5f7ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1821285982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &600976013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600976008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371a11f0a7d0d14380c5efe8b1676a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
+  textToShow: "Carte Magnetique recup\xE9r\xE9e "
 --- !u!1 &760228061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2681,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 208798688897642268, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 947090517121450706, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_FlipX
@@ -10069,6 +10094,21 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 256059849733449707, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 6.920456
+      objectReference: {fileID: 0}
+    - target: {fileID: 256059849733449707, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 2.960228
+      objectReference: {fileID: 0}
+    - target: {fileID: 256059849733449707, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 271694887489153913, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -15467,6 +15507,11 @@ PrefabInstance:
     - target: {fileID: 1370397832804939295, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376311014240958735, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1388300163065680413, guid: 78179960636709c4bbcee36befb5f7ac,
@@ -49744,6 +49789,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3671201603501801526, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: _ListDialogue.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3696142999711051334, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -78224,6 +78274,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8610995218145113910, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8621004684830624003, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -92859,6 +92914,11 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 9006653033382327255, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: canBeTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9055149022548361433, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -97833,7 +97893,7 @@ PrefabInstance:
     - target: {fileID: 4847580198251086683, guid: 1ea66491978a2a64b8b18ac268d48128,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4847580198256040645, guid: 1ea66491978a2a64b8b18ac268d48128,
         type: 3}

@@ -34,13 +34,13 @@ public class Trigger_Minijeu : MonoBehaviour
             {
                 _player._CanMove = false;
                 _canvaMinijeu.SetActive(true);
-                creature.AddGauge(5);
+                creature.AddGauge(10);
             }
             else if (!needCard)
             {
                 _player._CanMove = false;
                 _canvaMinijeu.SetActive(true);
-                creature.AddGauge(5);
+                creature.AddGauge(10);
             }
         }
 
