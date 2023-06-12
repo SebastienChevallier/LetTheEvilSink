@@ -26,6 +26,7 @@ public class So_Player : ScriptableObject
     public bool _Hiding = false;
     public bool _InDark = false;
     public bool _Invincible = false;
+    public bool hasCard = false;
 
     
 

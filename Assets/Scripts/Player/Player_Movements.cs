@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Player_Movements : MonoBehaviour
+public class Player_Movements : MonoSingleton<Player_Movements>
 {
     [Header("PlayerData")]
     public CreatureStateManager _creature;

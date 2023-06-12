@@ -13,6 +13,7 @@ public class Trigger_Minijeu : MonoBehaviour
 
     public bool validated;
     private bool _isTrigger = false;
+    public bool needCard = false;
 
     public CreatureStateManager creature;
 
@@ -28,9 +29,19 @@ public class Trigger_Minijeu : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf && !validated && _isTrigger)
         {
-            _player._CanMove = false;
-            _canvaMinijeu.SetActive(true);
-            creature.AddGauge(5);
+            Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+            if (needCard && _player.hasCard)
+            {
+                _player._CanMove = false;
+                _canvaMinijeu.SetActive(true);
+                creature.AddGauge(5);
+            }
+            else if (!needCard)
+            {
+                _player._CanMove = false;
+                _canvaMinijeu.SetActive(true);
+                creature.AddGauge(5);
+            }
         }
 
         if (_canvaMinijeu.activeSelf && validated)

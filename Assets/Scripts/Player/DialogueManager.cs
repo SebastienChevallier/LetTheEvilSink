@@ -40,6 +40,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
+            Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
         }
 
         foreach (So_Discution._Discutions sentence in dialogue._Dialog)
@@ -65,14 +66,16 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
 
         if (isPlayer)
         {
-            nameText.text = "";
+            _ImagePerso1.transform.localScale = new Vector3(1f,1,1);
             _ImagePerso1.sprite = sprite;
         }
         else
         {
-            _ImagePerso2.sprite = sprite;
+            _ImagePerso1.transform.localScale = new Vector3(-1f,1,1);
+            _ImagePerso1.sprite = sprite;
         }
         
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
