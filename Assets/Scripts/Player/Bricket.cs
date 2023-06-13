@@ -37,7 +37,7 @@ public class Bricket : MonoBehaviour
         if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove)
         {
             if(_creature != null)
-                _creature.AddGauge(5);
+                _creature.AddGauge(10);
             
             if(FailRate < maxFailRate)
                 FailRate += addFailRateValue;

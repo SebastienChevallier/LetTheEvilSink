@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Player_Movements : MonoBehaviour
+public class Player_Movements : MonoSingleton<Player_Movements>
 {
     [Header("PlayerData")]
     public CreatureStateManager _creature;
@@ -109,31 +110,14 @@ public class Player_Movements : MonoBehaviour
         }
     }
 
-    void Carnet()
-    {
-        if (Input.GetButtonDown("Carnet"))
-        {
-            if (_PlayerData._CanInteract)
-            {
-                _PlayerData._CanInteract = false;
-                _PlayerData._CanMove = false;
-                _PanelCarnet.SetActive(true);
-            }
-            else
-            {
-                _PlayerData._CanMove = true;
-                _PlayerData._CanInteract = true;
-                _PanelCarnet.SetActive(false);
-            }           
-        }
-    }   
-
+    
 
     void SonDePas(float duration)
     {
         if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
         {
             _StepSound.Step(duration);
+            _creature.AddGauge(5);
             
         }
             

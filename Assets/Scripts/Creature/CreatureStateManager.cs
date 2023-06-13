@@ -1,7 +1,8 @@
+using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CreatureStateManager : MonoBehaviour
+public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 {
     [Header("Characters")]
     public So_Player so_player;

@@ -45,13 +45,21 @@ public class AnimationFonction : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && !skip)
         {
             skip = true;
-            skipText.SetActive(true);
+            //skipText.SetActive(true);
             return;
         }
         
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {
-            DialogueManager.Instance.DisplayNextSentence();
+            if (DialogueManager.Instance.passSentence)
+            {
+                DialogueManager.Instance.DisplayNextSentence();
+                DialogueManager.Instance.passSentence = false;
+            }
+            else
+            {
+                DialogueManager.Instance.ClickNext();
+            }
             return;
         }
 
