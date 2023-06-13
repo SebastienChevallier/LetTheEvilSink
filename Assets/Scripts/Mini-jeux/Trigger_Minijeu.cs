@@ -54,6 +54,7 @@ public class Trigger_Minijeu : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _player._CanMove = true;
+        _player.hasCard = false;
         _canvaMinijeu.SetActive(false);
         triggerPorte.SetActive(true);
         this.GameObject().SetActive(false);

@@ -28,7 +28,7 @@ public class So_Player : ScriptableObject
     public bool _Invincible = false;
     public bool hasCard = false;
 
-    
+
 
     [Header("World Interactions")]
     public GameObject _TriggerObject;

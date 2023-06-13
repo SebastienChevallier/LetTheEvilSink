@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuPause : MonoBehaviour
 {
     public GameObject panel;
+    public So_Player _Player;
     
     private void Update()
     {
@@ -14,11 +15,13 @@ public class MenuPause : MonoBehaviour
         {
             if (panel.activeSelf)
             {
-                panel.SetActive(false);
+                Resume();
             }
             else
             {
                 panel.SetActive(true);
+                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+                _Player._CanMove = false;
             }
         }
     }
@@ -26,6 +29,10 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
         panel.SetActive(false);
+        if (!DialogueManager.Instance._PanelParler.activeSelf)
+        {
+            _Player._CanMove = true;
+        }
     }
 
     public void Menu()

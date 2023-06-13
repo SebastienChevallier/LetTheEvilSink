@@ -57,7 +57,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
         //Carnet();              
         //LampeTorche();
         Flip();
-        SonDePas(1f);
+        //SonDePas(1f);
     }
         
 
@@ -112,13 +112,13 @@ public class Player_Movements : MonoSingleton<Player_Movements>
 
     
 
-    void SonDePas(float duration)
+    public void SonDePas(float duration)
     {
-        if (rb.velocity.x >= 1f || rb.velocity.x <= -1f)
+        if (rb.velocity.x >= 1.5f || rb.velocity.x <= -1.5f)
         {
             _StepSound.Step(duration);
-            _creature.AddGauge(5);
-            
+            Debug.Log("AddGauge");
+            _creature.AddGauge(1);
         }
             
         else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))

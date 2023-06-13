@@ -16,4 +16,9 @@ public class SoundPas : MonoBehaviour
         AudioClip clip = _Pas[rand];
         _AudioSource.PlayOneShot(clip);
     }
+
+    public void StepSound(float duration)
+    {
+        Player_Movements.Instance.SonDePas(duration);
+    }
 }
