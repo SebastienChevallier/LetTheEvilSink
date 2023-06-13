@@ -1351,6 +1351,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569811321}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &656544060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8656222005762274885, guid: 78179960636709c4bbcee36befb5f7ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1821285982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &760228061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,6 +2910,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090287145510280733, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090287145510280733, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7090287145689359667, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -61302,6 +61318,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5686178922601162530, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: cadre_arriere
+      value: 
+      objectReference: {fileID: 656544060}
     - target: {fileID: 5686178922601162531, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_StaticEditorFlags

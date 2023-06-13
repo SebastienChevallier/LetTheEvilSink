@@ -53,11 +53,11 @@ public class CreatureSearchState : CreatureBaseState
         if (collision.gameObject.CompareTag("Door"))
         {
             ResetState(creature);
-            creature.AddGauge(-creature.searchGaugeDiminution);
+            //creature.AddGauge(-creature.searchGaugeDiminution);
             creature.summoned = false;
             creature.agent.Warp(Vector3.zero);
             creature.SwitchState(creature.WanderState);
-            Debug.Log("Hello");
+            //Debug.Log("Hello");
         }
         // Destroy obstacles that the player may have placed
         else if (collision.gameObject.CompareTag("Deplacer"))

@@ -51,11 +51,17 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                        other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
-                    break;
+                        if (other.transform.parent.TryGetComponent(out Portes portes))
+                        {
+                            if ((portes.cadre_arriere || portes.cadre_avant) != null)
+                            {
+                                portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                                portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                                portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                                portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                            }
+                        }
+                        break;
                     
                     
                     case "Parler":
@@ -79,12 +85,15 @@ public class PlayerColliderScript : MonoBehaviour
         
         if (!other.CompareTag("Untagged"))
         {
-            if (other.CompareTag("Finish"))
+            if (other.CompareTag("Finish") && other.transform.parent.TryGetComponent<Portes>(out Portes portes))
             {
-                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                other.transform.parent.GetComponent<Portes>().cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
-                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                other.transform.parent.GetComponent<Portes>().cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                if ((portes.cadre_arriere || portes.cadre_avant) != null)
+                {
+                    portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                    portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                    portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                    portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                }
             }
         }
     }

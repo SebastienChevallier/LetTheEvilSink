@@ -77,6 +77,12 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
         state.EnterState(this);
     }
 
+    public void DespawnCreature()
+    {
+        gauge -= 20;
+        currentState = SearchState;
+    }
+
     public void AddGauge(int value)
     {
         if (!creatureSpawnable) return;
