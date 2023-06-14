@@ -14,6 +14,8 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public float maxTime;
     
     public TextMeshProUGUI validationText;
+    
+    public CreatureStateManager creature;
 
     public bool dragOnSurfaces = true;
 
@@ -27,7 +29,7 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     // Start is called before the first frame update
     void Start()
     {
-        
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,6 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         {
             timer += Time.deltaTime;
         }
-
         Complete();
     }
 
@@ -97,12 +98,14 @@ public class Carte : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             {
                 //Debug.Log("Trop Rapide");
                 validationText.text = "Trop Rapide";
+                creature.AddGauge(5);
                 CancelDrag();
             }
             else if (timer > maxTime)
             {
                 //Debug.Log("Trop Lent");
                 validationText.text = "Trop Lent";
+                creature.AddGauge(5);
                 CancelDrag();
             }
         }

@@ -866,6 +866,73 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3049235364398177279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3361587237152573011}
+  - component: {fileID: 4467325135374817321}
+  m_Layer: 0
+  m_Name: Video
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3361587237152573011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049235364398177279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4847580198251086682}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &4467325135374817321
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049235364398177279}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 2f263da02bd91134f82e3c35443f9769, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 4847580197752408447}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &3688353344592794536
 GameObject:
   m_ObjectHideFlags: 0
@@ -10620,9 +10687,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Player: {fileID: 0}
   _Camera: {fileID: 0}
+  _PlayerUI: {fileID: 0}
+  _PlayerPostProcess: {fileID: 0}
   _AudioSource: {fileID: 4847580197752408446}
   _Animator: {fileID: 4847580198222548255}
   _AnimatorPlanePNG: {fileID: 4074064707239756166}
+  videoPlayer: {fileID: 4467325135374817321}
   skipText: {fileID: 0}
 --- !u!95 &4847580198222548255
 Animator:
@@ -11332,6 +11402,7 @@ Transform:
   - {fileID: 4847580197348395469}
   - {fileID: 4847580198222548253}
   - {fileID: 4847580199105994297}
+  - {fileID: 3361587237152573011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12025,6 +12096,8 @@ MonoBehaviour:
   _PlayerData: {fileID: 0}
   trigger: {fileID: 4847580199139476235}
   trigger2: {fileID: 4847580197550204478}
+  cadre_arriere: {fileID: 0}
+  cadre_avant: {fileID: 0}
   frontTriggered: 0
   backTriggered: 0
   allow_Y_Tp: 1
@@ -20692,6 +20765,8 @@ MonoBehaviour:
   _PlayerData: {fileID: 0}
   trigger: {fileID: 4847580197768691559}
   trigger2: {fileID: 4847580197637011482}
+  cadre_arriere: {fileID: 0}
+  cadre_avant: {fileID: 0}
   frontTriggered: 0
   backTriggered: 0
   allow_Y_Tp: 1

@@ -10,7 +10,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Image _ImagePerso1;
-    public Image _ImagePerso2;
+    public Image bgTexte;
 
     public Queue<string> sentences;
     private Queue<string> names;
@@ -40,6 +40,8 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
+            if(Player_Movements.Instance)
+                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
         }
 
         foreach (So_Discution._Discutions sentence in dialogue._Dialog)
@@ -53,8 +55,11 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         DisplayNextSentence();
     }
 
+    public bool passSentence = false;
+    
     public void DisplayNextSentence ()
     {
+        passSentence = false;
         nameText.text = names.Dequeue();
         bool isPlayer = bools.Dequeue();
         string sentence = sentences.Dequeue();
@@ -62,14 +67,16 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
 
         if (isPlayer)
         {
-            nameText.text = "";
+            _ImagePerso1.transform.localScale = new Vector3(1f,1,1);
             _ImagePerso1.sprite = sprite;
         }
         else
         {
-            _ImagePerso2.sprite = sprite;
+            _ImagePerso1.transform.localScale = new Vector3(-1f,1,1);
+            _ImagePerso1.sprite = sprite;
         }
         
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -79,9 +86,22 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
+            if (passSentence)
+            {
+                dialogueText.text = sentence;
+                yield break;
+            }
+            else
+            {
+                dialogueText.text += letter;
+            }
             yield return null;
         }
+    }
+    
+    public void ClickNext()
+    {
+        passSentence = true;
     }
 
     public void EndDialogue()
@@ -91,5 +111,4 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         _PlayerData._CanInteract = true;
         _PlayerData._CanTalk = false;
     }
-
 }
