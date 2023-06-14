@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlockCreature : MonoBehaviour
 {
     public CreatureStateManager _creature;
+    public bool isSpawnable = true;
 
     private void Start()
     {
@@ -15,6 +16,6 @@ public class BlockCreature : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
-            _creature.creatureSpawnable = true;
+            _creature.creatureSpawnable = isSpawnable;
     }
 }

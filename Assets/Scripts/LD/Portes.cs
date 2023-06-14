@@ -40,6 +40,7 @@ public class Portes : MonoBehaviour
         {
             if (player)
             {
+                //CreatureStateManager.Instance.DespawnCreature();
                 fadeValue = 1f;
 
                 StartCoroutine(DelayTp(fadeSpeed));

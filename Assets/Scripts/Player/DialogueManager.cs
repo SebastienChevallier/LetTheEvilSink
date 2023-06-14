@@ -10,7 +10,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Image _ImagePerso1;
-    public Image _ImagePerso2;
+    public Image bgTexte;
 
     public Queue<string> sentences;
     private Queue<string> names;
@@ -40,7 +40,8 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
-            Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+            if(Player_Movements.Instance)
+                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
         }
 
         foreach (So_Discution._Discutions sentence in dialogue._Dialog)
