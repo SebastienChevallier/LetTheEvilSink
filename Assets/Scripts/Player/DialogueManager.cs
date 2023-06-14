@@ -10,7 +10,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Image _ImagePerso1;
-    public Image _ImagePerso2;
+    public Image bgTexte;
 
     public Queue<string> sentences;
     private Queue<string> names;

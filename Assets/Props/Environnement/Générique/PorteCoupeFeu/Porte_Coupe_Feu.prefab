@@ -51,7 +51,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4498951246933358241
 Transform:
@@ -1177,7 +1177,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1331836242945017279
 Transform:
@@ -1302,6 +1302,8 @@ GameObject:
   m_Component:
   - component: {fileID: 579704918514595327}
   - component: {fileID: 4131798032009702967}
+  - component: {fileID: 7326733378310799915}
+  - component: {fileID: 2448378521658463197}
   m_Layer: 0
   m_Name: Porte_Coupe_Feu
   m_TagString: Deplacer
@@ -1348,6 +1350,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7326733378310799915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280102981220538266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972138b658c2a884f924d950fc297e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4131798032009702967}
+--- !u!65 &2448378521658463197
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280102981220538266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1241302, y: 3.9432983, z: 4.483574}
+  m_Center: {x: 62.474174, y: -12.648174, z: -22.01672}
 --- !u!1 &6505678430338505187
 GameObject:
   m_ObjectHideFlags: 0
