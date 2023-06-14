@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class AnimationFonction : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class AnimationFonction : MonoBehaviour
     public GameObject _Camera;
     public GameObject _PlayerUI;
     public GameObject _PlayerPostProcess;
+    public GameObject _CinematiquePostProcess;
     public AudioSource _AudioSource;
     public Animator _Animator;
     public Animator _AnimatorPlanePNG;
+    public VideoPlayer videoPlayer;
     
     public void SetAnimatorPlayerSpeed(float speed)
     {
@@ -23,6 +26,30 @@ public class AnimationFonction : MonoBehaviour
         _Animator.speed = 0;
         DialogueManager.Instance.StartDialogue(dis);
     }
+
+    public void PlayVideo()
+    {
+        _Animator.speed = 0;
+        _CinematiquePostProcess.SetActive(false);
+        CameraText.SetActive(false);
+        videoPlayer.Play();
+        StartCoroutine(WaitEndVideo((float)videoPlayer.length));
+    }
+
+    IEnumerator WaitEndVideo(float time)
+    {
+        yield return new WaitForSeconds(time);
+        EndVideo();
+    }
+
+    public void EndVideo()
+    {
+        _CinematiquePostProcess.SetActive(true);
+        CameraText.SetActive(true);
+        videoPlayer.gameObject.SetActive(false);
+        _Animator.speed = 1;
+    }
+    
     
     public void EndDialogue()
     {
@@ -31,17 +58,17 @@ public class AnimationFonction : MonoBehaviour
     }
     
     private bool skip = false;
-    public GameObject skipText;
+    public GameObject CameraText;
     
     private void Update()
     {
-        if (DialogueManager.Instance.sentences.Count == 0)
+        if (DialogueManager.Instance.sentences.Count == 0 && DialogueManager.Instance._PanelParler.activeSelf)
         {
             DialogueManager.Instance.EndDialogue();
             _Animator.speed = 1;
         }
-            
-        
+
+
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && !skip)
         {
             skip = true;
@@ -49,8 +76,11 @@ public class AnimationFonction : MonoBehaviour
             return;
         }
         
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying) EndVideo();
+        
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {
+            
             if (DialogueManager.Instance.passSentence)
             {
                 DialogueManager.Instance.DisplayNextSentence();

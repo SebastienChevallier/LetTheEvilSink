@@ -19,6 +19,6 @@ public class SoundPas : MonoBehaviour
 
     public void StepSound(float duration)
     {
-        Player_Movements.Instance.SonDePas(duration);
+        if(Player_Movements.Instance) Player_Movements.Instance.SonDePas(duration);
     }
 }

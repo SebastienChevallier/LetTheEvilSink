@@ -59,8 +59,23 @@ public class Player_Movements : MonoSingleton<Player_Movements>
         Flip();
         //SonDePas(1f);
     }
-        
 
+
+    public void RespawnPlayer()
+    {
+        Debug.Log("Respawn:" + CheckPointsManager.Instance.lastCheckPoint.transform.position );
+        StartCoroutine(Teleport());
+    }
+
+    IEnumerator Teleport()
+    {
+        _PlayerData._CanMove = false;
+        FadeManager.Instance.ImageFadeIn();
+        yield return new WaitForSeconds(2f);
+        FadeManager.Instance.ImageFadeOut();
+        transform.position = CheckPointsManager.Instance.lastCheckPoint.transform.position;
+        _PlayerData._CanMove = true;
+    }
     
     private void FixedUpdate()
     {

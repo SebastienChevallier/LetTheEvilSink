@@ -40,7 +40,8 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             _PlayerData._CanTalk = true;
             _PlayerData._CanMove = false;
             _PanelParler.SetActive(true);
-            Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+            if(Player_Movements.Instance)
+                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
         }
 
         foreach (So_Discution._Discutions sentence in dialogue._Dialog)
