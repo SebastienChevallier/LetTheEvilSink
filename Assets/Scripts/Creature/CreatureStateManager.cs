@@ -79,8 +79,7 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 
     public void DespawnCreature()
     {
-        gauge -= 20;
-        currentState = SearchState;
+        agent.Warp(Vector3.zero);
     }
 
     public void AddGauge(int value)

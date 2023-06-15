@@ -15,7 +15,10 @@ public class BlockCreature : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
+        {
             _creature.creatureSpawnable = isSpawnable;
+            CreatureSpawnPoints.Instance.currentSpawnPoint = transform;
+        }
     }
 }
