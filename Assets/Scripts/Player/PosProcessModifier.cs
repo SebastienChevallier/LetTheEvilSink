@@ -20,6 +20,7 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
     private FilmGrain _FG;
     private ShadowsMidtonesHighlights _SMH;
     private LensDistortion _LD;
+    private ColorCurves _colorCurves;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
         _Volume.profile.TryGet( out _FG);
         _Volume.profile.TryGet(out _SMH);
         _Volume.profile.TryGet(out _LD);
+        _Volume.profile.TryGet(out _colorCurves);
     }
 
     private void Update()
@@ -95,5 +97,7 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
             yield return null;
         }
     }
+    
+    
    
 }

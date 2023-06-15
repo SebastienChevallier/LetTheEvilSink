@@ -1417,6 +1417,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1821285982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &682712910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3061617595008269027, guid: 269cb1e315c2b3b43b103ac70797efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437762150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &760228061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 3061617595008269027, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3097086446696054992, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_IsActive
@@ -2898,6 +2909,11 @@ PrefabInstance:
       propertyPath: _creature
       value: 
       objectReference: {fileID: 996389548}
+    - target: {fileID: 3531506495141482200, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: _PanelMort
+      value: 
+      objectReference: {fileID: 682712910}
     - target: {fileID: 3531506495141482202, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: _ValUp
@@ -3120,6 +3136,11 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 1157285868}
+    - target: {fileID: 8837315655975131366, guid: 269cb1e315c2b3b43b103ac70797efa2,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269cb1e315c2b3b43b103ac70797efa2, type: 3}
 --- !u!1 &1467684078

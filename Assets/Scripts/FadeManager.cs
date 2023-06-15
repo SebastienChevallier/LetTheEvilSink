@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BaseTemplate.Behaviours;
@@ -10,10 +11,34 @@ public class FadeManager : MonoSingleton<FadeManager>
     public TextMeshProUGUI _text;
     public Image image;
 
+    public float speedValue;
+
+    private float fadeValue;
+
     public void ChangeText( string text)
     {
         _text.text = text;
-        
+    }
+    
+    IEnumerator DelayFade(float time)
+    {
+        FadeIn();
+        yield return new WaitForSeconds(time);
+        FadeOut();
+    }
+
+    private void Update()
+    {
+       Fade();
+    }
+
+    void Fade()
+    {
+        if(image != null)
+        {
+            Vector4 color = new Vector4(image.color.r, image.color.g, image.color.b, fadeValue);
+            image.color = Vector4.Lerp(image.color, color, Time.deltaTime * speedValue);
+        }
     }
     
     public void FadeIn()
@@ -29,13 +54,11 @@ public class FadeManager : MonoSingleton<FadeManager>
 
     public void ImageFadeIn()
     {
-        Vector4 color = new Vector4(image.color.r, image.color.g, image.color.b, 1);
-        image.color = Vector4.Lerp(image.color, color, Time.deltaTime * 1);
+        fadeValue = 1;
     } 
     
     public void ImageFadeOut()
     {
-        Vector4 color = new Vector4(image.color.r, image.color.g, image.color.b, 1);
-        image.color = Vector4.Lerp(image.color, color, Time.deltaTime * 1);
+        fadeValue = 0;
     }
 }

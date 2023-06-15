@@ -22,6 +22,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     public GameObject _PanelCarnet;
     public GameObject _LampeTorche;
     public GameObject _Visuals;
+    public GameObject _PanelMort;
     public Camera _Camera;
     private Rigidbody rb;
 
@@ -65,16 +66,24 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     {
         Debug.Log("Respawn:" + CheckPointsManager.Instance.lastCheckPoint.transform.position );
         StartCoroutine(Teleport());
+        StartCoroutine(WaitTp());
     }
 
     IEnumerator Teleport()
     {
         _PlayerData._CanMove = false;
         FadeManager.Instance.ImageFadeIn();
+        _PanelMort.SetActive(true);
         yield return new WaitForSeconds(2f);
+        _PanelMort.SetActive(false);
         FadeManager.Instance.ImageFadeOut();
-        transform.position = CheckPointsManager.Instance.lastCheckPoint.transform.position;
         _PlayerData._CanMove = true;
+    }
+
+    IEnumerator WaitTp()
+    {
+        yield return new WaitForSeconds(0.8f);
+        transform.position = CheckPointsManager.Instance.lastCheckPoint.transform.position;
     }
     
     private void FixedUpdate()

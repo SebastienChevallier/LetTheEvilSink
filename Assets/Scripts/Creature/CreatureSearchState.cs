@@ -96,6 +96,7 @@ public class CreatureSearchState : CreatureBaseState
     {
         Vector3 randomDirection = Random.insideUnitSphere * radius;
         randomDirection += creature.enemy.position;
+        creature.AddGauge(-creature.searchGaugeDiminution);
 
         NavMeshHit hit;
         Vector3 finalPosition = Vector3.zero;
