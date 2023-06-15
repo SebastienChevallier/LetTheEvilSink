@@ -19,6 +19,7 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
     private Vignette _VG;
     private FilmGrain _FG;
     private ShadowsMidtonesHighlights _SMH;
+    private LensDistortion _LD;
 
     private void Awake()
     {
@@ -29,12 +30,14 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
         _Volume.profile.TryGet(out _VG);
         _Volume.profile.TryGet( out _FG);
         _Volume.profile.TryGet(out _SMH);
+        _Volume.profile.TryGet(out _LD);
     }
 
     private void Update()
     {
         ChromaticChange(_PlayerData._ValAngoisse);
         //_SMH.shadows.value = new Vector4(0,0,_Parametres.brightness,0);
+        if (Input.GetKey(KeyCode.A)) StartCoroutine(LensDistortion(100,1));
     }
 
     public void ChromaticChange(float value)
@@ -70,6 +73,25 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
         {
             timer += Time.deltaTime;
             _CA.intensity.value = Mathf.Lerp(0, intensity, timer / time);
+            yield return null;
+        }
+    }
+
+    IEnumerator LensDistortion(float time, float intensity)
+    {
+        float timer = 0;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            float x = 0;
+            float y = 0;
+            
+            x = Mathf.Lerp(x,Random.Range(-intensity, intensity),timer/time);
+            y = Mathf.Lerp(y,Random.Range(-intensity, intensity), timer/time);
+
+            _LD.center = new Vector2Parameter(new Vector2(x,y), true);
+            _LD.xMultiplier = new ClampedFloatParameter(x,0, intensity, true);
+            _LD.yMultiplier = new ClampedFloatParameter(y,0, intensity, true);
             yield return null;
         }
     }
