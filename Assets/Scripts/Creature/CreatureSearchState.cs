@@ -12,7 +12,7 @@ public class CreatureSearchState : CreatureBaseState
 
     float radius = 5f;
 
-    float timer = 3f;
+    float timer = 6f;
     float smoothTimer = 2f;
 
 
@@ -44,6 +44,10 @@ public class CreatureSearchState : CreatureBaseState
             }
             else
                 CheckHeardSoundPosition(creature);
+        }
+        else
+        {
+            CheckLastPlayerPosition(creature);
         }
     }
 
@@ -79,7 +83,7 @@ public class CreatureSearchState : CreatureBaseState
     void SpawnCreature(CreatureStateManager creature)
     {
         // Calculate spawn point
-        Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+        Transform spawnPoint = CreatureSpawnPoints.Instance.currentSpawnPoint;
 
         // Set creature Transform
         creature.agent.Warp(spawnPoint.position);
@@ -89,7 +93,7 @@ public class CreatureSearchState : CreatureBaseState
 
         // Make creature check last player position
         lastPlayerPosition = creature.player.position;
-        CheckLastPlayerPosition(creature);
+        GoToPlayerPos(creature);
     }
 
     private Vector3 RandomPosition(CreatureStateManager creature)
@@ -100,6 +104,7 @@ public class CreatureSearchState : CreatureBaseState
 
         NavMeshHit hit;
         Vector3 finalPosition = Vector3.zero;
+        timer = 6f;
 
         if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
@@ -115,17 +120,27 @@ public class CreatureSearchState : CreatureBaseState
         if (timer <= 0) randomPosition = RandomPosition(creature);
 
         creature.agent.SetDestination(randomPosition);
+
+        if (creature.gauge <= 0)
+        {
+            CreatureStateManager.Instance.DespawnCreature();
+            ResetState(creature);
+            CreatureStateManager.Instance.SwitchState(creature.WanderState);
+            creature.summoned = false;
+        }
     }
 
     void CheckLastPlayerPosition(CreatureStateManager creature)
     {
-        // Make creature move to last player position
-        creature.agent.SetDestination(lastPlayerPosition);
-
-        if (creature.enemy.position == lastPlayerPosition)
+        if (Vector3.Distance(creature.enemy.position,lastPlayerPosition) <= 5f)
         {
             positionChecked = true;
         }
+    }
+
+    void GoToPlayerPos(CreatureStateManager creature)
+    {
+        creature.agent.SetDestination(lastPlayerPosition);
     }
 
 
@@ -133,8 +148,8 @@ public class CreatureSearchState : CreatureBaseState
     {
         // Make the creature check where it heard a sound
         creature.agent.SetDestination(lastPositionHeard);
-
-        if (creature.enemy.position == lastPositionHeard)
+        
+        if (Vector3.Distance(creature.enemy.position,lastPositionHeard) <= 10f)
         {
             soundHeard = false;
         }
