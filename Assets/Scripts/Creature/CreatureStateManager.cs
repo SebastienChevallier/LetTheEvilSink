@@ -80,6 +80,7 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
     public void DespawnCreature()
     {
         agent.Warp(Vector3.zero);
+        CreatureFeedBack.Instance.StopCreatureSound();
     }
 
     public void AddGauge(int value)
