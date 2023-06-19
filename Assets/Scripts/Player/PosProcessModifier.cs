@@ -45,9 +45,13 @@ public class PosProcessModifier : MonoSingleton<PosProcessModifier>
     public void ChromaticChange(float value)
     {        
         //_Camera._ZoomValue = Mathf.Clamp(_Zoom * (1 - (value / 100)), 2, 10);
-        _CA.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
-        _VG.intensity.value = Mathf.Clamp((value) / 200, 0f, 1f);
-        _FG.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
+        //_CA.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
+        _CA.intensity.value = Mathf.Lerp(1,0,(1 - (_PlayerData._ValAngoisse / 100)));
+        //_VG.intensity.value = Mathf.Clamp((value) / 200, 0f, 1f);
+        _VG.intensity.value = Mathf.Lerp(1,0,(1 - (_PlayerData._ValAngoisse / 100)));
+        //_FG.intensity.value = Mathf.Clamp((value) / 100, 0f, 1f);
+        _FG.intensity.value = Mathf.Lerp(1,0,(1 - (_PlayerData._ValAngoisse / 100)));
+        
     }
 
     public void FlashChromaticAberation(float time, float intensity)

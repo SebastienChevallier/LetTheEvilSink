@@ -94,6 +94,7 @@ public class CreatureSearchState : CreatureBaseState
         // Make creature check last player position
         lastPlayerPosition = creature.player.position;
         CreatureSoundManager.Instance.SpawnCreatureSound();
+        CreatureFeedBack.Instance.PlayCreatureSound();
         GoToPlayerPos(creature);
     }
 

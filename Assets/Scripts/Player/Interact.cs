@@ -66,6 +66,7 @@ public class Interact : MonoBehaviour
                     case "Observer":
                         if (_PlayerData._CanInteract)
                         {
+                            _PlayerData._CanMove = false;
                             _PlayerData._CanInteract = false;
                             _PanelObserver.SetActive(true);
                             _PanelObserver.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Objets>().infoObjet.image;
@@ -73,6 +74,7 @@ public class Interact : MonoBehaviour
                         }
                         else
                         {
+                            _PlayerData._CanMove = true;
                             _PlayerData._CanInteract = true;
                             _PanelObserver.SetActive(false);
                         }

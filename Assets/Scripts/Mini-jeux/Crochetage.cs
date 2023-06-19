@@ -13,7 +13,12 @@ public class Crochetage : MonoBehaviour
     private float objectif1;
     private float objectif2;
     private Animation anim;
+    private CreatureStateManager creature;
 
+    void Start()
+    {
+        creature = GameObject.FindWithTag("Creature").GetComponent<CreatureStateManager>();
+    }
 
     void OnEnable()
     {
@@ -58,6 +63,7 @@ public class Crochetage : MonoBehaviour
             else
             {
                 anim.Play("CrochetageFail");
+                creature.AddGauge(10);
             }
         }
     }
