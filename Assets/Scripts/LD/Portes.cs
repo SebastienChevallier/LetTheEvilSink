@@ -52,6 +52,7 @@ public class Portes : MonoBehaviour
     IEnumerator DelayFade(float time)
     {
         FadeManager.Instance.FadeIn();
+        Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
         yield return new WaitForSeconds(time);
         
         fadeValue = 0;
