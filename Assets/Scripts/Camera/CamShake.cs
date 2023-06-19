@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using BaseTemplate.Behaviours;
 
-public class CamShake : MonoBehaviour
+public class CamShake : MonoSingleton<CamShake>
 {
 	// Transform of the camera to shake. Grabs the gameObject's transform
 	// if null.

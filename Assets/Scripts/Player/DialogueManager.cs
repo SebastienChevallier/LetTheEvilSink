@@ -16,6 +16,8 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     private Queue<string> names;
     private Queue<bool> bools;
     private Queue<Sprite> sprites;
+    private Queue<TMP_FontAsset> fonts;
+    private TMP_FontAsset defaultFont;
     
     
     [Header("UI")]
@@ -30,6 +32,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         names = new Queue<string>();
         bools = new Queue<bool>();
         sprites = new Queue<Sprite>();
+        fonts = new Queue<TMP_FontAsset>();
     }
 
     public void StartDialogue (So_Discution dialogue)
@@ -50,8 +53,11 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             names.Enqueue(sentence._NomPerso);
             bools.Enqueue(sentence._PlayerIsSpeaking);
             sprites.Enqueue(sentence._SpritePerso);
+            fonts.Enqueue(sentence.font);
         }
 
+        defaultFont = dialogue.defaultFont;
+        
         DisplayNextSentence();
     }
 
@@ -64,18 +70,16 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         bool isPlayer = bools.Dequeue();
         string sentence = sentences.Dequeue();
         Sprite sprite = sprites.Dequeue();
+        TMP_FontAsset font = fonts.Dequeue();
 
-        if (isPlayer)
-        {
-            _ImagePerso1.transform.localScale = new Vector3(1f,1,1);
-            _ImagePerso1.sprite = sprite;
-        }
-        else
-        {
-            _ImagePerso1.transform.localScale = new Vector3(-1f,1,1);
-            _ImagePerso1.sprite = sprite;
-        }
+        if (isPlayer) { _ImagePerso1.transform.localScale = new Vector3(3f,3,3); }
+        else { _ImagePerso1.transform.localScale = new Vector3(-3f,3,3); }
         
+        _ImagePerso1.sprite = sprite;
+        if (font != null)
+            dialogueText.font = font;
+        else
+            dialogueText.font = defaultFont;
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
