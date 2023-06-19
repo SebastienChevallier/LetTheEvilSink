@@ -7,11 +7,11 @@ public class SpawnBalconWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        murInvisible.SetActive(true);
+        if (other.CompareTag("Player")) murInvisible.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        murInvisible.SetActive(false);
+        if (other.CompareTag("Player")) murInvisible.SetActive(false);
     }
 }
