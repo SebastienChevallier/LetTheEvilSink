@@ -67,6 +67,7 @@ public class Interact : MonoBehaviour
                         if (_PlayerData._CanInteract)
                         {
                             _PlayerData._CanInteract = false;
+                            _PlayerData._CanMove = false;
                             _PanelObserver.SetActive(true);
                             _PanelObserver.transform.GetChild(0).GetComponent<Image>().sprite = _PlayerData._TriggerObject.GetComponent<Objets>().infoObjet.image;
                             _PanelObserver.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _PlayerData._TriggerObject.GetComponent<Objets>().infoObjet.texte;
@@ -74,6 +75,7 @@ public class Interact : MonoBehaviour
                         else
                         {
                             _PlayerData._CanInteract = true;
+                            _PlayerData._CanMove = true;
                             _PanelObserver.SetActive(false);
                         }
                         break;
