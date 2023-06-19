@@ -12,6 +12,9 @@ public class CreatureFeedBack : MonoSingleton<CreatureFeedBack>
     public GameObject IndicGauche;
 
     public AudioSource _AudioSource;
+    public AudioSource _BehindSource;
+
+    public AudioClip Breathclip;
 
     public float shakeAmount;
     public float shakeDuration;
@@ -30,6 +33,24 @@ public class CreatureFeedBack : MonoSingleton<CreatureFeedBack>
     {
         CheckPosCreature();
         Shake();
+        PlayAmbiantCreatureSound();
+    }
+
+    public float cdAmbiantCrea;
+    private float timeAmbiantCrea;
+    public void PlayAmbiantCreatureSound()
+    {
+        timeAmbiantCrea += Time.deltaTime;
+        if (timeAmbiantCrea >= cdAmbiantCrea)
+        {
+            if (Random.Range(15, 99) <= creature.gauge)
+            {
+                _BehindSource.panStereo = Random.Range(-1f, 1f);
+                _BehindSource.PlayOneShot(Breathclip);
+            }
+                
+            timeAmbiantCrea = 0;
+        }
     }
 
     public void PlayCreatureSound()

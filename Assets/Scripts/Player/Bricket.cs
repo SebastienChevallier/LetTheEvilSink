@@ -43,7 +43,7 @@ public class Bricket : MonoBehaviour
 
         if (timeAddGauge >= cdAddGauge)
         {
-            _creature.AddGauge(1);
+            _creature.AddGauge(2);
             timeAddGauge = 0;
         }
     }
