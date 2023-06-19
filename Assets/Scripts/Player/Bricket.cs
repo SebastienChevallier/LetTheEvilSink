@@ -19,6 +19,9 @@ public class Bricket : MonoBehaviour
     public float FailRate = 0f;
     public float addFailRateValue = 0.05f;
     public float maxFailRate = 0.75f;
+
+    public float cdAddGauge;
+    private float timeAddGauge;
     
     public void Start()
     {       
@@ -30,15 +33,26 @@ public class Bricket : MonoBehaviour
         if (!_PlayerData._CanMove) return;
 
         LampeTorche();
+        if(_LampeTorche.activeSelf)
+            CoolDownAddGauge();
+    }
+
+    public void CoolDownAddGauge()
+    {
+        timeAddGauge += Time.deltaTime;
+
+        if (timeAddGauge >= cdAddGauge)
+        {
+            _creature.AddGauge(2);
+            timeAddGauge = 0;
+        }
     }
 
     void LampeTorche()
     {
         if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove)
         {
-            if(_creature != null)
-                _creature.AddGauge(5);
-            
+
             if(FailRate < maxFailRate)
                 FailRate += addFailRateValue;
 
@@ -47,6 +61,9 @@ public class Bricket : MonoBehaviour
             if (_PlayerData._CanLight)
             {
                 if (_PlayerData._CanMove) ScriptSound.PlaySound();
+                
+                if(_creature != null)
+                    _creature.AddGauge(5);
 
                 if (random > FailRate)
                 {

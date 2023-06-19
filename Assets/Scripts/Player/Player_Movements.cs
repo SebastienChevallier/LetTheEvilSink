@@ -97,10 +97,10 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     {
         Vector3 moveDir = _Camera.gameObject.transform.right * (Input.GetAxis("Horizontal") * _Speed);
         //moveDir += Input.GetAxis("Vertical") * _Camera.gameObject.transform.forward * _Speed;
-        planeAnimator.SetFloat("Speed", moveDir.magnitude/2);
 
         if (_PlayerData._CanMove)
         {
+            planeAnimator.SetFloat("Speed", moveDir.magnitude / 2);
             //rb.velocity = Vector3.Lerp(rb.velocity, moveDir, _SmoothCurve.Evaluate(Time.fixedDeltaTime * _SmoothSpeed));
             rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir, ref velocity, inputSpeed);
         }
