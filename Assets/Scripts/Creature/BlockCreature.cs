@@ -19,6 +19,10 @@ public class BlockCreature : MonoBehaviour
         {
             _creature.creatureSpawnable = isSpawnable;
             CreatureSpawnPoints.Instance.currentSpawnPoint = transform;
+            if (!isSpawnable)
+            {
+                _creature.DespawnCreature();
+            }
         }
     }
 }

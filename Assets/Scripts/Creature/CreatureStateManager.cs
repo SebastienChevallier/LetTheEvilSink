@@ -82,6 +82,8 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
     {
         agent.Warp(Vector3.zero);
         CreatureFeedBack.Instance.StopCreatureSound();
+        SwitchState(WanderState);
+        summoned = false;
     }
 
     public void AddGauge(int value)
