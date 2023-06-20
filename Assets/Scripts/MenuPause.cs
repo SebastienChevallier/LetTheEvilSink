@@ -35,6 +35,11 @@ public class MenuPause : MonoBehaviour
         }
     }
 
+    public void LastCheckPoint()
+    {
+        Player_Movements.Instance.RespawnPlayer();
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene(0);

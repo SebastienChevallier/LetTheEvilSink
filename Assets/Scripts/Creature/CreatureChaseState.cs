@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CreatureChaseState : CreatureBaseState
@@ -27,8 +28,13 @@ public class CreatureChaseState : CreatureBaseState
         }
         // Destroy obstacles that the player may have placed
         if (collision.gameObject.CompareTag("Deplacer"))
+        {
             Object.Destroy(collision.gameObject);
+            CreatureStateManager.Instance.LaunchRal();
+        }
     }
+
+    
 
     public override void OnTriggerEnter(CreatureStateManager creature, Collider other)
     {

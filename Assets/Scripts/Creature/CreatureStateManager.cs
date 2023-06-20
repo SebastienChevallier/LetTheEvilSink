@@ -1,3 +1,4 @@
+using System.Collections;
 using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.AI;
@@ -91,5 +92,18 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 
         if (gauge > 100) gauge = 100;
         else if (gauge < 0) gauge = 0;
+    }
+
+    public void LaunchRal()
+    {
+        StartCoroutine(Ralentissement());
+    }
+    
+    IEnumerator Ralentissement()
+    {
+        float tempSpeed = chaseSpeed;
+        chaseSpeed = tempSpeed / 2;
+        yield return new WaitForSeconds(2f);
+        chaseSpeed = tempSpeed;
     }
 }
