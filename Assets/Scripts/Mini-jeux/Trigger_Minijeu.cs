@@ -10,6 +10,7 @@ public class Trigger_Minijeu : MonoBehaviour
     public GameObject _canvaMinijeu;
     public GameObject triggerPorte;
     private WireTask _wireTask;
+    public GameObject meshCables;
 
     public bool validated;
     private bool _isTrigger = false;
