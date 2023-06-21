@@ -36,8 +36,9 @@ public class CameraBehavior : MonoBehaviour
     void FixedUpdate()
     {
         //transform.LookAt(_Cible.transform);
+        if(_PlayerData._CanMove)
+            Zoom();
         
-        Zoom();
         AutoRotate();
         //FollowCible();
     }

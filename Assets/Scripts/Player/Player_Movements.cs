@@ -55,10 +55,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
         if (!_PlayerData._CanMove) return;
 
         Course();
-        //Carnet();              
-        //LampeTorche();
         Flip();
-        //SonDePas(1f);
     }
 
 

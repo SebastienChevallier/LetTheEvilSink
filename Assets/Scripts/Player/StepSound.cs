@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using BaseTemplate.Behaviours;
 using UnityEngine;
 
-public class StepSound : MonoBehaviour
+public class StepSound : MonoSingleton<StepSound>
 {
     public GameObject _StepZone;
     public GameObject _Clone;

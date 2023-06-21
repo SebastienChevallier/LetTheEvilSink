@@ -33,7 +33,12 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Cables":
                         interact.sprite = _SpriteCables;
-                        break;
+                        if (other.TryGetComponent<Trigger_Minijeu>(out Trigger_Minijeu minijeu))
+                        {
+                            minijeu.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
+                            minijeu.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                        }
+                    break;
 
                     case "Observer":
                         interact.sprite = _SpriteObserver;
@@ -49,7 +54,7 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Finish":
                         interact.sprite = _SpritePorte;
-                        if (other.transform.parent.TryGetComponent(out Portes portes))
+                        if (other.transform.parent.TryGetComponent<Portes>(out Portes portes))
                         {
                             if ((portes.cadre_arriere || portes.cadre_avant) != null)
                             {
@@ -60,8 +65,7 @@ public class PlayerColliderScript : MonoBehaviour
                             }
                         }
                         break;
-                    
-                    
+
                     case "Parler":
                         interact.sprite = _SpriteTalk;
                         break;
@@ -92,6 +96,11 @@ public class PlayerColliderScript : MonoBehaviour
                     portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
                     portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
                 }
+            }
+            else if (other.CompareTag("Cables") && other.TryGetComponent<Trigger_Minijeu>(out Trigger_Minijeu minijeu))
+            {
+                minijeu.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                minijeu.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20F);
             }
         }
     }

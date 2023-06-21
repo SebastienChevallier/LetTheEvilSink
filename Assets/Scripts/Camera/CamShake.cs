@@ -32,11 +32,9 @@ public class CamShake : MonoSingleton<CamShake>
 
 	void Update()
 	{
-		if (shakeDuration > 0)
+		if (shakeDuration > 0 && Player_Movements.Instance._PlayerData._CanMove)
 		{
-			
 			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-
 			shakeDuration -= Time.deltaTime * decreaseFactor;
 		}
 		else

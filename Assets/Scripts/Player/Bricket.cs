@@ -64,6 +64,8 @@ public class Bricket : MonoBehaviour
                 
                 if(_creature != null)
                     _creature.AddGauge(5);
+                
+                StepSound.Instance.Step(1);
 
                 if (random > FailRate)
                 {

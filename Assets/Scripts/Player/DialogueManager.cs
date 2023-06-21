@@ -98,6 +98,11 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
             else
             {
                 dialogueText.text += letter;
+                
+                if (dialogueText.text.Length == sentence.Length)
+                {
+                    ClickNext();
+                }
             }
             yield return null;
         }
