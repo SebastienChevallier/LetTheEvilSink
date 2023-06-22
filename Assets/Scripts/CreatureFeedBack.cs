@@ -8,9 +8,8 @@ public class CreatureFeedBack : MonoSingleton<CreatureFeedBack>
     [HideInInspector]public CreatureStateManager creature;
     [HideInInspector]public CamShake CamShake;
 
-    public GameObject IndicDroit;
-    public GameObject IndicGauche;
-
+    public GameObject Indic;
+    
     public AudioSource _AudioSource;
     public AudioSource _BehindSource;
 
@@ -67,22 +66,11 @@ public class CreatureFeedBack : MonoSingleton<CreatureFeedBack>
     {
         if (creature.summoned)
         {
-            float xdist = creature.transform.position.x - transform.position.x;
-            if (xdist > 0)
-            {
-                IndicDroit.SetActive(false);
-                IndicGauche.SetActive(true);
-            }
-            else
-            {
-                IndicGauche.SetActive(false);
-                IndicDroit.SetActive(true);
-            }
+            Indic.SetActive(true);
         }
         else
         {
-            IndicDroit.SetActive(false);
-            IndicGauche.SetActive(false);
+            Indic.SetActive(false);
         }
     }
 
