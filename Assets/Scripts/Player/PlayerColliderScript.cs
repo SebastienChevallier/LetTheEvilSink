@@ -36,7 +36,7 @@ public class PlayerColliderScript : MonoBehaviour
                         if (other.TryGetComponent<Trigger_Minijeu>(out Trigger_Minijeu minijeu))
                         {
                             minijeu.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                            minijeu.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                            minijeu.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
                         }
                     break;
 
