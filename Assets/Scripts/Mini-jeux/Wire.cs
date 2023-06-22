@@ -33,6 +33,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     private void Update()
     {
+        bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition, _canvas.worldCamera);
         if (_isDragStarted)
         {
             timer += Time.deltaTime;
@@ -53,6 +54,12 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                 );
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, _canvas.transform.TransformPoint(movePos));
+            
+            if (isHovered)
+            {
+                _wireTask.CurrentHoveredWire = this;
+                _lineRenderer.SetPosition(1, _wireTask.CurrentHoveredWire.transform.position);
+            }
         }
         else
         {
@@ -64,7 +71,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
         }
 
-        bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition, _canvas.worldCamera);
+       
 
         if (isHovered)
         {
