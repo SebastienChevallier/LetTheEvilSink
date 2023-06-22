@@ -5,17 +5,24 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour {
     
+    [Header("---Basic---")]
     public So_Discution _Dis;
     public bool canBeTrigger = true;
     private bool playingOnce = false;
 
+    public bool autoDialog = false;
+    public bool open = false;
+    
+    public bool pnjDespawn;
+
     private DialogueManager _DialogueManager;
     [HideInInspector]public bool isTrigger = false;
     
+    [Header("---Suite dialogue---")]
+    public bool newDialogue = false;
     [SerializeField] private List<DialogueTrigger> _ListDialogue;
 
-    public bool open = false;
-
+    [Header("---Objectif---")]
     public bool newObjectif = false;
     public string objectif;
     
@@ -27,7 +34,6 @@ public class DialogueTrigger : MonoBehaviour {
     public void TriggerDialogue ()
     {
         _DialogueManager.StartDialogue(_Dis);
-        
     }
     
     
@@ -48,8 +54,13 @@ public class DialogueTrigger : MonoBehaviour {
                     playingOnce = true;
                 }
             }
+
+            if (pnjDespawn)
+            {
+                gameObject.SetActive(false);
+            }
         }
-        if (Input.GetButtonDown("Interact")  && _DialogueManager.sentences.Count == 0 && isTrigger && !open && !playingOnce && canBeTrigger)
+        if (Input.GetButtonDown("Interact")  && _DialogueManager.sentences.Count == 0 && isTrigger && !open && !playingOnce && canBeTrigger && !autoDialog)
         {
             TriggerDialogue();
             open = true;
@@ -73,6 +84,12 @@ public class DialogueTrigger : MonoBehaviour {
         if (other.tag == "Player")
         {
             isTrigger = true;
+
+            if (autoDialog)
+            {
+                TriggerDialogue();
+                open = true;
+            }
         }
     }
     
