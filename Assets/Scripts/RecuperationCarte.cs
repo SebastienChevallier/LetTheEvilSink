@@ -25,9 +25,8 @@ public class RecuperationCarte : MonoBehaviour
 
     IEnumerator ChangeText()
     {
-        string tempText = RappelObjectif.Instance.text.text;
-        RappelObjectif.Instance.text.text = textToShow;
+        RappelObjectif.Instance.Recup(textToShow);
         yield return new WaitForSeconds(3f);
-        RappelObjectif.Instance.text.text = tempText;
+        RappelObjectif.Instance.Recup("");
     }
 }

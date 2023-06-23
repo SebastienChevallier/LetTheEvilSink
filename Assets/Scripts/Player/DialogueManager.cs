@@ -72,10 +72,11 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         Sprite sprite = sprites.Dequeue();
         TMP_FontAsset font = fonts.Dequeue();
 
-        if (isPlayer) { _ImagePerso1.transform.localScale = new Vector3(3f,3,3); }
-        else { _ImagePerso1.transform.localScale = new Vector3(-3f,3,3); }
+        //if (isPlayer) { _ImagePerso1.transform.localScale = new Vector3(3f,3,3); }
+        //else { _ImagePerso1.transform.localScale = new Vector3(-3f,3,3); }
         
         _ImagePerso1.sprite = sprite;
+        
         if (font != null)
             dialogueText.font = font;
         else

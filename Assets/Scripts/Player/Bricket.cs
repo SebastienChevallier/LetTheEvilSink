@@ -50,7 +50,7 @@ public class Bricket : MonoBehaviour
 
     void LampeTorche()
     {
-        if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove)
+        if (Input.GetButtonDown("LampeTorche") && _PlayerData._CanMove && _PlayerData.hasBricket)
         {
 
             if(FailRate < maxFailRate)
