@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b593ae72b70c5d5498c35fb0775f982e, type: 2}
+  - {fileID: 2100000, guid: 7d971dcb15ee2ac40952d60480424edd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,6 +142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7214000366838855140}
   - component: {fileID: 2569495576135937879}
+  - component: {fileID: 6956112152935214883}
+  - component: {fileID: 2668042367647949829}
   m_Layer: 0
   m_Name: ObstacleOld
   m_TagString: Deplacer
@@ -178,3 +180,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.15553164, z: 0.031044602}
   m_Center: {x: 0, y: -1.5073808, z: 0.3549413}
+--- !u!114 &6956112152935214883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587679234808782267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdd5867f320a2c40adf18b153501bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2668042367647949829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587679234808782267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8517761, y: 2.927379, z: 4.4196944}
+  m_Center: {x: 0.010445952, y: 0.023134112, z: 1.7098472}
