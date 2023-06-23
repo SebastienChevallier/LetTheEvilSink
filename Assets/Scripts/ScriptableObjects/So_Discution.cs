@@ -16,6 +16,8 @@ public class So_Discution : ScriptableObject
         public Sprite _SpritePerso;
         public TMP_FontAsset font;
         public string _NomPerso;
+        
+        [TextArea]
         public string _Discution;
     }
 
