@@ -24,7 +24,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     public GameObject _Visuals;
     public GameObject _PanelMort;
     public Camera _Camera;
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private Vector3 velocity = Vector3.zero;
     public Animator planeAnimator;

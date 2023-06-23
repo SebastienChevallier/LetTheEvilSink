@@ -27,7 +27,7 @@ public class So_Player : ScriptableObject
     public bool _InDark = false;
     public bool _Invincible = false;
     public bool hasCard = false;
-
+    public bool hasBricket = false;
 
 
     [Header("World Interactions")]

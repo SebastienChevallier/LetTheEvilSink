@@ -89,6 +89,7 @@ public class DialogueTrigger : MonoBehaviour {
             {
                 TriggerDialogue();
                 open = true;
+                Player_Movements.Instance.rb.velocity = Vector3.zero;
             }
         }
     }
