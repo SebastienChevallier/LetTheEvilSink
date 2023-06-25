@@ -25,6 +25,8 @@ public class Portes : MonoBehaviour
 
     public float speedVal;
 
+    public bool cantBeTaken;
+
 
     private void Start()
     {
@@ -34,6 +36,8 @@ public class Portes : MonoBehaviour
 
     void Update()
     {
+        if (cantBeTaken) return;
+
         if (player) Fade();
 
         if (Input.GetKeyDown(KeyCode.E))
