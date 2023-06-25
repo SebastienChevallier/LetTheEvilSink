@@ -23,7 +23,7 @@ public class RecupBricket : MonoBehaviour
         RappelObjectif.Instance.Recup("Briquet recupéré");
         RappelObjectif.Instance.tutoBriquet.gameObject.SetActive(true);
         yield return new WaitForSeconds(5f);
-        RappelObjectif.Instance.tutoBriquet.gameObject.SetActive(true);
+        RappelObjectif.Instance.tutoBriquet.gameObject.SetActive(false);
         RappelObjectif.Instance.Recup("");
     }
 }
