@@ -76,7 +76,7 @@ public class AnimationFonction : MonoBehaviour
             return;
         }
         
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying) EndVideo();
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying && videoPlayer != null) EndVideo();
         
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {
