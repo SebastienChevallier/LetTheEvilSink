@@ -34,7 +34,7 @@ public class Angoisse : MonoBehaviour
 
         if (_PlayerData._InDark)
         {
-            if (timeLeft < 0 && _PlayerData._ValAngoisse >= 100)
+            if (timeLeft < 0 && _PlayerData._ValAngoisse >= 100f)
             {
                 timeLeft = _TimeDelay;
             }
@@ -42,13 +42,18 @@ public class Angoisse : MonoBehaviour
             if (timeLeft < 0 && _PlayerData._ValAngoisse < 100f)
             {
                 _PlayerData._ValAngoisse += _ValUp;
-                if (_PlayerData._ValAngoisse >= 0f) _PlayerData._ValAngoisse = 100f;
+                if (_PlayerData._ValAngoisse >= 100f) _PlayerData._ValAngoisse = 100f;
 
                 timeLeft = _TimeDelay;
             }
         }
         else
         {
+            if (timeLeft < 0 && _PlayerData._ValAngoisse <= 0f)
+            {
+                timeLeft = _TimeDelay;
+            }
+
             if (timeLeft < 0 && _PlayerData._ValAngoisse > 0f)
             {
                 _PlayerData._ValAngoisse -= _ValDown;

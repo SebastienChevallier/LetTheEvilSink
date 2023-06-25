@@ -59,9 +59,9 @@ public class PlayerColliderScript : MonoBehaviour
                             if ((portes.cadre_arriere || portes.cadre_avant) != null)
                             {
                                 portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                                portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                                portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
                                 portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                                portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
+                                portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
                             }
                         }
                         break;
