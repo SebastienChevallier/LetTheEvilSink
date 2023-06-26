@@ -7522,7 +7522,7 @@ PrefabInstance:
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.948
+      value: -76.28
       objectReference: {fileID: 0}
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -7532,7 +7532,7 @@ PrefabInstance:
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.489
+      value: 8.699
       objectReference: {fileID: 0}
     - target: {fileID: 3539652522045528897, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -8425,6 +8425,11 @@ PrefabInstance:
       propertyPath: cinematique
       value: 
       objectReference: {fileID: 6832966555763452848}
+    - target: {fileID: 1443522384143714855, guid: 78179960636709c4bbcee36befb5f7ac,
+        type: 3}
+      propertyPath: cinematique
+      value: 
+      objectReference: {fileID: 1961217955}
     - target: {fileID: 1492438576382821669, guid: 78179960636709c4bbcee36befb5f7ac,
         type: 3}
       propertyPath: m_Camera
@@ -11608,6 +11613,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892032492}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1961217955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 283306026331177818, guid: bbb5df62f0f74a440b8facf5bda54236,
+    type: 3}
+  m_PrefabInstance: {fileID: 283306024477763741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1977436174
 GameObject:
   m_ObjectHideFlags: 0
@@ -29276,6 +29287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cinematique_Esther
       objectReference: {fileID: 0}
+    - target: {fileID: 6832966556105850841, guid: 82f6890ece4508e439289f6ea66b221a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7818878062129335884, guid: 82f6890ece4508e439289f6ea66b221a,
         type: 3}
       propertyPath: cadre_avant
@@ -29565,21 +29581,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2727998708079732731, guid: 4cc4004793f023a4fa79a2362d0aed21,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.64
-      objectReference: {fileID: 0}
     - target: {fileID: 4803235964312931688, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
       propertyPath: cadre_arriere
       value: 
       objectReference: {fileID: 725948198}
-    - target: {fileID: 8140585508248069847, guid: 4cc4004793f023a4fa79a2362d0aed21,
-        type: 3}
-      propertyPath: m_DirectAudioMutes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8140585508347127150, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
       propertyPath: m_RootOrder
@@ -29639,6 +29645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Cinematique_Salle_cam\xE9ra"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140585508347127151, guid: 4cc4004793f023a4fa79a2362d0aed21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8140585509790863588, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
