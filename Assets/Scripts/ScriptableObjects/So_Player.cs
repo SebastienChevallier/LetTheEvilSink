@@ -28,6 +28,7 @@ public class So_Player : ScriptableObject
     public bool _Invincible = false;
     public bool hasCard = false;
     public bool hasBricket = false;
+    public bool inMenu = false;
 
 
     [Header("World Interactions")]

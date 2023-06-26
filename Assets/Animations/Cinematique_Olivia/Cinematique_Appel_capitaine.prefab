@@ -2337,6 +2337,7 @@ MonoBehaviour:
   parent: {fileID: 8831674637020510488}
   portes: {fileID: 8551175627926411138}
   nomSalle: Zone de Cabine
+  cantBeTaken: 0
 --- !u!1 &842782597516445521
 GameObject:
   m_ObjectHideFlags: 0
@@ -15187,7 +15188,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5077345922535858021}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -57.24205, y: -8.897011, z: -5.9100237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49322,6 +49323,7 @@ MonoBehaviour:
   _Animator: {fileID: 0}
   _AnimatorPlanePNG: {fileID: 8474914923364152610}
   videoPlayer: {fileID: 0}
+  tpPosition: {fileID: 0}
   CameraText: {fileID: 8474914923364010109}
 --- !u!95 &8474914924555792528
 Animator:
@@ -61696,6 +61698,7 @@ MonoBehaviour:
   parent: {fileID: 8831674637020510488}
   portes: {fileID: 8551175627926411138}
   nomSalle: "G\xE9n\xE9rateur Auxiliaire"
+  cantBeTaken: 0
 --- !u!1 &8910555052457647973
 GameObject:
   m_ObjectHideFlags: 0

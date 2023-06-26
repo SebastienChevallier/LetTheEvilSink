@@ -81,8 +81,9 @@ public class AnimationFonction : MonoBehaviour
             //skipText.SetActive(true);
             return;
         }
-        
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying && videoPlayer != null) EndVideo();
+
+        if(videoPlayer)        
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying && videoPlayer != null) EndVideo();
         
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {

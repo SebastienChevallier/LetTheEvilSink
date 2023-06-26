@@ -1266,6 +1266,7 @@ MonoBehaviour:
   _Animator: {fileID: 283306024533559626}
   _AnimatorPlanePNG: {fileID: 283306026070633759}
   videoPlayer: {fileID: 0}
+  tpPosition: {fileID: 0}
   CameraText: {fileID: 283306026276800738}
 --- !u!1 &283306024547054346
 GameObject:
@@ -26797,7 +26798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283306026331177813
 Transform:
   m_ObjectHideFlags: 0
@@ -41184,6 +41185,7 @@ MonoBehaviour:
   parent: {fileID: 3584636186283792881}
   portes: {fileID: 3584636186283792882}
   nomSalle: "G\xE9n\xE9rateur Auxiliaire"
+  cantBeTaken: 0
 --- !u!1 &3584636188330941741
 GameObject:
   m_ObjectHideFlags: 0
@@ -41245,6 +41247,7 @@ MonoBehaviour:
   parent: {fileID: 3584636186283792881}
   portes: {fileID: 3584636186283792882}
   nomSalle: Salle des Machines
+  cantBeTaken: 0
 --- !u!1 &3661695984424139553
 GameObject:
   m_ObjectHideFlags: 0
