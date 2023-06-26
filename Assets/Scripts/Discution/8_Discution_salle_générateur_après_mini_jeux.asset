@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "8_Discution_salle_g\xE9n\xE9rateur_apr\xE8s_mini_jeux"
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: be769db9fc52f8748b2a570ec2253f20, type: 3}
     font: {fileID: 0}
     _NomPerso: Olivia
@@ -21,16 +21,17 @@ MonoBehaviour:
       jamais \xE7a ! Tu m'as fait trop peur, j\u2019ai cru que tu \xE9tais poss\xE9d\xE9
       ou quelque chose du genre\u2026! Au fait, je ne me suis pas pr\xE9sent\xE9e,
       je suis Olivia, merci pour le coup de main."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Danny
     _Discution: "Ha- t\u2019inqui\xE8te pas, \xE7a m\u2019arrive d\u2019avoir des
       crises de ce genre depuis tout petit. Le contexte dans lequel on est, \xE7a
       les as juste\u2026un peu accentu\xE9es, d\xE9sol\xE9."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Danny
     _Discution: "Elle c\u2019est Rachel, elle recherche son copain."
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

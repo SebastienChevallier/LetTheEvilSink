@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 12_Discution_salle_radio_ash_reveal
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "L-le fil est coup\xE9. Ash?! Pourquoi t\u2019a ferm\xE9\u2026??
       Oh putain t\u2019a un couteau!"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 0}
     _NomPerso: Ash
@@ -27,7 +27,7 @@ MonoBehaviour:
       une fois et crever comme tu devais avec les autres?! Pourquoi est-ce que tu
       es si obstin\xE9e? Ton copain est MORT comme tous les autres passagers, il
       ne reste que toi, moi\u2026et Elle."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 0}
     _NomPerso: Ash
@@ -35,10 +35,11 @@ MonoBehaviour:
       J\u2019ai m\xEAme d\xFB me mutiler moi-m\xEAme, pour que vous me fassiez confiance...
       Isaac \xE9tait trop protecteur, il ne m\u2019aurait jamais laiss\xE9 approcher
       des jeunes comme vous si je n\u2019avais pas \xE9t\xE9 gravement bless\xE9."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 0}
     _NomPerso: Ash
     _Discution: "Enfin peu importe, maintenant il est mort! Et maintenant tu es l\xE0.
       Ton sacrifice sera suffisant pour terminer notre boulot."
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

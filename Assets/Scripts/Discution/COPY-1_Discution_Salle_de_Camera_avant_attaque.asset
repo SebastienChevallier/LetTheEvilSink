@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: COPY-1_Discution_Salle_de_Camera_avant_attaque
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: b7ff559f3a05bb747b9b37de4eee7934, type: 3}
+    font: {fileID: 0}
     _NomPerso: Isaac
     _Discution: "J'esp\xE8re que Danny et Olivia vont bien, ils sont trop jeunes
       pour tout \xE7a...j'aurais d\xFB aller avec eux chercher la salle des g\xE9n\xE9rateurs."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
+    font: {fileID: 0}
     _NomPerso: Ash
     _Discution: "Si tu veux tu peux prendre ce briquet l\xE0-bas Rachel, \xE7a remplacera
       pas ton t\xE9l\xE9phone mais \xE7a peut \xEAtre utile."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: Merci Ash
-  _Perso1: {fileID: 0}
-  _Perso2: {fileID: 0}
+  defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

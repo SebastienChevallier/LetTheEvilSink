@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6_Discution_entree_salle_machine_danny 2
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: d351ea57e18dac94297cf6dec25de34a, type: 3}
     font: {fileID: 0}
     _NomPerso: Danny
@@ -21,19 +21,19 @@ MonoBehaviour:
       le courant! Mais attends pourquoi tu as pu me toucher toi?! Et t\u2019es qui?
       Tu es avec eux?! Me tue pas piti\xE9, j\u2019ai \xE0 peine commenc\xE9 \xE0
       vivre\u2026"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "...Quoi? Non, mais non!! Calme-toi, je suis Rachel, je viens de
       la part de Ash et Isaac. Je recherche mon petit-ami\u2026je te le jure!"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "Il est brun et il a un t-shirt avec\u2026une blague idiote de scientifique
       dessus. Je suis venue ici avec lui\u2026mais on a \xE9t\xE9 s\xE9par\xE9s."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Danny
@@ -41,13 +41,13 @@ MonoBehaviour:
       Danny Jones. Pas besoin de me le d\xE9crire, je te crois. Mais il y a peu de
       chance qu\u2019il..soit encore..enfin tu vois quoi. Regarde autour de nous,
       c\u2019est un v\xE9ritable massacre."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 3046dbe776d961e4388bf40bdeb5968f, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "...je vais continuer \xE0 fouiller ce bateau jusqu\u2019\xE0 en
       avoir le coeur net, Danny"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Danny
@@ -55,3 +55,4 @@ MonoBehaviour:
       je me ressaisis. S\u2019ils la trouvent avant nous\u2026je ne me le pardonnerai
       jamais. "
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

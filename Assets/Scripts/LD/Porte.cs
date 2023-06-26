@@ -8,10 +8,11 @@ public class Porte : MonoBehaviour
 
     public Portes portes;
     public string nomSalle = "";
+    public bool cantBeTaken = false;
 
     private void OnTriggerEnter(Collider other)
     {        
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !cantBeTaken)
         {
             FadeManager.Instance.ChangeText(nomSalle);
             transform.parent.GetComponent<Portes>().player = other.gameObject;
@@ -32,7 +33,7 @@ public class Porte : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !cantBeTaken)
         {
             transform.parent.GetComponent<Portes>().player = null;
             if (transform == parent.GetChild(0))

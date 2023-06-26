@@ -18,6 +18,8 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     private Queue<Sprite> sprites;
     private Queue<TMP_FontAsset> fonts;
     private TMP_FontAsset defaultFont;
+    private Sprite bgNarrator;
+    private Sprite defaultBG;
     
     
     [Header("UI")]
@@ -33,6 +35,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         bools = new Queue<bool>();
         sprites = new Queue<Sprite>();
         fonts = new Queue<TMP_FontAsset>();
+        defaultBG = bgTexte.sprite;
     }
 
     public void StartDialogue (So_Discution dialogue)
@@ -51,13 +54,13 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         {
             sentences.Enqueue(sentence._Discution);
             names.Enqueue(sentence._NomPerso);
-            bools.Enqueue(sentence._PlayerIsSpeaking);
             sprites.Enqueue(sentence._SpritePerso);
             fonts.Enqueue(sentence.font);
+            bools.Enqueue(sentence.narratorIsSpeaking);
         }
 
         defaultFont = dialogue.defaultFont;
-        
+        bgNarrator = dialogue.narratorSprite;
         DisplayNextSentence();
     }
 
@@ -66,14 +69,22 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
     public void DisplayNextSentence ()
     {
         passSentence = false;
-        nameText.text = names.Dequeue();
-        bool isPlayer = bools.Dequeue();
+        
         string sentence = sentences.Dequeue();
         Sprite sprite = sprites.Dequeue();
         TMP_FontAsset font = fonts.Dequeue();
+        bool isNarrator = bools.Dequeue();
 
-        //if (isPlayer) { _ImagePerso1.transform.localScale = new Vector3(3f,3,3); }
-        //else { _ImagePerso1.transform.localScale = new Vector3(-3f,3,3); }
+        if (isNarrator)
+        {
+            bgTexte.sprite = bgNarrator;
+            nameText.text = "";
+        }
+        else
+        {
+            bgTexte.sprite = defaultBG;
+            nameText.text = names.Dequeue();
+        }
         
         _ImagePerso1.sprite = sprite;
         

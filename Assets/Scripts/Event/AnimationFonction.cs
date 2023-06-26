@@ -15,6 +15,7 @@ public class AnimationFonction : MonoBehaviour
     public Animator _Animator;
     public Animator _AnimatorPlanePNG;
     public VideoPlayer videoPlayer;
+    public Transform tpPosition;
     
     public void SetAnimatorPlayerSpeed(float speed)
     {
@@ -34,6 +35,11 @@ public class AnimationFonction : MonoBehaviour
         CameraText.SetActive(false);
         videoPlayer.Play();
         StartCoroutine(WaitEndVideo((float)videoPlayer.length));
+    }
+
+    public void tpPlayer()
+    {
+        _Player.transform.position = tpPosition.position;
     }
 
     IEnumerator WaitEndVideo(float time)
