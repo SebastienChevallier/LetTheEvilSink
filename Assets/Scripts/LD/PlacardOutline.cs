@@ -5,7 +5,7 @@ public class PlacardOutline : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-        GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
+        GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 50f);
     }
 
     public void OnTriggerExit(Collider other)
