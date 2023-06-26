@@ -599,7 +599,9 @@ MonoBehaviour:
   _player: {fileID: 11400000, guid: 1498aa62bdfd6d04ca0b19e7e7c9b778, type: 2}
   _canvaMinijeu: {fileID: 3568262828316934946}
   triggerPorte: {fileID: 0}
+  meshCables: {fileID: 0}
   validated: 0
+  needCard: 0
   creature: {fileID: 0}
 --- !u!1 &5608061306389275599
 GameObject:
@@ -1172,14 +1174,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Placer votre curseur <color="yellow">Jaune</color> sur le curseur <color="red">rouge</color>
+  m_text: 'Placer le curseur <color=yellow>jaune</color> sur le curseur <color=red>rouge</color>
 
 
-    <color="red">Q</color>
-    et <color="red">D</color> pour deplacer le curseur jaune
+    <color=red>Q</color>
+    et <color=red>D</color> pour deplacer le curseur <color=yellow>jaune</color>
 
 
-    <color="red">E
+    <color=red>E
     </color>pour valider le crochetage'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}

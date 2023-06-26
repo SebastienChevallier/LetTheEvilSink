@@ -124,8 +124,14 @@ public class AnimationFonction : MonoBehaviour
         _PlayerPostProcess.SetActive(false);
     }
     
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip, float volume)
     {
+        Volume(volume);
         _AudioSource.PlayOneShot(clip);
+    }
+
+    public void Volume(float volume)
+    {
+        _AudioSource.volume = volume;
     }
 }

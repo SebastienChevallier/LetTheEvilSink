@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuPause : MonoBehaviour
 {
     public GameObject panel;
-    public So_Player _Player;
     public GameObject panelObjectif;
+    public So_Player _Player;
     
     private void Update()
     {
@@ -24,6 +24,8 @@ public class MenuPause : MonoBehaviour
                 panelObjectif.SetActive(false);
                 Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
                 _Player._CanMove = false;
+                Debug.Log(_Player.inMenu);
+                _Player.inMenu = true;
             }
         }
     }
@@ -37,6 +39,8 @@ public class MenuPause : MonoBehaviour
         {
             _Player._CanMove = true;
         }
+
+        _Player.inMenu = false;
     }
 
     public void LastCheckPoint()
