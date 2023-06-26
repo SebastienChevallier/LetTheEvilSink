@@ -26,6 +26,7 @@ public class Portes : MonoBehaviour
     public float speedVal;
 
     public bool cantBeTaken;
+    
 
 
     private void Start()
