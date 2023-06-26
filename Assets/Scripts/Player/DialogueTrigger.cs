@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour {
-    
+
     [Header("---Basic---")]
+    public So_Player _PlayerData;
     public So_Discution _Dis;
     public bool canBeTrigger = true;
     private bool playingOnce = false;
@@ -38,10 +39,12 @@ public class DialogueTrigger : MonoBehaviour {
     
     
     void Update()
-    {        
+    {
+        if (_PlayerData.inMenu) return;
+
         if (_DialogueManager.sentences.Count == 0 && isTrigger && open && !playingOnce)
         {
-            if(newObjectif) RappelObjectif.Instance.Rappel(objectif);
+            if (newObjectif) RappelObjectif.Instance.Rappel(objectif);
             _DialogueManager.EndDialogue();
             
             open = false;
