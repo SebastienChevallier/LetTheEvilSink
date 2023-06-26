@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: "0_Discution_Salle_Spectcale_apr\xE8s_intro"
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
     _NomPerso: ???
     _Discution: "Bienvenue \xE0 bord du bateau de croisi\xE8re L\u2019\xE9quinoxe
       ! Je suis ravie de te revoir! Le trajet n'a pas \xE9t\xE9 \xE0 la hauteur de
       tes attentes?"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
     _NomPerso: ???
@@ -28,7 +28,7 @@ MonoBehaviour:
       splendide salle de spectacle et le banquet d'accueil ! Bon c\u2019est vrai
       que les plats ont eu un assaisonnement surprenant.... le poison n'a pas laiss\xE9
       les invit\xE9s de marbre! "
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
     _NomPerso: ???
@@ -36,7 +36,7 @@ MonoBehaviour:
       place \xE0 la panique et l'\xE9vanouissement en cha\xEEne des passagers. S'ensuivit
       des attaques sournoises qui caus\xE8rent la mort de la grande majorit\xE9 des
       voyageurs... La terreur envahissait ceux qui luttaient dans l'espoir de survivre."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 1
     _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
     _NomPerso: ???
@@ -45,3 +45,4 @@ MonoBehaviour:
       c'est \xE7a? Il doit d\xE9j\xE0 \xEAtre mort quelque part sur le navire...
       il devait \xEAtre seul et d\xE9sesp\xE9r\xE9."
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

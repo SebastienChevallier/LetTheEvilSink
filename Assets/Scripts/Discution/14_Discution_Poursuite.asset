@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 14_Discution_Poursuite
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
-    _SpritePerso: {fileID: 0}
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
-    _NomPerso: Voix
+    _NomPerso: ???
     _Discution: "Fais-moi confiance, va \xE0 gauche! Allez, d\xE9p\xEAche-toi avant
       d\u2019y laisser ta peau!!"
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

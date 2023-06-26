@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: 13_Discution_avant_cinematique_mort_Ash
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Elle arrive! Enfin, Elle va pouvoir se lier enti\xE8rement \xE0
       notre monde et nous lib\xE9rer."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Grande Entit\xE9, bienvenue parmi nous! Je vous ai offert la vie
       de ces insupportables \xEAtres qui ont \xE9chapp\xE9 au rituel. J'esp\xE8re
       que vous appr\xE9cierez ma noble offrande."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
     _NomPerso: "Entit\xE9"
@@ -34,20 +34,20 @@ MonoBehaviour:
       et \xE9ternelle, auparavant les humains me vouaient leurs vies et me v\xE9n\xE9raient.
       Tu oses penser que je dois \xEAtre reconnaissante de ce qui m\u2019est d\xFB
       l\u2019humaine?"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
     _NomPerso: "Entit\xE9"
     _Discution: "Ce n\u2019est m\xEAme pas un acte de foi, c\u2019est un geste \xE9go\xEFste
       et int\xE9ress\xE9. Tu d\xE9sires quelque chose venant de moi et tu penses
       pouvoir me mentir\u2026vous \xEAtes toujours aussi mis\xE9rables."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 8fc8c38a4b34f5a4da19f93a1944bd9f, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Mais...n-nous t\u2019avons offert tellement de sacrifices, nous
       t\u2019avons nourrie et invoqu\xE9e pour implorer une faveur juste et vindicative."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
     _NomPerso: "Entit\xE9"
@@ -57,3 +57,4 @@ MonoBehaviour:
       vouloir berner, jamais. Et cette Entit\xE9 c\u2019est moi. Cesse de geindre,
       je vais te lib\xE9rer de ce monde qui te d\xE9plait tant! "
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

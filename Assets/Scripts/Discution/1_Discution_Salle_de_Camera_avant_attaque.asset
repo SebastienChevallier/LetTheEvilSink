@@ -13,36 +13,36 @@ MonoBehaviour:
   m_Name: 1_Discution_Salle_de_Camera_avant_attaque
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 73c46f2425b7ac74e888e1e39b5c5bd5, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Y\u2019a quelqu\u2019un? Aidez-moi!"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 4e467b73976f7a642953fb70be2d194c, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "T'es qui toi ?! Rentre vite et garde tes mains en \xE9vidence!"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: dfb35d8e5de5267468b83a1379832c14, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Pardon, pardon, je viens de me r\xE9veiller...dans la salle de spectacle.
       Tout le monde est mort l\xE0-bas\u2026"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 80cc2874c8c65f247be4c73680f45e52, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Ash calme toi ! Regarde-la deux secondes, elle est couverte de sang
       et en \xE9tat de choc. Laisse-la respirer. Tu n'es pas bless\xE9e ? Comment
       tu t\u2019appelles ?"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Non, non \xE7a va...ce n'est pas mon sang. Je\u2026Je n\u2019ai
       que des blessures minimes. Je m'appelle Rachel."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
@@ -50,7 +50,7 @@ MonoBehaviour:
       la femme qui est tr\xE8\xE8s chaleureuse c'est Ash. Ne fais pas attention \xE0
       ses mani\xE8res, elle est Lieutenant de police, elle n\u2019est pas tr\xE8s
       sociable."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 4e467b73976f7a642953fb70be2d194c, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
@@ -58,20 +58,20 @@ MonoBehaviour:
       mieux \xEAtre trop prudents que mourir. Les individus dangereux qui nous ont
       drogu\xE9s et qui ont essay\xE9 de tous nous tuer doivent encore \xEAtre quelque
       part sur le bateau..."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Vous les avez revus ?! Qui ils sont et pourquoi ils ont fait \xE7a
       ?"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Tout ce qu'on sait c'est qu'ils veulent tous nous tuer...On essaie
       d'explorer le bateau petit \xE0 petit pour en savoir plus, avec un peu de chance
       on trouvera d'autres survivants\u2026 Mais il faut qu'on parte d'ici."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: cf1f27d1558e18f4396f5a6662d4eca2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
@@ -79,13 +79,13 @@ MonoBehaviour:
       \xE9tait m\xE9thodiquement orchestr\xE9 selon un plan. La nourriture empoisonn\xE9e
       au repas, puis se d\xE9barrasser de tous les passagers endormis, et tout \xE7a
       perdus en plein milieu de l'oc\xE9an avec aucun moyen d'appeler \xE0 l'aide\u2026 "
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: cf1f27d1558e18f4396f5a6662d4eca2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "J'imagine que si nous sommes encore en vie c'est que quelque chose
       ne s'est pas d\xE9roul\xE9 comme pr\xE9vu pour eux."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
@@ -93,21 +93,21 @@ MonoBehaviour:
       ? Je recherche un gar\xE7on appel\xE9 Warren, c'est mon petit-ami. Il est brun,
       grand et il porte un sweat jaune avec une adorable et stupide blague de scientifique
       dessus."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Oh je suis d\xE9sol\xE9e Rachel mais les seuls survivants qu'on
       a rencontr\xE9s sont partis \xE0 la recherche de la salle des g\xE9n\xE9rateurs
       et il n'\xE9tait pas avec eux. J'esp\xE8re qu'il va bien..."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "D'accord... merci quand m\xEAme, il faut que je le retrouve. Il
       ne m'aurait jamais abandonn\xE9, il doit \xEAtre quelque part en train de me
       chercher."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
@@ -115,37 +115,37 @@ MonoBehaviour:
       mais...il y a de fortes chances qu'il ne s'en soit pas sorti Rachel. On est
       tr\xE8s peu \xE0 avoir r\xE9ussi \xE0 survivre, et on est bless\xE9s et couverts
       de sang."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Personnellement je n'aurais pas surv\xE9cu sans Ash, elle m'a sauv\xE9e
       apr\xE8s le banquet. Je lui dois la vie\u2026 j'ai deux filles en bas \xE2ge
       sur la terre ferme, elles ont besoin de moi...je dois survivre."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 3046dbe776d961e4388bf40bdeb5968f, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: Je sais...mais j'y crois et je me dois d'essayer de le retrouver
       ! A ma place tu fouillerais tout le bateau pour trouver tes filles non ?!
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Oui bien s\xFBr, je comprends...On fera de notre mieux pour t'aider."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 4e467b73976f7a642953fb70be2d194c, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Parlez moins fort ! On a aucune id\xE9e de ce qu'ils pr\xE9parent
       ou de ce qui leur est arriv\xE9\u2026 Restons discrets."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 80cc2874c8c65f247be4c73680f45e52, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "J'esp\xE8re que Danny et Olivia vont bien, ils sont trop jeunes
       pour tout \xE7a...j'aurais d\xFB aller avec eux chercher la salle des g\xE9n\xE9rateurs."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: c60f40983e68aa440a9ff395947b7a19, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
@@ -153,26 +153,26 @@ MonoBehaviour:
       peut-\xEAtre d'autres survivants bless\xE9s et il n'y a que toi qui est apte
       \xE0 les soigner. Si Rachel avait \xE9t\xE9 en train de se vider de son sang,
       tu aurais \xE9t\xE9 indispensable."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 0e84fb122612060498d1d429a3362ecb, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
     _Discution: "Tu as s\xFBrement raison\u2026"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Est-ce que vous avez r\xE9ussi \xE0 joindre l\u2019ext\xE9rieur
       pour demander de l\u2019aide ? J\u2019ai encore mon sac \xE0 dos mais impossible
       de retrouver mon t\xE9l\xE9phone."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: c60f40983e68aa440a9ff395947b7a19, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Non\u2026 On a retrouv\xE9 certains t\xE9l\xE9phones mais le r\xE9seau
       a l\u2019air perturb\xE9, impossible de joindre l\u2019ext\xE9rieur. Ils utilisent
       s\xFBrement un brouilleur de signal sur le bateau."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 61eb8e3de3dfab1438cc69cf1be1b1c9, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Isaac
@@ -180,15 +180,16 @@ MonoBehaviour:
       salle et on peut utiliser les cam\xE9ras de surveillance pour surveiller les
       environs. M\xEAme si parfois elles d\xE9connent un peu et montrent des choses
       \xE9tranges... "
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: c60f40983e68aa440a9ff395947b7a19, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Ash
     _Discution: "Tiens prends ce briquet Rachel, \xE7a remplacera pas ton t\xE9l\xE9phone
       mais \xE7a peut t\u2019\xEAtre utile. "
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 73c46f2425b7ac74e888e1e39b5c5bd5, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: Merci Ash
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

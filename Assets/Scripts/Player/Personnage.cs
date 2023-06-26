@@ -87,7 +87,7 @@ public class Personnage : MonoBehaviour
                 _NumDial++;
                 tempDelay = delay;
 
-                if (_Dis._Dialog[_NumDial - 1]._PlayerIsSpeaking && timerInput <= 0)
+                if ( timerInput <= 0)
                 {
                     _PanelParler.transform.GetChild(2).gameObject.SetActive(true);
                     _PanelParler.transform.GetChild(3).gameObject.SetActive(false);

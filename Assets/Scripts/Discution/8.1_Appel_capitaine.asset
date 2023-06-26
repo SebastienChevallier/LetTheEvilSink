@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 8.1_Appel_capitaine
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: be769db9fc52f8748b2a570ec2253f20, type: 3}
     font: {fileID: 0}
     _NomPerso: Capitaine
     _Discution: "Alerte d\u2019urgence : Ici le capitaine de votre navire, chers
       passagers, notre croisi\xE8re a subi une attaque pr\xE9m\xE9dit\xE9e."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Capitaine
@@ -27,3 +27,4 @@ MonoBehaviour:
       s\xE9curit\xE9. Veuillez rejoindre le pont du bateau pour proc\xE9der \xE0
       une \xE9vacuation d\u2019urgence dans 20 minutes."
   defaultFont: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 11_Discution_salle_radio_Ash
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: cf1f27d1558e18f4396f5a6662d4eca2, type: 3}
     font: {fileID: 0}
     _NomPerso: Ash
     _Discution: "Tiens, voil\xE0 la radio! Essaie de trouver le canal de s\xE9curit\xE9
       en tournant les boutons de fr\xE9quence."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: dfb35d8e5de5267468b83a1379832c14, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
@@ -27,3 +27,4 @@ MonoBehaviour:
       subi une attaque\u2026Mais merde pourquoi \xE7a marche pas?! J\u2019entends
       rien!"
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}
