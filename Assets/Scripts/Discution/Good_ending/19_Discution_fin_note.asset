@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 19_Discution_fin_note
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
@@ -21,4 +21,10 @@ MonoBehaviour:
       o\xF9 je rangerais quelque chose d\u2019important, \xE7a serait ici. Il pourrait
       y avoir quelque chose pour attirer l\u2019attention des secours quelque part
       dans ce bordel.  C\u2019est mon dernier espoir\u2026"
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+    _NomPerso: Rachel
+    _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 0}

@@ -1877,7 +1877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 885517052}
   - component: {fileID: 885517054}
-  - component: {fileID: 885517053}
+  - component: {fileID: 885517055}
   m_Layer: 0
   m_Name: CheckPoint_2
   m_TagString: Untagged
@@ -1900,18 +1900,6 @@ Transform:
   m_Father: {fileID: 2097794450}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &885517053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885517051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c8f9734aa95314db4e1dc826bf887a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &885517054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1925,6 +1913,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7589294, z: 3.6294909}
   m_Center: {x: 0, y: 0.3794648, z: -0.6706805}
+--- !u!114 &885517055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885517051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd80930e049ea3e4b87bd25cb5c047a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portes: {fileID: 0}
 --- !u!1 &888166165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,6 +2399,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008795563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1024024325 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8474914924555792528, guid: df2f2c97b04e2764e89346abfb52faaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8474914924514000152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1044436228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7775,7 +7782,7 @@ PrefabInstance:
     - target: {fileID: 7090287145884687369, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.999878
+      value: 249.9
       objectReference: {fileID: 0}
     - target: {fileID: 7090287146077714991, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -29535,6 +29542,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cinematique_Esther
       objectReference: {fileID: 0}
+    - target: {fileID: 6832966556105850841, guid: 82f6890ece4508e439289f6ea66b221a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7818878062129335884, guid: 82f6890ece4508e439289f6ea66b221a,
         type: 3}
       propertyPath: cadre_avant
@@ -29663,7 +29675,7 @@ PrefabInstance:
     - target: {fileID: 3354008677059994705, guid: 67ef20ee87a0c454480c2d971da00176,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -108.287506
+      value: -108.2875
       objectReference: {fileID: 0}
     - target: {fileID: 3569087149719078830, guid: 67ef20ee87a0c454480c2d971da00176,
         type: 3}
@@ -29683,7 +29695,7 @@ PrefabInstance:
     - target: {fileID: 3569087149719078830, guid: 67ef20ee87a0c454480c2d971da00176,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -103.350006
+      value: -103.35
       objectReference: {fileID: 0}
     - target: {fileID: 3574013368920847330, guid: 67ef20ee87a0c454480c2d971da00176,
         type: 3}
@@ -30169,6 +30181,11 @@ PrefabInstance:
       propertyPath: _Player
       value: 
       objectReference: {fileID: 1314933836}
+    - target: {fileID: 8474914924555792529, guid: df2f2c97b04e2764e89346abfb52faaf,
+        type: 3}
+      propertyPath: _Animator
+      value: 
+      objectReference: {fileID: 1024024325}
     - target: {fileID: 8474914924555792529, guid: df2f2c97b04e2764e89346abfb52faaf,
         type: 3}
       propertyPath: _PlayerUI

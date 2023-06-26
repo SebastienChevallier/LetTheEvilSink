@@ -13,50 +13,50 @@ MonoBehaviour:
   m_Name: 21_Discution_interrogatoire
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Policier
     _Discution: "Vous vous sentez bien Madame Wicker? Rachel c\u2019est \xE7a, je
       peux vous appeler par votre pr\xE9nom? "
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: 'Mm-mh. '
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 0}
     _NomPerso: Policier
     _Discution: "\u2026On peut faire venir un psychologue pour vous, si vous le souhaitez.
       Apr\xE8s...tout ce que vous avez v\xE9cu, c\u2019est totalement normal d\u2019en
       avoir besoin. "
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "...\xE7a va, curieusement. Je vais bien."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 0}
     _NomPerso: Policier
     _Discution: "D\u2019accord\u2026Rachel. Je suis vraiment d\xE9sol\xE9 de devoir
       vous annoncer \xE7a. On a retrouv\xE9 le corps de votre compagnon, Warren\u2026dans
       la salle de spectacle."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "Warren? Mais...J\u2019ai essay\xE9 de le retrouver, j\u2019ai...cherch\xE9
       partout. C\u2019est impossible\u2026"
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 0}
     _NomPerso: Policier
     _Discution: "Il \xE9tait l\xE0 o\xF9 vous nous avez dit vous \xEAtre r\xE9veill\xE9.
       Peut-\xEAtre que les effets de la drogue \xE9taient trop puissants, pour que
       vous ne puissiez le voir."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
@@ -64,28 +64,34 @@ MonoBehaviour:
       a d\xFB le d\xE9placer, elle m\u2019a utilis\xE9e!! Elle a fait \xE7a pour
       me donner de l\u2019espoir...sans Warren je n\u2019aurais jamais \xE9t\xE9
       aussi loin."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 0}
     _NomPerso: Policier
     _Discution: 'Mais de qui parlez-vous Rachel? '
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "Cette esp\xE8ce de monstre cornu...elle s\u2019est nourrie de nous,
       c\u2019\xE9tait foutu d\xE8s le d\xE9part. On \xE9tait condamn\xE9s."
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 0}
     _NomPerso: Policier
     _Discution: "Je ne comprends rien \xE0 ce que vous racontez, on a trouv\xE9 des
       corps humains, rien d\u2019anormal, \xE0 part cette secte compl\xE8tement dingue. "
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "Si vous \xEAtes encore en vie, c\u2019est qu\u2019Elle n\u2019est
       plus enferm\xE9e dans le bateau\u2026 plus personne n\u2019est en s\xE9curit\xE9.
       On aurait d\xFB couler ce putain de bateau, laisser le Mal se noyer avec nous!"
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 0}
+    _NomPerso: Rachel
+    _Discution: ' '
   defaultFont: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+  narratorSprite: {fileID: 0}

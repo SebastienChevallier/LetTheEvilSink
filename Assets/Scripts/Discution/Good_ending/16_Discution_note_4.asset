@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: 16_Discution_note_4
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "C\u2019est Ash qui a \xE9crit tout \xE7a??! Elle a l\u2019air si
       diff\xE9rente et...insens\xE9e"
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+    _NomPerso: Rachel
+    _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 0}

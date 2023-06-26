@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "15_Discution_entr\xE9e_repaire_secte"
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
@@ -21,4 +21,10 @@ MonoBehaviour:
       ici?! C\u2019est...des notes? Mais\u2026il y en a tellement! \xC7a doit repr\xE9senter
       des ann\xE9es de travail... Ils avaient tout pr\xE9vu depuis si longtemps!
       Mais merde, c\u2019est tellement glauque."
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+    _NomPerso: Rachel
+    _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 0}
