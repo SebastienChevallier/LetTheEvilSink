@@ -15,6 +15,7 @@ public class AnimationFonction : MonoBehaviour
     public Animator _Animator;
     public Animator _AnimatorPlanePNG;
     public VideoPlayer videoPlayer;
+    public Transform tpPosition;
     
     public void SetAnimatorPlayerSpeed(float speed)
     {
@@ -34,6 +35,11 @@ public class AnimationFonction : MonoBehaviour
         CameraText.SetActive(false);
         videoPlayer.Play();
         StartCoroutine(WaitEndVideo((float)videoPlayer.length));
+    }
+
+    public void tpPlayer()
+    {
+        _Player.transform.position = tpPosition.position;
     }
 
     IEnumerator WaitEndVideo(float time)
@@ -76,7 +82,7 @@ public class AnimationFonction : MonoBehaviour
             return;
         }
         
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying) EndVideo();
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && videoPlayer.isPlaying && videoPlayer != null) EndVideo();
         
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LampeTorche")) && skip && DialogueManager.Instance.sentences.Count != 0)
         {
