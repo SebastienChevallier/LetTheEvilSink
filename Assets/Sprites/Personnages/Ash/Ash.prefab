@@ -519,8 +519,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3608524410260292199}
-  - component: {fileID: 8489340951121653268}
-  - component: {fileID: 5746642342945854945}
   m_Layer: 0
   m_Name: Ash
   m_TagString: Untagged
@@ -564,34 +562,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8489340951121653268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511904689921939972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7a5d4be71099f42b18c9d1e18fe1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Dis: {fileID: 0}
-  open: 0
-  isTrigger: 0
---- !u!65 &5746642342945854945
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511904689921939972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.944687, y: 21.159641, z: 40.736526}
-  m_Center: {x: -0.37441254, y: 10.079819, z: 19.868261}
 --- !u!1 &2563886881826189275
 GameObject:
   m_ObjectHideFlags: 0
