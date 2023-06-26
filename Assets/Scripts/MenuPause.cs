@@ -8,6 +8,7 @@ public class MenuPause : MonoBehaviour
 {
     public GameObject panel;
     public So_Player _Player;
+    public GameObject panelObjectif;
     
     private void Update()
     {
@@ -20,6 +21,7 @@ public class MenuPause : MonoBehaviour
             else
             {
                 panel.SetActive(true);
+                panelObjectif.SetActive(false);
                 Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
                 _Player._CanMove = false;
             }
@@ -29,6 +31,8 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
         panel.SetActive(false);
+        panelObjectif.SetActive(true);
+
         if (!DialogueManager.Instance._PanelParler.activeSelf)
         {
             _Player._CanMove = true;
