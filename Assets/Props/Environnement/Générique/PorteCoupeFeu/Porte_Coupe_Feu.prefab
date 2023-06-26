@@ -889,7 +889,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff10471af445c0c44ac3b54d96f77d44, type: 2}
+  - {fileID: 2100000, guid: 7460fff9455d0ef4787c5bf572730f99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1304,6 +1304,7 @@ GameObject:
   - component: {fileID: 4131798032009702967}
   - component: {fileID: 7326733378310799915}
   - component: {fileID: 2448378521658463197}
+  - component: {fileID: 6548495509129014642}
   m_Layer: 0
   m_Name: Porte_Coupe_Feu
   m_TagString: Deplacer
@@ -1376,6 +1377,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4403839, y: 3.9432983, z: 4.483574}
   m_Center: {x: 61.370483, y: -12.648174, z: -22.01672}
+--- !u!114 &6548495509129014642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280102981220538266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb0d0ba511da0a489f1b2245bf60bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 4862338128518076838}
 --- !u!1 &6505678430338505187
 GameObject:
   m_ObjectHideFlags: 0
