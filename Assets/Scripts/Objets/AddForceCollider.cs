@@ -20,11 +20,12 @@ public class AddForceCollider : MonoBehaviour
 
     public void Impulse()
     {
-        if(isTriggered == false)
+        if (isTriggered == false)
         {
             isTriggered = true;
             GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Impulse);
-        }else
+        }
+        else
         {
             transform.position = originPositon;
             transform.rotation = originRotation;
