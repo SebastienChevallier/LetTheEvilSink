@@ -7522,7 +7522,7 @@ PrefabInstance:
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.6
+      value: 9.948
       objectReference: {fileID: 0}
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -7532,7 +7532,7 @@ PrefabInstance:
     - target: {fileID: 3531506495141482206, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.094
+      value: 0.489
       objectReference: {fileID: 0}
     - target: {fileID: 3539652522045528897, guid: 269cb1e315c2b3b43b103ac70797efa2,
         type: 3}
@@ -29276,11 +29276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cinematique_Esther
       objectReference: {fileID: 0}
-    - target: {fileID: 6832966556105850841, guid: 82f6890ece4508e439289f6ea66b221a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7818878062129335884, guid: 82f6890ece4508e439289f6ea66b221a,
         type: 3}
       propertyPath: cadre_avant
@@ -29570,11 +29565,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2727998708079732731, guid: 4cc4004793f023a4fa79a2362d0aed21,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 4803235964312931688, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
       propertyPath: cadre_arriere
       value: 
       objectReference: {fileID: 725948198}
+    - target: {fileID: 8140585508248069847, guid: 4cc4004793f023a4fa79a2362d0aed21,
+        type: 3}
+      propertyPath: m_DirectAudioMutes.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8140585508347127150, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
       propertyPath: m_RootOrder
@@ -29634,11 +29639,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Cinematique_Salle_cam\xE9ra"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140585508347127151, guid: 4cc4004793f023a4fa79a2362d0aed21,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8140585509790863588, guid: 4cc4004793f023a4fa79a2362d0aed21,
         type: 3}
