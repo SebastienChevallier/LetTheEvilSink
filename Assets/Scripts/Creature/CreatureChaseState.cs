@@ -72,8 +72,8 @@ public class CreatureChaseState : CreatureBaseState
         creature.summoned = false;
         creature.playerDetected = false;
 
-        creature.panelCables.SetActive(false);
-        creature.panelCarte.SetActive(false);
-        creature.panelCrochetage.SetActive(false);
+        if (creature.panelCables.activeSelf) creature.panelCables.SetActive(false);
+        if (creature.panelCarte.activeSelf) creature.panelCarte.SetActive(false);
+        if (creature.panelCrochetage.activeSelf) creature.panelCrochetage.SetActive(false);
     }
 }
