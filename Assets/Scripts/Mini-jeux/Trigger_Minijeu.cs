@@ -7,6 +7,7 @@ using UnityEngine;
 public class Trigger_Minijeu : MonoBehaviour
 {
     public So_Player _player;
+    public GameObject panelPause;
     public GameObject _canvaMinijeu;
     public GameObject triggerPorte;
     private WireTask _wireTask;
@@ -31,6 +32,13 @@ public class Trigger_Minijeu : MonoBehaviour
         if (Input.GetButtonDown("Interact") && !_canvaMinijeu.activeSelf && !validated && _isTrigger)
         {
             Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+
+            if (gameObject.tag == "Cables")
+            {
+                if (!validated) panelPause.SetActive(false);
+                else panelPause.SetActive(true);
+            }
+
             if (needCard && _player.hasCard)
             {
                 _player._CanMove = false;
