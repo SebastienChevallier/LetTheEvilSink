@@ -98,14 +98,14 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 
     public void LaunchRal()
     {
-        StartCoroutine(Ralentissement());
+        StartCoroutine(Ralentissement(2f));
     }
     
-    IEnumerator Ralentissement()
+    IEnumerator Ralentissement(float delay)
     {
         float tempSpeed = chaseSpeed;
         chaseSpeed = tempSpeed / 2;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(delay);
         chaseSpeed = tempSpeed;
     }
 }
