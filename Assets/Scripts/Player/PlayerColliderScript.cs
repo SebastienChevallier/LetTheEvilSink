@@ -56,7 +56,7 @@ public class PlayerColliderScript : MonoBehaviour
                         interact.sprite = _SpritePorte;
                         if (other.transform.parent.TryGetComponent<Portes>(out Portes portes))
                         {
-                            if ((portes.cadre_arriere || portes.cadre_avant) != null)
+                            if (portes.cadre_arriere != null || portes.cadre_avant != null)
                             {
                                 portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
                                 portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
