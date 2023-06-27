@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: 8.1_Appel_capitaine
   m_EditorClassIdentifier: 
   _Dialog:
-  - narratorIsSpeaking: 0
-    _SpritePerso: {fileID: 21300000, guid: be769db9fc52f8748b2a570ec2253f20, type: 3}
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 1a726aef5a3c5284abe157ae2553c856, type: 3}
     font: {fileID: 0}
     _NomPerso: Capitaine
     _Discution: "Alerte d\u2019urgence : Ici le capitaine de votre navire, chers
-      passagers, notre croisi\xE8re a subi une attaque pr\xE9m\xE9dit\xE9e."
+      passagers, notre croisiere a subi une attaque premeditee."
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 1a726aef5a3c5284abe157ae2553c856, type: 3}
+    font: {fileID: 0}
+    _NomPerso: Capitaine
+    _Discution: "Toute source de danger a ete supprimee grace a notre securit\xE9.
+      Veuillez rejoindre le pont du bateau pour proceder \xE0 une evacuation d\u2019urgence
+      dans vingt minutes."
   - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: f0227bdb398710c489f40bcfe5dceb40, type: 3}
     font: {fileID: 0}
     _NomPerso: Capitaine
-    _Discution: "Toute source de danger a \xE9t\xE9 supprim\xE9e gr\xE2ce \xE0 notre
-      s\xE9curit\xE9. Veuillez rejoindre le pont du bateau pour proc\xE9der \xE0
-      une \xE9vacuation d\u2019urgence dans 20 minutes."
+    _Discution: ' '
   defaultFont: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
   narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}

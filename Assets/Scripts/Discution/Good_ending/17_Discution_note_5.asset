@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 17_Discution_note_5
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
@@ -21,11 +21,17 @@ MonoBehaviour:
       avait pr\xE9vu de sacrifier sa secte pour r\xE9ussir \xE0 appeler cette chose
       dans notre monde?! C\u2019est compl\xE9tement dingue putain, elle est cingl\xE9e!...Enfin,
       elle l\u2019\xE9tait\u2026"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
     font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
     _NomPerso: Rachel
     _Discution: "Hm... Ash voulait venger quelqu\u2019un? Avec les pouvoirs de ce
       monstre...je me demande qui peut compter autant, pour \xEAtre pr\xEAte \xE0
       en arriver jusque l\xE0."
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 21300000, guid: 5b7d0944cee48ea4ea096e898bd252a2, type: 3}
+    font: {fileID: 11400000, guid: 14049e15d2b4b8a47974689501d145e3, type: 2}
+    _NomPerso: Rachel
+    _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 0}
