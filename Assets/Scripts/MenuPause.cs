@@ -20,12 +20,11 @@ public class MenuPause : MonoBehaviour
             }
             else
             {
+                if (DialogueManager.Instance._PanelParler.activeSelf) _Player._CanMove = false;
+                _Player.inMenu = true;
                 panel.SetActive(true);
                 panelObjectif.SetActive(false);
-                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
-                _Player._CanMove = false;
-                Debug.Log(_Player.inMenu);
-                _Player.inMenu = true;
+                if (Player_Movements.Instance) Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
             }
         }
     }
