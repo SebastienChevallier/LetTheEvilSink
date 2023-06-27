@@ -8,26 +8,19 @@ public class RecupBricket : MonoBehaviour
     public So_Player _Player;
     private bool isTriggered = false;
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("LampeTorche") && _Player.hasBricket && !_Player._CanMove)
-        {
-            _Player._CanMove = true;
-            Destroy(gameObject);
-        }
-    }
+    public GameObject _LampeTorche;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isTriggered)
         {
             _Player.hasBricket = true;
-            //_Player._CanMove = false;
+            _Player._InDark = false;
+            _Player._CanLight = false;
+            _LampeTorche.SetActive(true);
             isTriggered = true;
             StartCoroutine(ChangeText());
         }
-
-
     }
 
     IEnumerator ChangeText()
