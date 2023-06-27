@@ -22,7 +22,7 @@ public class MenuPause : MonoBehaviour
             {
                 panel.SetActive(true);
                 panelObjectif.SetActive(false);
-                Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
+                if (Player_Movements.Instance) Player_Movements.Instance.planeAnimator.SetFloat("Speed", 0);
                 _Player._CanMove = false;
                 Debug.Log(_Player.inMenu);
                 _Player.inMenu = true;
