@@ -82,6 +82,7 @@ public class CreatureSearchState : CreatureBaseState
 
     public void SpawnCreature(CreatureStateManager creature)
     {
+        Debug.Log("J'ai spawn");
         // Calculate spawn point
         Transform spawnPoint = CreatureSpawnPoints.Instance.currentSpawnPoint;
 
