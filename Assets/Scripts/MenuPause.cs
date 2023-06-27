@@ -41,6 +41,8 @@ public class MenuPause : MonoBehaviour
         panel.SetActive(false);
         panelObjectif.SetActive(true);
 
+        if (_VideoPlayer.isPaused) _VideoPlayer.Play();
+
         if (!DialogueManager.Instance._PanelParler.activeSelf)
         {
             _Player._CanMove = true;
