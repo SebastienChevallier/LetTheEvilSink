@@ -37,7 +37,7 @@ public class Portes : MonoBehaviour
 
     void Update()
     {
-        if (cantBeTaken) return;
+        //if (cantBeTaken) return;
 
         if (player) Fade();
 
