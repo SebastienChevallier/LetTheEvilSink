@@ -41,6 +41,7 @@ public class AnimationFonction : MonoBehaviour
     public void tpPlayer()
     {
         _Player.transform.position = tpPosition.position;
+        _Camera.transform.position = tpPosition.position;
     }
 
     IEnumerator WaitEndVideo(float time)
@@ -125,7 +126,7 @@ public class AnimationFonction : MonoBehaviour
     {
         //_Player.SetActive(false);
         
-        _PlayerData._CanInteract = false;
+        //_PlayerData._CanInteract = false;
         _PlayerData._CanMove = false;
         
         _Camera.SetActive(false);

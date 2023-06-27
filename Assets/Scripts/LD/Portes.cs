@@ -41,7 +41,7 @@ public class Portes : MonoBehaviour
 
         if (player) Fade();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && cantBeTaken)
         {
             if (player)
             {
