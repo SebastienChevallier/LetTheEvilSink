@@ -61,7 +61,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
 
     public void RespawnPlayer()
     {
-        Debug.Log("Respawn:" + CheckPointsManager.Instance.lastCheckPoint.transform.position );
+        Debug.Log("Respawn:" + CheckPointsManager.Instance.lastCheckPoint.transform);
         StartCoroutine(Teleport());
         StartCoroutine(WaitTp());
     }
@@ -81,8 +81,9 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     {
         yield return new WaitForSeconds(0.8f);
         transform.position = CheckPointsManager.Instance.lastCheckPoint.transform.position;
+        transform.rotation = CheckPointsManager.Instance.lastCheckPoint.transform.rotation;
     }
-    
+
     private void FixedUpdate()
     {
         if (!_PlayerData._CanMove) return;

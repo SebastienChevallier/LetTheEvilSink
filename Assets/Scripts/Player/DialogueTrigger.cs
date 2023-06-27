@@ -68,7 +68,7 @@ public class DialogueTrigger : MonoBehaviour {
             TriggerDialogue();
             open = true;
         }
-        else if((Input.GetButtonDown("Interact") || Input.GetButtonDown("LampeTorche")) && _DialogueManager.sentences.Count != 0 && isTrigger && open && !playingOnce && canBeTrigger)
+        else if ((Input.GetButtonDown("LampeTorche")) && _DialogueManager.sentences.Count != 0 && isTrigger && open && !playingOnce && canBeTrigger)
         {
             if (_DialogueManager.passSentence)
             {
