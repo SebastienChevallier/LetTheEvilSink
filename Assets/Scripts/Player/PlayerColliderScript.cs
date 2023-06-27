@@ -92,10 +92,13 @@ public class PlayerColliderScript : MonoBehaviour
         {
             if (other.CompareTag("Finish") && other.transform.parent.TryGetComponent<Portes>(out Portes portes))
             {
-                if ((portes.cadre_arriere || portes.cadre_avant) != null)
+                if (portes.cadre_avant != null)
                 {
                     portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
                     portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                }
+                if (portes.cadre_arriere != null)
+                {
                     portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
                     portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
                 }
