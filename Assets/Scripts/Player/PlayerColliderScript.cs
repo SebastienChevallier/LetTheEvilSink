@@ -33,12 +33,7 @@ public class PlayerColliderScript : MonoBehaviour
                     
                     case "Cables":
                         interact.sprite = _SpriteCables;
-                        if (other.TryGetComponent<Trigger_Minijeu>(out Trigger_Minijeu minijeu))
-                        {
-                            minijeu.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.white);
-                            minijeu.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 200f);
-                        }
-                    break;
+                        break;
 
                     case "Observer":
                         interact.sprite = _SpriteObserver;

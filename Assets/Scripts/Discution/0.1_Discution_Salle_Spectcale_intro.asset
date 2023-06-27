@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0.1_Discution_Salle_Spectcale_intro
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: dfb35d8e5de5267468b83a1379832c14, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
@@ -22,16 +22,16 @@ MonoBehaviour:
       horrible, les gens ont commenc\xE9 \xE0 \xEAtre tellement d\xE9sesp\xE9r\xE9s
       qu'ils se sont presque entretu\xE9s pour fuir... Oh putain...je suis couverte
       de sang. Je dois sortir d'ici."
-  - _PlayerIsSpeaking: 0
-    _SpritePerso: {fileID: 0}
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
-    _NomPerso: Voix
+    _NomPerso: ???
     _Discution: "Ils \xE9taient vraiment pouss\xE9s \xE0 bout par leur instinct de
       survie, ne les juge pas trop, tu aurais fait la m\xEAme chose \xE0 leur place
       non? Quand ta vie est en jeu, plus rien n\u2019a d\u2019importance. Pas m\xEAme
       l\u2019amiti\xE9, la famille ou l\u2019amour, qui pourtant vous sont si chers,
       \xE7a ne repr\xE9sente plus rien."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 3046dbe776d961e4388bf40bdeb5968f, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
@@ -40,27 +40,27 @@ MonoBehaviour:
       dois retrouver Warren, j'esp\xE8re que les sympt\xF4mes de la drogue s'estomperont
       vite...en attendant reste tranquille et ne me rends pas folle tout de suite
       okay?"
-  - _PlayerIsSpeaking: 0
-    _SpritePerso: {fileID: 0}
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
-    _NomPerso: Voix
+    _NomPerso: ???
     _Discution: "Tu l'es peut-\xEAtre d\xE9j\xE0, tu comptes vraiment aller fouiller
       le bateau pour retrouver ton...copain? Les tas de cadavres, les signes occultes
       \xE9crits avec du sang et la drogue dans tes plats ne sont pas assez convaincants
       pour te faire fuir?"
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
     _Discution: "Je ne l'abandonnerai pas. On ne doit pas \xEAtre les seuls \xE0
       avoir surv\xE9cu... et je ne vais pas rester l\xE0 \xE0 me morfondre alors
       que j'ai une petite chance de pouvoir le retrouver."
-  - _PlayerIsSpeaking: 0
-    _SpritePerso: {fileID: 0}
+  - narratorIsSpeaking: 1
+    _SpritePerso: {fileID: 21300000, guid: 4b22c849322ba40428e19648a2248361, type: 3}
     font: {fileID: 0}
-    _NomPerso: Voix
+    _NomPerso: ???
     _Discution: "Si tu le dis...j'esp\xE8re que tu es pr\xEAte \xE0 jouer alors."
-  - _PlayerIsSpeaking: 1
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 21300000, guid: 252506b3ab5e8cc4e8e86b475bde4455, type: 3}
     font: {fileID: 0}
     _NomPerso: Rachel
@@ -73,3 +73,4 @@ MonoBehaviour:
     _NomPerso: Rachel
     _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 21300000, guid: 77cf694373840b94a933ba3fb08c00a2, type: 3}
