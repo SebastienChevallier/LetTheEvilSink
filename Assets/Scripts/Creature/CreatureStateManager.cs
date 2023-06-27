@@ -41,6 +41,11 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
     public float chaseDistance;
     [HideInInspector] public bool backFromChaseMode;
 
+    [Header("Panels to disable")]
+    public GameObject panelCables;
+    public GameObject panelCarte;
+    public GameObject panelCrochetage;
+
 
 
     private Animator animator;
