@@ -132,6 +132,7 @@ public class AnimationFonction : MonoBehaviour
         _Camera.SetActive(false);
         _PlayerUI.SetActive(false);
         _PlayerPostProcess.SetActive(false);
+        FadeManager.Instance.FadeOut();
     }
     
     public void PlaySound(AudioClip clip)
