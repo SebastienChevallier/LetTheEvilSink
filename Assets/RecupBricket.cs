@@ -13,12 +13,9 @@ public class RecupBricket : MonoBehaviour
         if (other.CompareTag("Player") && !isTriggered)
         {
             _Player.hasBricket = true;
-            //_Player._CanMove = false;
             isTriggered = true;
             StartCoroutine(ChangeText());
         }
-
-
     }
 
     IEnumerator ChangeText()
