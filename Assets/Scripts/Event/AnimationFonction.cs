@@ -6,7 +6,6 @@ using UnityEngine.Video;
 
 public class AnimationFonction : MonoBehaviour
 {
-    public So_Player _PlayerData;
     public GameObject _Player;
     public GameObject _Camera;
     public GameObject _PlayerUI;
@@ -69,8 +68,6 @@ public class AnimationFonction : MonoBehaviour
     
     private void Update()
     {
-        if (_PlayerData.inMenu) return;
-
         if (DialogueManager.Instance.sentences.Count == 0 && DialogueManager.Instance._PanelParler.activeSelf)
         {
             DialogueManager.Instance.EndDialogue();
