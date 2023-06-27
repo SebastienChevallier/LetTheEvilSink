@@ -2,6 +2,7 @@ using System.Collections;
 using BaseTemplate.Behaviours;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 {
@@ -43,8 +44,8 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
 
     [Header("Panels to disable")]
     public GameObject panelCables;
-    public GameObject panelCarte;
-    public GameObject panelCrochetage;
+    public List<GameObject> panelCarte;
+    public List<GameObject> panelCrochetage;
 
 
 

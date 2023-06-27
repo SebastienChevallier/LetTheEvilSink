@@ -73,7 +73,13 @@ public class CreatureChaseState : CreatureBaseState
         creature.playerDetected = false;
 
         if (creature.panelCables.activeSelf) creature.panelCables.SetActive(false);
-        if (creature.panelCarte.activeSelf) creature.panelCarte.SetActive(false);
-        if (creature.panelCrochetage.activeSelf) creature.panelCrochetage.SetActive(false);
+        foreach (GameObject go in creature.panelCarte)
+        {
+            if (go.activeSelf) go.SetActive(false);
+        }
+        foreach (GameObject go in creature.panelCrochetage)
+        {
+            if (go.activeSelf) go.SetActive(false);
+        }
     }
 }
