@@ -112,7 +112,9 @@ public class AnimationFonction : MonoBehaviour
 
     public void StopPlaying()
     {
-        _Player.SetActive(true);
+        //_Player.SetActive(true);
+        _PlayerData._CanInteract = true;
+        _PlayerData._CanMove = true;
         _Camera.SetActive(true);
         _PlayerUI.SetActive(true);
         _PlayerPostProcess.SetActive(true);
@@ -121,7 +123,11 @@ public class AnimationFonction : MonoBehaviour
 
     public void StartPlaying()
     {
-        _Player.SetActive(false);
+        //_Player.SetActive(false);
+        
+        _PlayerData._CanInteract = false;
+        _PlayerData._CanMove = false;
+        
         _Camera.SetActive(false);
         _PlayerUI.SetActive(false);
         _PlayerPostProcess.SetActive(false);
