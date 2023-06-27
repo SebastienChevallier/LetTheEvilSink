@@ -12,8 +12,9 @@ public class Porte : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {       
+        if(cantBeTaken)transform.parent.GetComponent<Portes>().player = null;
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !cantBeTaken)
         {
             FadeManager.Instance.ChangeText(nomSalle);
             transform.parent.GetComponent<Portes>().player = other.gameObject;

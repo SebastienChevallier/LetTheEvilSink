@@ -13,11 +13,8 @@ public class Lights : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if(other.CompareTag("Player"))
             _playerData._InDark = false;
-            _playerData._ValAngoisse = 0;
-        }
     }
 
     private void OnTriggerExit(Collider other)

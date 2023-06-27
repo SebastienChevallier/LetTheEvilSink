@@ -33,10 +33,7 @@ public class AnimationFonction : MonoBehaviour
     {
         _Animator.speed = 0;
         _CinematiquePostProcess.SetActive(false);
-        
-        if(CameraText)
-            CameraText.SetActive(false);
-        
+        CameraText.SetActive(false);
         videoPlayer.Play();
         StartCoroutine(WaitEndVideo((float)videoPlayer.length));
     }
@@ -56,10 +53,7 @@ public class AnimationFonction : MonoBehaviour
     public void EndVideo()
     {
         _CinematiquePostProcess.SetActive(true);
-        
-        if(CameraText)
-            CameraText.SetActive(true);
-        
+        CameraText.SetActive(true);
         videoPlayer.gameObject.SetActive(false);
         _Animator.speed = 1;
     }
@@ -138,7 +132,6 @@ public class AnimationFonction : MonoBehaviour
         _Camera.SetActive(false);
         _PlayerUI.SetActive(false);
         _PlayerPostProcess.SetActive(false);
-        FadeManager.Instance.FadeOut();
     }
     
     public void PlaySound(AudioClip clip)

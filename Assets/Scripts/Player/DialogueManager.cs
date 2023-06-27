@@ -74,7 +74,6 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         Sprite sprite = sprites.Dequeue();
         TMP_FontAsset font = fonts.Dequeue();
         bool isNarrator = bools.Dequeue();
-        string name = names.Dequeue();
 
         if (isNarrator)
         {
@@ -84,7 +83,7 @@ public class DialogueManager : MonoSingleton<DialogueManager> {
         else
         {
             bgTexte.sprite = defaultBG;
-            nameText.text = name;
+            nameText.text = names.Dequeue();
         }
         
         _ImagePerso1.sprite = sprite;
