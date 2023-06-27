@@ -29,6 +29,8 @@ public class Player_Movements : MonoSingleton<Player_Movements>
     private Vector3 velocity = Vector3.zero;
     public Animator planeAnimator;
 
+    public int jaugeSonPas;
+
     public void Start()
     {        
         rb = GetComponent<Rigidbody>();
@@ -140,7 +142,7 @@ public class Player_Movements : MonoSingleton<Player_Movements>
         {
             _StepSound.Step(duration);
             Debug.Log("AddGauge");
-            _creature.AddGauge(1);
+            _creature.AddGauge(jaugeSonPas);
         }
             
         else if ((rb.velocity.x >= 0.5f && rb.velocity.x <= 1f) || (rb.velocity.x <= -0.5f && rb.velocity.x >= -1f))

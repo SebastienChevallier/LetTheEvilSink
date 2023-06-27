@@ -22,7 +22,11 @@ public class Bricket : MonoBehaviour
 
     public float cdAddGauge;
     private float timeAddGauge;
-    
+
+    public int jaugeLumierePermanente;
+    public int jaugeAllumageBriquet;
+
+
     public void Start()
     {       
         _creature = FindObjectOfType<CreatureStateManager>();
@@ -43,7 +47,7 @@ public class Bricket : MonoBehaviour
 
         if (timeAddGauge >= cdAddGauge)
         {
-            _creature.AddGauge(2);
+            _creature.AddGauge(jaugeLumierePermanente);
             timeAddGauge = 0;
         }
     }
@@ -63,7 +67,7 @@ public class Bricket : MonoBehaviour
                 if (_PlayerData._CanMove) ScriptSound.PlaySound();
                 
                 if(_creature != null)
-                    _creature.AddGauge(5);
+                    _creature.AddGauge(jaugeAllumageBriquet);
                 
                 StepSound.Instance.Step(1);
 

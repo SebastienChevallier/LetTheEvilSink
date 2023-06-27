@@ -8,8 +8,12 @@ public class CoursePoursuite : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CreatureSpawnPoints.Instance.currentSpawnPoint = spawnpoint.transform;
-        CreatureStateManager.Instance.gauge = 100;
-        CreatureStateManager.Instance.SwitchState(CreatureStateManager.Instance.ChaseState);
+        if (other.CompareTag("Player"))
+        {
+            CreatureSpawnPoints.Instance.currentSpawnPoint = spawnpoint.transform;
+            CreatureStateManager.Instance.gauge = 100;
+            CreatureStateManager.Instance.visionDetectionInDark = 1000;
+            CreatureStateManager.Instance.visionDetectionInLight = 1000;
+        }
     }
 }
