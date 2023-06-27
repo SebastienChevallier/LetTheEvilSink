@@ -37,11 +37,11 @@ public class Portes : MonoBehaviour
 
     void Update()
     {
-        if (cantBeTaken) return;
+        //if (cantBeTaken) return;
 
         if (player) Fade();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && cantBeTaken)
         {
             if (player)
             {

@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: 14_Discution_Poursuite_fin_good
   m_EditorClassIdentifier: 
   _Dialog:
-  - _PlayerIsSpeaking: 0
+  - narratorIsSpeaking: 0
     _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
     _NomPerso: Voix
     _Discution: "Dommage Rachel. J\u2019ai ador\xE9 jouer avec toi, mais tout s\u2019arr\xEAte
       maintenant.Tu mourras en quittant cet endroit, tu as d\xE9j\xE0 perdu."
+  - narratorIsSpeaking: 0
+    _SpritePerso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    font: {fileID: 11400000, guid: 820878b9cfa633743956590cec4dd6de, type: 2}
+    _NomPerso: Voix
+    _Discution: ' '
   defaultFont: {fileID: 0}
+  narratorSprite: {fileID: 0}
