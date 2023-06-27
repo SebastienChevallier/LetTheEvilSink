@@ -94,10 +94,16 @@ public class PlayerColliderScript : MonoBehaviour
             {
                 if ((portes.cadre_arriere || portes.cadre_avant) != null)
                 {
-                    portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                    portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
-                    portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
-                    portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                    if (portes.cadre_avant != null)
+                    {
+                        portes.cadre_avant.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                        portes.cadre_avant.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                    }
+                    if (portes.cadre_arriere != null)
+                    {
+                        portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetColor("_Outline_Color", Color.black);
+                        portes.cadre_arriere.GetComponent<MeshRenderer>().material.SetFloat("_Outline_Width", 20f);
+                    }
                 }
             }
             else if (other.CompareTag("Cables") && other.TryGetComponent<Trigger_Minijeu>(out Trigger_Minijeu minijeu))
