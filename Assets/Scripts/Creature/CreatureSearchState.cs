@@ -126,7 +126,6 @@ public class CreatureSearchState : CreatureBaseState
 
         if (creature.gauge <= 90)
         {
-            creature.gauge = 0;
             CreatureStateManager.Instance.DespawnCreature();
             ResetState(creature);
             CreatureStateManager.Instance.SwitchState(creature.WanderState);
