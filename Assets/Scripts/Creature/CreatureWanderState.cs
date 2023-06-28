@@ -13,6 +13,8 @@ public class CreatureWanderState : CreatureBaseState
 
         // Save variables
         timeLeft = creature.wanderGaugeDelay;
+
+        creature.gauge = 0;
     }
 
     public override void UpdateState(CreatureStateManager creature)
