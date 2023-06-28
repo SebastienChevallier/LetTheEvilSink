@@ -81,5 +81,9 @@ public class CreatureChaseState : CreatureBaseState
         {
             if (go.activeSelf) go.SetActive(false);
         }
+        foreach (GameObject go in creature.panelObserver)
+        {
+            if (go.activeSelf) go.SetActive(false);
+        }
     }
 }
