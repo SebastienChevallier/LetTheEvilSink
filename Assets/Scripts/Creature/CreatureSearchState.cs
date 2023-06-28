@@ -124,8 +124,9 @@ public class CreatureSearchState : CreatureBaseState
 
         creature.agent.SetDestination(randomPosition);
 
-        if (creature.gauge <= 0)
+        if (creature.gauge <= 90)
         {
+            creature.gauge = 0;
             CreatureStateManager.Instance.DespawnCreature();
             ResetState(creature);
             CreatureStateManager.Instance.SwitchState(creature.WanderState);
