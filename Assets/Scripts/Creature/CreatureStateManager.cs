@@ -46,6 +46,7 @@ public class CreatureStateManager : MonoSingleton<CreatureStateManager>
     public GameObject panelCables;
     public List<GameObject> panelCarte;
     public List<GameObject> panelCrochetage;
+    public List<GameObject> panelObserver;
 
 
 
